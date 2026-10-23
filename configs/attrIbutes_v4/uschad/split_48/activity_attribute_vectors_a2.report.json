@@ -1,0 +1,146 @@
+{
+  "policy": {
+    "filtering": false,
+    "description": "This report only checks distribution and duplicate full vectors. No attribute is removed in this script."
+  },
+  "num_activities": 12,
+  "num_attributes": 10,
+  "attribute_reports": {
+    "motion_intensity": {
+      "distribution_all_activities": {
+        "High": 3,
+        "Low": 5,
+        "Medium": 4
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "cadence": {
+      "distribution_all_activities": {
+        "High": 1,
+        "Low": 6,
+        "Medium": 5
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "smoothness": {
+      "distribution_all_activities": {
+        "High": 5,
+        "Low": 3,
+        "Medium": 4
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "impulsiveness": {
+      "distribution_all_activities": {
+        "High": 3,
+        "Low": 5,
+        "Medium": 4
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "posture_inclination": {
+      "distribution_all_activities": {
+        "High": 1,
+        "Low": 8,
+        "Medium": 3
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "posture_variability": {
+      "distribution_all_activities": {
+        "High": 0,
+        "Low": 8,
+        "Medium": 4
+      },
+      "num_levels_used": 2,
+      "is_constant_all_activities": false
+    },
+    "rotational_motion": {
+      "distribution_all_activities": {
+        "High": 1,
+        "Low": 6,
+        "Medium": 5
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "translational_motion": {
+      "distribution_all_activities": {
+        "High": 8,
+        "Low": 3,
+        "Medium": 1
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "motion_regularity": {
+      "distribution_all_activities": {
+        "High": 11,
+        "Low": 0,
+        "Medium": 1
+      },
+      "num_levels_used": 2,
+      "is_constant_all_activities": false
+    },
+    "vertical_motion_dominance": {
+      "distribution_all_activities": {
+        "High": 1,
+        "Low": 5,
+        "Medium": 6
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    }
+  },
+  "duplicate_full_vectors": {
+    "Medium|Medium|Medium|Medium|Low|Low|Medium|High|High|Medium": [
+      "Walking Forward",
+      "Walking Left",
+      "Walking Right"
+    ],
+    "Low|Low|High|Low|Low|Low|Low|High|High|Low": [
+      "Elevator Up",
+      "Elevator Down"
+    ]
+  },
+  "vector_source": {
+    "mode": "full_a2_generation_v1",
+    "a2_plan_sha256": "1eee451331b32ef060f777838134a344615ec0aa9fdecb47ddd00709817c1f8b",
+    "raw_response_sha256": "d9f05b196a7a618756474873440b14656f9407b7be10beca0a2dc6aa6d8d1f31",
+    "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_uschad_v1_5.json",
+    "a1_sha256": "a9c06ea5c4bb8e8256ae33dbb105b0047774375ec1f1393a13cfd6c9f0da4934",
+    "a2_plan_json": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_48/a2_attribute_plan.json",
+    "vectors_sha256": "d9f05b196a7a618756474873440b14656f9407b7be10beca0a2dc6aa6d8d1f31",
+    "copied_keep_attributes": [],
+    "conceptually_kept_attributes": [
+      "motion_intensity",
+      "cadence",
+      "smoothness",
+      "impulsiveness",
+      "posture_inclination",
+      "posture_variability",
+      "rotational_motion",
+      "translational_motion",
+      "motion_regularity"
+    ],
+    "llm_generated_attributes": [
+      "motion_intensity",
+      "cadence",
+      "smoothness",
+      "impulsiveness",
+      "posture_inclination",
+      "posture_variability",
+      "rotational_motion",
+      "translational_motion",
+      "motion_regularity",
+      "vertical_motion_dominance"
+    ],
+    "dropped_a1_attributes": [],
+    "llm_called": true
+  }
+}

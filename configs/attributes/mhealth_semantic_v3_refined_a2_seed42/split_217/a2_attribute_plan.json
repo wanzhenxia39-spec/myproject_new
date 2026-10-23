@@ -1,0 +1,362 @@
+{
+  "schema_version": "2.0",
+  "dataset": "mhealth",
+  "split_index": 217,
+  "refinement_needed": true,
+  "decision_reason": "A1 provides useful global activity structure, but walking and jogging differ mainly through intensity while frontal elevation of arms and waist bends forward share moderate intensity, cadence, smoothness, and high rotational motion. Splitting rotational motion by body segment adds a supported distinction for upper-limb, trunk, and lower-limb activity. Splitting translation into horizontal and vertical components improves transfer from climbing stairs to walking and jogging without relying on unsupported recording statistics.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "upper_limb_rotational_motion",
+      "definition": "Prominence of angular or multiaxial motion primarily expressed by the instrumented upper limb.",
+      "levels": {
+        "Low": "Little or no upper-limb rotational motion.",
+        "Medium": "Moderate upper-limb rotational motion.",
+        "High": "Prominent upper-limb rotational motion."
+      }
+    },
+    {
+      "name": "trunk_rotational_motion",
+      "definition": "Prominence of angular or multiaxial motion associated with movement of the trunk or torso.",
+      "levels": {
+        "Low": "Little or no trunk rotational motion.",
+        "Medium": "Moderate trunk rotational motion.",
+        "High": "Prominent trunk rotational motion."
+      }
+    },
+    {
+      "name": "lower_limb_rotational_motion",
+      "definition": "Prominence of angular or multiaxial motion primarily expressed by the instrumented lower limb during leg-driven activity.",
+      "levels": {
+        "Low": "Little or no lower-limb rotational motion.",
+        "Medium": "Moderate lower-limb rotational motion.",
+        "High": "Prominent lower-limb rotational motion."
+      }
+    },
+    {
+      "name": "horizontal_translation",
+      "definition": "Prominence of sustained translation along the approximately horizontal direction during locomotion.",
+      "levels": {
+        "Low": "Little or no sustained horizontal translation.",
+        "Medium": "Moderate horizontal translational motion.",
+        "High": "Prominent sustained horizontal or forward locomotor translation."
+      }
+    },
+    {
+      "name": "vertical_translation",
+      "definition": "Prominence of translation or velocity change along the approximately vertical direction during movement.",
+      "levels": {
+        "Low": "Little or no sustained vertical translation.",
+        "Medium": "Moderate vertical translational motion.",
+        "High": "Prominent sustained vertical translation or elevation."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "Overall motion magnitude is supported by motion-energy capabilities and remains a useful ordinal contrast between standing or sitting, walking, jogging, and running.",
+      "target_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "seen_anchors": [
+        "standing still",
+        "running"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "Repetition rate is directly supported by periodicity capabilities and transfers from cycling and running to the walking and jogging distinction.",
+      "target_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "seen_anchors": [
+        "cycling",
+        "running"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "Rapid signal-change capabilities support this distinct temporal property, which complements intensity and cadence for locomotor activities.",
+      "target_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "seen_anchors": [
+        "running",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "Peak-change and impact-sensitive capabilities support a separate ordinal contrast for walking, jogging, running, and jumping.",
+      "target_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "seen_anchors": [
+        "running",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "Static gravity-relative orientation directly supports the distinction among upright, inclined, and horizontal global postures.",
+      "target_unseen": [
+        "sitting and relaxing"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "standing still",
+        "lying down"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "Gravity-angle variation supports global posture change and remains useful for separating static postures from bending and crouching.",
+      "target_unseen": [],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "waist bends forward",
+        "knees bending (crouching)",
+        "standing still"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "Temporal recurrence and predictability are independently supported and provide a transferable distinction between structured cyclic motion and less predictable motion.",
+      "target_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "seen_anchors": [
+        "cycling",
+        "running"
+      ]
+    },
+    {
+      "action": "split",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "upper_limb_rotational_motion",
+        "trunk_rotational_motion",
+        "lower_limb_rotational_motion"
+      ],
+      "reason": "The original rotational dimension conflates movement from different instrumented body regions. Segment-specific angular and multiaxial structure is supported by the hand, chest, and ankle sensors and separates frontal arm elevation from trunk bending while also distinguishing leg-driven locomotion and cycling.",
+      "target_unseen": [
+        "frontal elevation of arms",
+        "walking",
+        "jogging"
+      ],
+      "contrast_unseen": [
+        "frontal elevation of arms"
+      ],
+      "seen_anchors": [
+        "waist bends forward",
+        "cycling",
+        "running"
+      ]
+    },
+    {
+      "action": "split",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "horizontal_translation",
+        "vertical_translation"
+      ],
+      "reason": "A single translation dimension hides the direction of locomotor progression. Translational proxies combined with gravity-relative orientation support a directional distinction between forward locomotion and elevation-oriented activity such as stair climbing.",
+      "target_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "jogging"
+      ],
+      "seen_anchors": [
+        "climbing stairs",
+        "running",
+        "jump front & back"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "Motion_intensity, impulsiveness, and smoothness are related but measure magnitude, abrupt peaks, and continuity respectively. Cadence and motion_regularity both describe temporal structure, but cadence measures repetition rate while regularity measures predictability. Posture_inclination and posture_variability describe global gravity-relative configuration and its change, whereas the three segment-specific rotational attributes describe where angular or multiaxial motion is expressed. Horizontal_translation and vertical_translation are directional components of locomotor translation and are distinct from posture change because they describe movement through space rather than orientation alone. All final attributes are ordinal and are supported in principle by the listed orientation, rotational, motion-energy, jerk, periodicity, temporal-structure, gravity-variation, translational-proxy, and multiaxial-coupling capabilities.",
+  "_meta": {
+    "dataset": "mhealth",
+    "split_index": 217,
+    "seen": [
+      "standing still",
+      "lying down",
+      "climbing stairs",
+      "waist bends forward",
+      "knees bending (crouching)",
+      "cycling",
+      "running",
+      "jump front & back"
+    ],
+    "unseen": [
+      "sitting and relaxing",
+      "walking",
+      "frontal elevation of arms",
+      "jogging"
+    ],
+    "refinement_strategy": "full_a1_semantic_refinement_v3",
+    "planning_stages": 1,
+    "min_attributes": 11,
+    "max_attributes": 15,
+    "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json",
+    "a1_sha256": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+    "a1_ontology_json": "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json",
+    "a1_ontology_sha256": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "split_csv_sha256": "e1fd5b833f9347c414e0152f5bf682bd9a6a0916404fb92512eef5646df074e9",
+    "gap_diagnostics_source": "reused_from_gap_csv",
+    "refinement_evidence": "/home/wanzhen/myproject_new/runtime/refinement_semantic_v3/mhealth_gpt_5_6_sol_11_15/split_217/a2_attribute_plan.refinement_evidence.json",
+    "refinement_evidence_sha256": "7b24312f6c3df5bbc2b91f634c0f2b3cc164d871e9ea5672faf5d8ee55eccd68",
+    "prompt_json": "/home/wanzhen/myproject_new/runtime/refinement_semantic_v3/mhealth_gpt_5_6_sol_11_15/split_217/a2_attribute_plan.prompt.json",
+    "prompt_json_sha256": "e0f5f3c44af37b19f756c2274016be5406413c3d4ca533579db423895bbe2c38",
+    "prompt_text": "/home/wanzhen/myproject_new/runtime/refinement_semantic_v3/mhealth_gpt_5_6_sol_11_15/split_217/a2_attribute_plan.prompt.txt",
+    "prompt_text_sha256": "f191937bbf8e1c2da966c8ecd2162534efd467f578f5af331c079c4c3b20f40e",
+    "gap_a1_hash_verified": true,
+    "feature_source": "/home/wanzhen/windows/mhealth_windows/all_features_name_20_120.npy",
+    "feature_names_sha256": "c9e493657bbd42ef5795032a80f2cbfa4c9abe0e0855a783b545728f046da8b6",
+    "groups_sha256": "baf73e9cd119edfed55f10f9dc5b2404df597874ab5cf7f709646ecbb513213c",
+    "model": "gpt-5.6-sol",
+    "api_format": "openai",
+    "base_url": "https://www.kamiapi.top/v1",
+    "stream": true,
+    "response_source": "live",
+    "validation_decision": "validated_semantic_a2",
+    "validation": "Semantic schema and complete A1-to-A2 lineage validated; no feature binding performed.",
+    "activity_role_repairs": []
+  }
+}

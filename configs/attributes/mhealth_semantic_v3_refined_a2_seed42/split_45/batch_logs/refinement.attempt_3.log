@@ -1,0 +1,13 @@
+$ /home/wanzhen/miniconda3/envs/zara/bin/python -u -m zshar.semantics.planner1 --dataset-name mhealth --a1-json /home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json --dknn-csv /home/wanzhen/myproject_new/runtime/gap/mhealth/a1_gap_v1_5_seed42.csv --a1-ontology-json /home/wanzhen/myproject_new/configs/attributes/initial_attributes.json --split-index 45 --output-json /home/wanzhen/myproject_new/runtime/refinement_semantic_v3/mhealth_gpt_5_6_sol_11_15/split_45/a2_attribute_plan.json --min-attributes 11 --max-attributes 15 --api-format openai --base-url https://www.kamiapi.top/v1 --model gpt-5.6-sol --temperature 0 --stream --timeout 600.0
+Traceback (most recent call last):
+  File "/home/wanzhen/miniconda3/envs/zara/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/wanzhen/miniconda3/envs/zara/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/wanzhen/myproject_new/src/zshar/semantics/planner1.py", line 761, in <module>
+    main()
+  File "/home/wanzhen/myproject_new/src/zshar/semantics/planner1.py", line 730, in main
+    result = run_split(
+  File "/home/wanzhen/myproject_new/src/zshar/semantics/planner1.py", line 543, in run_split
+    raise ValueError("GAP was calculated from different A1 content; regenerate the GAP CSV")
+ValueError: GAP was calculated from different A1 content; regenerate the GAP CSV

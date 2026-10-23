@@ -1,0 +1,849 @@
+You are an expert in biomechanics, wearable IMU signal interpretation, and activity-level zero-shot human activity recognition.
+
+Task:
+Generation policy: full_a2_generation_v1
+Apply the refinement plan and generate the COMPLETE A2 matrix in ONE response:
+all requested activities and ALL final A2 attributes, including keep operations.
+Reassess every value using the final A2 definitions. No A1 values will be copied or
+filled in by local code. A regenerated value may equal A1 when semantically justified.
+
+These prototypes will later be used in a zero-shot HAR pipeline:
+- attribute classifiers are trained to predict semantic attributes from wearable IMU signals;
+- activity classes are recognized by matching predicted attributes to class-level A2 prototypes;
+- the prototypes must describe activity-level motion semantics, not individual sensor samples.
+
+Dataset:
+dsads
+
+Activities to annotate:
+["sitting", "standing", "lying on back", "lying on right side", "ascending stairs", "descending stairs", "standing in an elevator still", "moving around in an elevator", "walking in a parking lot", "walking on a treadmill with a speed of 4 km/h (in flat)", "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)", "running on a treadmill with a speed of 8 km/h", "exercising on a stepper", "exercising on a cross trainer", "cycling on an exercise bike in horizontal positions", "cycling on an exercise bike in vertical positions", "rowing", "jumping", "playing basketball"]
+
+Important:
+- The top-level JSON keys must exactly match the activity names in "Activities to annotate".
+- Do not rename, translate, abbreviate, merge, omit, or add activities.
+- Assign attributes using the same semantic principles for all activities.
+- The plan's seen/unseen roles and operation reasons explain why refinement was requested.
+  Use them to solve the named semantic ambiguity, but do not use or assume sensor samples.
+- Generate one class-level prototype for each activity, not sample-level predictions.
+
+Original A1 ontology:
+[
+  {
+    "name": "motion_intensity",
+    "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+    "levels": {
+      "Low": "Weak or nearly static motion.",
+      "Medium": "Moderate motion magnitude and energy.",
+      "High": "Strong or vigorous motion."
+    }
+  },
+  {
+    "name": "cadence",
+    "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+    "levels": {
+      "Low": "No clear periodic repetition or a slow repetition rate.",
+      "Medium": "Moderate repetition rate.",
+      "High": "Fast repetition rate."
+    }
+  },
+  {
+    "name": "smoothness",
+    "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+    "levels": {
+      "Low": "Frequent or sustained abrupt fluctuations.",
+      "Medium": "Moderately smooth motion with some fluctuations.",
+      "High": "Continuous and smooth motion with little fluctuation."
+    }
+  },
+  {
+    "name": "impulsiveness",
+    "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+    "levels": {
+      "Low": "Few or no pronounced abrupt peaks.",
+      "Medium": "Moderate abrupt peaks or impacts.",
+      "High": "Strong short-duration peaks or impacts."
+    }
+  },
+  {
+    "name": "posture_inclination",
+    "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+    "levels": {
+      "Low": "Nearly upright relative to gravity.",
+      "Medium": "Moderately inclined relative to gravity.",
+      "High": "Strongly inclined or nearly horizontal relative to gravity."
+    }
+  },
+  {
+    "name": "posture_variability",
+    "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+    "levels": {
+      "Low": "Posture remains nearly constant.",
+      "Medium": "Posture changes moderately.",
+      "High": "Posture changes substantially."
+    }
+  },
+  {
+    "name": "rotational_motion",
+    "definition": "Prominence of angular or rotational motion during the activity.",
+    "levels": {
+      "Low": "Little or no rotational motion.",
+      "Medium": "Moderate rotational motion.",
+      "High": "Prominent rotational motion."
+    }
+  },
+  {
+    "name": "translational_motion",
+    "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+    "levels": {
+      "Low": "Little or no sustained translation.",
+      "Medium": "Moderate translational motion.",
+      "High": "Prominent sustained translational or locomotor motion."
+    }
+  },
+  {
+    "name": "motion_regularity",
+    "definition": "Temporal consistency and predictability of the motion pattern.",
+    "levels": {
+      "Low": "Irregular and poorly predictable motion pattern.",
+      "Medium": "Partly structured motion with moderate variability.",
+      "High": "Consistent and predictable motion pattern."
+    }
+  }
+]
+
+Original A1 class-level vectors:
+{
+  "sitting": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Medium",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "standing": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "lying on back": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "High",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "lying on right side": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "Medium",
+    "impulsiveness": "Low",
+    "posture_inclination": "High",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "ascending stairs": {
+    "motion_intensity": "High",
+    "cadence": "Medium",
+    "smoothness": "Medium",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Medium",
+    "posture_variability": "Medium",
+    "rotational_motion": "Medium",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  },
+  "descending stairs": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "Low",
+    "impulsiveness": "High",
+    "posture_inclination": "Low",
+    "posture_variability": "Medium",
+    "rotational_motion": "Medium",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  },
+  "standing in an elevator still": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "High",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "Medium",
+    "motion_regularity": "Medium"
+  },
+  "moving around in an elevator": {
+    "motion_intensity": "Medium",
+    "cadence": "Low",
+    "smoothness": "Medium",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Low",
+    "posture_variability": "Medium",
+    "rotational_motion": "Medium",
+    "translational_motion": "Medium",
+    "motion_regularity": "Low"
+  },
+  "walking in a parking lot": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "Medium",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Low",
+    "posture_variability": "Medium",
+    "rotational_motion": "Medium",
+    "translational_motion": "High",
+    "motion_regularity": "Medium"
+  },
+  "walking on a treadmill with a speed of 4 km/h (in flat)": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "High",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "Medium",
+    "translational_motion": "Medium",
+    "motion_regularity": "High"
+  },
+  "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)": {
+    "motion_intensity": "High",
+    "cadence": "Medium",
+    "smoothness": "High",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Medium",
+    "posture_variability": "Low",
+    "rotational_motion": "Medium",
+    "translational_motion": "Medium",
+    "motion_regularity": "High"
+  },
+  "running on a treadmill with a speed of 8 km/h": {
+    "motion_intensity": "High",
+    "cadence": "High",
+    "smoothness": "Medium",
+    "impulsiveness": "High",
+    "posture_inclination": "Low",
+    "posture_variability": "Medium",
+    "rotational_motion": "High",
+    "translational_motion": "Medium",
+    "motion_regularity": "High"
+  },
+  "exercising on a stepper": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "High",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "exercising on a cross trainer": {
+    "motion_intensity": "High",
+    "cadence": "Medium",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "High",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "cycling on an exercise bike in horizontal positions": {
+    "motion_intensity": "Medium",
+    "cadence": "High",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "High",
+    "posture_variability": "Low",
+    "rotational_motion": "High",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "cycling on an exercise bike in vertical positions": {
+    "motion_intensity": "Medium",
+    "cadence": "High",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "High",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "rowing": {
+    "motion_intensity": "High",
+    "cadence": "Medium",
+    "smoothness": "High",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Medium",
+    "posture_variability": "High",
+    "rotational_motion": "High",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "jumping": {
+    "motion_intensity": "High",
+    "cadence": "Medium",
+    "smoothness": "Low",
+    "impulsiveness": "High",
+    "posture_inclination": "Low",
+    "posture_variability": "Medium",
+    "rotational_motion": "Medium",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "playing basketball": {
+    "motion_intensity": "High",
+    "cadence": "Low",
+    "smoothness": "Low",
+    "impulsiveness": "High",
+    "posture_inclination": "Low",
+    "posture_variability": "High",
+    "rotational_motion": "High",
+    "translational_motion": "High",
+    "motion_regularity": "Low"
+  }
+}
+
+Refinement rationale and operation lineage:
+{
+  "decision_reason": "A1 provides useful broad motion contrasts, but jumping would benefit from an independent distinction based on repeated vertical body oscillation, transferable from running and stair activities. The nearly identical lying prototypes also lack a physically meaningful orientation distinction. Retain the remaining concepts: elevator motion is not reliably observable during constant-velocity travel, and class names alone do not establish stable additional distinctions between stepper and cross-trainer exercise or between sitting and standing. The supplied coverage and separation diagnostics motivate these checks but do not establish sensor-level predictability.",
+  "semantic_redundancy_review": "The 11 attributes retain distinct physical meanings. Cadence measures repetition rate, whereas motion_regularity measures predictability. Smoothness describes sustained rapid fluctuation, whereas impulsiveness describes brief peaks. Vertical_oscillation_prominence describes directional repeated torso motion rather than its total magnitude, impact strength or sustained progression. Torso_lateral_inclination describes lateral orientation, whereas posture_inclination describes overall upright-to-horizontal configuration and posture_variability describes change over time. Correlations are expected but do not make these concepts identical. No unsupported handle-use, thigh-specific, flight-phase, absolute-height or elevator-velocity attribute is introduced. Every A1 input and A2 output is accounted for once; no class-level vectors or empirical improvement claims are supplied.",
+  "seen_classes": [
+    "standing",
+    "lying on back",
+    "lying on right side",
+    "ascending stairs",
+    "descending stairs",
+    "walking on a treadmill with a speed of 4 km/h (in flat)",
+    "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+    "running on a treadmill with a speed of 8 km/h",
+    "exercising on a stepper",
+    "cycling on an exercise bike in horizontal positions",
+    "cycling on an exercise bike in vertical positions",
+    "rowing",
+    "playing basketball"
+  ],
+  "unseen_classes": [
+    "sitting",
+    "standing in an elevator still",
+    "moving around in an elevator",
+    "walking in a parking lot",
+    "exercising on a cross trainer",
+    "jumping"
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity: G3 supports overall acceleration and rotation magnitude across the available body locations. Preserve the broad transfer from stationary and vigorous seen activities; effort and execution speed make adjacent levels ambiguous, especially for stepper versus cross-trainer exercise.",
+      "target_unseen": [
+        "exercising on a cross trainer",
+        "jumping"
+      ],
+      "contrast_unseen": [
+        "sitting"
+      ],
+      "seen_anchors": [
+        "exercising on a stepper",
+        "running on a treadmill with a speed of 8 km/h"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence: G6 supports repetition rate in limb acceleration and rotation. Walking and cyclic exercise provide transferable periodic patterns; short windows, irregular steps and ambiguity between steps and full cycles limit precision. Preserve rate rather than introduce an overlapping limb-specific cadence.",
+      "target_unseen": [
+        "walking in a parking lot",
+        "exercising on a cross trainer"
+      ],
+      "contrast_unseen": [
+        "moving around in an elevator"
+      ],
+      "seen_anchors": [
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "exercising on a stepper"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness: G9 supports sustained rapid changes in acceleration, distinguishing continuous cyclic exercise from repeatedly abrupt motion. Transfer is available from cycling and running; vibration and execution style can blur levels. Static lying orientations do not justify different smoothness by themselves.",
+      "target_unseen": [
+        "exercising on a cross trainer",
+        "jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "cycling on an exercise bike in vertical positions",
+        "running on a treadmill with a speed of 8 km/h"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness: G10 supports brief abrupt changes associated with landing and foot contact. Descending stairs and basketball offer transferable impact examples for jumping. Landing technique and isolated elevator acceleration transitions introduce ambiguity; an elevator window need not contain a detectable transition.",
+      "target_unseen": [
+        "jumping",
+        "standing in an elevator still"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "descending stairs",
+        "playing basketball"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination: G1 supports gravity-relative orientation across torso and leg sensors. Standing, reclining and cycling provide posture anchors for sitting. Upright sitting can share torso orientation with standing, and unspecified leg-sensor placement limits certainty about seated geometry; retain the concept without claiming guaranteed separation.",
+      "target_unseen": [
+        "sitting"
+      ],
+      "contrast_unseen": [
+        "standing in an elevator still"
+      ],
+      "seen_anchors": [
+        "standing",
+        "lying on back",
+        "cycling on an exercise bike in horizontal positions"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability: G12 supports changes in gravity-relative body configuration. Rowing and basketball supply transfer anchors for changing versus stable posture. Limb articulation alone does not establish global postural change, and moving around inside an elevator need not involve substantial torso inclination.",
+      "target_unseen": [
+        "moving around in an elevator"
+      ],
+      "contrast_unseen": [
+        "standing in an elevator still"
+      ],
+      "seen_anchors": [
+        "rowing",
+        "playing basketball",
+        "standing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "rotational_motion: G2 supports angular motion from torso and limb gyroscopes. Cyclic exercise and locomotion provide seen support for cross-trainer exercise and elevator movement. Turning is not guaranteed by moving around, while different limb rotations can yield similar overall rotational prominence.",
+      "target_unseen": [
+        "moving around in an elevator",
+        "exercising on a cross trainer"
+      ],
+      "contrast_unseen": [
+        "standing in an elevator still"
+      ],
+      "seen_anchors": [
+        "exercising on a stepper",
+        "cycling on an exercise bike in vertical positions"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion: G13 supports short-window translational-motion proxies, providing limited transfer from stair locomotion to parking-lot walking. These proxies cannot establish absolute displacement or reliably distinguish constant-velocity elevator transport from rest. Preserve the concept without adding an elevator-transport detector or treating treadmill motion as equivalent to environmental progression.",
+      "target_unseen": [
+        "walking in a parking lot",
+        "standing in an elevator still",
+        "moving around in an elevator"
+      ],
+      "contrast_unseen": [
+        "jumping"
+      ],
+      "seen_anchors": [
+        "ascending stairs",
+        "descending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity: G11 supports recurrence and predictability in multibody motion. Treadmill walking and basketball anchor structured and variable activity patterns for the close elevator-movement versus parking-lot-walking pair. Parking-lot walking may be steady and elevator movement may contain regular steps, so this is not a guaranteed separator.",
+      "target_unseen": [
+        "moving around in an elevator"
+      ],
+      "contrast_unseen": [
+        "walking in a parking lot"
+      ],
+      "seen_anchors": [
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "playing basketball"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "vertical_oscillation_prominence"
+      ],
+      "reason": "vertical_oscillation_prominence: G1, G6 and G14 support gravity-referenced, repeated vertical torso acceleration relative to other directions. This adds directional structure beyond overall intensity and impact, supporting jumping versus walking or elevator movement through running and stair anchors. It does not require reconstructed jump height or inferred flight. Small jumps, stair-related torso bobbing and windows containing too few cycles can blur levels; elevator start-stop acceleration alone is not repeated self-generated oscillation.",
+      "target_unseen": [
+        "jumping"
+      ],
+      "contrast_unseen": [
+        "walking in a parking lot",
+        "moving around in an elevator"
+      ],
+      "seen_anchors": [
+        "running on a treadmill with a speed of 8 km/h",
+        "descending stairs",
+        "ascending stairs"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "torso_lateral_inclination"
+      ],
+      "reason": "torso_lateral_inclination: G1 supports the gravity-relative direction of the torso accelerometer under consistent anatomical mounting. It supplies an independent, physically justified contrast between the nearly identical lying prototypes rather than relying on their A1 smoothness difference. Upright sitting and standing provide a transferable low-lateral-inclination reference. Mounting misalignment, partial rolling and dynamic acceleration create ambiguity; this attribute does not distinguish sitting from standing.",
+      "target_unseen": [
+        "sitting",
+        "standing in an elevator still"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "lying on back",
+        "lying on right side",
+        "standing"
+      ]
+    }
+  ]
+}
+
+Complete final A2 semantic schema:
+[
+  {
+    "name": "motion_intensity",
+    "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+    "levels": {
+      "Low": "Weak or nearly static motion.",
+      "Medium": "Moderate motion magnitude and energy.",
+      "High": "Strong or vigorous motion."
+    }
+  },
+  {
+    "name": "cadence",
+    "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+    "levels": {
+      "Low": "No clear periodic repetition or a slow repetition rate.",
+      "Medium": "Moderate repetition rate.",
+      "High": "Fast repetition rate."
+    }
+  },
+  {
+    "name": "smoothness",
+    "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+    "levels": {
+      "Low": "Frequent or sustained abrupt fluctuations.",
+      "Medium": "Moderately smooth motion with some fluctuations.",
+      "High": "Continuous and smooth motion with little fluctuation."
+    }
+  },
+  {
+    "name": "impulsiveness",
+    "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+    "levels": {
+      "Low": "Few or no pronounced abrupt peaks.",
+      "Medium": "Moderate abrupt peaks or impacts.",
+      "High": "Strong short-duration peaks or impacts."
+    }
+  },
+  {
+    "name": "posture_inclination",
+    "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+    "levels": {
+      "Low": "Nearly upright relative to gravity.",
+      "Medium": "Moderately inclined relative to gravity.",
+      "High": "Strongly inclined or nearly horizontal relative to gravity."
+    }
+  },
+  {
+    "name": "posture_variability",
+    "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+    "levels": {
+      "Low": "Posture remains nearly constant.",
+      "Medium": "Posture changes moderately.",
+      "High": "Posture changes substantially."
+    }
+  },
+  {
+    "name": "rotational_motion",
+    "definition": "Prominence of angular or rotational motion during the activity.",
+    "levels": {
+      "Low": "Little or no rotational motion.",
+      "Medium": "Moderate rotational motion.",
+      "High": "Prominent rotational motion."
+    }
+  },
+  {
+    "name": "translational_motion",
+    "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+    "levels": {
+      "Low": "Little or no sustained translation.",
+      "Medium": "Moderate translational motion.",
+      "High": "Prominent sustained translational or locomotor motion."
+    }
+  },
+  {
+    "name": "motion_regularity",
+    "definition": "Temporal consistency and predictability of the motion pattern.",
+    "levels": {
+      "Low": "Irregular and poorly predictable motion pattern.",
+      "Medium": "Partly structured motion with moderate variability.",
+      "High": "Consistent and predictable motion pattern."
+    }
+  },
+  {
+    "name": "vertical_oscillation_prominence",
+    "definition": "Prominence of repeated gravity-aligned upward and downward torso motion relative to other torso motion, excluding monotonic transport.",
+    "levels": {
+      "Low": "Repeated vertical torso oscillation is absent or minor.",
+      "Medium": "Repeated vertical torso oscillation is appreciable but does not dominate torso motion.",
+      "High": "Repeated vertical torso oscillation dominates torso motion."
+    }
+  },
+  {
+    "name": "torso_lateral_inclination",
+    "definition": "Degree to which the torso's anatomical left-right axis aligns with gravity, distinguishing lateral reclining from upright or face-up reclining configurations.",
+    "levels": {
+      "Low": "The torso's left-right axis is nearly perpendicular to gravity.",
+      "Medium": "The torso's left-right axis is oblique to gravity.",
+      "High": "The torso's left-right axis is nearly parallel to gravity."
+    }
+  }
+]
+
+Value-generation policy:
+- keep: preserve the concept's definition and level meanings, but independently reassign
+  its values for every activity; existing A1 assignments are not fixed constraints;
+- drop: omit the A1 attribute from A2;
+- add/replace/split/merge: assign each final attribute from its A2 definition and rationale;
+- A1 values are historical context only, never mandatory values or soft numeric anchors;
+- do not mechanically copy, merge, take a maximum/minimum, or vote over A1 values.
+
+Attributes whose concepts are kept (values must still be regenerated):
+["motion_intensity", "cadence", "smoothness", "impulsiveness", "posture_inclination", "posture_variability", "rotational_motion", "translational_motion", "motion_regularity"]
+
+Attributes removed from A2:
+[]
+
+The complete attributes the LLM must generate:
+["motion_intensity", "cadence", "smoothness", "impulsiveness", "posture_inclination", "posture_variability", "rotational_motion", "translational_motion", "motion_regularity", "vertical_oscillation_prominence", "torso_lateral_inclination"]
+
+Semantic definitions for all final attributes:
+[
+  {
+    "name": "motion_intensity",
+    "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+    "levels": {
+      "Low": "Weak or nearly static motion.",
+      "Medium": "Moderate motion magnitude and energy.",
+      "High": "Strong or vigorous motion."
+    }
+  },
+  {
+    "name": "cadence",
+    "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+    "levels": {
+      "Low": "No clear periodic repetition or a slow repetition rate.",
+      "Medium": "Moderate repetition rate.",
+      "High": "Fast repetition rate."
+    }
+  },
+  {
+    "name": "smoothness",
+    "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+    "levels": {
+      "Low": "Frequent or sustained abrupt fluctuations.",
+      "Medium": "Moderately smooth motion with some fluctuations.",
+      "High": "Continuous and smooth motion with little fluctuation."
+    }
+  },
+  {
+    "name": "impulsiveness",
+    "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+    "levels": {
+      "Low": "Few or no pronounced abrupt peaks.",
+      "Medium": "Moderate abrupt peaks or impacts.",
+      "High": "Strong short-duration peaks or impacts."
+    }
+  },
+  {
+    "name": "posture_inclination",
+    "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+    "levels": {
+      "Low": "Nearly upright relative to gravity.",
+      "Medium": "Moderately inclined relative to gravity.",
+      "High": "Strongly inclined or nearly horizontal relative to gravity."
+    }
+  },
+  {
+    "name": "posture_variability",
+    "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+    "levels": {
+      "Low": "Posture remains nearly constant.",
+      "Medium": "Posture changes moderately.",
+      "High": "Posture changes substantially."
+    }
+  },
+  {
+    "name": "rotational_motion",
+    "definition": "Prominence of angular or rotational motion during the activity.",
+    "levels": {
+      "Low": "Little or no rotational motion.",
+      "Medium": "Moderate rotational motion.",
+      "High": "Prominent rotational motion."
+    }
+  },
+  {
+    "name": "translational_motion",
+    "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+    "levels": {
+      "Low": "Little or no sustained translation.",
+      "Medium": "Moderate translational motion.",
+      "High": "Prominent sustained translational or locomotor motion."
+    }
+  },
+  {
+    "name": "motion_regularity",
+    "definition": "Temporal consistency and predictability of the motion pattern.",
+    "levels": {
+      "Low": "Irregular and poorly predictable motion pattern.",
+      "Medium": "Partly structured motion with moderate variability.",
+      "High": "Consistent and predictable motion pattern."
+    }
+  },
+  {
+    "name": "vertical_oscillation_prominence",
+    "definition": "Prominence of repeated gravity-aligned upward and downward torso motion relative to other torso motion, excluding monotonic transport.",
+    "levels": {
+      "Low": "Repeated vertical torso oscillation is absent or minor.",
+      "Medium": "Repeated vertical torso oscillation is appreciable but does not dominate torso motion.",
+      "High": "Repeated vertical torso oscillation dominates torso motion."
+    }
+  },
+  {
+    "name": "torso_lateral_inclination",
+    "definition": "Degree to which the torso's anatomical left-right axis aligns with gravity, distinguishing lateral reclining from upright or face-up reclining configurations.",
+    "levels": {
+      "Low": "The torso's left-right axis is nearly perpendicular to gravity.",
+      "Medium": "The torso's left-right axis is oblique to gravity.",
+      "High": "The torso's left-right axis is nearly parallel to gravity."
+    }
+  }
+]
+
+How to use the A2 schema:
+- Use each final attribute's A2 definition and Low/Medium/High descriptions as the
+  authoritative value scale.
+- The complete final attribute list is the exact output whitelist, including kept concepts.
+  Output no dropped fields.
+- Read every relevant operation reason. For split/replace/add/merge, explicitly realize the
+  intended contrast between target_unseen and contrast_unseen when it is physically justified.
+- Use seen_anchors as semantic calibration references, not as recording-level evidence.
+- If a refined concept intentionally includes a sensor position, modality or axis in its
+  definition, follow that scope consistently rather than removing it.
+- Distinct physical concepts may be statistically correlated. Do not force independent level patterns or invent differences to remove correlation.
+
+Assignment principles:
+1. Values must be based on biomechanical and inertial-motion patterns that can plausibly be reflected in wearable IMU signals.
+2. Relevant motion evidence may include overall motion magnitude, rhythmicity, periodicity, impact, posture change, vertical displacement, spatial spread, movement smoothness, sustained translation, rotation, and temporal regularity.
+3. Do not rely on visual appearance, object identity, room context, environmental layout, or high-level task goals unless they would produce observable inertial-motion differences.
+4. Do not let dataset-specific placement assumptions override the explicit A2 meanings.
+5. Follow any explicit body-position, modality or axis scope in the final A2 definition; do not invent additional scope.
+6. Assign values according to the abstract physical concept and generally observable human motion patterns.
+7. Low, Medium, and High must be ordinal and consistent: Low < Medium < High must reflect an increasing degree of the attribute according to the A2 schema.
+8. Do not mechanically map activity labels to values. Compare activities by their expected motion patterns.
+9. Clearly different activities should not become identical across all A2 attributes when the schema supports meaningful biomechanical distinctions.
+10. Do not fabricate differences. If two activities are genuinely similar for an attribute, assign the same level.
+
+Internal consistency checks before output:
+- Every activity must have exactly ALL attributes in "The complete attributes the LLM must generate".
+- Every value must be exactly one of: "Low", "Medium", "High".
+- Every attribute value must follow its A2 level definitions rather than generic intuition alone.
+- The same attribute must be interpreted consistently across all activities.
+- If an attribute has meaningful variation across activities, avoid assigning a constant value to all activities.
+- If an attribute is genuinely constant under its definition, keep it constant rather than inventing artificial differences.
+- Check whether similar activities are differentiated only when the A2 schema provides a biomechanically justified basis.
+- Check whether highly different activities remain unnecessarily identical across the entire A2 vector; if so, adjust only when supported by the schema.
+
+Output rules:
+- Output JSON only.
+- Do not include explanations, markdown, comments, confidence scores, reasoning traces, or extra fields.
+- Do not reveal chain-of-thought. Perform the reasoning and consistency checks internally, then output only the final JSON.
+- The output must be directly parseable by json.loads().
+
+Output schema:
+{
+  "<activity name>": {
+    "<final A2 attribute name>": "Low"
+  }
+}

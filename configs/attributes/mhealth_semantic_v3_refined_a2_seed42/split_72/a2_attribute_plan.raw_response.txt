@@ -1,0 +1,379 @@
+{
+  "schema_version": "2.0",
+  "dataset": "mhealth",
+  "split_index": 72,
+  "refinement_needed": true,
+  "decision_reason": "A1 already provides a valid gravity-relative distinction among standing still, sitting and relaxing, and lying down, so no unsupported support-contact attribute is introduced for that low-U_NN pair. The main deficiencies are that knees bending (crouching) and waist bends forward differ in only smoothness despite different trunk and vertical-motion mechanics, while cycling has the weakest seen-class coverage and lacks an attribute identifying ankle-localized periodic motion. A2 therefore retains the nine supported A1 concepts and adds trunk reorientation, gravity-axis translation, and ankle-localized cyclic prominence.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "trunk_reorientation",
+      "definition": "Extent of gravity-relative reorientation of the chest and trunk within a window, independently of motion confined to the limbs.",
+      "levels": {
+        "Low": "The trunk remains nearly fixed in gravity-relative orientation.",
+        "Medium": "The trunk undergoes moderate gravity-relative reorientation.",
+        "High": "The trunk undergoes large or repeated gravity-relative reorientation."
+      }
+    },
+    {
+      "name": "vertical_translation",
+      "definition": "Prominence of gravity-axis linear body motion, including repeated raising or lowering, irrespective of net forward progression.",
+      "levels": {
+        "Low": "Little or no gravity-axis translation.",
+        "Medium": "Moderate gravity-axis translation.",
+        "High": "Prominent or repeated gravity-axis translation."
+      }
+    },
+    {
+      "name": "ankle_cyclic_prominence",
+      "definition": "Degree to which periodic motion is prominently expressed at the left ankle relative to the chest and right lower arm.",
+      "levels": {
+        "Low": "Little or no clear ankle-localized periodic motion.",
+        "Medium": "Clear ankle periodicity that is not strongly dominant across body sites.",
+        "High": "Strong and dominant ankle-localized periodic motion."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "Overall motion energy remains a transferable distinction between static postures, moderate articulated actions, and vigorous locomotion.",
+      "target_unseen": [
+        "standing still",
+        "lying down",
+        "knees bending (crouching)",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "sitting and relaxing",
+        "walking",
+        "running"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "Repetition rate provides a supported contrast between fast cyclic cycling, moderate repeated locomotion or bending, and nonperiodic static postures.",
+      "target_unseen": [
+        "standing still",
+        "lying down",
+        "knees bending (crouching)",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "cycling"
+      ],
+      "seen_anchors": [
+        "walking",
+        "jogging",
+        "running"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "Sustained rapid signal fluctuation remains distinct from impact peaks and helps transfer between smooth cyclic motion, controlled bending, and impact-rich locomotion.",
+      "target_unseen": [
+        "knees bending (crouching)",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "waist bends forward",
+        "running",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "Short high-magnitude changes distinguish low-impact cycling and controlled posture changes from impact-rich running and jumping.",
+      "target_unseen": [
+        "knees bending (crouching)",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "running",
+        "jump front & back",
+        "waist bends forward"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "Mean gravity-relative posture is the directly supported distinction among upright standing still, seated configurations, and nearly horizontal lying down; an additional support-contact distinction is not observable from the supplied capabilities.",
+      "target_unseen": [
+        "standing still",
+        "lying down",
+        "knees bending (crouching)",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "standing still",
+        "lying down"
+      ],
+      "seen_anchors": [
+        "sitting and relaxing",
+        "waist bends forward"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "Global gravity-relative configuration change separates repeated crouching from fixed standing, lying, and relatively stable cycling postures.",
+      "target_unseen": [
+        "standing still",
+        "lying down",
+        "knees bending (crouching)",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "waist bends forward",
+        "sitting and relaxing",
+        "climbing stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "Overall angular-motion prominence remains useful for transferring from articulated seen activities to crouching and cycling, while remaining distinct from static orientation.",
+      "target_unseen": [
+        "knees bending (crouching)",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "waist bends forward",
+        "frontal elevation of arms",
+        "walking"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "Sustained locomotor progression separates cycling and ambulatory activities from in-place postures and bending actions.",
+      "target_unseen": [
+        "standing still",
+        "lying down",
+        "knees bending (crouching)",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "cycling"
+      ],
+      "seen_anchors": [
+        "walking",
+        "climbing stairs",
+        "running"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "Temporal predictability is physically distinct from repetition rate and remains transferable to periodic cycling, repeated bending, and stable postures.",
+      "target_unseen": [
+        "standing still",
+        "lying down",
+        "knees bending (crouching)",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "waist bends forward",
+        "running"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "trunk_reorientation"
+      ],
+      "reason": "Chest gravity-angle change supplies a body-location-specific distinction: forward waist bending prominently reorients the trunk, whereas crouching can be dominated by lowering and lower-limb articulation with a more upright trunk. Static sitting and arm elevation provide complementary seen anchors.",
+      "target_unseen": [
+        "knees bending (crouching)"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "waist bends forward",
+        "sitting and relaxing",
+        "frontal elevation of arms"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "vertical_translation"
+      ],
+      "reason": "Gravity-axis translation adds a directional contrast absent from general locomotor translation. It distinguishes repeated body lowering in crouching from predominantly angular waist bending and relates it to the vertical components of stair climbing and jumping.",
+      "target_unseen": [
+        "knees bending (crouching)",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "knees bending (crouching)",
+        "cycling"
+      ],
+      "seen_anchors": [
+        "climbing stairs",
+        "jump front & back",
+        "waist bends forward"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "ankle_cyclic_prominence"
+      ],
+      "reason": "The ankle gyro and accelerometer can support localized periodicity and cross-site coupling. This gives weakly covered cycling a transferable leg-cycle distinction from arm elevation and waist bending without duplicating cadence, because it measures where periodic motion is expressed rather than its repetition rate.",
+      "target_unseen": [
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "walking",
+        "climbing stairs",
+        "jogging",
+        "running",
+        "frontal elevation of arms"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The retained attributes represent distinct global concepts: energy, repetition rate, sustained fluctuation, isolated peaks, mean global posture, global posture change, angular motion, sustained locomotor translation, and temporal predictability. Trunk_reorientation is intentionally local to the chest and therefore does not duplicate global posture_variability or general rotational_motion. Vertical_translation specifies the gravity-axis component and includes repeated raising or lowering, whereas translational_motion concerns sustained progression or locomotion. Ankle_cyclic_prominence describes the body-site distribution of periodic motion, while cadence describes repetition rate and motion_regularity describes predictability. No support-contact, knee-angle, terrain, or unobserved external-device attribute is introduced."
+}

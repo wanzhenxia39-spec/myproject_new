@@ -1,0 +1,155 @@
+{
+  "policy": {
+    "filtering": false,
+    "description": "This report only checks distribution and duplicate full vectors. No attribute is removed in this script."
+  },
+  "num_activities": 19,
+  "num_attributes": 11,
+  "attribute_reports": {
+    "motion_intensity": {
+      "distribution_all_activities": {
+        "High": 4,
+        "Low": 5,
+        "Medium": 10
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "cadence": {
+      "distribution_all_activities": {
+        "High": 1,
+        "Low": 8,
+        "Medium": 10
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "smoothness": {
+      "distribution_all_activities": {
+        "High": 10,
+        "Low": 3,
+        "Medium": 6
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "impulsiveness": {
+      "distribution_all_activities": {
+        "High": 4,
+        "Low": 10,
+        "Medium": 5
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "posture_inclination": {
+      "distribution_all_activities": {
+        "High": 3,
+        "Low": 12,
+        "Medium": 4
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "posture_variability": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 12,
+        "Medium": 5
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "rotational_motion": {
+      "distribution_all_activities": {
+        "High": 7,
+        "Low": 5,
+        "Medium": 7
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "translational_motion": {
+      "distribution_all_activities": {
+        "High": 4,
+        "Low": 11,
+        "Medium": 4
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "motion_regularity": {
+      "distribution_all_activities": {
+        "High": 16,
+        "Low": 2,
+        "Medium": 1
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "lateral_torso_inclination": {
+      "distribution_all_activities": {
+        "High": 1,
+        "Low": 17,
+        "Medium": 1
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "leg_motion_alternation": {
+      "distribution_all_activities": {
+        "High": 10,
+        "Low": 7,
+        "Medium": 2
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    }
+  },
+  "duplicate_full_vectors": {
+    "Low|Low|High|Low|Low|Low|Low|Low|High|Low|Low": [
+      "standing",
+      "standing in an elevator still"
+    ],
+    "Medium|Medium|High|Low|Low|Low|High|Low|High|Low|High": [
+      "exercising on a stepper",
+      "exercising on a cross trainer"
+    ]
+  },
+  "vector_source": {
+    "mode": "full_a2_generation_v1",
+    "a2_plan_sha256": "b9ad5fbb5afaefcf425e0c97a51c6fe5d53ac37c1161a20bd095a047d587078f",
+    "raw_response_sha256": "250095985b2016bdef333035d669f85a6314fad00dccb7c58766e696bbf87101",
+    "a1_json": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_dsads_v1_5.json",
+    "a1_sha256": "032689e410b1d31c709f75afbbea7434d228100dd94f4e072843ce91a803c5f3",
+    "a2_plan_json": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/dsads/split_20953/a2_attribute_plan.json",
+    "vectors_sha256": "250095985b2016bdef333035d669f85a6314fad00dccb7c58766e696bbf87101",
+    "copied_keep_attributes": [],
+    "conceptually_kept_attributes": [
+      "motion_intensity",
+      "cadence",
+      "smoothness",
+      "impulsiveness",
+      "posture_inclination",
+      "posture_variability",
+      "rotational_motion",
+      "translational_motion",
+      "motion_regularity"
+    ],
+    "llm_generated_attributes": [
+      "motion_intensity",
+      "cadence",
+      "smoothness",
+      "impulsiveness",
+      "posture_inclination",
+      "posture_variability",
+      "rotational_motion",
+      "translational_motion",
+      "motion_regularity",
+      "lateral_torso_inclination",
+      "leg_motion_alternation"
+    ],
+    "dropped_a1_attributes": [],
+    "llm_called": true
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "schema_version": "full_a1_semantic_refinement_v3",
+  "task": {
+    "dataset": "dsads",
+    "outer_split_index": 977,
+    "seen_classes": [
+      "lying on back",
+      "ascending stairs",
+      "descending stairs",
+      "standing in an elevator still",
+      "moving around in an elevator",
+      "walking in a parking lot",
+      "walking on a treadmill with a speed of 4 km/h (in flat)",
+      "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+      "exercising on a stepper",
+      "exercising on a cross trainer",
+      "cycling on an exercise bike in horizontal positions",
+      "rowing",
+      "jumping"
+    ],
+    "unseen_classes": [
+      "sitting",
+      "standing",
+      "lying on right side",
+      "running on a treadmill with a speed of 8 km/h",
+      "cycling on an exercise bike in vertical positions",
+      "playing basketball"
+    ]
+  },
+  "a1_ontology": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    }
+  ],
+  "a1_class_prototypes": {
+    "sitting": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "standing": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "lying on back": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "High",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "lying on right side": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "Medium",
+      "impulsiveness": "Low",
+      "posture_inclination": "High",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "ascending stairs": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "descending stairs": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "standing in an elevator still": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Medium",
+      "motion_regularity": "Medium"
+    },
+    "moving around in an elevator": {
+      "motion_intensity": "Medium",
+      "cadence": "Low",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "Medium",
+      "motion_regularity": "Low"
+    },
+    "walking in a parking lot": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "Medium"
+    },
+    "walking on a treadmill with a speed of 4 km/h (in flat)": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Medium",
+      "motion_regularity": "High"
+    },
+    "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Medium",
+      "motion_regularity": "High"
+    },
+    "running on a treadmill with a speed of 8 km/h": {
+      "motion_intensity": "High",
+      "cadence": "High",
+      "smoothness": "Medium",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "High",
+      "translational_motion": "Medium",
+      "motion_regularity": "High"
+    },
+    "exercising on a stepper": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "exercising on a cross trainer": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "cycling on an exercise bike in horizontal positions": {
+      "motion_intensity": "Medium",
+      "cadence": "High",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "High",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "cycling on an exercise bike in vertical positions": {
+      "motion_intensity": "Medium",
+      "cadence": "High",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "rowing": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "High",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "jumping": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "playing basketball": {
+      "motion_intensity": "High",
+      "cadence": "Low",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "High",
+      "rotational_motion": "High",
+      "translational_motion": "High",
+      "motion_regularity": "Low"
+    }
+  },
+  "semantic_gap": {
+    "D_kNN": 0.1898148148148148,
+    "D_kNN_per_unseen": {
+      "sitting": 0.1388888888888889,
+      "standing": 0.1388888888888889,
+      "lying on right side": 0.19444444444444442,
+      "running on a treadmill with a speed of 8 km/h": 0.25,
+      "cycling on an exercise bike in vertical positions": 0.08333333333333333,
+      "playing basketball": 0.3333333333333333
+    },
+    "U_NN": 0.2037037037037037,
+    "U_NN_per_unseen": {
+      "sitting": 0.05555555555555555,
+      "standing": 0.05555555555555555,
+      "lying on right side": 0.1111111111111111,
+      "running on a treadmill with a speed of 8 km/h": 0.3333333333333333,
+      "cycling on an exercise bike in vertical positions": 0.2777777777777778,
+      "playing basketball": 0.3888888888888889
+    },
+    "nearest_seen_topk": {
+      "sitting": [
+        [
+          "lying on back",
+          0.05555555555555555
+        ],
+        [
+          "standing in an elevator still",
+          0.2222222222222222
+        ]
+      ],
+      "standing": [
+        [
+          "lying on back",
+          0.1111111111111111
+        ],
+        [
+          "standing in an elevator still",
+          0.16666666666666666
+        ]
+      ],
+      "lying on right side": [
+        [
+          "lying on back",
+          0.05555555555555555
+        ],
+        [
+          "standing in an elevator still",
+          0.3333333333333333
+        ]
+      ],
+      "running on a treadmill with a speed of 8 km/h": [
+        [
+          "jumping",
+          0.2222222222222222
+        ],
+        [
+          "ascending stairs",
+          0.2777777777777778
+        ]
+      ],
+      "cycling on an exercise bike in vertical positions": [
+        [
+          "exercising on a stepper",
+          0.05555555555555555
+        ],
+        [
+          "exercising on a cross trainer",
+          0.1111111111111111
+        ]
+      ],
+      "playing basketball": [
+        [
+          "descending stairs",
+          0.3333333333333333
+        ],
+        [
+          "moving around in an elevator",
+          0.3333333333333333
+        ]
+      ]
+    },
+    "top_k": 2,
+    "effective_k": 2,
+    "distance_metric": "normalized_ordinal"
+  },
+  "data_provenance": {
+    "uses_real_unseen_identities": true,
+    "uses_real_unseen_semantic_prototypes": true,
+    "uses_target_recordings": false,
+    "uses_test_predictions": false,
+    "diagnostics_source": "reused_from_gap_csv"
+  }
+}

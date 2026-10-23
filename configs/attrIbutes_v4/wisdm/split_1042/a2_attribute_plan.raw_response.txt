@@ -1,0 +1,192 @@
+{
+  "schema_version": "2.0",
+  "dataset": "wisdm",
+  "split_index": 1042,
+  "refinement_needed": true,
+  "decision_reason": "Retain the nine broad A1 concepts and add one local orientation concept. Close A1 pairs include sitting versus standing, eating soup versus writing, and eating soup versus eating sandwich. Wrist orientation excursion offers an additional plausible distinction for hand-to-mouth versus surface-bound activity, with transfer to eating pasta and playing catch w/tennis ball. It also complements cadence when comparing clapping with other repetitive activities. The coverage diagnostics motivate these checks but do not establish predictability. Do not force additional distinctions between food classes, or between sitting and standing, when posture and execution are ambiguous.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "wrist_orientation_excursion",
+      "definition": "Breadth of gravity-relative orientations traversed by the watch-wearing wrist within a window, independent of repetition rate and global body-posture change. Rotation solely about gravity does not increase this attribute.",
+      "levels": {
+        "Low": "Wrist remains within a narrow range of gravity-relative orientations.",
+        "Medium": "Wrist traverses a moderate range of gravity-relative orientations.",
+        "High": "Wrist traverses a broad range of gravity-relative orientations."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": ["motion_intensity"],
+      "outputs": ["motion_intensity"],
+      "reason": "motion_intensity: G3 supports observable acceleration and angular-motion magnitude. Retains the broad walking–jogging distinction and transfer from stairs to locomotion, and from dribbling (basketball) to vigorous arm activity. Effort, phone carriage and watch-arm involvement can alter observed intensity.",
+      "target_unseen": ["walking", "jogging", "playing catch w/tennis ball"],
+      "contrast_unseen": ["standing"],
+      "seen_anchors": ["stairs", "dribbling (basketball)"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["cadence"],
+      "outputs": ["cadence"],
+      "reason": "cadence: G6 supports repeated motion timing, independently of motion magnitude. Stairs anchors stepping repetition; brushing teeth and dribbling (basketball) anchor repetitive upper-limb activity for clapping. Irregular bouts, pauses and multiple motion units can make the relevant repetition rate ambiguous.",
+      "target_unseen": ["walking", "jogging", "clapping"],
+      "contrast_unseen": ["playing catch w/tennis ball"],
+      "seen_anchors": ["stairs", "brushing teeth", "dribbling (basketball)"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["smoothness"],
+      "outputs": ["smoothness"],
+      "reason": "smoothness: G9 supports sustained rapid signal change rather than isolated impacts. Preserves a useful distinction between continuously varying motion and repeated abrupt reversals, with dribbling (basketball) providing a seen anchor for clapping. Execution speed and locomotor oscillations can also reduce apparent smoothness.",
+      "target_unseen": ["clapping", "walking", "jogging"],
+      "contrast_unseen": [],
+      "seen_anchors": ["dribbling (basketball)", "brushing teeth", "stairs"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["impulsiveness"],
+      "outputs": ["impulsiveness"],
+      "reason": "impulsiveness: G10 supports short peaks from contacts, catches or footfalls. Transfers impact semantics from dribbling (basketball) and kicking (soccer ball) to clapping, playing catch w/tennis ball and jogging. Contact force, cushioning and transmission to the carried sensors can weaken or obscure peaks.",
+      "target_unseen": ["clapping", "playing catch w/tennis ball", "jogging"],
+      "contrast_unseen": ["standing", "eating pasta"],
+      "seen_anchors": ["dribbling (basketball)", "kicking (soccer ball)"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_inclination"],
+      "outputs": ["posture_inclination"],
+      "reason": "posture_inclination: G1 supports static gravity-relative orientation in principle. Retains the existing sitting–standing semantic distinction without inventing another guaranteed separator. Prediction is especially uncertain because user-carried phone placement is unspecified, wrist orientation is not global posture, and sitting can have an upright trunk.",
+      "target_unseen": ["standing"],
+      "contrast_unseen": [],
+      "seen_anchors": ["sitting"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_variability"],
+      "outputs": ["posture_variability"],
+      "reason": "posture_variability: G12 supports gravity-relative orientation changes when sensor motion reflects the load-bearing body. Retains global configuration change as distinct from the added wrist excursion, using stairs and kicking (soccer ball) as dynamic anchors. Phone movement independent of the body and local wrist motion limit attribution to global posture.",
+      "target_unseen": ["jogging", "playing catch w/tennis ball"],
+      "contrast_unseen": ["standing"],
+      "seen_anchors": ["stairs", "kicking (soccer ball)", "sitting"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["rotational_motion"],
+      "outputs": ["rotational_motion"],
+      "reason": "rotational_motion: G2 supports sustained angular activity observed by the gyroscopes. Preserves transfer from utensil, cup and grooming rotations to eating pasta and from sporting motion to playing catch w/tennis ball. Similar angular activity can arise from small fast oscillations or broad slow turns, so it does not determine orientation excursion.",
+      "target_unseen": ["eating pasta", "playing catch w/tennis ball"],
+      "contrast_unseen": ["standing"],
+      "seen_anchors": ["drinking from cup", "brushing teeth", "kicking (soccer ball)"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["translational_motion"],
+      "outputs": ["translational_motion"],
+      "reason": "translational_motion: G13 supports short-window translation proxies, retaining the locomotion concept shared by stairs, walking and jogging rather than confusing vigorous stationary arm activity with progression. Sustained progression is only indirectly observable: local limb translation, sensor drift and short windows can confound it.",
+      "target_unseen": ["walking", "jogging"],
+      "contrast_unseen": ["clapping", "standing"],
+      "seen_anchors": ["stairs", "dribbling (basketball)"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["motion_regularity"],
+      "outputs": ["motion_regularity"],
+      "reason": "motion_regularity: G11 and G6 support recurrence and timing consistency, independently of repetition speed. Transfers structured repetition from brushing teeth and dribbling (basketball) toward clapping and locomotion, while retaining variable event timing for catch. Pauses, short windows and individual pacing can change apparent regularity.",
+      "target_unseen": ["clapping", "walking", "jogging"],
+      "contrast_unseen": ["playing catch w/tennis ball"],
+      "seen_anchors": ["brushing teeth", "dribbling (basketball)", "folding clothes"]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": ["wrist_orientation_excursion"],
+      "reason": "wrist_orientation_excursion: G12 and G1 support the range of gravity-relative watch orientations. Broad wrist reorientation during hand-to-mouth or reaching motions can add a distinction between the close A1 pair eating soup and writing, beyond intensity alone; drinking from cup, writing and folding clothes provide transferable anchors for eating pasta and playing catch w/tennis ball. This measures orientation range, not angular speed, repetition rate or global posture. Clapping may involve repeated movement with relatively constrained wrist orientation. Predictability is plausible for broad range differences but uncertain when the watch is on the less active hand, motion preserves wrist tilt, windows omit a full gesture, or dynamic acceleration obscures gravity. No food-specific or bilateral-coordination distinction is assumed.",
+      "target_unseen": ["eating pasta", "playing catch w/tennis ball", "clapping"],
+      "contrast_unseen": [],
+      "seen_anchors": ["eating soup", "writing", "drinking from cup", "folding clothes"]
+    }
+  ],
+  "semantic_redundancy_review": "The ten attributes describe magnitude, repetition rate, sustained abruptness, isolated peaks, mean global inclination, global posture change, angular activity, locomotor progression, temporal predictability and local wrist orientation range. Smoothness and impulsiveness distinguish sustained fluctuations from isolated events; cadence and regularity distinguish speed from consistency. Wrist orientation excursion is intentionally local and range-based, unlike global posture variability or rotational-motion prominence. Correlation is possible but does not make these concepts identical. No additional food identity, flight-phase, bilateral synchrony or absolute displacement attribute is introduced because its incremental predictability is not established by the supplied capabilities. Global posture and sustained translation remain qualified concepts rather than guaranteed sensor observations."
+}

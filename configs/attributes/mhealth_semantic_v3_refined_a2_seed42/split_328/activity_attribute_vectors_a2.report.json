@@ -1,0 +1,135 @@
+{
+  "policy": {
+    "filtering": false,
+    "description": "This report only checks distribution and duplicate full vectors. No attribute is removed in this script."
+  },
+  "num_activities": 12,
+  "num_attributes": 11,
+  "attribute_reports": {
+    "motion_intensity": {
+      "distribution_all_activities": {
+        "High": 4,
+        "Low": 3,
+        "Medium": 5
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "cadence": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 3,
+        "Medium": 7
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "smoothness": {
+      "distribution_all_activities": {
+        "High": 6,
+        "Low": 2,
+        "Medium": 4
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "impulsiveness": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 7,
+        "Medium": 3
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "posture_inclination": {
+      "distribution_all_activities": {
+        "High": 1,
+        "Low": 6,
+        "Medium": 5
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "posture_variability": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 8,
+        "Medium": 2
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "upper_limb_angular_motion": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 6,
+        "Medium": 4
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "lower_limb_angular_motion": {
+      "distribution_all_activities": {
+        "High": 7,
+        "Low": 5,
+        "Medium": 0
+      },
+      "num_levels_used": 2,
+      "is_constant_all_activities": false
+    },
+    "translational_motion": {
+      "distribution_all_activities": {
+        "High": 5,
+        "Low": 6,
+        "Medium": 1
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "vertical_motion": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 7,
+        "Medium": 3
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "translation_direction_reversal": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 10,
+        "Medium": 0
+      },
+      "num_levels_used": 2,
+      "is_constant_all_activities": false
+    }
+  },
+  "duplicate_full_vectors": {},
+  "vector_source": {
+    "mode": "incremental_from_a1",
+    "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json",
+    "a1_sha256": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+    "a2_plan_json": "/home/wanzhen/myproject_new/runtime/refinement_semantic_v3/mhealth_gpt_5_6_sol_11_15/split_328/a2_attribute_plan.json",
+    "copied_keep_attributes": [
+      "motion_intensity",
+      "cadence",
+      "smoothness",
+      "impulsiveness",
+      "posture_inclination",
+      "posture_variability",
+      "translational_motion"
+    ],
+    "llm_generated_attributes": [
+      "upper_limb_angular_motion",
+      "lower_limb_angular_motion",
+      "vertical_motion",
+      "translation_direction_reversal"
+    ],
+    "dropped_a1_attributes": [
+      "motion_regularity"
+    ],
+    "llm_called": true
+  }
+}

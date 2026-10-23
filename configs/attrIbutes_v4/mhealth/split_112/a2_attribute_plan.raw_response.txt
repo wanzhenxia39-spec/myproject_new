@@ -1,0 +1,289 @@
+{
+  "schema_version": "2.0",
+  "dataset": "mhealth",
+  "split_index": 112,
+  "refinement_needed": true,
+  "decision_reason": "A1 collapses arm-dominant and lower-limb-dominant rotation into one coordinate. Splitting that concept provides a transferable distinction between cycling and frontal elevation of arms, relevant to cycling's weakest seen coverage, and an additional potential distinction between waist bends forward and knees bending (crouching), whose A1 vectors differ only in smoothness. It also helps distinguish the relatively close unseen pair cycling and waist bends forward. Other close pairs are not forced apart: standing and seated postures may have similar chest and ankle orientations, and walking versus jogging has no guaranteed additional ordinal difference from class semantics alone. The supplied diagnostics guide this refinement but do not establish recognition performance.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "arm_rotational_motion",
+      "definition": "Prominence of angular motion of the arm, observable through rotation of the instrumented right lower arm, rather than rotation elsewhere in the body.",
+      "levels": {
+        "Low": "Little or no arm rotational motion.",
+        "Medium": "Moderate arm rotational motion.",
+        "High": "Prominent arm rotational motion."
+      }
+    },
+    {
+      "name": "lower_leg_rotational_motion",
+      "definition": "Prominence of angular motion of the lower leg, observable through rotation at the instrumented left ankle, rather than rotation elsewhere in the body.",
+      "levels": {
+        "Low": "Little or no lower-leg rotational motion.",
+        "Medium": "Moderate lower-leg rotational motion.",
+        "High": "Prominent lower-leg rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity: G3 supports overall acceleration and rotation magnitude across the available sensors. Walking and jogging provide seen anchors for locomotor exertion relevant to climbing stairs. Execution effort, attachment and limb-dominant motion can blur ordinal boundaries; intensity is not a direct measure of metabolic effort.",
+      "target_unseen": [
+        "climbing stairs"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "jogging"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence: G6 supports repetition rate in recurring ankle, arm or chest motion. Walking, running and frontal elevation of arms anchor periodic motion without introducing a cycling-specific concept. Voluntary pace and ambiguity between a full cycle and its subevents can change inferred ordinal state; fast cycling is not guaranteed by the class label.",
+      "target_unseen": [
+        "cycling",
+        "climbing stairs",
+        "waist bends forward"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "running",
+        "frontal elevation of arms"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness: G9 supports sustained rapid signal change in acceleration and angular motion. Frontal elevation of arms and walking provide smoother and more fluctuating movement anchors for cycling and waist bends forward. Movement speed, vibration and transitions can obscure continuity; smoothness alone is not a reliable discriminator between bending and crouching.",
+      "target_unseen": [
+        "cycling",
+        "waist bends forward"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "frontal elevation of arms",
+        "walking",
+        "knees bending (crouching)"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness: G10 supports short abrupt changes, especially impact-related ankle and chest acceleration. Walking, running and jump front & back anchor impact differences relevant to climbing stairs versus smoother cycling or waist bends forward. Footwear, surface, execution and sensor attachment affect peaks; absence of impacts does not identify a particular activity.",
+      "target_unseen": [
+        "climbing stairs"
+      ],
+      "contrast_unseen": [
+        "cycling",
+        "waist bends forward"
+      ],
+      "seen_anchors": [
+        "walking",
+        "running",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination: G1 supports gravity-relative mean orientation, with chest acceleration providing trunk evidence and the other placements providing contextual posture evidence. Lying down and sitting and relaxing anchor broad postural distinctions for standing still. Chest and ankle measurements do not fully reconstruct the load-bearing configuration: upright sitting can resemble standing, and cycling or bending inclination varies with technique. No additional static support-state attribute is justified.",
+      "target_unseen": [
+        "standing still",
+        "cycling",
+        "waist bends forward"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "sitting and relaxing",
+        "lying down"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability: G12 supports changes in gravity-relative configuration, particularly chest inclination changes interpreted alongside limb motion. Knees bending (crouching) anchors changing whole-body posture, while frontal elevation of arms anchors limb movement with relatively stable global posture. This supports waist bends forward versus cycling. Dynamic acceleration can contaminate gravity estimates, and crouching depth or trunk strategy can change the observed extent.",
+      "target_unseen": [
+        "waist bends forward"
+      ],
+      "contrast_unseen": [
+        "cycling"
+      ],
+      "seen_anchors": [
+        "knees bending (crouching)",
+        "frontal elevation of arms"
+      ]
+    },
+    {
+      "action": "split",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "arm_rotational_motion",
+        "lower_leg_rotational_motion"
+      ],
+      "reason": "arm_rotational_motion: G2 supports right-lower-arm gyroscopic evidence of arm rotation. Frontal elevation of arms supplies a prominent-rotation anchor, while cycling can involve active legs with relatively stable arms. Arm swing, handlebar use and voluntary arm positioning create ambiguity, so this is not a hand-support detector. lower_leg_rotational_motion: G2 supports left-ankle gyroscopic evidence of lower-leg rotation, with G12 providing complementary orientation-change evidence. Walking and knees bending (crouching) anchor leg motion transferable to cycling and climbing stairs. This adds a limb-distribution contrast for cycling versus waist bends forward and potentially for waist bends forward versus knees bending (crouching), where a relatively stationary lower leg can contrast with squat-related shank movement. Pedaling geometry, shallow crouching and compensatory leg motion can reduce that contrast; ankle evidence cannot directly measure knee or hip flexion. The split resolves physically observable motion location rather than inventing an activity-specific mechanism.",
+      "target_unseen": [
+        "cycling",
+        "waist bends forward",
+        "climbing stairs"
+      ],
+      "contrast_unseen": [
+        "waist bends forward",
+        "cycling"
+      ],
+      "seen_anchors": [
+        "frontal elevation of arms",
+        "walking",
+        "knees bending (crouching)"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion: G13 supports short-window translational-motion proxies, with chest motion providing body-level evidence. Walking and jogging anchor locomotor movement relative to stationary exercises, relevant to climbing stairs and waist bends forward. Sustained progression is only indirectly observable: drift, periodic limb motion and stationary versus traveling cycling prevent reliable inference of net travel. Preserve the broad A1 concept without adding elevation, distance or travel-direction attributes.",
+      "target_unseen": [
+        "climbing stairs",
+        "waist bends forward",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "jogging",
+        "frontal elevation of arms"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity: G11 supports temporal recurrence and predictability in the available inertial signals. Walking and frontal elevation of arms anchor structured motion transferable to climbing stairs, cycling and waist bends forward. All supplied A1 prototypes share the same state, so this attribute adds no current pairwise separation; it is retained as a distinct supported concept rather than replaced with an uncertain discriminator. Pauses, transitions and nearly static signals can make regularity ambiguous.",
+      "target_unseen": [
+        "climbing stairs",
+        "cycling",
+        "waist bends forward"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "frontal elevation of arms"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The ten attributes retain A1's distinct physical concepts while replacing global rotation with two anatomically scoped rotation concepts. Arm and lower-leg rotation can vary independently; neither measures global posture change. Posture inclination describes mean configuration, whereas posture variability describes its change. Cadence describes repetition rate, whereas regularity describes predictability. Smoothness concerns sustained fluctuations, whereas impulsiveness concerns brief peaks; both can correlate with intensity without being equivalent. Translational motion is separate from limb rotation but has limited net-travel observability. No unsupported knee-angle, seat-support, stair-height or absolute-velocity attribute is introduced. No extra distinction is claimed for standing versus upright sitting or for walking versus jogging beyond what the supplied semantics and sensor capabilities justify."
+}

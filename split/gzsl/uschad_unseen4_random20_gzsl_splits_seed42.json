@@ -1,0 +1,712 @@
+{
+  "dataset": "uschad",
+  "unseen_count": 4,
+  "seed": 42,
+  "num_splits": 20,
+  "evaluation_protocol": "gzsl",
+  "training_label_space": "seen_only",
+  "candidate_label_space": "seen_union_unseen",
+  "source_split_manifest": "/home/wanzhen/split/zero_shot_split/uschad_unseen4_random20_splits_seed42.json",
+  "splits": [
+    {
+      "split_index": 13,
+      "seen_ids": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        1,
+        3,
+        7
+      ],
+      "seen_activities": [
+        "walking_right",
+        "walking_downstairs",
+        "running_forward",
+        "jumping_up",
+        "standing",
+        "sleeping",
+        "elevator_up",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "walking_left",
+        "walking_upstairs",
+        "sitting"
+      ]
+    },
+    {
+      "split_index": 16,
+      "seen_ids": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        1,
+        3,
+        10
+      ],
+      "seen_activities": [
+        "walking_right",
+        "walking_downstairs",
+        "running_forward",
+        "jumping_up",
+        "sitting",
+        "standing",
+        "sleeping",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "walking_left",
+        "walking_upstairs",
+        "elevator_up"
+      ]
+    },
+    {
+      "split_index": 17,
+      "seen_ids": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        0,
+        1,
+        3,
+        11
+      ],
+      "seen_activities": [
+        "walking_right",
+        "walking_downstairs",
+        "running_forward",
+        "jumping_up",
+        "sitting",
+        "standing",
+        "sleeping",
+        "elevator_up"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "walking_left",
+        "walking_upstairs",
+        "elevator_down"
+      ]
+    },
+    {
+      "split_index": 45,
+      "seen_ids": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unseen_ids": [
+        0,
+        1,
+        10,
+        11
+      ],
+      "seen_activities": [
+        "walking_right",
+        "walking_upstairs",
+        "walking_downstairs",
+        "running_forward",
+        "jumping_up",
+        "sitting",
+        "standing",
+        "sleeping"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "walking_left",
+        "elevator_up",
+        "elevator_down"
+      ]
+    },
+    {
+      "split_index": 48,
+      "seen_ids": [
+        1,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        3,
+        6
+      ],
+      "seen_activities": [
+        "walking_left",
+        "walking_downstairs",
+        "running_forward",
+        "sitting",
+        "standing",
+        "sleeping",
+        "elevator_up",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "walking_right",
+        "walking_upstairs",
+        "jumping_up"
+      ]
+    },
+    {
+      "split_index": 53,
+      "seen_ids": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        3,
+        11
+      ],
+      "seen_activities": [
+        "walking_left",
+        "walking_downstairs",
+        "running_forward",
+        "jumping_up",
+        "sitting",
+        "standing",
+        "sleeping",
+        "elevator_up"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "walking_right",
+        "walking_upstairs",
+        "elevator_down"
+      ]
+    },
+    {
+      "split_index": 58,
+      "seen_ids": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        4,
+        9
+      ],
+      "seen_activities": [
+        "walking_left",
+        "walking_upstairs",
+        "running_forward",
+        "jumping_up",
+        "sitting",
+        "standing",
+        "elevator_up",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "walking_right",
+        "walking_downstairs",
+        "sleeping"
+      ]
+    },
+    {
+      "split_index": 72,
+      "seen_ids": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        7,
+        8
+      ],
+      "seen_activities": [
+        "walking_left",
+        "walking_upstairs",
+        "walking_downstairs",
+        "running_forward",
+        "jumping_up",
+        "sleeping",
+        "elevator_up",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "walking_right",
+        "sitting",
+        "standing"
+      ]
+    },
+    {
+      "split_index": 112,
+      "seen_ids": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        4,
+        5,
+        8
+      ],
+      "seen_activities": [
+        "walking_left",
+        "walking_right",
+        "walking_upstairs",
+        "jumping_up",
+        "sitting",
+        "sleeping",
+        "elevator_up",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "walking_downstairs",
+        "running_forward",
+        "standing"
+      ]
+    },
+    {
+      "split_index": 115,
+      "seen_ids": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        0,
+        4,
+        5,
+        11
+      ],
+      "seen_activities": [
+        "walking_left",
+        "walking_right",
+        "walking_upstairs",
+        "jumping_up",
+        "sitting",
+        "standing",
+        "sleeping",
+        "elevator_up"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "walking_downstairs",
+        "running_forward",
+        "elevator_down"
+      ]
+    },
+    {
+      "split_index": 126,
+      "seen_ids": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        4,
+        8,
+        10
+      ],
+      "seen_activities": [
+        "walking_left",
+        "walking_right",
+        "walking_upstairs",
+        "running_forward",
+        "jumping_up",
+        "sitting",
+        "sleeping",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "walking_downstairs",
+        "standing",
+        "elevator_up"
+      ]
+    },
+    {
+      "split_index": 141,
+      "seen_ids": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        5,
+        8,
+        10
+      ],
+      "seen_activities": [
+        "walking_left",
+        "walking_right",
+        "walking_upstairs",
+        "walking_downstairs",
+        "jumping_up",
+        "sitting",
+        "sleeping",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_forward",
+        "running_forward",
+        "standing",
+        "elevator_up"
+      ]
+    },
+    {
+      "split_index": 217,
+      "seen_ids": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        1,
+        3,
+        6,
+        9
+      ],
+      "seen_activities": [
+        "walking_forward",
+        "walking_right",
+        "walking_downstairs",
+        "running_forward",
+        "sitting",
+        "standing",
+        "elevator_up",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_left",
+        "walking_upstairs",
+        "jumping_up",
+        "sleeping"
+      ]
+    },
+    {
+      "split_index": 280,
+      "seen_ids": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "unseen_ids": [
+        1,
+        7,
+        9,
+        11
+      ],
+      "seen_activities": [
+        "walking_forward",
+        "walking_right",
+        "walking_upstairs",
+        "walking_downstairs",
+        "running_forward",
+        "jumping_up",
+        "standing",
+        "elevator_up"
+      ],
+      "unseen_activities": [
+        "walking_left",
+        "sitting",
+        "sleeping",
+        "elevator_down"
+      ]
+    },
+    {
+      "split_index": 303,
+      "seen_ids": [
+        0,
+        1,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        2,
+        3,
+        6,
+        11
+      ],
+      "seen_activities": [
+        "walking_forward",
+        "walking_left",
+        "walking_downstairs",
+        "running_forward",
+        "sitting",
+        "standing",
+        "sleeping",
+        "elevator_up"
+      ],
+      "unseen_activities": [
+        "walking_right",
+        "walking_upstairs",
+        "jumping_up",
+        "elevator_down"
+      ]
+    },
+    {
+      "split_index": 328,
+      "seen_ids": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        2,
+        4,
+        7,
+        11
+      ],
+      "seen_activities": [
+        "walking_forward",
+        "walking_left",
+        "walking_upstairs",
+        "running_forward",
+        "jumping_up",
+        "standing",
+        "sleeping",
+        "elevator_up"
+      ],
+      "unseen_activities": [
+        "walking_right",
+        "walking_downstairs",
+        "sitting",
+        "elevator_down"
+      ]
+    },
+    {
+      "split_index": 347,
+      "seen_ids": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "unseen_ids": [
+        2,
+        5,
+        9,
+        10
+      ],
+      "seen_activities": [
+        "walking_forward",
+        "walking_left",
+        "walking_upstairs",
+        "walking_downstairs",
+        "jumping_up",
+        "sitting",
+        "standing",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_right",
+        "running_forward",
+        "sleeping",
+        "elevator_up"
+      ]
+    },
+    {
+      "split_index": 378,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        8,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        3,
+        4,
+        6,
+        9
+      ],
+      "seen_activities": [
+        "walking_forward",
+        "walking_left",
+        "walking_right",
+        "running_forward",
+        "sitting",
+        "standing",
+        "elevator_up",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_upstairs",
+        "walking_downstairs",
+        "jumping_up",
+        "sleeping"
+      ]
+    },
+    {
+      "split_index": 380,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        3,
+        4,
+        6,
+        11
+      ],
+      "seen_activities": [
+        "walking_forward",
+        "walking_left",
+        "walking_right",
+        "running_forward",
+        "sitting",
+        "standing",
+        "sleeping",
+        "elevator_up"
+      ],
+      "unseen_activities": [
+        "walking_upstairs",
+        "walking_downstairs",
+        "jumping_up",
+        "elevator_down"
+      ]
+    },
+    {
+      "split_index": 457,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        11
+      ],
+      "unseen_ids": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "seen_activities": [
+        "walking_forward",
+        "walking_left",
+        "walking_right",
+        "walking_upstairs",
+        "running_forward",
+        "jumping_up",
+        "sitting",
+        "elevator_down"
+      ],
+      "unseen_activities": [
+        "walking_downstairs",
+        "standing",
+        "sleeping",
+        "elevator_up"
+      ]
+    }
+  ]
+}

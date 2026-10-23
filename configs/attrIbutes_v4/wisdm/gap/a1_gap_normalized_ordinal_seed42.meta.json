@@ -1,0 +1,736 @@
+{
+  "dataset": "wisdm",
+  "attribute_set": "A1",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity"
+  ],
+  "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+  "a1_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+  "activity_vectors": {
+    "walking": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "jogging": {
+      "motion_intensity": "High",
+      "cadence": "High",
+      "smoothness": "Medium",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "stairs": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "Medium"
+    },
+    "sitting": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "standing": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "typing": {
+      "motion_intensity": "Low",
+      "cadence": "High",
+      "smoothness": "Medium",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "Medium"
+    },
+    "brushing teeth": {
+      "motion_intensity": "Medium",
+      "cadence": "High",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "eating soup": {
+      "motion_intensity": "Medium",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "Medium"
+    },
+    "eating chips": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "Medium",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "Low"
+    },
+    "eating pasta": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "Medium"
+    },
+    "drinking from cup": {
+      "motion_intensity": "Medium",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "eating sandwich": {
+      "motion_intensity": "Medium",
+      "cadence": "Low",
+      "smoothness": "Medium",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "Medium"
+    },
+    "kicking (soccer ball)": {
+      "motion_intensity": "High",
+      "cadence": "Low",
+      "smoothness": "Medium",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "High",
+      "rotational_motion": "High",
+      "translational_motion": "Medium",
+      "motion_regularity": "Low"
+    },
+    "playing catch w/tennis ball": {
+      "motion_intensity": "High",
+      "cadence": "Low",
+      "smoothness": "Medium",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "Medium"
+    },
+    "dribbling (basketball)": {
+      "motion_intensity": "High",
+      "cadence": "High",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Medium",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "writing": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "Medium"
+    },
+    "clapping": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "folding clothes": {
+      "motion_intensity": "Medium",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Medium",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "Low"
+    }
+  },
+  "split_manifest": "/home/wanzhen/myproject_new/split/zero_shot_split/wisdm_unseen6_random20_splits_seed42.json",
+  "split_source": "manifest",
+  "splits": [
+    {
+      "split_index": 820,
+      "seen_activities": [
+        "stairs",
+        "sitting",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "jogging",
+        "standing",
+        "typing",
+        "brushing teeth",
+        "eating soup"
+      ]
+    },
+    {
+      "split_index": 870,
+      "seen_activities": [
+        "stairs",
+        "sitting",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping"
+      ],
+      "unseen_activities": [
+        "walking",
+        "jogging",
+        "standing",
+        "typing",
+        "eating sandwich",
+        "folding clothes"
+      ]
+    },
+    {
+      "split_index": 977,
+      "seen_activities": [
+        "stairs",
+        "sitting",
+        "typing",
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "dribbling (basketball)",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "jogging",
+        "standing",
+        "eating soup",
+        "playing catch w/tennis ball",
+        "writing"
+      ]
+    },
+    {
+      "split_index": 1042,
+      "seen_activities": [
+        "stairs",
+        "sitting",
+        "typing",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "dribbling (basketball)",
+        "writing",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "jogging",
+        "standing",
+        "eating pasta",
+        "playing catch w/tennis ball",
+        "clapping"
+      ]
+    },
+    {
+      "split_index": 2849,
+      "seen_activities": [
+        "jogging",
+        "sitting",
+        "standing",
+        "typing",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "dribbling (basketball)",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "stairs",
+        "brushing teeth",
+        "playing catch w/tennis ball",
+        "writing",
+        "clapping"
+      ]
+    },
+    {
+      "split_index": 3071,
+      "seen_activities": [
+        "jogging",
+        "sitting",
+        "standing",
+        "typing",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "stairs",
+        "eating pasta",
+        "drinking from cup",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)"
+      ]
+    },
+    {
+      "split_index": 3359,
+      "seen_activities": [
+        "jogging",
+        "stairs",
+        "typing",
+        "brushing teeth",
+        "eating soup",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping"
+      ],
+      "unseen_activities": [
+        "walking",
+        "sitting",
+        "standing",
+        "eating chips",
+        "eating pasta",
+        "folding clothes"
+      ]
+    },
+    {
+      "split_index": 3649,
+      "seen_activities": [
+        "jogging",
+        "stairs",
+        "standing",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "dribbling (basketball)",
+        "writing",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "sitting",
+        "typing",
+        "drinking from cup",
+        "playing catch w/tennis ball",
+        "clapping"
+      ]
+    },
+    {
+      "split_index": 4573,
+      "seen_activities": [
+        "jogging",
+        "stairs",
+        "sitting",
+        "typing",
+        "brushing teeth",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "standing",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich"
+      ]
+    },
+    {
+      "split_index": 6516,
+      "seen_activities": [
+        "walking",
+        "standing",
+        "typing",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "clapping"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "stairs",
+        "sitting",
+        "drinking from cup",
+        "writing",
+        "folding clothes"
+      ]
+    },
+    {
+      "split_index": 7165,
+      "seen_activities": [
+        "walking",
+        "sitting",
+        "standing",
+        "typing",
+        "eating soup",
+        "eating chips",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "stairs",
+        "brushing teeth",
+        "eating pasta",
+        "writing",
+        "clapping"
+      ]
+    },
+    {
+      "split_index": 7315,
+      "seen_activities": [
+        "walking",
+        "sitting",
+        "standing",
+        "typing",
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "dribbling (basketball)",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "stairs",
+        "eating soup",
+        "eating sandwich",
+        "playing catch w/tennis ball",
+        "writing"
+      ]
+    },
+    {
+      "split_index": 7624,
+      "seen_activities": [
+        "walking",
+        "stairs",
+        "typing",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "eating sandwich",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "sitting",
+        "standing",
+        "brushing teeth",
+        "eating soup",
+        "kicking (soccer ball)"
+      ]
+    },
+    {
+      "split_index": 8025,
+      "seen_activities": [
+        "walking",
+        "stairs",
+        "standing",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "sitting",
+        "typing",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball"
+      ]
+    },
+    {
+      "split_index": 9013,
+      "seen_activities": [
+        "walking",
+        "stairs",
+        "sitting",
+        "typing",
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "standing",
+        "eating soup",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "clapping"
+      ]
+    },
+    {
+      "split_index": 13826,
+      "seen_activities": [
+        "walking",
+        "jogging",
+        "stairs",
+        "typing",
+        "eating soup",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "standing",
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich"
+      ]
+    },
+    {
+      "split_index": 16560,
+      "seen_activities": [
+        "walking",
+        "jogging",
+        "stairs",
+        "sitting",
+        "typing",
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "writing"
+      ],
+      "unseen_activities": [
+        "standing",
+        "eating soup",
+        "drinking from cup",
+        "dribbling (basketball)",
+        "clapping",
+        "folding clothes"
+      ]
+    },
+    {
+      "split_index": 17857,
+      "seen_activities": [
+        "walking",
+        "jogging",
+        "stairs",
+        "sitting",
+        "standing",
+        "typing",
+        "eating soup",
+        "eating sandwich",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball"
+      ]
+    },
+    {
+      "split_index": 17871,
+      "seen_activities": [
+        "walking",
+        "jogging",
+        "stairs",
+        "sitting",
+        "standing",
+        "typing",
+        "eating soup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing"
+      ],
+      "unseen_activities": [
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "clapping",
+        "folding clothes"
+      ]
+    },
+    {
+      "split_index": 18391,
+      "seen_activities": [
+        "walking",
+        "jogging",
+        "stairs",
+        "sitting",
+        "standing",
+        "typing",
+        "brushing teeth",
+        "eating soup",
+        "drinking from cup",
+        "dribbling (basketball)",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "eating chips",
+        "eating pasta",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "writing"
+      ]
+    }
+  ],
+  "seed": 42,
+  "top_k": 2,
+  "distance_metric": "normalized_ordinal",
+  "attribute_weighting": "uniform",
+  "distance_formula": "(1/K_A) * sum_k(abs(a_i,k - a_j,k) / 2)",
+  "formula_ordinal_values": {
+    "Low": 0,
+    "Medium": 1,
+    "High": 2
+  },
+  "ordinal_values": {
+    "Low": 0.0,
+    "Medium": 0.5,
+    "High": 1.0
+  }
+}

@@ -1,0 +1,992 @@
+{
+  "dataset": "dsads",
+  "unseen_count": 6,
+  "seed": 42,
+  "num_splits": 20,
+  "evaluation_protocol": "gzsl",
+  "training_label_space": "seen_only",
+  "candidate_label_space": "seen_union_unseen",
+  "source_split_manifest": "/home/wanzhen/split/zero_shot_split/dsads_unseen6_random20_splits_seed42.json",
+  "splits": [
+    {
+      "split_index": 820,
+      "seen_ids": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18
+      ],
+      "unseen_ids": [
+        0,
+        1,
+        3,
+        7,
+        10,
+        16
+      ],
+      "seen_activities": [
+        "lying_on_back",
+        "ascending_stairs",
+        "descending_stairs",
+        "standing_in_an_elevator_still",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "exercising_on_a_cross_trainer",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "jumping",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "standing",
+        "lying_on_right_side",
+        "moving_around_in_an_elevator",
+        "walking_on_a_treadmill_inclined",
+        "rowing"
+      ]
+    },
+    {
+      "split_index": 977,
+      "seen_ids": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        16,
+        17
+      ],
+      "unseen_ids": [
+        0,
+        1,
+        3,
+        11,
+        15,
+        18
+      ],
+      "seen_activities": [
+        "lying_on_back",
+        "ascending_stairs",
+        "descending_stairs",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "exercising_on_a_stepper",
+        "exercising_on_a_cross_trainer",
+        "cycling_horizontal",
+        "rowing",
+        "jumping"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "standing",
+        "lying_on_right_side",
+        "running_on_a_treadmill",
+        "cycling_vertical",
+        "playing_basketball"
+      ]
+    },
+    {
+      "split_index": 1042,
+      "seen_ids": [
+        2,
+        3,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unseen_ids": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        12
+      ],
+      "seen_activities": [
+        "lying_on_back",
+        "lying_on_right_side",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_cross_trainer",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "rowing",
+        "jumping",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "standing",
+        "ascending_stairs",
+        "descending_stairs",
+        "walking_in_a_parking_lot",
+        "exercising_on_a_stepper"
+      ]
+    },
+    {
+      "split_index": 2849,
+      "seen_ids": [
+        1,
+        3,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        9
+      ],
+      "seen_activities": [
+        "standing",
+        "lying_on_right_side",
+        "standing_in_an_elevator_still",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "exercising_on_a_cross_trainer",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "rowing",
+        "jumping",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "lying_on_back",
+        "ascending_stairs",
+        "descending_stairs",
+        "moving_around_in_an_elevator",
+        "walking_on_a_treadmill_flat"
+      ]
+    },
+    {
+      "split_index": 3071,
+      "seen_ids": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        4,
+        8,
+        14,
+        16
+      ],
+      "seen_activities": [
+        "standing",
+        "lying_on_right_side",
+        "descending_stairs",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "exercising_on_a_cross_trainer",
+        "cycling_vertical",
+        "jumping",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "lying_on_back",
+        "ascending_stairs",
+        "walking_in_a_parking_lot",
+        "cycling_horizontal",
+        "rowing"
+      ]
+    },
+    {
+      "split_index": 3359,
+      "seen_ids": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        5,
+        8,
+        14,
+        18
+      ],
+      "seen_activities": [
+        "standing",
+        "lying_on_right_side",
+        "ascending_stairs",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "exercising_on_a_cross_trainer",
+        "cycling_vertical",
+        "rowing",
+        "jumping"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "lying_on_back",
+        "descending_stairs",
+        "walking_in_a_parking_lot",
+        "cycling_horizontal",
+        "playing_basketball"
+      ]
+    },
+    {
+      "split_index": 3649,
+      "seen_ids": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        6,
+        10,
+        17,
+        18
+      ],
+      "seen_activities": [
+        "standing",
+        "lying_on_right_side",
+        "ascending_stairs",
+        "descending_stairs",
+        "moving_around_in_an_elevator",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "exercising_on_a_cross_trainer",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "rowing"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "lying_on_back",
+        "standing_in_an_elevator_still",
+        "walking_on_a_treadmill_inclined",
+        "jumping",
+        "playing_basketball"
+      ]
+    },
+    {
+      "split_index": 4573,
+      "seen_ids": [
+        1,
+        2,
+        4,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18
+      ],
+      "unseen_ids": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        16
+      ],
+      "seen_activities": [
+        "standing",
+        "lying_on_back",
+        "ascending_stairs",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "exercising_on_a_cross_trainer",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "jumping",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "lying_on_right_side",
+        "descending_stairs",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "rowing"
+      ]
+    },
+    {
+      "split_index": 7165,
+      "seen_ids": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        12,
+        14,
+        15,
+        16,
+        18
+      ],
+      "unseen_ids": [
+        0,
+        5,
+        10,
+        11,
+        13,
+        17
+      ],
+      "seen_activities": [
+        "standing",
+        "lying_on_back",
+        "lying_on_right_side",
+        "ascending_stairs",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "exercising_on_a_stepper",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "rowing",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "descending_stairs",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_cross_trainer",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 7315,
+      "seen_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        18
+      ],
+      "unseen_ids": [
+        0,
+        6,
+        7,
+        8,
+        13,
+        17
+      ],
+      "seen_activities": [
+        "standing",
+        "lying_on_back",
+        "lying_on_right_side",
+        "ascending_stairs",
+        "descending_stairs",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "rowing",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "walking_in_a_parking_lot",
+        "exercising_on_a_cross_trainer",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 8025,
+      "seen_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12,
+        14,
+        15,
+        17
+      ],
+      "unseen_ids": [
+        0,
+        7,
+        10,
+        13,
+        16,
+        18
+      ],
+      "seen_activities": [
+        "standing",
+        "lying_on_back",
+        "lying_on_right_side",
+        "ascending_stairs",
+        "descending_stairs",
+        "standing_in_an_elevator_still",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "jumping"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "moving_around_in_an_elevator",
+        "walking_on_a_treadmill_inclined",
+        "exercising_on_a_cross_trainer",
+        "rowing",
+        "playing_basketball"
+      ]
+    },
+    {
+      "split_index": 9013,
+      "seen_ids": [
+        0,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16
+      ],
+      "unseen_ids": [
+        1,
+        2,
+        3,
+        13,
+        17,
+        18
+      ],
+      "seen_activities": [
+        "sitting",
+        "ascending_stairs",
+        "descending_stairs",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "rowing"
+      ],
+      "unseen_activities": [
+        "standing",
+        "lying_on_back",
+        "lying_on_right_side",
+        "exercising_on_a_cross_trainer",
+        "jumping",
+        "playing_basketball"
+      ]
+    },
+    {
+      "split_index": 13826,
+      "seen_ids": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        18
+      ],
+      "unseen_ids": [
+        1,
+        6,
+        9,
+        13,
+        16,
+        17
+      ],
+      "seen_activities": [
+        "sitting",
+        "lying_on_back",
+        "lying_on_right_side",
+        "ascending_stairs",
+        "descending_stairs",
+        "moving_around_in_an_elevator",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "standing",
+        "standing_in_an_elevator_still",
+        "walking_on_a_treadmill_flat",
+        "exercising_on_a_cross_trainer",
+        "rowing",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 17871,
+      "seen_ids": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        18
+      ],
+      "unseen_ids": [
+        2,
+        6,
+        7,
+        8,
+        13,
+        17
+      ],
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying_on_right_side",
+        "ascending_stairs",
+        "descending_stairs",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "rowing",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "lying_on_back",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "walking_in_a_parking_lot",
+        "exercising_on_a_cross_trainer",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 19350,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        18
+      ],
+      "unseen_ids": [
+        3,
+        4,
+        5,
+        10,
+        15,
+        17
+      ],
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying_on_back",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "exercising_on_a_cross_trainer",
+        "cycling_horizontal",
+        "rowing",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "lying_on_right_side",
+        "ascending_stairs",
+        "descending_stairs",
+        "walking_on_a_treadmill_inclined",
+        "cycling_vertical",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 20953,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        8,
+        9,
+        10,
+        13,
+        14,
+        15,
+        17,
+        18
+      ],
+      "unseen_ids": [
+        3,
+        6,
+        7,
+        11,
+        12,
+        16
+      ],
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying_on_back",
+        "ascending_stairs",
+        "descending_stairs",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "exercising_on_a_cross_trainer",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "jumping",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "lying_on_right_side",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "rowing"
+      ]
+    },
+    {
+      "split_index": 22175,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        18
+      ],
+      "unseen_ids": [
+        4,
+        5,
+        6,
+        7,
+        14,
+        17
+      ],
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying_on_back",
+        "lying_on_right_side",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "exercising_on_a_cross_trainer",
+        "cycling_vertical",
+        "rowing",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "ascending_stairs",
+        "descending_stairs",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "cycling_horizontal",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 24133,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unseen_ids": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        13
+      ],
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying_on_back",
+        "lying_on_right_side",
+        "ascending_stairs",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "rowing",
+        "jumping",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "descending_stairs",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "exercising_on_a_cross_trainer"
+      ]
+    },
+    {
+      "split_index": 24271,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        16,
+        17
+      ],
+      "unseen_ids": [
+        5,
+        6,
+        7,
+        12,
+        15,
+        18
+      ],
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying_on_back",
+        "lying_on_right_side",
+        "ascending_stairs",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "running_on_a_treadmill",
+        "exercising_on_a_cross_trainer",
+        "cycling_horizontal",
+        "rowing",
+        "jumping"
+      ],
+      "unseen_activities": [
+        "descending_stairs",
+        "standing_in_an_elevator_still",
+        "moving_around_in_an_elevator",
+        "exercising_on_a_stepper",
+        "cycling_vertical",
+        "playing_basketball"
+      ]
+    },
+    {
+      "split_index": 24300,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18
+      ],
+      "unseen_ids": [
+        5,
+        6,
+        8,
+        9,
+        10,
+        16
+      ],
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying_on_back",
+        "lying_on_right_side",
+        "ascending_stairs",
+        "moving_around_in_an_elevator",
+        "running_on_a_treadmill",
+        "exercising_on_a_stepper",
+        "exercising_on_a_cross_trainer",
+        "cycling_horizontal",
+        "cycling_vertical",
+        "jumping",
+        "playing_basketball"
+      ],
+      "unseen_activities": [
+        "descending_stairs",
+        "standing_in_an_elevator_still",
+        "walking_in_a_parking_lot",
+        "walking_on_a_treadmill_flat",
+        "walking_on_a_treadmill_inclined",
+        "rowing"
+      ]
+    }
+  ]
+}

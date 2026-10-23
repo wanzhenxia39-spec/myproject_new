@@ -1,0 +1,351 @@
+{
+  "schema_version": "2.0",
+  "dataset": "pamap2",
+  "split_index": 126,
+  "refinement_needed": true,
+  "decision_reason": "A1 distinguishes most activities but represents motion mainly at a global level. The close walking–Nordic walking pair and the weak seen coverage of ironing motivate one regional distinction: hand movement relative to the trunk. This also provides a transferable connection between ironing and vacuum cleaning without equating tool use with whole-body locomotion. Preserve the remaining concepts: the supplied capabilities do not justify direct stair-direction, flight-phase, or support-contact attributes. The diagnostics indicate semantic coverage, not recognition performance.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "hand_relative_motion",
+      "definition": "Prominence of hand-segment movement relative to the trunk, excluding movement attributable primarily to the hand and trunk moving together.",
+      "levels": {
+        "Low": "Little or no hand movement relative to the trunk.",
+        "Medium": "Moderate hand movement relative to the trunk.",
+        "High": "Pronounced sustained or repeated hand movement relative to the trunk."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity: G3 supports overall acceleration and rotation magnitude across the available sensors. It preserves transferable effort-related contrasts among running, walking, and rope jumping. Pace and individual movement vigor can blur adjacent levels; intensity alone is not a locomotion or tool-use indicator.",
+      "target_unseen": [
+        "running"
+      ],
+      "contrast_unseen": [
+        "descending stairs"
+      ],
+      "seen_anchors": [
+        "walking",
+        "rope jumping"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence: G6 supports the repetition rate of recurring hand or ankle motion. Running can share fast repetition with rope jumping, while stair locomotion can transfer from walking. Different movement units, harmonics, and voluntary pace create ambiguity, so cadence is retained rather than interpreted as a fixed activity-specific rate.",
+      "target_unseen": [
+        "running",
+        "descending stairs"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "rope jumping",
+        "ascending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness: G9 supports sustained rapid signal change in hand, chest, and ankle motion. Continuous hand movement offers a bridge from ironing to smoother seen activities, while locomotor fluctuations help characterize descending stairs. Speed, contact conditions, and sensor location can alter smoothness without changing activity.",
+      "target_unseen": [
+        "ironing",
+        "descending stairs"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "vacuum cleaning",
+        "walking",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness: G10 supports brief abrupt changes, particularly contact-related ankle and chest responses. Running and descending stairs can reuse impact semantics represented by rope jumping and walking. Footwear, landing technique, and impact attenuation can obscure ordinal boundaries; impacts do not establish stair direction.",
+      "target_unseen": [
+        "running",
+        "descending stairs"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "rope jumping",
+        "walking"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination: G1 supports gravity-relative mean orientation, with chest orientation informing the global configuration and other segments providing context. This preserves the principal lying–sitting–standing distinction. Upright sitting and bent-limb lying can overlap, and isolated limb orientation must not substitute for global posture.",
+      "target_unseen": [
+        "lying"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "sitting",
+        "standing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability: G12 supports changes in gravity-relative configuration, especially at the chest. It retains a transferable distinction between relatively stable posture and activities involving body adjustments, linking descending stairs to ascending stairs and contextualizing ironing against vacuum cleaning. Limb movement alone is insufficient evidence, and steady stair technique may yield limited trunk variation.",
+      "target_unseen": [
+        "descending stairs",
+        "ironing"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "ascending stairs",
+        "vacuum cleaning",
+        "standing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "rotational_motion: G2 supports angular movement observable with the hand, chest, and ankle gyroscopes. It preserves broad movement contrasts linking running and descending stairs to Nordic walking and ascending stairs. Different body regions can produce similar overall rotational prominence, which motivates the separate hand-relative concept rather than replacing this global one.",
+      "target_unseen": [
+        "running",
+        "descending stairs"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "Nordic walking",
+        "ascending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion: G13 supports short-window indications of progression, with G14 providing multiaxial motion context. It preserves the close running–rope jumping contrast and separates locomotion from mostly stationary ironing. Sustained velocity is not directly established by inertial signals: drift, cyclic limb motion, and brief local steps limit predictability, so no direction or displacement attribute is introduced.",
+      "target_unseen": [
+        "running",
+        "descending stairs",
+        "ironing"
+      ],
+      "contrast_unseen": [
+        "ironing"
+      ],
+      "seen_anchors": [
+        "walking",
+        "rope jumping",
+        "vacuum cleaning"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity: G6 and G11 support recurrence and temporal predictability in repeated movement. It retains the running–descending stairs distinction and connects ironing with partly structured vacuum-cleaning motion. Regular stair descent and deliberately repetitive ironing can overlap with highly regular activities; recurrence is not equivalent to cadence.",
+      "target_unseen": [
+        "running",
+        "ironing"
+      ],
+      "contrast_unseen": [
+        "descending stairs"
+      ],
+      "seen_anchors": [
+        "walking",
+        "vacuum cleaning",
+        "rope jumping"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "hand_relative_motion"
+      ],
+      "reason": "hand_relative_motion: G2 and G14 support assessing hand angular and multiaxial movement in relation to chest movement. Expected evidence is substantial hand motion without proportionate trunk motion, rather than reconstructed hand position. This adds a regional contrast for ironing versus standing, connects ironing to vacuum cleaning, and can provide an additional distinction between walking and pole-assisted Nordic walking. Ordinary arm swing, tool technique, sensor alignment, and the instrumented hand can blur levels; neither tool identity nor guaranteed separation is assumed.",
+      "target_unseen": [
+        "ironing"
+      ],
+      "contrast_unseen": [
+        "lying"
+      ],
+      "seen_anchors": [
+        "standing",
+        "vacuum cleaning",
+        "walking",
+        "Nordic walking"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The ten attributes describe distinct physical aspects: magnitude, repetition rate, sustained fluctuation, isolated peaks, mean posture, posture change, rotation, progression, temporal predictability, and regional hand movement. Smoothness and impulsiveness differ in sustained versus brief rapid change; cadence and regularity differ in rate versus consistency. Hand_relative_motion overlaps partially with rotational_motion and motion_intensity but adds regional information relative to the trunk rather than duplicating global movement magnitude. No direct stair-direction, flight-phase, contact-state, or precise displacement attribute is added because its reliable observability is not established by the supplied capabilities. Static-posture ambiguity and running–descending stairs similarity are retained as limitations rather than resolved through unsupported distinctions.",
+  "_meta": {
+    "dataset": "pamap2",
+    "split_index": 126,
+    "seen": [
+      "sitting",
+      "standing",
+      "walking",
+      "cycling",
+      "Nordic walking",
+      "ascending stairs",
+      "vacuum cleaning",
+      "rope jumping"
+    ],
+    "unseen": [
+      "lying",
+      "running",
+      "descending stairs",
+      "ironing"
+    ],
+    "refinement_strategy": "full_a1_semantic_refinement_v3",
+    "planning_stages": 1,
+    "min_attributes": 9,
+    "max_attributes": 15,
+    "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5.json",
+    "a1_sha256": "d9c7469bf376db9661ad8a93f4a233b3d31bd9c19751d6da4ea9af1934fae887",
+    "a1_ontology_json": "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json",
+    "a1_ontology_sha256": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "split_csv_sha256": "2482ab2d696d13eff2a500bb41fabbc108824105a31d11ce341c99ed298ecb9a",
+    "gap_diagnostics_source": "reused_from_gap_csv",
+    "refinement_evidence": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/pamap2/split_126/a2_attribute_plan.refinement_evidence.json",
+    "refinement_evidence_sha256": "905be2850e152a791c070508f756ceaf10631a9959f51e5f6182e24154cc024c",
+    "prompt_json": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/pamap2/split_126/a2_attribute_plan.prompt.json",
+    "prompt_json_sha256": "8ea32d0ca3fe8a53f246f07dce76f84e65956b714d7c2246569c94e400861955",
+    "prompt_text": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/pamap2/split_126/a2_attribute_plan.prompt.txt",
+    "prompt_text_sha256": "afc068aca31e902b39132e6939843e99e60d66f2fc0a2de429c84cce2c7b2891",
+    "gap_a1_hash_verified": true,
+    "feature_source": "/home/wanzhen/windows/pamap_windows/all_features_name_20_120.npy",
+    "feature_names_sha256": "6ab7b9f1794d3ca765f891b649acfab4ec9657bbe842837f71393d1c6ca287cb",
+    "groups_sha256": "baf73e9cd119edfed55f10f9dc5b2404df597874ab5cf7f709646ecbb513213c",
+    "model": "gpt-6.1-sol",
+    "api_format": "openai",
+    "base_url": "https://xxapi.info/v1",
+    "stream": false,
+    "response_source": "live",
+    "validation_decision": "validated_semantic_a2",
+    "validation": "Semantic schema and complete A1-to-A2 lineage validated; no feature binding performed.",
+    "activity_role_repairs": []
+  }
+}

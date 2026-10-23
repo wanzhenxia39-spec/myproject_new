@@ -1,0 +1,192 @@
+{
+  "schema_version": "2.0",
+  "dataset": "uschad",
+  "split_index": 378,
+  "refinement_needed": true,
+  "decision_reason": "A1 already separates the two stair activities through intensity, impact, smoothness and posture, but Jumping Up has the weakest seen coverage. Add motion-intensity variability to describe burst-versus-sustained motion independently of repetition rate and peak impact, with running, walking and elevator transitions providing transferable anchors. Preserve the remaining concepts rather than inventing reliable left/right, elevator-direction or sitting/standing distinctions from a single hip IMU. Sleeping remains primarily an inclination-based extrapolation; no second reliable static-posture distinction is supported.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "motion_intensity_variability",
+      "definition": "Extent of temporal variation in motion magnitude and energy within a window, independent of the average intensity and repetition rate.",
+      "levels": {
+        "Low": "Motion intensity remains nearly constant.",
+        "Medium": "Motion intensity varies moderately around its prevailing level.",
+        "High": "Motion intensity varies strongly between quieter and more energetic phases."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": ["motion_intensity"],
+      "outputs": ["motion_intensity"],
+      "reason": "motion_intensity: G3 supports overall hip acceleration and rotation magnitude. Retains a broad stair-ascent and jumping connection to Running Forward. Effort, pace and sensor attachment can blur adjacent levels; intensity alone does not identify propulsion direction.",
+      "target_unseen": ["Walking Upstairs", "Jumping Up"],
+      "contrast_unseen": ["Walking Downstairs", "Sleeping"],
+      "seen_anchors": ["Running Forward", "Walking Forward", "Standing"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["cadence"],
+      "outputs": ["cadence"],
+      "reason": "cadence: G6 supports repetition rate in hip motion, transferring walking and running rhythm to stair locomotion. Short windows, irregular jumps and weak periodic motion can obscure rate; do not infer a fixed jumping cadence from the activity name.",
+      "target_unseen": ["Walking Upstairs", "Walking Downstairs", "Jumping Up"],
+      "contrast_unseen": ["Sleeping"],
+      "seen_anchors": ["Walking Forward", "Running Forward", "Standing"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["smoothness"],
+      "outputs": ["smoothness"],
+      "reason": "smoothness: G9 supports sustained rapid changes at the hip, retaining the stair-ascent versus descent contrast and transfer from walking to impact-rich activities. Pace and transmitted foot impacts can blur levels; this measures sustained fluctuation rather than isolated peaks.",
+      "target_unseen": ["Walking Upstairs", "Walking Downstairs", "Jumping Up"],
+      "contrast_unseen": [],
+      "seen_anchors": ["Walking Forward", "Running Forward", "Standing"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["impulsiveness"],
+      "outputs": ["impulsiveness"],
+      "reason": "impulsiveness: G10 supports abrupt hip-motion peaks associated with impacts, connecting descent and jumping to Running Forward while contrasting stair ascent. Hip attenuation, landing technique and windows missing an impact limit predictability.",
+      "target_unseen": ["Walking Downstairs", "Jumping Up"],
+      "contrast_unseen": ["Walking Upstairs"],
+      "seen_anchors": ["Running Forward", "Walking Forward"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_inclination"],
+      "outputs": ["posture_inclination"],
+      "reason": "posture_inclination: G1 supports gravity-relative hip orientation, preserving the principal Sleeping distinction and the inclination component of stair ascent. Standing and Sitting provide posture anchors, but hip orientation is an imperfect proxy for global configuration; sitting upright and different sleeping positions may overlap.",
+      "target_unseen": ["Sleeping", "Walking Upstairs"],
+      "contrast_unseen": ["Walking Downstairs", "Jumping Up"],
+      "seen_anchors": ["Standing", "Sitting", "Running Forward"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_variability"],
+      "outputs": ["posture_variability"],
+      "reason": "posture_variability: G12 supports changes in gravity-relative hip orientation, transferring stable versus changing configurations from standing and locomotion. Vertical displacement during jumping does not itself imply inclination change, and pelvic motion need not represent global posture; preserve the concept without treating the supplied jumping level as guaranteed sensor evidence.",
+      "target_unseen": ["Jumping Up", "Walking Upstairs", "Walking Downstairs", "Sleeping"],
+      "contrast_unseen": [],
+      "seen_anchors": ["Standing", "Walking Forward", "Running Forward"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["rotational_motion"],
+      "outputs": ["rotational_motion"],
+      "reason": "rotational_motion: G2 supports hip angular motion, retaining a rotational contrast between jumping and gait with walking and running anchors. Pelvic rotation depends on technique; left/right activity labels alone do not justify different rotation magnitudes or a new directional attribute.",
+      "target_unseen": ["Jumping Up", "Walking Upstairs", "Walking Downstairs"],
+      "contrast_unseen": [],
+      "seen_anchors": ["Walking Forward", "Walking Left", "Walking Right", "Running Forward"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["translational_motion"],
+      "outputs": ["translational_motion"],
+      "reason": "translational_motion: G13 supports short-window translation proxies, retaining sustained locomotion versus limited-displacement jumping and static activity. Walking provides transferable progression anchors. Constant-velocity elevator travel is not directly observable from inertial acceleration alone, so the Standing–elevator distinction remains window-dependent and elevator direction is not added.",
+      "target_unseen": ["Walking Upstairs", "Walking Downstairs", "Jumping Up", "Sleeping"],
+      "contrast_unseen": [],
+      "seen_anchors": ["Walking Forward", "Running Forward", "Standing", "Elevator Up", "Elevator Down"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["motion_regularity"],
+      "outputs": ["motion_regularity"],
+      "reason": "motion_regularity: G11 supports recurrence and predictability of hip motion, linking stair gait to structured walking and contrasting potentially intermittent jumping. Regular stillness differs from periodic gait but can share high predictability; repeated jumping or irregular stair execution can blur the supplied ordering.",
+      "target_unseen": ["Walking Upstairs", "Walking Downstairs", "Jumping Up", "Sleeping"],
+      "contrast_unseen": [],
+      "seen_anchors": ["Walking Forward", "Running Forward", "Standing"]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": ["motion_intensity_variability"],
+      "reason": "motion_intensity_variability: G4 supports temporal variation in hip-motion intensity, with G3 establishing its magnitude context. This adds burst-versus-steady evidence for weakly covered Jumping Up beyond cadence and peak impact: propulsion, flight and landing can alternate energetic and quieter phases. Running Forward and Walking Forward provide cyclic-modulation anchors, Standing a stable anchor, and elevator transitions possible nonperiodic modulation. Window boundaries, repeated jumping and the cyclic modulation of running create ambiguity; no unique jumping level or guaranteed extra stair-pair separation is assumed.",
+      "target_unseen": ["Jumping Up"],
+      "contrast_unseen": ["Walking Upstairs", "Walking Downstairs", "Sleeping"],
+      "seen_anchors": ["Running Forward", "Walking Forward", "Standing", "Elevator Up", "Elevator Down"]
+    }
+  ],
+  "semantic_redundancy_review": "The ten dimensions distinguish average energy, repetition rate, sustained rapid fluctuation, isolated abrupt peaks, mean inclination, inclination change, angular motion, sustained progression, temporal predictability and intensity modulation. The added variability dimension concerns amplitude changes, not their speed, periodicity or predictability; regular cyclic motion can have substantial intensity variation. Correlations remain possible, especially among intensity, smoothness, impulsiveness and variability, but they are not semantic duplicates. Pairwise review does not support manufacturing a second static-posture distinction, a reliable left/right magnitude asymmetry, or an elevator-direction cue. The stair pair retains several existing distinctions; jumping gains a transferable modulation concept without asserting improved coverage or recognition performance."
+}

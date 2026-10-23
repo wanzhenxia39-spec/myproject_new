@@ -1,0 +1,372 @@
+{
+  "schema_version": "2.0",
+  "dataset": "uschad",
+  "split_index": 347,
+  "refinement_needed": true,
+  "decision_reason": "Retain the nine A1 concepts and add one narrowly scoped distinction: gravity-relative vertical oscillation amplitude at the hip. Running Forward has the weakest supplied seen coverage; Walking Upstairs and Jumping Up provide complementary anchors for vigorous motion and vertical excursions. The added concept distinguishes vertical oscillation amplitude from repetition rate, total energy and net progression. The close static-posture pairs remain primarily distinguishable through posture_inclination. Do not manufacture left/right asymmetries or elevator direction cues: the supplied semantics do not establish reliable handed rotational patterns, and constant-velocity elevator travel is not directly observable from inertial signals.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "vertical_oscillation_amplitude",
+      "definition": "Magnitude of recurrent upward-and-downward hip motion relative to gravity, excluding net vertical progression and measuring excursion size rather than repetition rate.",
+      "levels": {
+        "Low": "Absent or small recurrent vertical excursions.",
+        "Medium": "Moderate recurrent vertical excursions.",
+        "High": "Large recurrent vertical excursions."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity: G3 supports overall dynamic acceleration and angular-motion magnitude at the hip. It transfers vigorous-motion evidence from Walking Upstairs and Jumping Up toward Running Forward, while retaining the low-motion contrast with Sleeping and Elevator Up. Speed, execution style and elevator transitions can blur ordinal boundaries; intensity alone does not identify activity or travel direction.",
+      "target_unseen": [
+        "Running Forward",
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "Walking Upstairs",
+        "Jumping Up",
+        "Standing",
+        "Elevator Down"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence: G6 supports repetition rate in hip acceleration and rotation. Walking Forward and Walking Upstairs anchor repeated locomotion for Walking Right and Running Forward without requiring an unseen-only motion primitive. Fast walking and slow running can overlap, and short or nonperiodic windows may not contain a stable repetition unit.",
+      "target_unseen": [
+        "Walking Right",
+        "Running Forward"
+      ],
+      "contrast_unseen": [
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "seen_anchors": [
+        "Walking Forward",
+        "Walking Left",
+        "Walking Upstairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness: G9 supports sustained rapid signal change, distinguishing continuous quiet motion from persistently fluctuating locomotion. Standing and Elevator Down provide relevant anchors for Elevator Up, while walking activities anchor Walking Right. Impacts, vibration and window placement can reduce apparent smoothness; the A1 left/right and elevator up/down asymmetries are not established physical invariants.",
+      "target_unseen": [
+        "Walking Right",
+        "Elevator Up"
+      ],
+      "contrast_unseen": [
+        "Running Forward"
+      ],
+      "seen_anchors": [
+        "Walking Forward",
+        "Walking Left",
+        "Standing",
+        "Elevator Down"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness: G10 supports brief abrupt changes transmitted to the hip. Walking Downstairs and Jumping Up provide impact-related anchors for Running Forward, independently of repetition rate. Footwear, landing strategy and attenuation between ground contact and the hip introduce ambiguity; isolated elevator transitions can also produce peaks.",
+      "target_unseen": [
+        "Running Forward"
+      ],
+      "contrast_unseen": [
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "seen_anchors": [
+        "Walking Downstairs",
+        "Jumping Up",
+        "Standing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination: G1 supports gravity-relative hip orientation as partial evidence of global posture. Sitting and Standing anchor the principal transferable inclination contrast for Sleeping, including its close unseen pairing with Elevator Up. A single hip sensor cannot fully reconstruct body configuration: upright sitting, reclined sitting and different sleeping positions can overlap.",
+      "target_unseen": [
+        "Sleeping"
+      ],
+      "contrast_unseen": [
+        "Elevator Up"
+      ],
+      "seen_anchors": [
+        "Sitting",
+        "Standing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability: G12 supports changes in gravity-relative hip orientation as evidence of changing global configuration. Walking Left and Jumping Up provide anchors for dynamic posture variation, while Sitting and Standing anchor stable posture. Pelvic rotation is not necessarily a global postural change, and Sleeping may include occasional repositioning; preserve the concept without inferring detailed limb configuration.",
+      "target_unseen": [
+        "Walking Right",
+        "Running Forward",
+        "Sleeping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "Walking Left",
+        "Jumping Up",
+        "Sitting",
+        "Standing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "rotational_motion: G2 supports angular-motion prominence directly at the hip. Walking Left and Walking Forward anchor rotational components transferable to Walking Right and Running Forward. Pelvic oscillation and path turning can both contribute; the activity names do not establish a reliable signed turning pattern, so no left/right-specific rotational attribute is introduced.",
+      "target_unseen": [
+        "Walking Right",
+        "Running Forward"
+      ],
+      "contrast_unseen": [
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "seen_anchors": [
+        "Walking Left",
+        "Walking Forward",
+        "Standing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion: G13 provides short-window translational-motion evidence, preserving the semantic distinction between progression and stationary posture. Walking Forward anchors locomotor translation; Elevator Down is the closest passive-transport anchor for Elevator Up. Predictability is limited: constant-velocity transport can resemble standing, short-window proxies drift, and net displacement or elevator direction must not be assumed observable.",
+      "target_unseen": [
+        "Walking Right",
+        "Running Forward",
+        "Elevator Up"
+      ],
+      "contrast_unseen": [
+        "Sleeping"
+      ],
+      "seen_anchors": [
+        "Walking Forward",
+        "Standing",
+        "Elevator Down"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity: G11 supports recurrence and temporal predictability, distinct from how fast repetition occurs. Walking Forward and Walking Upstairs anchor structured locomotion for Running Forward; quiet Standing supports the stable-motion interpretation relevant to Sleeping and Elevator Up. Both quiet signals and periodic gait can be regular, while transitions or short windows can disrupt estimates; regularity is not itself a locomotion detector.",
+      "target_unseen": [
+        "Running Forward",
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "Walking Forward",
+        "Walking Upstairs",
+        "Standing"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "vertical_oscillation_amplitude"
+      ],
+      "reason": "vertical_oscillation_amplitude: G1 and G14 support gravity-relative vertical motion structure, with G3 and G6 supporting its dynamic magnitude and recurrence. Alternating vertical acceleration at the hip is expected evidence of recurrent excursions, not a direct displacement measurement. Jumping Up supplies a pronounced-excursion anchor and Walking Forward and Walking Upstairs supply locomotor anchors for Running Forward, the least-covered unseen class. The concept adds a spatial-amplitude distinction beyond cadence, total intensity and net translation, and contrasts active bouncing with quiet posture or passive elevator travel. Excursion inference depends on repetition rate; gait style, brief windows, dynamic gravity-estimation error and elevator transients can obscure it. Do not assume a universal running-versus-stair ordering or infer flight time.",
+      "target_unseen": [
+        "Running Forward",
+        "Walking Right"
+      ],
+      "contrast_unseen": [
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "seen_anchors": [
+        "Jumping Up",
+        "Walking Forward",
+        "Walking Upstairs",
+        "Standing",
+        "Elevator Down"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The retained concepts distinguish total motion magnitude, repetition rate, sustained rapid fluctuation, isolated abrupt peaks, mean inclination, inclination variation, angular motion, linear progression and temporal predictability. Smoothness and impulsiveness intentionally separate sustained fluctuation from brief impacts; cadence and regularity separate rate from consistency. Vertical oscillation amplitude isolates the size of recurrent gravity-relative hip excursions, not total energy, posture change, repetition rate or net elevation gain. It can correlate with these attributes but is not definitionally equivalent. No additional posture label is introduced because the hip alone does not reliably supply an independent sitting-versus-standing or sleeping-versus-sitting distinction. No signed lateral or elevator-direction dimension is added. Retaining A1 concepts does not validate every supplied prototype asymmetry, and no class-level A2 vectors or performance claims are inferred.",
+  "_meta": {
+    "dataset": "uschad",
+    "split_index": 347,
+    "seen": [
+      "Walking Forward",
+      "Walking Left",
+      "Walking Upstairs",
+      "Walking Downstairs",
+      "Jumping Up",
+      "Sitting",
+      "Standing",
+      "Elevator Down"
+    ],
+    "unseen": [
+      "Walking Right",
+      "Running Forward",
+      "Sleeping",
+      "Elevator Up"
+    ],
+    "refinement_strategy": "full_a1_semantic_refinement_v3",
+    "planning_stages": 1,
+    "min_attributes": 9,
+    "max_attributes": 15,
+    "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_uschad_v1_5.json",
+    "a1_sha256": "a9c06ea5c4bb8e8256ae33dbb105b0047774375ec1f1393a13cfd6c9f0da4934",
+    "a1_ontology_json": "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json",
+    "a1_ontology_sha256": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "split_csv_sha256": "c201d8ab8f5199bde78fe917387cc75c264aa4abb0861f89a11d0a338147de8c",
+    "gap_diagnostics_source": "reused_from_gap_csv",
+    "refinement_evidence": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_347/a2_attribute_plan.refinement_evidence.json",
+    "refinement_evidence_sha256": "7b5c2122980513ede97cada2e52edd53a28e65ecc3e93762723675d972d30a47",
+    "prompt_json": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_347/a2_attribute_plan.prompt.json",
+    "prompt_json_sha256": "a4f1c2890911b7f35cd8d987b9ceffd0e8d94c66fa351692cdb2b4ee2b65b7f9",
+    "prompt_text": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_347/a2_attribute_plan.prompt.txt",
+    "prompt_text_sha256": "6886772f0adef596cdc5cc03b7334ccfb588020a07c8d86b75c708c90621dcdc",
+    "gap_a1_hash_verified": true,
+    "feature_source": "/home/wanzhen/windows/uschad_windows/all_features_name_20_120.npy",
+    "feature_names_sha256": "6b86137bfcec77cb046b542dd042f6df5c9e9190d9399127d62e35767c631663",
+    "groups_sha256": "baf73e9cd119edfed55f10f9dc5b2404df597874ab5cf7f709646ecbb513213c",
+    "model": "gpt-6.1-sol",
+    "api_format": "openai",
+    "base_url": "https://xxapi.info/v1",
+    "stream": false,
+    "response_source": "live",
+    "validation_decision": "validated_semantic_a2",
+    "validation": "Semantic schema and complete A1-to-A2 lineage validated; no feature binding performed.",
+    "activity_role_repairs": []
+  }
+}

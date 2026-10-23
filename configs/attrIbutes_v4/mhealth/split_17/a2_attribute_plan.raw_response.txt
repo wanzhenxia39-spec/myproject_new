@@ -1,0 +1,300 @@
+{
+  "schema_version": "2.0",
+  "dataset": "mhealth",
+  "split_index": 17,
+  "refinement_needed": true,
+  "decision_reason": "A1 leaves standing still and sitting and relaxing separated only by posture_inclination, and walking and jogging separated only by motion_intensity. These distinctions cannot safely be multiplied from the supplied semantics: seated trunk orientation is variable, and walking and jogging can overlap in intensity and cadence. Jump front & back has the weakest reported seen coverage, but its existing cadence, impact and translation concepts provide plausible transfer from running and climbing stairs without introducing uncertain flight or trajectory attributes. A conservative split of rotational_motion adds regional specificity: chest reorientation versus instrumented-limb rotation can distinguish waist bends forward from knees bending (crouching), whose A1 vectors differ only in smoothness. The static unseen-pair ambiguity remains explicitly unresolved rather than receiving an unsupported posture discriminator.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "trunk_reorientation",
+      "definition": "Extent of gravity-relative reorientation of the chest-bearing trunk within a window, excluding rotation confined to the limbs and rotation about gravity that does not change trunk inclination.",
+      "levels": {
+        "Low": "Little or no change in trunk inclination.",
+        "Medium": "Moderate change in trunk inclination.",
+        "High": "Large change in trunk inclination."
+      }
+    },
+    {
+      "name": "limb_rotational_motion",
+      "definition": "Prominence of angular motion of the instrumented lower arm and lower leg within a window, rather than reorientation of the trunk.",
+      "levels": {
+        "Low": "Little or no angular motion of the instrumented limb segments.",
+        "Medium": "Moderate angular motion of the instrumented limb segments.",
+        "High": "Prominent angular motion of the instrumented limb segments."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity: G3 supports overall acceleration and angular-motion magnitude across the available sensors. It preserves the supplied walking–jogging distinction and vigorous-motion transfer to jump front & back. Execution effort and sensor placement can blur adjacent levels; intensity is not treated as a guaranteed gait discriminator.",
+      "target_unseen": [
+        "walking",
+        "jump front & back"
+      ],
+      "contrast_unseen": [
+        "standing still",
+        "sitting and relaxing"
+      ],
+      "seen_anchors": [
+        "jogging",
+        "running",
+        "climbing stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence: G6 supports repetition-rate evidence from recurring limb and body motion. It transfers periodic-motion semantics to walking and jump front & back from seen locomotor activities. Speed variation, short windows and ambiguity between steps and full cycles can blur levels; no new fixed cadence distinction is imposed on walking versus jogging.",
+      "target_unseen": [
+        "walking",
+        "jump front & back"
+      ],
+      "contrast_unseen": [
+        "standing still",
+        "sitting and relaxing"
+      ],
+      "seen_anchors": [
+        "jogging",
+        "running",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness: G9 supports sustained rapid changes in the available motion signals. This preserves a continuous-versus-fluctuating distinction useful for transferring from running to jump front & back. Impacts can also reduce smoothness, and execution style may weaken the A1 waist-bend–crouch contrast; smoothness is not used as its sole reliable explanation.",
+      "target_unseen": [
+        "jump front & back",
+        "walking"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "running",
+        "cycling",
+        "waist bends forward",
+        "knees bending (crouching)"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness: G10 supports short abrupt changes, particularly landing-related evidence at the ankle with transmission to the chest. Running provides a seen impact anchor for jump front & back, while walking supplies a meaningful unseen contrast. Surface, footwear, landing technique and attachment can alter peak prominence; this does not establish airborne duration.",
+      "target_unseen": [
+        "jump front & back"
+      ],
+      "contrast_unseen": [
+        "walking"
+      ],
+      "seen_anchors": [
+        "running",
+        "jogging",
+        "climbing stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination: G1 supports gravity-relative mean orientation, with chest and ankle evidence providing partial observations of overall posture. Lying down anchors the horizontal end and frontal elevation of arms supplies an upright-body anchor. Sitting can retain an upright trunk and ankle orientation similar to standing; the inventory lacks a thigh sensor, so reliable standing–sitting separation is not asserted.",
+      "target_unseen": [
+        "standing still",
+        "sitting and relaxing"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "lying down",
+        "frontal elevation of arms"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability: G12 supports changing gravity-relative orientations across the instrumented body regions. It retains a whole-configuration distinction between static unseen activities and changing configurations, anchored by waist bends forward and knees bending (crouching). Sparse segment coverage and dynamic acceleration make global configuration only partially observable; isolated arm motion must not be mistaken for global posture change.",
+      "target_unseen": [
+        "standing still",
+        "sitting and relaxing",
+        "jump front & back"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "lying down",
+        "waist bends forward",
+        "knees bending (crouching)"
+      ]
+    },
+    {
+      "action": "split",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "trunk_reorientation",
+        "limb_rotational_motion"
+      ],
+      "reason": "trunk_reorientation: G1 and G12 support changing chest gravity-relative inclination from chest acceleration; no chest gyroscope is assumed. Waist bends forward entails trunk reorientation, whereas crouching can change the overall configuration with less trunk inclination change, adding a physical distinction beyond their A1 smoothness difference. Crouch technique can narrow that contrast, and dynamic acceleration can obscure inclination during locomotion or jumping. limb_rotational_motion: G2 supports angular motion directly at the lower-arm and ankle gyroscopes. Frontal elevation of arms and cycling provide seen examples of limb rotation without requiring substantial trunk reorientation, supporting transfer to walking and comparison with static unseen activities. Arm-swing style, ankle excursion and mixed activity windows create ambiguity; this attribute does not infer unobserved hip or knee angles. Together the outputs separate regional movement from global posture and offer reusable seen-supported components rather than promising an additional walking–jogging or standing–sitting separation.",
+      "target_unseen": [
+        "walking",
+        "standing still",
+        "sitting and relaxing",
+        "jump front & back"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "waist bends forward",
+        "knees bending (crouching)",
+        "frontal elevation of arms",
+        "cycling",
+        "jogging"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion: G13 supports short-window motion or velocity proxies, allowing the existing progression concept to transfer from jogging and running to walking and to contrast sustained progression with front-and-back jumping. Constant velocity is not directly observable from acceleration, and drift or reversals can make progression ambiguous. The attribute is retained conservatively rather than expanded into trajectory reconstruction or a reversal detector.",
+      "target_unseen": [
+        "walking",
+        "jump front & back"
+      ],
+      "contrast_unseen": [
+        "standing still",
+        "sitting and relaxing"
+      ],
+      "seen_anchors": [
+        "jogging",
+        "running",
+        "climbing stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity: G11 supports recurrence and predictability in motion signals. Although constant across the supplied A1 prototypes and therefore not a present class separator, it preserves a distinct temporal concept applicable to both steady postures and repeated movement. Seen repetitive activities provide transfer context for walking and jump front & back. Short windows, transitions and near-static noise can make regularity ambiguous; no added separation or coverage improvement is claimed.",
+      "target_unseen": [
+        "walking",
+        "jump front & back",
+        "standing still",
+        "sitting and relaxing"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "lying down",
+        "jogging",
+        "running"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The ten attributes retain distinct physical questions: magnitude, repetition rate, sustained rapid fluctuation, isolated abrupt peaks, mean global inclination, global configuration variability, trunk-specific reorientation, instrumented-limb angular motion, progression, and temporal predictability. Trunk reorientation overlaps partly with posture variability during waist bends but is not equivalent: crouching can alter the global configuration without equally large trunk inclination changes, while arm elevation can produce limb rotation with little change in either. Smoothness and impulsiveness distinguish sustained fluctuations from isolated peaks. Cadence and regularity distinguish repetition rate from consistency. Motion regularity remains nondiscriminative in A1 and is retained without claiming new separation. No extra static-posture, flight, joint-angle or trajectory attribute is introduced because its added predictability is insufficiently supported. The low-U_NN standing–sitting ambiguity and some walking–jogging overlap remain limitations rather than manufactured distinctions."
+}

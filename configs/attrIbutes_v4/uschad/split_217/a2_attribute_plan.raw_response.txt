@@ -1,0 +1,192 @@
+{
+  "schema_version": "2.0",
+  "dataset": "uschad",
+  "split_index": 217,
+  "refinement_needed": true,
+  "decision_reason": "Retain the nine A1 concepts and add one gravity-relative motion-structure attribute. Walking Left and Walking Upstairs are the closest unseen pair, while Jumping Up has the weakest seen coverage. Vertical motion dominance offers a plausible additional comparison with stair walking and running without encoding activity identity. Do not introduce left-versus-right direction, elevation-change sign, or an additional static-posture distinction: their reliable observability is not established by the supplied hip IMU capabilities. The diagnostics indicate semantic coverage, not recognition performance.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "vertical_motion_dominance",
+      "definition": "Relative prominence of gravity-aligned dynamic acceleration compared with horizontal dynamic acceleration at the hip, excluding static gravitational acceleration. This describes directional motion structure, not net elevation change.",
+      "levels": {
+        "Low": "Dynamic acceleration is predominantly horizontal, or there is little dynamic motion.",
+        "Medium": "Vertical and horizontal dynamic acceleration are both appreciable, without strong vertical dominance.",
+        "High": "Dynamic acceleration is predominantly gravity-aligned."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": ["motion_intensity"],
+      "outputs": ["motion_intensity"],
+      "reason": "motion_intensity: G3 supports the overall magnitude of hip acceleration and rotation, providing transferable vigorous-motion anchors for Jumping Up and Walking Upstairs. Movement style and window phase can blur adjacent levels; magnitude alone does not identify an activity.",
+      "target_unseen": ["Walking Upstairs", "Jumping Up"],
+      "contrast_unseen": ["Sleeping"],
+      "seen_anchors": ["Running Forward", "Walking Forward", "Standing"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["cadence"],
+      "outputs": ["cadence"],
+      "reason": "cadence: G6 supports repetition rate in hip motion, transferring walking and running rhythm concepts to unseen locomotion. Brief windows, isolated jumps, and repeated jumping can make periodicity or rate ambiguous; do not assume every jump sequence lacks repetition.",
+      "target_unseen": ["Walking Left", "Walking Upstairs", "Jumping Up"],
+      "contrast_unseen": ["Sleeping"],
+      "seen_anchors": ["Walking Forward", "Walking Right", "Running Forward"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["smoothness"],
+      "outputs": ["smoothness"],
+      "reason": "smoothness: G9 supports sustained rapid changes in hip signals, contrasting continuously quiet motion with fluctuating locomotion. This can transfer from Walking Downstairs to Jumping Up, but speed and window boundaries affect smoothness; no inherent left-right smoothness difference is asserted.",
+      "target_unseen": ["Jumping Up", "Walking Left"],
+      "contrast_unseen": ["Sleeping"],
+      "seen_anchors": ["Walking Downstairs", "Walking Right", "Standing"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["impulsiveness"],
+      "outputs": ["impulsiveness"],
+      "reason": "impulsiveness: G10 supports brief abrupt changes reaching the hip, giving Jumping Up impact-related anchors in Running Forward and Walking Downstairs. Landing technique, impact attenuation, and whether a window includes contact introduce ambiguity. It remains distinct from sustained fluctuations measured by smoothness.",
+      "target_unseen": ["Jumping Up", "Walking Upstairs"],
+      "contrast_unseen": ["Sleeping"],
+      "seen_anchors": ["Running Forward", "Walking Downstairs"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_inclination"],
+      "outputs": ["posture_inclination"],
+      "reason": "posture_inclination: G1 supports gravity-relative hip orientation as partial evidence of global posture, retaining the principal Sleeping contrast with upright activities. Pelvic orientation is not a complete measure of body configuration: upright sitting, reclined sitting, and sleeping position can overlap. No extra static-posture discriminator is justified.",
+      "target_unseen": ["Sleeping"],
+      "contrast_unseen": ["Walking Left", "Walking Upstairs", "Jumping Up"],
+      "seen_anchors": ["Sitting", "Standing"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_variability"],
+      "outputs": ["posture_variability"],
+      "reason": "posture_variability: G12 supports changing gravity-relative hip orientation, preserving a posture-change concept separate from mean inclination and angular-motion magnitude. Running Forward and stair walking provide transfer comparisons for Jumping Up. Pelvic motion may not represent global postural change, and jumping can occur with a nearly upright configuration.",
+      "target_unseen": ["Jumping Up", "Walking Upstairs"],
+      "contrast_unseen": ["Sleeping"],
+      "seen_anchors": ["Running Forward", "Walking Downstairs", "Standing"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["rotational_motion"],
+      "outputs": ["rotational_motion"],
+      "reason": "rotational_motion: G2 supports angular motion directly through hip rotation, retaining transferable comparisons among walking, running, and jumping. Pelvic oscillation and turning can overlap; lateral travel does not necessarily require greater rotation, and rotation magnitude cannot reliably distinguish Walking Left from Walking Right.",
+      "target_unseen": ["Walking Left", "Walking Upstairs", "Jumping Up"],
+      "contrast_unseen": ["Sleeping"],
+      "seen_anchors": ["Walking Right", "Walking Forward", "Running Forward"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["translational_motion"],
+      "outputs": ["translational_motion"],
+      "reason": "translational_motion: G13 supports short-window evidence of linear motion, preserving locomotion-versus-stationarity comparisons for unseen walking. Absolute sustained velocity is not directly observable from an IMU: constant-speed elevator travel can resemble Standing, and jumping can have little net progression. Preserve the concept without claiming reliable separation of every translating class.",
+      "target_unseen": ["Walking Left", "Walking Upstairs", "Jumping Up"],
+      "contrast_unseen": ["Sleeping"],
+      "seen_anchors": ["Walking Forward", "Walking Right", "Standing", "Elevator Up", "Elevator Down"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["motion_regularity"],
+      "outputs": ["motion_regularity"],
+      "reason": "motion_regularity: G11 and G6 support recurrence and temporal predictability, transferring structured gait patterns independently of repetition speed. Jump sequences can also be regular, and short windows can hide recurrence; preserve this concept without treating irregularity as necessary for Jumping Up.",
+      "target_unseen": ["Walking Left", "Walking Upstairs", "Jumping Up"],
+      "contrast_unseen": [],
+      "seen_anchors": ["Walking Forward", "Walking Downstairs", "Running Forward"]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": ["vertical_motion_dominance"],
+      "reason": "vertical_motion_dominance: G1 and G14 support gravity-referenced multiaxial acceleration structure at the hip. Relative vertical excitation offers an additional physical comparison between Walking Left and Walking Upstairs and a shared dimension for relating weakly covered Jumping Up to Walking Downstairs and Running Forward. Expected evidence is vertically concentrated propulsion or landing motion versus mixed horizontal and vertical gait motion, not inferred elevation or ascent direction. Running and level walking also contain vertical oscillations, stair style can cause overlap, and gravity estimation during vigorous motion is ambiguous. Quiet windows provide little directional evidence. This is a coarse transferable contrast, not guaranteed pairwise separation.",
+      "target_unseen": ["Jumping Up", "Walking Upstairs"],
+      "contrast_unseen": ["Walking Left"],
+      "seen_anchors": ["Walking Downstairs", "Running Forward", "Walking Forward", "Walking Right"]
+    }
+  ],
+  "semantic_redundancy_review": "Intensity measures overall magnitude; vertical motion dominance measures relative directional composition rather than magnitude, net displacement, or inclination. Smoothness concerns sustained rapid fluctuations, whereas impulsiveness concerns brief peaks. Cadence measures repetition rate, while regularity measures predictability. Mean inclination, posture variation, and angular-motion prominence remain conceptually distinct despite partial sensor-level overlap. Translation is retained with explicit constant-velocity observability limits. All activity pairs were considered; no extra attributes are introduced merely to force separation of left/right walking, elevator direction, or static postures beyond what the single hip IMU can plausibly support. Nine A1 inputs and all ten A2 outputs are accounted for exactly once."
+}

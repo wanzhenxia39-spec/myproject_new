@@ -1,0 +1,197 @@
+======================== SYSTEM ========================
+
+You are an expert in biomechanics and wearable IMU activity recognition.
+Generate one class-level initial semantic attribute vector A1 for every requested
+activity. Follow this structured reasoning process internally:
+1. Interpret each of the nine attributes strictly from its definition and ordinal levels.
+2. Analyze the typical biomechanical motion pattern of every activity.
+3. Compare the most easily confused activities in the complete activity list.
+4. Assign all nine Low/Medium/High values using common anchors across activities.
+5. Audit semantic consistency, exact keys, allowed values, and biomechanical support.
+
+Think through those steps, but do not reveal private reasoning. Return only final JSON.
+The supplied semantic ontology is the sole definition of A1. It supersedes the old
+ten-attribute schema and must be used without adding, removing, renaming, merging,
+splitting, or redefining attributes.
+
+Rules for potentially confused attributes:
+- motion_intensity measures motion amplitude and energy, not repetition rate or
+  temporal consistency.
+- motion_regularity evaluates consistency between repetitions and must not be
+  inferred solely from cadence.
+- smoothness concerns sustained temporal continuity over the window, whereas
+  impulsiveness concerns localized short-duration peaks; they are not opposites.
+- posture_inclination is average gravity-relative tilt, whereas
+  posture_variability is the extent of its change within the window.
+- rotational_motion and translational_motion can coexist and are not
+  complementary labels.
+- A short large displacement may increase motion_intensity or impulsiveness
+  without implying High translational_motion.
+- Repeated local oscillations or out-and-back movements with little sustained
+  progression must not automatically be rated High translational_motion.
+
+Semantic scope:
+- Every value describes the activity as a whole and must remain invariant to
+  sensor placement.
+- Do not switch between whole-body posture and the orientation of the most
+  active sensor across activities.
+- posture_inclination describes the global load-bearing body configuration
+  relative to gravity, rather than the orientation of an isolated moving limb.
+- posture_variability describes changes in that global body configuration,
+  rather than every local limb-orientation change.
+- Local limb motion may contribute to motion_intensity and rotational_motion,
+  but must not redefine the posture attributes.
+
+The input contains only class-level semantic context, with no feature groups, feature
+templates, attribute-to-feature mappings, sensor inventories, or measured feature values.
+Do not infer or design any feature-group correspondence while assigning A1 values.
+Do not turn body position, sensor type, or axis into an attribute or into a hidden
+condition that changes an attribute's abstract physical meaning. Do not invent signal
+measurements, thresholds, or unspecified mounting-axis interpretations.
+Do not use train/test samples, subject information, or seen/unseen splits.
+Describe typical activity semantics, not an individual recording. Distinguish similar
+activities using the nine definitions. No two different activity types may have exactly
+the same complete nine-attribute vector. If two draft vectors are identical, re-examine
+the activities and assign at least one biomechanically justified difference; do not use
+an arbitrary or sensor-placement-specific difference merely to satisfy this constraint.
+Output all and only the exact requested activity keys and all nine attribute keys.
+Each value must be exactly one of Low, Medium, High; no numeric values or extra fields.
+
+======================== USER ========================
+
+{
+  "dataset": "wisdm",
+  "activities": [
+    "walking",
+    "jogging",
+    "stairs",
+    "sitting",
+    "standing",
+    "typing",
+    "brushing teeth",
+    "eating soup",
+    "eating chips",
+    "eating pasta",
+    "drinking from cup",
+    "eating sandwich",
+    "kicking (soccer ball)",
+    "playing catch w/tennis ball",
+    "dribbling (basketball)",
+    "writing",
+    "clapping",
+    "folding clothes"
+  ],
+  "semantic_attribute_ontology": {
+    "version": "1.5",
+    "attributes": [
+      {
+        "name": "motion_intensity",
+        "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+        "levels": {
+          "Low": "Weak or nearly static motion.",
+          "Medium": "Moderate motion magnitude and energy.",
+          "High": "Strong or vigorous motion."
+        }
+      },
+      {
+        "name": "cadence",
+        "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+        "levels": {
+          "Low": "No clear periodic repetition or a slow repetition rate.",
+          "Medium": "Moderate repetition rate.",
+          "High": "Fast repetition rate."
+        }
+      },
+      {
+        "name": "smoothness",
+        "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+        "levels": {
+          "Low": "Frequent or sustained abrupt fluctuations.",
+          "Medium": "Moderately smooth motion with some fluctuations.",
+          "High": "Continuous and smooth motion with little fluctuation."
+        }
+      },
+      {
+        "name": "impulsiveness",
+        "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+        "levels": {
+          "Low": "Few or no pronounced abrupt peaks.",
+          "Medium": "Moderate abrupt peaks or impacts.",
+          "High": "Strong short-duration peaks or impacts."
+        }
+      },
+      {
+        "name": "posture_inclination",
+        "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+        "levels": {
+          "Low": "Nearly upright relative to gravity.",
+          "Medium": "Moderately inclined relative to gravity.",
+          "High": "Strongly inclined or nearly horizontal relative to gravity."
+        }
+      },
+      {
+        "name": "posture_variability",
+        "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+        "levels": {
+          "Low": "Posture remains nearly constant.",
+          "Medium": "Posture changes moderately.",
+          "High": "Posture changes substantially."
+        }
+      },
+      {
+        "name": "rotational_motion",
+        "definition": "Prominence of angular or rotational motion during the activity.",
+        "levels": {
+          "Low": "Little or no rotational motion.",
+          "Medium": "Moderate rotational motion.",
+          "High": "Prominent rotational motion."
+        }
+      },
+      {
+        "name": "translational_motion",
+        "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+        "levels": {
+          "Low": "Little or no sustained translation.",
+          "Medium": "Moderate translational motion.",
+          "High": "Prominent sustained translational or locomotor motion."
+        }
+      },
+      {
+        "name": "motion_regularity",
+        "definition": "Temporal consistency and predictability of the motion pattern.",
+        "levels": {
+          "Low": "Irregular and poorly predictable motion pattern.",
+          "Medium": "Partly structured motion with moderate variability.",
+          "High": "Consistent and predictable motion pattern."
+        }
+      }
+    ]
+  },
+  "dataset_specific_comparison_focus": [
+    "sitting vs standing",
+    "walking vs jogging vs stairs",
+    "typing vs writing",
+    "eating soup vs eating pasta vs eating sandwich vs eating chips vs drinking from cup",
+    "brushing teeth vs clapping vs folding clothes",
+    "playing catch w/tennis ball vs dribbling (basketball) vs kicking (soccer ball)",
+    "locomotion activities vs hand-oriented activities"
+  ],
+  "activity_name_notes": {
+    "stairs": "stair traversal or stair climbing; do not interpret it as level walking"
+  },
+  "comparison_instruction": "Pay special attention to the dataset-specific comparison focus, and compare the most biomechanically confusable activities in this exact list before assigning levels. Ensure that every pair of different activities has a distinct complete vector, using only biomechanically justified differences under the nine supplied attribute definitions.",
+  "output_shape_example": {
+    "walking": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "Low",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "Low"
+    }
+  },
+  "example_note": "This illustrates JSON shape only; assign actual levels independently."
+}

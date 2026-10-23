@@ -1,0 +1,32 @@
+{
+  "policy": "wisdm_predictability_xxapi_full_a2_v1",
+  "dataset": "wisdm",
+  "scenario": "zsl",
+  "seed": 43,
+  "api_format": "openai",
+  "base_url": "https://xxapi.info/v1",
+  "model": "gpt-6.1-sol",
+  "temperature": 0.7,
+  "stream": false,
+  "min_attributes": 9,
+  "max_attributes": 15,
+  "distance_metric": "normalized_ordinal",
+  "top_k": 2,
+  "vector_generation_mode": "full_a2_generation_v1",
+  "launcher_sha256": "9b1ba8a864243135ed8931c19aaa4cc0927772cdfa996d8ab02f123e633a668f",
+  "input_files": {
+    "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+    "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "/home/wanzhen/myproject_new/split/zero_shot_split/wisdm_unseen6_random20_splits_seed43.json": "72b9ad189485ebf68206e0bfe0c5dcefd19ee7bec0f7085ba2687cc1eb55bf3b",
+    "/home/wanzhen/windows/wisdm_windows/all_features_name_20_120.npy": "d7addfba4805b0981a464b3e22630a53f0f102774792e6586b7289cc4f618ab5"
+  },
+  "groups_sha256": "baf73e9cd119edfed55f10f9dc5b2404df597874ab5cf7f709646ecbb513213c",
+  "implementation_sha256": {
+    "semantics/planner1.py": "e3b3e2475b4e095bd567493afc3cc1a4ca5bc3993984ee18a09e3a7f06da5e5d",
+    "semantics/completion.py": "69cfef2a1cc40e70c545694b95204aa2914537e1a815149630a34b14c9d53f2b",
+    "semantics/gap.py": "7588dccfd0e4b817b59be679dcb1ca5184552271d28b9b37c7806ad07a4c6310",
+    "semantics/gap_analysis.py": "8b0c7e09961f38e286893cddd1878fbbb3573a47fa6cb294441b465a3abc8261",
+    "semantics/gap_comparison.py": "024b91576f9e5939adb8199893cb31be966d98b1ba1b67552c13baeeb1b663d1",
+    "llm/transport.py": "0db9a13cf3cd34ac7d33828c3732834e8d8c7ba8bc1c09f8c7d588df4909d0d9"
+  }
+}

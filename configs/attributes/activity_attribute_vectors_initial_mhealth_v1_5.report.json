@@ -1,0 +1,191 @@
+{
+  "policy": {
+    "filtering": false,
+    "description": "This report only checks distribution and duplicate full vectors. No attribute is removed in this script."
+  },
+  "num_activities": 12,
+  "num_attributes": 9,
+  "attribute_reports": {
+    "motion_intensity": {
+      "distribution_all_activities": {
+        "High": 4,
+        "Low": 3,
+        "Medium": 5
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "cadence": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 3,
+        "Medium": 7
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "smoothness": {
+      "distribution_all_activities": {
+        "High": 6,
+        "Low": 2,
+        "Medium": 4
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "impulsiveness": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 7,
+        "Medium": 3
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "posture_inclination": {
+      "distribution_all_activities": {
+        "High": 1,
+        "Low": 6,
+        "Medium": 5
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "posture_variability": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 8,
+        "Medium": 2
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "rotational_motion": {
+      "distribution_all_activities": {
+        "High": 4,
+        "Low": 3,
+        "Medium": 5
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "translational_motion": {
+      "distribution_all_activities": {
+        "High": 5,
+        "Low": 6,
+        "Medium": 1
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "motion_regularity": {
+      "distribution_all_activities": {
+        "High": 12,
+        "Low": 0,
+        "Medium": 0
+      },
+      "num_levels_used": 1,
+      "is_constant_all_activities": true
+    }
+  },
+  "duplicate_full_vectors": {},
+  "dataset": "mhealth",
+  "attribute_set": "A1",
+  "ontology_version": "1.5",
+  "ontology": {
+    "version": "1.5",
+    "attributes": [
+      {
+        "name": "motion_intensity",
+        "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+        "levels": {
+          "Low": "Weak or nearly static motion.",
+          "Medium": "Moderate motion magnitude and energy.",
+          "High": "Strong or vigorous motion."
+        }
+      },
+      {
+        "name": "cadence",
+        "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+        "levels": {
+          "Low": "No clear periodic repetition or a slow repetition rate.",
+          "Medium": "Moderate repetition rate.",
+          "High": "Fast repetition rate."
+        }
+      },
+      {
+        "name": "smoothness",
+        "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+        "levels": {
+          "Low": "Frequent or sustained abrupt fluctuations.",
+          "Medium": "Moderately smooth motion with some fluctuations.",
+          "High": "Continuous and smooth motion with little fluctuation."
+        }
+      },
+      {
+        "name": "impulsiveness",
+        "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+        "levels": {
+          "Low": "Few or no pronounced abrupt peaks.",
+          "Medium": "Moderate abrupt peaks or impacts.",
+          "High": "Strong short-duration peaks or impacts."
+        }
+      },
+      {
+        "name": "posture_inclination",
+        "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+        "levels": {
+          "Low": "Nearly upright relative to gravity.",
+          "Medium": "Moderately inclined relative to gravity.",
+          "High": "Strongly inclined or nearly horizontal relative to gravity."
+        }
+      },
+      {
+        "name": "posture_variability",
+        "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+        "levels": {
+          "Low": "Posture remains nearly constant.",
+          "Medium": "Posture changes moderately.",
+          "High": "Posture changes substantially."
+        }
+      },
+      {
+        "name": "rotational_motion",
+        "definition": "Prominence of angular or rotational motion during the activity.",
+        "levels": {
+          "Low": "Little or no rotational motion.",
+          "Medium": "Moderate rotational motion.",
+          "High": "Prominent rotational motion."
+        }
+      },
+      {
+        "name": "translational_motion",
+        "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+        "levels": {
+          "Low": "Little or no sustained translation.",
+          "Medium": "Moderate translational motion.",
+          "High": "Prominent sustained translational or locomotor motion."
+        }
+      },
+      {
+        "name": "motion_regularity",
+        "definition": "Temporal consistency and predictability of the motion pattern.",
+        "levels": {
+          "Low": "Irregular and poorly predictable motion pattern.",
+          "Medium": "Partly structured motion with moderate variability.",
+          "High": "Consistent and predictable motion pattern."
+        }
+      }
+    ]
+  },
+  "prompt_path": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.prompt.json",
+  "readable_prompt_path": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.prompt.txt",
+  "prompt_policy": "semantic_a1_without_feature_groups_v2",
+  "ontology_sha256": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+  "prompt_context_sha256": "dbb27b7aa9c752fa92cab19873b555538d35d3d62c902946606cca9f6f61105c",
+  "source": "llm",
+  "api_format": "openai",
+  "base_url": "https://api.zhizengzeng.com/v1",
+  "model": "gpt-5.6-sol",
+  "stream": true
+}

@@ -1,0 +1,363 @@
+{
+  "schema_version": "2.0",
+  "dataset": "pamap2",
+  "split_index": 17,
+  "refinement_needed": true,
+  "decision_reason": "The closest unseen pair, lying and sitting, differs only in posture_inclination. However, the available chest, hand and ankle sensors do not justify a second stable distinction based on seated knee flexion or support contact. Preserve that distinction rather than manufacture another. Walking is close to Nordic walking, while rope jumping has relatively weak seen coverage and running as its nearest seen anchor. Add trunk_bounce to distinguish whole-body bouncing from motion dominated by limb rotation or hand work, providing a shared physical axis across these unseen activities and seen locomotor anchors. The supplied distances guide this refinement but do not establish recognition performance.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "trunk_bounce",
+      "definition": "Magnitude of repeated gravity-aligned up-and-down trunk acceleration associated with whole-body bouncing, excluding static gravity and sustained upward or downward progression.",
+      "levels": {
+        "Low": "Little or no repeated gravity-aligned trunk acceleration.",
+        "Medium": "Moderate repeated gravity-aligned trunk acceleration.",
+        "High": "Pronounced repeated gravity-aligned trunk acceleration."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity: G3 supports gross acceleration and rotation magnitude across the available sensors. It transfers weak versus vigorous motion from standing and running to the unseen classes. Effort, speed and limb-dominated work can overlap, so intensity alone is not treated as activity identity.",
+      "target_unseen": [
+        "lying",
+        "sitting",
+        "walking",
+        "rope jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "standing",
+        "running",
+        "Nordic walking"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence: G6 supports repetition rate in ankle and chest motion, with hand motion providing additional periodic evidence. Walking and rope jumping can share a rate-based description with seen locomotion. Harmonics, different motion units and changing pace make exact ordinal boundaries ambiguous.",
+      "target_unseen": [
+        "walking",
+        "rope jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "running",
+        "Nordic walking",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness: G9 supports sustained rapid change in acceleration and rotation, retaining a distinction between continuously varying motion and repeated fluctuations. Running and descending stairs provide transfer anchors for dynamic unseen activities. Pace and sensor vibration may affect smoothness; isolated impacts are addressed separately.",
+      "target_unseen": [
+        "walking",
+        "rope jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "running",
+        "descending stairs",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness: G10 supports brief abrupt acceleration changes, especially at the ankle and through transmitted chest motion. Running and descending stairs anchor landing-related evidence relevant to rope jumping and walking. Footwear, landing technique and sensor attachment can alter peak prominence.",
+      "target_unseen": [
+        "rope jumping",
+        "walking"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "running",
+        "descending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination: G1 supports gravity-relative chest orientation, supplemented by ankle and hand orientation without equating isolated limb position with global posture. This preserves the sole A1 distinction among lying, sitting and standing. Upright sitting can resemble standing, and recumbent postures vary; there is no direct thigh or support-contact evidence to justify another reliable static-posture attribute.",
+      "target_unseen": [
+        "lying",
+        "sitting"
+      ],
+      "contrast_unseen": [
+        "sitting",
+        "lying"
+      ],
+      "seen_anchors": [
+        "standing",
+        "cycling",
+        "vacuum cleaning"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability: G12 supports changes in gravity-relative configuration, with chest orientation helping distinguish global changes from moving limbs. Standing and stair activities provide stable versus changing posture anchors. Dynamic acceleration can obscure gravity estimates, and local ankle or hand rotation must not be interpreted as whole-body postural change.",
+      "target_unseen": [
+        "lying",
+        "sitting",
+        "walking",
+        "rope jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "standing",
+        "ascending stairs",
+        "descending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "rotational_motion: G2 supports sustained angular motion from the available gyroscopes. It retains the close walking versus Nordic walking contrast and links rope jumping to seen activities with substantial limb rotation. Arm technique, pole use and ankle excursion can vary; splitting this into sensor-specific attributes would require stronger evidence of stable additional contrasts.",
+      "target_unseen": [
+        "walking",
+        "rope jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "Nordic walking",
+        "running",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion: G13 supports short-window locomotor-motion proxies, preserving progression versus approximately in-place movement as a distinction between walking and rope jumping. Walking-like and running-like seen activities provide transferable anchors. IMUs do not directly establish sustained world-frame velocity; drift and in-place motion make this a qualified semantic distinction rather than a displacement measurement.",
+      "target_unseen": [
+        "walking",
+        "rope jumping"
+      ],
+      "contrast_unseen": [
+        "rope jumping",
+        "walking"
+      ],
+      "seen_anchors": [
+        "Nordic walking",
+        "running",
+        "ironing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity: G11 and G6 support recurrence and consistency in chest, ankle and hand motion. Seen repetitive locomotion anchors the regularity of walking and rope jumping independently of repetition speed. Static signals can also be predictable, while transitions or brief windows may obscure dynamic recurrence.",
+      "target_unseen": [
+        "walking",
+        "rope jumping",
+        "lying",
+        "sitting"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "running",
+        "Nordic walking",
+        "standing"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "trunk_bounce"
+      ],
+      "reason": "trunk_bounce: G1, G3, G6 and G14 support the magnitude and repetition of chest acceleration aligned with gravity, distinguishing whole-body bounce from predominantly rotational or hand-localized motion. Running provides a bouncing anchor for rope jumping; Nordic walking provides a lower-bounce locomotor reference for walking. This can add a trunk-specific contrast to walking versus Nordic walking when overall intensity differs mainly through pole-assisted upper-body work, but that ordering is not guaranteed. Chest evidence is more directly observable than inferred flight time or bilateral landing synchrony. Pace, compliant landing, chest attachment and gravity estimation can blur levels; no unique rope-jumping signature or guaranteed pair separation is claimed.",
+      "target_unseen": [
+        "walking",
+        "rope jumping"
+      ],
+      "contrast_unseen": [
+        "rope jumping",
+        "walking"
+      ],
+      "seen_anchors": [
+        "running",
+        "Nordic walking",
+        "cycling",
+        "ironing"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "All activity pairs were considered, emphasizing the one-coordinate static-posture pairs and the two-coordinate walking–Nordic walking pair. No reliable extra static-posture distinction is introduced. Trunk_bounce is restricted to repeated gravity-aligned trunk acceleration: unlike motion_intensity it excludes dominant hand or ankle motion, unlike cadence it measures magnitude rather than rate, unlike impulsiveness it does not require sharp peaks, and unlike translational_motion it does not imply sustained progression. Smoothness and impulsiveness retain their sustained-versus-brief distinction; inclination and posture variability retain their mean-versus-change distinction. Expected correlations are acknowledged without treating them as measured redundancy. All nine A1 inputs are preserved exactly once, and the sole additional output has its own operation.",
+  "_meta": {
+    "dataset": "pamap2",
+    "split_index": 17,
+    "seen": [
+      "standing",
+      "running",
+      "cycling",
+      "Nordic walking",
+      "ascending stairs",
+      "descending stairs",
+      "vacuum cleaning",
+      "ironing"
+    ],
+    "unseen": [
+      "lying",
+      "sitting",
+      "walking",
+      "rope jumping"
+    ],
+    "refinement_strategy": "full_a1_semantic_refinement_v3",
+    "planning_stages": 1,
+    "min_attributes": 9,
+    "max_attributes": 15,
+    "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5.json",
+    "a1_sha256": "d9c7469bf376db9661ad8a93f4a233b3d31bd9c19751d6da4ea9af1934fae887",
+    "a1_ontology_json": "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json",
+    "a1_ontology_sha256": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "split_csv_sha256": "2482ab2d696d13eff2a500bb41fabbc108824105a31d11ce341c99ed298ecb9a",
+    "gap_diagnostics_source": "reused_from_gap_csv",
+    "refinement_evidence": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/pamap2/split_17/a2_attribute_plan.refinement_evidence.json",
+    "refinement_evidence_sha256": "27b40113e71145d55bd8c825b6314a8fb75e49b3695b3ea6db9a267f99535ba4",
+    "prompt_json": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/pamap2/split_17/a2_attribute_plan.prompt.json",
+    "prompt_json_sha256": "0b8ca726e0b12922ad2e6005eafcfe7cbc627eefaa82418b58126e2e4c9f8145",
+    "prompt_text": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/pamap2/split_17/a2_attribute_plan.prompt.txt",
+    "prompt_text_sha256": "1b8254f7d4a27e0ff77cdf48c60102fe5ca36da0cb93f34c2eb8e3320ce8123d",
+    "gap_a1_hash_verified": true,
+    "feature_source": "/home/wanzhen/windows/pamap_windows/all_features_name_20_120.npy",
+    "feature_names_sha256": "6ab7b9f1794d3ca765f891b649acfab4ec9657bbe842837f71393d1c6ca287cb",
+    "groups_sha256": "baf73e9cd119edfed55f10f9dc5b2404df597874ab5cf7f709646ecbb513213c",
+    "model": "gpt-6.1-sol",
+    "api_format": "openai",
+    "base_url": "https://xxapi.info/v1",
+    "stream": false,
+    "response_source": "live",
+    "validation_decision": "validated_semantic_a2",
+    "validation": "Semantic schema and complete A1-to-A2 lineage validated; no feature binding performed.",
+    "activity_role_repairs": []
+  }
+}

@@ -1,0 +1,411 @@
+{
+  "schema_version": "2.0",
+  "dataset": "mhealth",
+  "split_index": 112,
+  "refinement_needed": true,
+  "decision_reason": "A1 already provides useful global intensity, temporal, impact, orientation, rotation and translation concepts, but it under-specifies where motion and posture changes occur. This particularly limits transferable separation of cycling, which has the weakest seen-prototype coverage, and of waist bends forward, cycling and climbing stairs, which have the lowest unseen-neighbor margins. Splitting global posture variability into trunk and instrumented-limb components separates waist flexion from limb-dominant motion, while upper- and lower-limb motion intensity provide supported regional contrasts anchored by frontal elevation of arms and the seen locomotor classes.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "trunk_posture_variability",
+      "definition": "Extent to which the chest and trunk configuration changes relative to gravity within a window.",
+      "levels": {
+        "Low": "Trunk posture remains nearly constant.",
+        "Medium": "Trunk posture changes moderately.",
+        "High": "Trunk posture changes substantially."
+      }
+    },
+    {
+      "name": "limb_posture_variability",
+      "definition": "Extent to which the gravity-relative orientations of the instrumented lower arm and ankle segments change within a window.",
+      "levels": {
+        "Low": "Instrumented limb orientations remain nearly constant.",
+        "Medium": "Instrumented limb orientations change moderately.",
+        "High": "Instrumented limb orientations change substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "upper_limb_motion_intensity",
+      "definition": "Magnitude and energy of motion expressed by the instrumented right lower arm, independently of overall body-motion intensity.",
+      "levels": {
+        "Low": "Weak or nearly absent lower-arm motion.",
+        "Medium": "Moderate lower-arm motion magnitude and energy.",
+        "High": "Strong or vigorous lower-arm motion."
+      }
+    },
+    {
+      "name": "lower_limb_motion_intensity",
+      "definition": "Magnitude and energy of motion expressed by the instrumented left ankle, independently of overall body-motion intensity.",
+      "levels": {
+        "Low": "Weak or nearly absent ankle motion.",
+        "Medium": "Moderate ankle motion magnitude and energy.",
+        "High": "Strong or vigorous ankle motion."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "Global motion energy remains a direct, sensor-supported distinction between static postures, moderate exercises and vigorous locomotion; regional additions describe distribution rather than replace this whole-body scale.",
+      "target_unseen": [
+        "standing still",
+        "climbing stairs",
+        "waist bends forward",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "sitting and relaxing",
+        "walking",
+        "jogging",
+        "running"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "Repetition rate is physically distinct from motion magnitude and helps transfer from periodic seen locomotion to climbing stairs and cycling.",
+      "target_unseen": [
+        "climbing stairs",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "standing still",
+        "waist bends forward"
+      ],
+      "seen_anchors": [
+        "walking",
+        "jogging",
+        "running"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "Sustained rapid fluctuation is independently supported by jerk-related motion structure and contrasts smooth cyclic or bending motions with less smooth impact-rich locomotion.",
+      "target_unseen": [
+        "waist bends forward",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "climbing stairs"
+      ],
+      "seen_anchors": [
+        "frontal elevation of arms",
+        "running",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "Short high-magnitude changes remain distinct from sustained intensity and provide an impact contrast grounded by running and jumping.",
+      "target_unseen": [
+        "climbing stairs",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "running",
+        "jump front & back",
+        "frontal elevation of arms"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "Mean gravity-relative load-bearing posture provides the principal transferable distinction between standing still and the seen sitting and lying postures, while also characterizing inclined activities.",
+      "target_unseen": [
+        "standing still",
+        "climbing stairs",
+        "waist bends forward",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "sitting and relaxing",
+        "lying down",
+        "walking"
+      ]
+    },
+    {
+      "action": "split",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "trunk_posture_variability",
+        "limb_posture_variability"
+      ],
+      "reason": "The original global measure conflates trunk reorientation with local limb reorientation. Chest gravity-angle variation can identify trunk-dominant waist bending, while lower-arm and ankle orientation changes transfer from arm elevation, crouching and locomotion to limb-dominant cycling and stair climbing.",
+      "target_unseen": [
+        "climbing stairs",
+        "waist bends forward",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "standing still"
+      ],
+      "seen_anchors": [
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "walking"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "Angular-motion prominence remains a general modality-supported contrast between static or primarily translational activities and bending, arm elevation, crouching or cycling.",
+      "target_unseen": [
+        "waist bends forward",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "standing still"
+      ],
+      "seen_anchors": [
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "walking"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "Sustained locomotor progression is distinct from local segment motion and preserves transfer from walking, jogging and running to climbing stairs.",
+      "target_unseen": [
+        "climbing stairs",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "standing still",
+        "waist bends forward"
+      ],
+      "seen_anchors": [
+        "walking",
+        "jogging",
+        "running"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "Temporal predictability is physically separate from repetition rate because motions with similar cadence can differ in cycle consistency; it remains transferable across repetitive seen and unseen activities.",
+      "target_unseen": [
+        "climbing stairs",
+        "waist bends forward",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "frontal elevation of arms",
+        "knees bending (crouching)"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "upper_limb_motion_intensity"
+      ],
+      "reason": "Lower-arm accelerometer and gyroscope measurements support a regional motion-energy attribute. The seen frontal elevation of arms supplies a clear upper-limb-dominant anchor, helping distinguish waist bends forward from arm-dominant rotation and cycling from activities with vigorous arm movement.",
+      "target_unseen": [
+        "waist bends forward",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "climbing stairs"
+      ],
+      "seen_anchors": [
+        "frontal elevation of arms",
+        "walking",
+        "running"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "lower_limb_motion_intensity"
+      ],
+      "reason": "Ankle accelerometer and gyroscope measurements support a regional lower-limb energy attribute. Seen walking, jogging, running, crouching and jumping provide transferable anchors for the pronounced lower-limb motion expected in cycling and climbing stairs.",
+      "target_unseen": [
+        "climbing stairs",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "standing still",
+        "waist bends forward"
+      ],
+      "seen_anchors": [
+        "walking",
+        "jogging",
+        "running",
+        "knees bending (crouching)",
+        "jump front & back"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The final attributes separate whole-body magnitude, repetition rate, sustained fluctuation, isolated impacts, mean global posture, regional posture change, angular motion, locomotor translation, temporal predictability and regional motion energy. Smoothness is not merged with impulsiveness because sustained jerk and isolated peaks are different physical properties. Cadence is not merged with motion_regularity because repetition speed and cycle consistency are independent. Posture_inclination measures mean global configuration, whereas trunk_posture_variability and limb_posture_variability measure time-varying regional orientation. Upper- and lower-limb motion intensity overlap operationally with global motion_intensity only in their shared energy basis; they are retained because their regional distribution supplies independent, sensor-supported contrasts for cycling, waist bending, stair climbing and arm elevation. Rotational_motion is retained as a motion-type measure rather than a regional energy measure, and translational_motion remains specific to sustained progression.",
+  "_meta": {
+    "dataset": "mhealth",
+    "split_index": 112,
+    "seen": [
+      "sitting and relaxing",
+      "lying down",
+      "walking",
+      "frontal elevation of arms",
+      "knees bending (crouching)",
+      "jogging",
+      "running",
+      "jump front & back"
+    ],
+    "unseen": [
+      "standing still",
+      "climbing stairs",
+      "waist bends forward",
+      "cycling"
+    ],
+    "refinement_strategy": "full_a1_semantic_refinement_v3",
+    "planning_stages": 1,
+    "min_attributes": 11,
+    "max_attributes": 15,
+    "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json",
+    "a1_sha256": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+    "a1_ontology_json": "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json",
+    "a1_ontology_sha256": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "split_csv_sha256": "e1fd5b833f9347c414e0152f5bf682bd9a6a0916404fb92512eef5646df074e9",
+    "gap_diagnostics_source": "reused_from_gap_csv",
+    "refinement_evidence": "/home/wanzhen/myproject_new/runtime/refinement_semantic_v3/mhealth_gpt_5_6_sol_11_15/split_112/a2_attribute_plan.refinement_evidence.json",
+    "refinement_evidence_sha256": "ef69d02bd0d05431085985d5b46feabc7afee88c33eb26ac0047c09a1645bec1",
+    "prompt_json": "/home/wanzhen/myproject_new/runtime/refinement_semantic_v3/mhealth_gpt_5_6_sol_11_15/split_112/a2_attribute_plan.prompt.json",
+    "prompt_json_sha256": "84e3cc6a370d639aaa578ba49d4bc3912b59cba90cd8197e1131222768c04f73",
+    "prompt_text": "/home/wanzhen/myproject_new/runtime/refinement_semantic_v3/mhealth_gpt_5_6_sol_11_15/split_112/a2_attribute_plan.prompt.txt",
+    "prompt_text_sha256": "d7131df943d56795c6e33b7fb4a859eebad336e52dc03361b694cc12f135de5f",
+    "gap_a1_hash_verified": true,
+    "feature_source": "/home/wanzhen/windows/mhealth_windows/all_features_name_20_120.npy",
+    "feature_names_sha256": "c9e493657bbd42ef5795032a80f2cbfa4c9abe0e0855a783b545728f046da8b6",
+    "groups_sha256": "baf73e9cd119edfed55f10f9dc5b2404df597874ab5cf7f709646ecbb513213c",
+    "model": "gpt-5.6-sol",
+    "api_format": "openai",
+    "base_url": "https://www.kamiapi.top/v1",
+    "stream": true,
+    "response_source": "live",
+    "validation_decision": "validated_semantic_a2",
+    "validation": "Semantic schema and complete A1-to-A2 lineage validated; no feature binding performed.",
+    "activity_role_repairs": []
+  }
+}

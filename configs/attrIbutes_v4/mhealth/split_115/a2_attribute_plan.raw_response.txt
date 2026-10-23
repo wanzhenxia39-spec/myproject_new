@@ -1,0 +1,183 @@
+{
+  "schema_version": "2.0",
+  "dataset": "mhealth",
+  "split_index": 115,
+  "refinement_needed": true,
+  "decision_reason": "A1 distinguishes waist bends forward from knees bending (crouching) only through smoothness, a potentially execution-dependent distinction. Add chest-observable trunk inclination excursion to distinguish trunk bending from whole-body lowering without requiring knee-angle measurement. Remove motion_regularity because its supplied level is identical across all classes. Retain the remaining concepts: the limited standing–sitting distinction and the relatively weak seen coverage of jump front & back do not justify inventing additional, reliably observable differences. Climbing stairs and jump front & back already differ on several physically meaningful A1 dimensions.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "trunk_inclination_excursion",
+      "definition": "Extent of change in the trunk's inclination relative to gravity during an activity cycle or window, distinct from its mean inclination and from changes confined to the limbs.",
+      "levels": {
+        "Low": "Trunk inclination remains nearly constant.",
+        "Medium": "Trunk inclination changes moderately.",
+        "High": "Trunk inclination changes substantially."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": ["motion_intensity"],
+      "outputs": ["motion_intensity"],
+      "reason": "motion_intensity: G3 supports overall acceleration and angular-motion magnitude at the available sites. It preserves the walking–jogging contrast and transfers vigorous-motion semantics to climbing stairs and jump front & back. Execution effort, sensor location and movement amplitude can blur ordinal boundaries.",
+      "target_unseen": ["climbing stairs", "jump front & back"],
+      "contrast_unseen": [],
+      "seen_anchors": ["walking", "jogging", "running"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["cadence"],
+      "outputs": ["cadence"],
+      "reason": "cadence: G6 supports repetition rate in recurring ankle and arm motion. It retains a transferable rate distinction among locomotor and exercise patterns without equating cadence with window repetition count. Self-selected pace and multiple periodic components can make the meaningful cycle ambiguous.",
+      "target_unseen": ["climbing stairs", "waist bends forward", "jump front & back"],
+      "contrast_unseen": [],
+      "seen_anchors": ["walking", "knees bending (crouching)", "jogging", "running"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["smoothness"],
+      "outputs": ["smoothness"],
+      "reason": "smoothness: G9 supports sustained rapid acceleration changes at the chest and limbs. It retains the continuous-bending versus repeatedly fluctuating locomotor distinction, but is not treated as sufficient by itself to separate waist bends forward from crouching. Movement speed and impact transmission can alter apparent smoothness.",
+      "target_unseen": ["waist bends forward", "jump front & back"],
+      "contrast_unseen": ["climbing stairs"],
+      "seen_anchors": ["frontal elevation of arms", "knees bending (crouching)", "running"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["impulsiveness"],
+      "outputs": ["impulsiveness"],
+      "reason": "impulsiveness: G10 supports short abrupt acceleration changes, especially around foot contact. It provides an impact-based contrast between jump front & back and climbing stairs, with running as a seen impact anchor. Landing technique, footwear and sensor attachment can change peak strength; impacts are not direct evidence of flight.",
+      "target_unseen": ["jump front & back"],
+      "contrast_unseen": ["climbing stairs"],
+      "seen_anchors": ["walking", "jogging", "running"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_inclination"],
+      "outputs": ["posture_inclination"],
+      "reason": "posture_inclination: G1 supports mean gravity-relative orientation across the chest and instrumented limbs. It preserves the principal static-posture contrast linking standing still with sitting and lying. Sparse body coverage and an upright seated trunk limit reconstruction of the global load-bearing configuration; no guaranteed additional standing–sitting separation is claimed.",
+      "target_unseen": ["standing still"],
+      "contrast_unseen": [],
+      "seen_anchors": ["sitting and relaxing", "lying down"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_variability"],
+      "outputs": ["posture_variability"],
+      "reason": "posture_variability: G12 supports changing gravity-relative orientations across available body sites. It preserves the global reconfiguration contrast between stationary postures, locomotion and bending exercises. Sparse coverage and dynamic acceleration make global configuration only indirectly observable; local arm movement alone must not imply high global variability.",
+      "target_unseen": ["standing still", "waist bends forward", "climbing stairs", "jump front & back"],
+      "contrast_unseen": [],
+      "seen_anchors": ["sitting and relaxing", "walking", "knees bending (crouching)", "frontal elevation of arms"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["rotational_motion"],
+      "outputs": ["rotational_motion"],
+      "reason": "rotational_motion: G2 supports angular motion directly at the lower arm and ankle, while G12 supports slower chest orientation changes. This retains a transferable distinction between joint-dominated exercises and relatively static activities. The chest lacks a gyroscope, and large limb rotations need not imply trunk rotation, so site contributions can be ambiguous.",
+      "target_unseen": ["standing still", "waist bends forward"],
+      "contrast_unseen": [],
+      "seen_anchors": ["frontal elevation of arms", "knees bending (crouching)", "cycling"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["translational_motion"],
+      "outputs": ["translational_motion"],
+      "reason": "translational_motion: G13 supports short-window translational-motion proxies. It retains the semantic distinction between sustained locomotor progression, largely in-place bending, and bounded front–back displacement. Cyclic limb motion, integration drift and unobserved longer trajectories can obscure sustained progression; absolute displacement or travel direction is not assumed observable.",
+      "target_unseen": ["climbing stairs", "waist bends forward", "jump front & back"],
+      "contrast_unseen": [],
+      "seen_anchors": ["walking", "knees bending (crouching)", "jogging", "running"]
+    },
+    {
+      "action": "drop",
+      "inputs": ["motion_regularity"],
+      "outputs": [],
+      "reason": "All supplied class prototypes assign High, so this concept contributes no split-specific semantic contrast. G11 makes regularity physically plausible, but does not justify manufacturing class differences absent from the supplied semantics.",
+      "target_unseen": [],
+      "contrast_unseen": [],
+      "seen_anchors": []
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": ["trunk_inclination_excursion"],
+      "reason": "trunk_inclination_excursion: G1 and G12 support changes in chest gravity-relative orientation. Forward waist bending requires trunk inclination change, whereas crouching can substantially reconfigure the body without comparable trunk tilt; frontal arm elevation supplies another seen example of rotation without required trunk excursion. This adds a segment-specific contrast to the near-identical waist-bend and crouch prototypes. Chest acceleration permits assessment during slower orientation changes, but dynamic acceleration, incomplete cycles and forward-leaning crouch technique can blur levels. This is not a direct hip-angle measurement or a guaranteed separation.",
+      "target_unseen": ["waist bends forward"],
+      "contrast_unseen": [],
+      "seen_anchors": ["knees bending (crouching)", "frontal elevation of arms", "walking"]
+    }
+  ],
+  "semantic_redundancy_review": "The final nine attributes retain distinct physical emphases. Smoothness concerns sustained rapid fluctuations, whereas impulsiveness concerns brief peaks. Cadence measures rate rather than energy. Mean posture inclination differs from posture change. Trunk inclination excursion overlaps with global posture variability during waist bending but is not equivalent: global reconfiguration can occur with limited trunk tilt, and limb rotation can occur without either. Rotational motion is neither trunk-specific nor restricted to inclination changes. Translation concerns progression rather than local acceleration magnitude. Constant motion_regularity is removed. No flight, knee angle, stair height, absolute trajectory or bilateral coordination attribute is introduced because reliable observation is not established by the supplied capabilities."
+}

@@ -1,0 +1,388 @@
+{
+  "dataset": "wisdm",
+  "seed": 43,
+  "split_count": 20,
+  "top_k": 2,
+  "distance_metric": "normalized_ordinal",
+  "attribute_weighting": "uniform",
+  "distance_formula": "(1/K_A) * sum_k(abs(a_i,k - a_j,k) / 2)",
+  "formula_ordinal_values": {
+    "Low": 0,
+    "Medium": 1,
+    "High": 2
+  },
+  "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+  "a1_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+  "split_manifest": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/gap/selected_seed43_splits.json",
+  "split_manifest_sha256": "e462ecd5a01fc07f6e6236926fa5762877dee95292f7431957e9fc87ac2767cc",
+  "a2_inputs": [
+    {
+      "split_index": 628,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_628/activity_attribute_vectors_a2.json",
+      "sha256": "23fa8fb54a2cf5da141c4f310a06c8828cc82db7bad914e3b8f77d9872f392f6",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_reorientation_extent",
+        "motion_intermittency"
+      ]
+    },
+    {
+      "split_index": 1264,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_1264/activity_attribute_vectors_a2.json",
+      "sha256": "c7f3cea6e8e1a94360e6e7bc11b96eb60efe793671168f1a7df0bcc0b00546ed",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_orientation_variability"
+      ]
+    },
+    {
+      "split_index": 1892,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_1892/activity_attribute_vectors_a2.json",
+      "sha256": "4cbaf5d7e472da1ad0eb8dd0e58e208e8dc5248dec24865b3d447b6a5b970f9f",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_orientation_excursion"
+      ]
+    },
+    {
+      "split_index": 3156,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_3156/activity_attribute_vectors_a2.json",
+      "sha256": "a16d64859a8e341725dda9dfa69e8a6146ec56cacc55a8aa3a3c64893ad304b2",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_motion_dominance"
+      ]
+    },
+    {
+      "split_index": 3517,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_3517/activity_attribute_vectors_a2.json",
+      "sha256": "a45017dfb353f51ab46a13a6dfd0df0c06659103e66e8c780ea4bf2deba34173",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_orientation_variability"
+      ]
+    },
+    {
+      "split_index": 4082,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_4082/activity_attribute_vectors_a2.json",
+      "sha256": "5460e88880fb71f94284b05757aa810f1259f42120491d2703718447578f2cef",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "motion_intermittency"
+      ]
+    },
+    {
+      "split_index": 4717,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_4717/activity_attribute_vectors_a2.json",
+      "sha256": "abe5ecaa8b96ba160d9f709dd8bbd76742712bd75298fa57a9961aa38f7e4489",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_orientation_variability"
+      ]
+    },
+    {
+      "split_index": 5774,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_5774/activity_attribute_vectors_a2.json",
+      "sha256": "3ee5db8d3c263bdae6962b2a70827de36fa21879015316989276a764b3e1c23d",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_orientation_variability"
+      ]
+    },
+    {
+      "split_index": 9375,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_9375/activity_attribute_vectors_a2.json",
+      "sha256": "ae2492fc7e3e748f45e3652390aaf087f9fd2cb6673a4816d7ec936c1cc49d72",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "motion_intermittency"
+      ]
+    },
+    {
+      "split_index": 12121,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_12121/activity_attribute_vectors_a2.json",
+      "sha256": "bfda205267e5d51beddbcdaed0aa7fe29c8caffbd8bdab49b102130aaa61cc36",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_excursion"
+      ]
+    },
+    {
+      "split_index": 12202,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_12202/activity_attribute_vectors_a2.json",
+      "sha256": "356838cf82d206083282fc31e16055996760311f73ef5f34db0a68cbea4805f2",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_orientation_variability"
+      ]
+    },
+    {
+      "split_index": 12317,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_12317/activity_attribute_vectors_a2.json",
+      "sha256": "20d091f1c4de879744bc6145e157c7f56d5e570f0774fc3f9556784647d4ea12",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_orientation_variability",
+        "motion_intermittency"
+      ]
+    },
+    {
+      "split_index": 12909,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_12909/activity_attribute_vectors_a2.json",
+      "sha256": "04beaaf82994fd2733b69f04c0f3b19450c66bd2cde14360ba746fef51c8c804",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "motion_intermittency"
+      ]
+    },
+    {
+      "split_index": 14169,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_14169/activity_attribute_vectors_a2.json",
+      "sha256": "67603a90495e15ad46932a6194eee5a07d91a8927246ca7e52caf34f91f366d1",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_tilt_excursion",
+        "motion_intermittency"
+      ]
+    },
+    {
+      "split_index": 14224,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_14224/activity_attribute_vectors_a2.json",
+      "sha256": "acecfeca3d94c142f943a0b4026371bff9dc73276ef66eb4a948225762e1c9eb",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_orientation_variability"
+      ]
+    },
+    {
+      "split_index": 14851,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_14851/activity_attribute_vectors_a2.json",
+      "sha256": "a7e29f34cf25d94b24e1913b5277318b531c6a80aa3533e11efdac3258c77209",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_inclination_excursion"
+      ]
+    },
+    {
+      "split_index": 15157,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_15157/activity_attribute_vectors_a2.json",
+      "sha256": "282c9341bf246dbcca10a45da2df8633150057f88978c5f44e741d106b7990ad",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "wrist_orientation_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "split_index": 16328,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_16328/activity_attribute_vectors_a2.json",
+      "sha256": "c744d47fbb727c2d0176e2d899234ab442ee0c1afac1d742c96b4b2a9e840005",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_orientation_variability"
+      ]
+    },
+    {
+      "split_index": 16846,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_16846/activity_attribute_vectors_a2.json",
+      "sha256": "b7abf8ccb6af83c4a1e8c0045799c8ea0dc800297d65f3d9e07dced725909c73",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_orientation_variability"
+      ]
+    },
+    {
+      "split_index": 17924,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/seed43/split_17924/activity_attribute_vectors_a2.json",
+      "sha256": "9ad267af155059131e4d63416ce582f92f9c1ab69bc44f3e438f7f2ac31c50dc",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "wrist_orientation_variability",
+        "motion_intermittency"
+      ]
+    }
+  ],
+  "vector_source": "existing_saved_vectors; no LLM generation or classifier training",
+  "maximum_absolute_difference_from_uniform_mad": 1.1102230246251565e-16,
+  "metrics": {
+    "D_kNN": {
+      "A1": 0.19398148148148148,
+      "A2": 0.16964015151515152,
+      "delta": -0.024341329966329966
+    },
+    "U_NN": {
+      "A1": 0.21527777777777773,
+      "A2": 0.19147727272727272,
+      "delta": -0.023800505050505044
+    },
+    "U_Conf": {
+      "A1": 0.7847222222222221,
+      "A2": 0.8085227272727273,
+      "delta": 0.02380050505050506
+    },
+    "JointGap_DkNN_UConf": {
+      "A1": 0.4893518518518519,
+      "A2": 0.4890814393939394,
+      "delta": -0.0002704124579124667
+    }
+  }
+}

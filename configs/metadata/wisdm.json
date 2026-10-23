@@ -1,0 +1,49 @@
+{
+  "dataset_name": "WISDM",
+  "sampling_rate_hz": null,
+  "sensor_units": [
+    {
+      "device": "phone",
+      "body_position": "pocket or user-carried phone",
+      "sensor_types": ["accelerometer", "gyroscope"],
+      "axes": ["x", "y", "z"]
+    },
+    {
+      "device": "watch",
+      "body_position": "wrist-worn watch",
+      "sensor_types": ["accelerometer", "gyroscope"],
+      "axes": ["x", "y", "z"]
+    }
+  ],
+  "available_feature_prefixes": ["phone", "watch"],
+  "available_feature_types": [
+    "time-domain statistics",
+    "derivative and dynamic-change features",
+    "frequency/energy features",
+    "periodicity/autocorrelation features",
+    "gravity-angle and orientation-related features",
+    "cross-channel coordination features",
+    "physical HAR features including AI, VI, SMA_phys, EVA, CAGH, AVG, AVH, ARATG, DF, ENERGY_phys, AAE, and ARE"
+  ],
+  "activity_label_order": [
+    "walking",
+    "jogging",
+    "stairs",
+    "sitting",
+    "standing",
+    "typing",
+    "brushing teeth",
+    "eating soup",
+    "eating chips",
+    "eating pasta",
+    "drinking from cup",
+    "eating sandwich",
+    "kicking (soccer ball)",
+    "playing catch w/tennis ball",
+    "dribbling (basketball)",
+    "writing",
+    "clapping",
+    "folding clothes"
+  ],
+  "note": "Use only phone/watch IMU observability. Do not assume video, GPS, object identity, room context, or additional body-worn sensors."
+}

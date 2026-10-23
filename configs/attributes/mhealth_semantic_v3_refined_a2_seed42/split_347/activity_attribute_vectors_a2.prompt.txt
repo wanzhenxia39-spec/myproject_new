@@ -1,0 +1,712 @@
+You are an expert in biomechanics, wearable IMU signal interpretation, and activity-level zero-shot human activity recognition.
+
+Task:
+Apply an A1-to-A2 semantic refinement plan and assign values only to the changed A2
+attributes requested below. Kept values are copied deterministically by local code.
+
+These prototypes will later be used in a zero-shot HAR pipeline:
+- attribute classifiers are trained to predict semantic attributes from wearable IMU signals;
+- activity classes are recognized by matching predicted attributes to class-level A2 prototypes;
+- the prototypes must describe activity-level motion semantics, not individual sensor samples.
+
+Dataset:
+mhealth
+
+Activities to annotate:
+["standing still", "sitting and relaxing", "lying down", "walking", "climbing stairs", "waist bends forward", "frontal elevation of arms", "knees bending (crouching)", "cycling", "jogging", "running", "jump front & back"]
+
+Important:
+- The top-level JSON keys must exactly match the activity names in "Activities to annotate".
+- Do not rename, translate, abbreviate, merge, omit, or add activities.
+- Assign attributes using the same semantic principles for all activities.
+- The plan's seen/unseen roles and operation reasons explain why refinement was requested.
+  Use them to solve the named semantic ambiguity, but do not use or assume sensor samples.
+- Generate one class-level prototype for each activity, not sample-level predictions.
+
+Original A1 ontology:
+[
+  {
+    "name": "motion_intensity",
+    "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+    "levels": {
+      "Low": "Weak or nearly static motion.",
+      "Medium": "Moderate motion magnitude and energy.",
+      "High": "Strong or vigorous motion."
+    }
+  },
+  {
+    "name": "cadence",
+    "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+    "levels": {
+      "Low": "No clear periodic repetition or a slow repetition rate.",
+      "Medium": "Moderate repetition rate.",
+      "High": "Fast repetition rate."
+    }
+  },
+  {
+    "name": "smoothness",
+    "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+    "levels": {
+      "Low": "Frequent or sustained abrupt fluctuations.",
+      "Medium": "Moderately smooth motion with some fluctuations.",
+      "High": "Continuous and smooth motion with little fluctuation."
+    }
+  },
+  {
+    "name": "impulsiveness",
+    "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+    "levels": {
+      "Low": "Few or no pronounced abrupt peaks.",
+      "Medium": "Moderate abrupt peaks or impacts.",
+      "High": "Strong short-duration peaks or impacts."
+    }
+  },
+  {
+    "name": "posture_inclination",
+    "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+    "levels": {
+      "Low": "Nearly upright relative to gravity.",
+      "Medium": "Moderately inclined relative to gravity.",
+      "High": "Strongly inclined or nearly horizontal relative to gravity."
+    }
+  },
+  {
+    "name": "posture_variability",
+    "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+    "levels": {
+      "Low": "Posture remains nearly constant.",
+      "Medium": "Posture changes moderately.",
+      "High": "Posture changes substantially."
+    }
+  },
+  {
+    "name": "rotational_motion",
+    "definition": "Prominence of angular or rotational motion during the activity.",
+    "levels": {
+      "Low": "Little or no rotational motion.",
+      "Medium": "Moderate rotational motion.",
+      "High": "Prominent rotational motion."
+    }
+  },
+  {
+    "name": "translational_motion",
+    "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+    "levels": {
+      "Low": "Little or no sustained translation.",
+      "Medium": "Moderate translational motion.",
+      "High": "Prominent sustained translational or locomotor motion."
+    }
+  },
+  {
+    "name": "motion_regularity",
+    "definition": "Temporal consistency and predictability of the motion pattern.",
+    "levels": {
+      "Low": "Irregular and poorly predictable motion pattern.",
+      "Medium": "Partly structured motion with moderate variability.",
+      "High": "Consistent and predictable motion pattern."
+    }
+  }
+]
+
+Original A1 class-level vectors:
+{
+  "standing still": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "sitting and relaxing": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Medium",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "lying down": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "High",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "walking": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "Medium",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "Medium",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  },
+  "climbing stairs": {
+    "motion_intensity": "High",
+    "cadence": "Medium",
+    "smoothness": "Medium",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Medium",
+    "posture_variability": "Medium",
+    "rotational_motion": "Medium",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  },
+  "waist bends forward": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Medium",
+    "posture_variability": "High",
+    "rotational_motion": "High",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "frontal elevation of arms": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "High",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "knees bending (crouching)": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "Medium",
+    "impulsiveness": "Low",
+    "posture_inclination": "Medium",
+    "posture_variability": "High",
+    "rotational_motion": "High",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "cycling": {
+    "motion_intensity": "Medium",
+    "cadence": "High",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Medium",
+    "posture_variability": "Low",
+    "rotational_motion": "High",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  },
+  "jogging": {
+    "motion_intensity": "High",
+    "cadence": "Medium",
+    "smoothness": "Medium",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "Medium",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  },
+  "running": {
+    "motion_intensity": "High",
+    "cadence": "High",
+    "smoothness": "Low",
+    "impulsiveness": "High",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "Medium",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  },
+  "jump front & back": {
+    "motion_intensity": "High",
+    "cadence": "Medium",
+    "smoothness": "Low",
+    "impulsiveness": "High",
+    "posture_inclination": "Low",
+    "posture_variability": "Medium",
+    "rotational_motion": "Medium",
+    "translational_motion": "Medium",
+    "motion_regularity": "High"
+  }
+}
+
+Refinement rationale and operation lineage:
+{
+  "decision_reason": "A1 already provides an adequate gravity-relative posture hierarchy for lying down, but running has the weakest seen-prototype coverage and forms a close unseen pair with jogging. Their A1 distinction relies mainly on cadence, smoothness and impulsiveness, so vertical whole-body motion is added as an independent locomotor contrast. Translation-direction reversal is added to distinguish progressive running from the nearby seen anchor jump front & back. The broad rotational_motion concept is split by body region to separate waist bends forward from knees bending (crouching) and frontal elevation of arms using the available chest, lower-arm and ankle sensing. motion_regularity is dropped because every supplied class prototype has the same level and therefore it contributes no split-specific semantic contrast.",
+  "semantic_redundancy_review": "The final dimensions are related but not duplicates. motion_intensity measures overall energy; vertical_motion isolates its gravity-axis translational component; impulsiveness measures short peaks; and smoothness measures sustained rapid fluctuation. cadence measures repetition rate rather than predictability, allowing the nondiscriminative motion_regularity dimension to be removed. posture_inclination measures mean global posture, posture_variability measures its temporal range, and trunk_angular_motion measures dynamic trunk rotation. distal_limb_angular_motion is body-region-specific and therefore distinct from trunk motion. translational_motion measures the prominence of sustained progression, whereas translation_direction_reversal describes whether that progression repeatedly changes direction. All retained or introduced attributes are ordinal and are supported in principle by gravity orientation, gyroscopic rotation, motion energy, periodicity, jerk, gravity-angle variation, translational proxies or multiaxial coupling.",
+  "seen_classes": [
+    "standing still",
+    "sitting and relaxing",
+    "walking",
+    "climbing stairs",
+    "frontal elevation of arms",
+    "knees bending (crouching)",
+    "cycling",
+    "jump front & back"
+  ],
+  "unseen_classes": [
+    "lying down",
+    "waist bends forward",
+    "jogging",
+    "running"
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "Overall motion energy remains a transferable distinction between static postures, moderate activities and vigorous locomotion.",
+      "target_unseen": [
+        "lying down",
+        "waist bends forward",
+        "jogging",
+        "running"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "standing still",
+        "walking",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "Repetition rate is directly supported by periodicity and provides an important ordered contrast between jogging and running, with walking and cycling supplying seen locomotor anchors.",
+      "target_unseen": [
+        "jogging",
+        "running"
+      ],
+      "contrast_unseen": [
+        "jogging",
+        "running"
+      ],
+      "seen_anchors": [
+        "walking",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "Sustained rapid signal fluctuation distinguishes smoother bending and cycling patterns from more abrupt running and jumping patterns independently of average energy.",
+      "target_unseen": [
+        "waist bends forward",
+        "jogging",
+        "running"
+      ],
+      "contrast_unseen": [
+        "waist bends forward",
+        "running"
+      ],
+      "seen_anchors": [
+        "frontal elevation of arms",
+        "cycling",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "Peak impacts provide a physically supported contrast between vigorous foot-strike activities and smooth posture-changing activities.",
+      "target_unseen": [
+        "waist bends forward",
+        "jogging",
+        "running"
+      ],
+      "contrast_unseen": [
+        "waist bends forward",
+        "running"
+      ],
+      "seen_anchors": [
+        "walking",
+        "cycling",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "Gravity-relative mean posture already gives a direct transferable hierarchy from standing through sitting to lying and supports lying down without inventing a new posture label.",
+      "target_unseen": [
+        "lying down",
+        "waist bends forward"
+      ],
+      "contrast_unseen": [
+        "lying down",
+        "waist bends forward"
+      ],
+      "seen_anchors": [
+        "standing still",
+        "sitting and relaxing",
+        "knees bending (crouching)"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "Gravity-angle variation separates sustained postures from repeated global configuration changes and transfers from knees bending (crouching) to waist bends forward.",
+      "target_unseen": [
+        "lying down",
+        "waist bends forward"
+      ],
+      "contrast_unseen": [
+        "lying down",
+        "waist bends forward"
+      ],
+      "seen_anchors": [
+        "sitting and relaxing",
+        "knees bending (crouching)"
+      ]
+    },
+    {
+      "action": "split",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "trunk_angular_motion",
+        "distal_limb_angular_motion"
+      ],
+      "reason": "A single rotational degree conflates trunk flexion, arm elevation and ankle-driven cyclic motion. Chest acceleration can support trunk orientation change, while lower-arm and ankle gyroscopes support distal-limb angular motion. The split adds a transferable body-region contrast for waist bends forward against the seen crouching and arm-elevation anchors.",
+      "target_unseen": [
+        "waist bends forward"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "Sustained progression remains the primary transferable distinction between locomotor activities and in-place posture or limb movements.",
+      "target_unseen": [
+        "lying down",
+        "waist bends forward",
+        "jogging",
+        "running"
+      ],
+      "contrast_unseen": [
+        "waist bends forward",
+        "jogging"
+      ],
+      "seen_anchors": [
+        "walking",
+        "climbing stairs",
+        "cycling"
+      ]
+    },
+    {
+      "action": "drop",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [],
+      "reason": "The supplied A1 prototypes assign High motion_regularity to every seen and unseen class, so the concept contributes no split-specific separation despite being observable in principle.",
+      "target_unseen": [],
+      "contrast_unseen": [],
+      "seen_anchors": []
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "vertical_motion"
+      ],
+      "reason": "Gravity-referenced acceleration and translational proxies can represent vertical whole-body motion. This adds an independent intensity-related contrast for the close jogging-running pair and transfers through walking, climbing stairs and jump front & back.",
+      "target_unseen": [
+        "jogging",
+        "running"
+      ],
+      "contrast_unseen": [
+        "jogging",
+        "running"
+      ],
+      "seen_anchors": [
+        "walking",
+        "climbing stairs",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "translation_direction_reversal"
+      ],
+      "reason": "Short-window velocity proxies and multiaxial motion structure can distinguish repeated front-back reversal from sustained progression. This prevents the nearest seen anchor jump front & back from being semantically confounded with running solely because both are vigorous and impact-rich.",
+      "target_unseen": [
+        "running"
+      ],
+      "contrast_unseen": [
+        "jogging"
+      ],
+      "seen_anchors": [
+        "walking",
+        "cycling",
+        "jump front & back"
+      ]
+    }
+  ]
+}
+
+Complete final A2 semantic schema:
+[
+  {
+    "name": "motion_intensity",
+    "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+    "levels": {
+      "Low": "Weak or nearly static motion.",
+      "Medium": "Moderate motion magnitude and energy.",
+      "High": "Strong or vigorous motion."
+    }
+  },
+  {
+    "name": "cadence",
+    "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+    "levels": {
+      "Low": "No clear periodic repetition or a slow repetition rate.",
+      "Medium": "Moderate repetition rate.",
+      "High": "Fast repetition rate."
+    }
+  },
+  {
+    "name": "smoothness",
+    "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+    "levels": {
+      "Low": "Frequent or sustained abrupt fluctuations.",
+      "Medium": "Moderately smooth motion with some fluctuations.",
+      "High": "Continuous and smooth motion with little fluctuation."
+    }
+  },
+  {
+    "name": "impulsiveness",
+    "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+    "levels": {
+      "Low": "Few or no pronounced abrupt peaks.",
+      "Medium": "Moderate abrupt peaks or impacts.",
+      "High": "Strong short-duration peaks or impacts."
+    }
+  },
+  {
+    "name": "posture_inclination",
+    "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+    "levels": {
+      "Low": "Nearly upright relative to gravity.",
+      "Medium": "Moderately inclined relative to gravity.",
+      "High": "Strongly inclined or nearly horizontal relative to gravity."
+    }
+  },
+  {
+    "name": "posture_variability",
+    "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+    "levels": {
+      "Low": "Posture remains nearly constant.",
+      "Medium": "Posture changes moderately.",
+      "High": "Posture changes substantially."
+    }
+  },
+  {
+    "name": "trunk_angular_motion",
+    "definition": "Prominence of angular change in the chest or trunk configuration during the activity, excluding angular motion confined mainly to distal limbs.",
+    "levels": {
+      "Low": "Little or no trunk angular motion.",
+      "Medium": "Moderate trunk angular motion.",
+      "High": "Prominent trunk angular motion."
+    }
+  },
+  {
+    "name": "distal_limb_angular_motion",
+    "definition": "Prominence of angular motion expressed at the instrumented right lower arm or left ankle, rather than through global trunk reorientation.",
+    "levels": {
+      "Low": "Little or no distal-limb angular motion.",
+      "Medium": "Moderate distal-limb angular motion.",
+      "High": "Prominent distal-limb angular motion."
+    }
+  },
+  {
+    "name": "translational_motion",
+    "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+    "levels": {
+      "Low": "Little or no sustained translation.",
+      "Medium": "Moderate translational motion.",
+      "High": "Prominent sustained translational or locomotor motion."
+    }
+  },
+  {
+    "name": "vertical_motion",
+    "definition": "Prominence of repeated whole-body translational motion along the gravity axis, distinct from changes caused only by body inclination.",
+    "levels": {
+      "Low": "Little or no repeated vertical whole-body motion.",
+      "Medium": "Moderate repeated vertical whole-body motion.",
+      "High": "Prominent repeated vertical whole-body motion."
+    }
+  },
+  {
+    "name": "translation_direction_reversal",
+    "definition": "Degree to which translational motion repeatedly reverses direction within a window rather than maintaining one main direction of progression.",
+    "levels": {
+      "Low": "No sustained translation or predominantly one-directional translation.",
+      "Medium": "Occasional or moderate translation-direction reversals.",
+      "High": "Repeated and pronounced translation-direction reversals."
+    }
+  }
+]
+
+Value-handling policy enforced by local code:
+- keep: copy the original A1 value exactly; the LLM must not return this attribute;
+- drop: omit the A1 attribute from A2;
+- add: generate the new attribute from its A2 definition and stated reason;
+- replace: generate only the replacement attribute; use the source A1 values as context,
+  but do not copy them mechanically because the physical meaning changed;
+- split: generate every child attribute separately; use the parent A1 values as a soft
+  anchor and use reason/target_unseen/contrast_unseen/seen_anchors to realize the intended
+  distinctions that motivated the split;
+- merge: generate the merged attribute from all source attributes and the new definition;
+  do not mechanically take a maximum, minimum or majority value.
+
+Attributes copied locally from A1:
+["motion_intensity", "cadence", "smoothness", "impulsiveness", "posture_inclination", "posture_variability", "translational_motion"]
+
+Attributes removed from A2:
+["motion_regularity"]
+
+The only attributes the LLM must generate:
+["trunk_angular_motion", "distal_limb_angular_motion", "vertical_motion", "translation_direction_reversal"]
+
+Semantic definitions for the attributes the LLM must generate:
+[
+  {
+    "name": "trunk_angular_motion",
+    "definition": "Prominence of angular change in the chest or trunk configuration during the activity, excluding angular motion confined mainly to distal limbs.",
+    "levels": {
+      "Low": "Little or no trunk angular motion.",
+      "Medium": "Moderate trunk angular motion.",
+      "High": "Prominent trunk angular motion."
+    }
+  },
+  {
+    "name": "distal_limb_angular_motion",
+    "definition": "Prominence of angular motion expressed at the instrumented right lower arm or left ankle, rather than through global trunk reorientation.",
+    "levels": {
+      "Low": "Little or no distal-limb angular motion.",
+      "Medium": "Moderate distal-limb angular motion.",
+      "High": "Prominent distal-limb angular motion."
+    }
+  },
+  {
+    "name": "vertical_motion",
+    "definition": "Prominence of repeated whole-body translational motion along the gravity axis, distinct from changes caused only by body inclination.",
+    "levels": {
+      "Low": "Little or no repeated vertical whole-body motion.",
+      "Medium": "Moderate repeated vertical whole-body motion.",
+      "High": "Prominent repeated vertical whole-body motion."
+    }
+  },
+  {
+    "name": "translation_direction_reversal",
+    "definition": "Degree to which translational motion repeatedly reverses direction within a window rather than maintaining one main direction of progression.",
+    "levels": {
+      "Low": "No sustained translation or predominantly one-directional translation.",
+      "Medium": "Occasional or moderate translation-direction reversals.",
+      "High": "Repeated and pronounced translation-direction reversals."
+    }
+  }
+]
+
+How to use the A2 schema:
+- Use each changed attribute's A2 definition and Low/Medium/High descriptions as the
+  authoritative value scale.
+- The changed-attribute list is the exact output whitelist. Output no kept or dropped fields.
+- Read every relevant operation reason. For split/replace/add/merge, explicitly realize the
+  intended contrast between target_unseen and contrast_unseen when it is physically justified.
+- Use seen_anchors as semantic calibration references, not as recording-level evidence.
+- If a refined concept intentionally includes a sensor position, modality or axis in its
+  definition, follow that scope consistently rather than removing it.
+- Distinct physical concepts may be statistically correlated. Do not force independent level patterns or invent differences to remove correlation.
+
+Assignment principles:
+1. Values must be based on biomechanical and inertial-motion patterns that can plausibly be reflected in wearable IMU signals.
+2. Relevant motion evidence may include overall motion magnitude, rhythmicity, periodicity, impact, posture change, vertical displacement, spatial spread, movement smoothness, sustained translation, rotation, and temporal regularity.
+3. Do not rely on visual appearance, object identity, room context, environmental layout, or high-level task goals unless they would produce observable inertial-motion differences.
+4. Do not use dataset-specific sensor placement assumptions to change an attribute's physical meaning.
+5. Body position, modality and axis are feature-side modeling dimensions, never additional conditions on attribute values.
+6. Assign values according to the abstract physical concept and generally observable human motion patterns.
+7. Low, Medium, and High must be ordinal and consistent: Low < Medium < High must reflect an increasing degree of the attribute according to the A2 schema.
+8. Do not mechanically map activity labels to values. Compare activities by their expected motion patterns.
+9. Clearly different activities should not become identical across all A2 attributes when the schema supports meaningful biomechanical distinctions.
+10. Do not fabricate differences. If two activities are genuinely similar for an attribute, assign the same level.
+
+Internal consistency checks before output:
+- Every activity must have exactly the changed attributes in "The only attributes the LLM must generate".
+- Every value must be exactly one of: "Low", "Medium", "High".
+- Every attribute value must follow its A2 level definitions rather than generic intuition alone.
+- The same attribute must be interpreted consistently across all activities.
+- If an attribute has meaningful variation across activities, avoid assigning a constant value to all activities.
+- If an attribute is genuinely constant under its definition, keep it constant rather than inventing artificial differences.
+- Check whether similar activities are differentiated only when the A2 schema provides a biomechanically justified basis.
+- Check whether highly different activities remain unnecessarily identical across the entire A2 vector; if so, adjust only when supported by the schema.
+
+Output rules:
+- Output JSON only.
+- Do not include explanations, markdown, comments, confidence scores, reasoning traces, or extra fields.
+- Do not reveal chain-of-thought. Perform the reasoning and consistency checks internally, then output only the final JSON.
+- The output must be directly parseable by json.loads().
+
+Output schema:
+{
+  "<activity name>": {
+    "<changed A2 attribute name>": "Low"
+  }
+}

@@ -1,0 +1,550 @@
+{
+  "dataset": "pamap2",
+  "attribute_set": "A1",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity"
+  ],
+  "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5.json",
+  "a1_sha256": "d9c7469bf376db9661ad8a93f4a233b3d31bd9c19751d6da4ea9af1934fae887",
+  "activity_vectors": {
+    "lying": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "High",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "sitting": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "standing": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "walking": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "running": {
+      "motion_intensity": "High",
+      "cadence": "High",
+      "smoothness": "Medium",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "cycling": {
+      "motion_intensity": "Medium",
+      "cadence": "High",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "Nordic walking": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "ascending stairs": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "Medium",
+      "rotational_motion": "High",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "descending stairs": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "High",
+      "translational_motion": "High",
+      "motion_regularity": "Medium"
+    },
+    "vacuum cleaning": {
+      "motion_intensity": "Medium",
+      "cadence": "Low",
+      "smoothness": "Medium",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "Medium"
+    },
+    "ironing": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "Medium"
+    },
+    "rope jumping": {
+      "motion_intensity": "High",
+      "cadence": "High",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    }
+  },
+  "split_manifest": "/home/wanzhen/myproject_new/split/zero_shot_split/pamap2_unseen4_random20_splits_seed42.json",
+  "split_source": "manifest",
+  "splits": [
+    {
+      "split_index": 1,
+      "seen_activities": [
+        "running",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "standing",
+        "walking"
+      ]
+    },
+    {
+      "split_index": 2,
+      "seen_activities": [
+        "walking",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "standing",
+        "running"
+      ]
+    },
+    {
+      "split_index": 3,
+      "seen_activities": [
+        "walking",
+        "running",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "standing",
+        "cycling"
+      ]
+    },
+    {
+      "split_index": 13,
+      "seen_activities": [
+        "standing",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "walking",
+        "ascending stairs"
+      ]
+    },
+    {
+      "split_index": 16,
+      "seen_activities": [
+        "standing",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "walking",
+        "ironing"
+      ]
+    },
+    {
+      "split_index": 17,
+      "seen_activities": [
+        "standing",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "walking",
+        "rope jumping"
+      ]
+    },
+    {
+      "split_index": 45,
+      "seen_activities": [
+        "standing",
+        "walking",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "ironing",
+        "rope jumping"
+      ]
+    },
+    {
+      "split_index": 48,
+      "seen_activities": [
+        "sitting",
+        "running",
+        "cycling",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "standing",
+        "walking",
+        "Nordic walking"
+      ]
+    },
+    {
+      "split_index": 53,
+      "seen_activities": [
+        "sitting",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "lying",
+        "standing",
+        "walking",
+        "rope jumping"
+      ]
+    },
+    {
+      "split_index": 58,
+      "seen_activities": [
+        "sitting",
+        "walking",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "standing",
+        "running",
+        "vacuum cleaning"
+      ]
+    },
+    {
+      "split_index": 72,
+      "seen_activities": [
+        "sitting",
+        "walking",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "standing",
+        "ascending stairs",
+        "descending stairs"
+      ]
+    },
+    {
+      "split_index": 112,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "walking",
+        "Nordic walking",
+        "ascending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "running",
+        "cycling",
+        "descending stairs"
+      ]
+    },
+    {
+      "split_index": 115,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "walking",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "lying",
+        "running",
+        "cycling",
+        "rope jumping"
+      ]
+    },
+    {
+      "split_index": 126,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "walking",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "vacuum cleaning",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "running",
+        "descending stairs",
+        "ironing"
+      ]
+    },
+    {
+      "split_index": 141,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "walking",
+        "running",
+        "Nordic walking",
+        "ascending stairs",
+        "vacuum cleaning",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "cycling",
+        "descending stairs",
+        "ironing"
+      ]
+    },
+    {
+      "split_index": 217,
+      "seen_activities": [
+        "lying",
+        "standing",
+        "running",
+        "cycling",
+        "ascending stairs",
+        "descending stairs",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "walking",
+        "Nordic walking",
+        "vacuum cleaning"
+      ]
+    },
+    {
+      "split_index": 280,
+      "seen_activities": [
+        "lying",
+        "standing",
+        "walking",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "descending stairs",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "ascending stairs",
+        "vacuum cleaning",
+        "rope jumping"
+      ]
+    },
+    {
+      "split_index": 303,
+      "seen_activities": [
+        "lying",
+        "sitting",
+        "running",
+        "cycling",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "standing",
+        "walking",
+        "Nordic walking",
+        "rope jumping"
+      ]
+    },
+    {
+      "split_index": 328,
+      "seen_activities": [
+        "lying",
+        "sitting",
+        "walking",
+        "cycling",
+        "Nordic walking",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "standing",
+        "running",
+        "ascending stairs",
+        "rope jumping"
+      ]
+    },
+    {
+      "split_index": 378,
+      "seen_activities": [
+        "lying",
+        "sitting",
+        "standing",
+        "cycling",
+        "ascending stairs",
+        "descending stairs",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "walking",
+        "running",
+        "Nordic walking",
+        "vacuum cleaning"
+      ]
+    }
+  ],
+  "seed": 42,
+  "top_k": 2,
+  "distance_metric": "normalized_ordinal",
+  "attribute_weighting": "uniform",
+  "distance_formula": "(1/K_A) * sum_k(abs(a_i,k - a_j,k) / 2)",
+  "formula_ordinal_values": {
+    "Low": 0,
+    "Medium": 1,
+    "High": 2
+  },
+  "ordinal_values": {
+    "Low": 0.0,
+    "Medium": 0.5,
+    "High": 1.0
+  }
+}

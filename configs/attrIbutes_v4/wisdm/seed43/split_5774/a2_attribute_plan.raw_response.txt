@@ -1,0 +1,328 @@
+{
+  "schema_version": "2.0",
+  "dataset": "wisdm",
+  "split_index": 5774,
+  "refinement_needed": true,
+  "decision_reason": "A1 already distinguishes locomotion and vigorous activities through several complementary concepts. The most consequential close pair is eating soup versus writing, whose A1 prototypes differ only in motion_intensity. Eating soup versus eating sandwich also differs in only one coordinate. Add wrist_orientation_variability to distinguish changes in local arm configuration from global posture changes, providing a plausible additional contrast for transport-to-mouth versus surface-based manipulation. This also offers a transferable description of folding clothes without inventing a class-specific signature. Walking retains jogging and stairs as locomotor anchors; its relatively weak A1 coverage alone does not justify a new attribute. No IMU-supported distinction is guaranteed for every close eating pair.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "wrist_orientation_variability",
+      "definition": "Extent of change in the gravity-relative orientation of the watch-bearing wrist within a window, including changes caused by arm repositioning, rather than global body posture or rotation rate.",
+      "levels": {
+        "Low": "Wrist orientation relative to gravity remains nearly constant.",
+        "Medium": "Wrist orientation relative to gravity changes through a moderate range.",
+        "High": "Wrist orientation relative to gravity changes through a broad range."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity: G3 supports observable acceleration and angular-motion magnitude. It preserves walking versus jogging and the existing eating soup versus writing contrast, with seen examples spanning weak to vigorous motion. Ambiguity arises from movement style, phone carriage and whether the watch-bearing hand participates; magnitude alone does not identify an activity.",
+      "target_unseen": [
+        "walking",
+        "eating soup",
+        "writing"
+      ],
+      "contrast_unseen": [
+        "writing"
+      ],
+      "seen_anchors": [
+        "jogging",
+        "stairs",
+        "typing",
+        "eating sandwich"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence: G6 supports repetition rate in walking, locomotor seen anchors and repeated hand actions. It retains a transferable rate distinction rather than introducing an unsupported walking-only dimension. Irregular manipulation, short windows and multiple possible motion units make cadence ambiguous; lack of periodicity remains part of Low.",
+      "target_unseen": [
+        "walking",
+        "writing",
+        "eating chips"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "jogging",
+        "stairs",
+        "typing",
+        "brushing teeth"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness: G9 supports sustained rapid signal changes, preserving the existing eating soup versus eating sandwich distinction and continuous versus fluctuating manipulation patterns. Evidence concerns ongoing fluctuations rather than isolated impacts. Speed, tremor and handling style can change apparent smoothness, so food identity is not directly observable.",
+      "target_unseen": [
+        "eating soup",
+        "eating chips",
+        "writing",
+        "folding clothes"
+      ],
+      "contrast_unseen": [
+        "eating chips"
+      ],
+      "seen_anchors": [
+        "eating sandwich",
+        "eating pasta",
+        "clapping"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness: G10 supports brief abrupt changes and transmitted impacts. It retains walking versus jogging information and distinguishes gentle unseen manipulation from seen impact-rich actions. Contact may be attenuated at either device, and incidental knocks can mimic activity-related peaks; this is distinct from sustained roughness.",
+      "target_unseen": [
+        "walking",
+        "eating soup",
+        "drinking from cup"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "jogging",
+        "dribbling (basketball)",
+        "clapping"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination: G1 supports static gravity-relative orientation as partial evidence for global inclination. It preserves the existing postural contrast between sitting and standing and contextual support for stationary unseen activities. Predictability is limited because a user-carried phone need not align with the trunk and wrist orientation is not global posture; no deterministic sitting-versus-standing inference is assumed.",
+      "target_unseen": [
+        "walking",
+        "writing",
+        "eating soup"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "sitting",
+        "standing",
+        "stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability: G12 supports gravity-relative configuration changes, with phone evidence potentially distinguishing body repositioning from wrist-only motion. It retains folding clothes versus relatively stationary eating and writing contrasts, with stairs and kicking providing seen examples of changing body configuration. Phone movement independent of the body and folding without trunk movement create ambiguity.",
+      "target_unseen": [
+        "folding clothes"
+      ],
+      "contrast_unseen": [
+        "eating soup",
+        "writing"
+      ],
+      "seen_anchors": [
+        "stairs",
+        "kicking (soccer ball)",
+        "sitting"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "rotational_motion: G2 supports angular-motion prominence in the phone and watch. It retains distinctions among drinking from cup, eating soup and stationary manipulation, transferring from brushing teeth and eating pasta. Technique, wrist compensation and device participation can change angular evidence. Angular prominence does not uniquely determine gravity-relative orientation range.",
+      "target_unseen": [
+        "drinking from cup",
+        "eating soup",
+        "folding clothes"
+      ],
+      "contrast_unseen": [
+        "eating soup"
+      ],
+      "seen_anchors": [
+        "brushing teeth",
+        "eating pasta",
+        "eating sandwich"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion: G13 supports short-window translational-motion proxies that plausibly distinguish locomotion from stationary manipulation, preserving walking's shared semantics with jogging and stairs. These proxies do not directly measure sustained displacement; limb swings, drift and phone carriage make progression ambiguous. Retain the broad A1 concept rather than claim precise speed or travel distance.",
+      "target_unseen": [
+        "walking"
+      ],
+      "contrast_unseen": [
+        "folding clothes",
+        "writing"
+      ],
+      "seen_anchors": [
+        "jogging",
+        "stairs",
+        "standing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity: G11 supports recurrence and temporal predictability independently of repetition rate. It preserves contrasts involving irregular eating chips and folding clothes versus more structured locomotion or repeated actions. Pauses, window duration and individual routines can obscure regularity; the A1 ordering is retained without assuming a universal eating rhythm.",
+      "target_unseen": [
+        "walking",
+        "eating chips",
+        "folding clothes",
+        "drinking from cup"
+      ],
+      "contrast_unseen": [
+        "eating soup"
+      ],
+      "seen_anchors": [
+        "jogging",
+        "eating sandwich",
+        "brushing teeth"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "wrist_orientation_variability"
+      ],
+      "reason": "wrist_orientation_variability: G12 supports gravity-relative orientation variation at the watch, with G2 providing complementary evidence of wrist reorientation. Transporting a hand toward the mouth can change wrist inclination more than writing with a relatively stable forearm, supplying a plausible independent contrast for the closest eating soup versus writing pair. Typing provides a limited-reorientation seen anchor, while eating sandwich, eating pasta and playing catch w/tennis ball provide examples of arm repositioning that can transfer to eating and folding clothes. Expected evidence is a change in watch orientation, not recognition of utensils, food or a mouth destination. Forearm support, compensatory wrist motion, movement of the unwatched hand, dynamic acceleration and windows containing only a pause can obscure the contrast. Soup handling may preserve wrist orientation, so separation is plausible rather than guaranteed; no additional distinction among eating soup, eating chips and eating sandwich is forced.",
+      "target_unseen": [
+        "eating soup",
+        "writing",
+        "drinking from cup",
+        "folding clothes"
+      ],
+      "contrast_unseen": [
+        "writing"
+      ],
+      "seen_anchors": [
+        "typing",
+        "eating sandwich",
+        "eating pasta",
+        "playing catch w/tennis ball"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The ten attributes describe distinct physical properties, although correlations are expected. Cadence measures rate, whereas motion_regularity measures predictability. Smoothness concerns sustained fluctuations, whereas impulsiveness concerns isolated abrupt peaks. Motion intensity measures magnitude rather than either temporal property. Posture inclination and posture variability concern global configuration; wrist_orientation_variability explicitly concerns local watch-bearing wrist orientation. Rotational_motion measures angular prominence, not orientation range: rapid small oscillations or rotation about gravity need not produce broad gravity-relative wrist changes. Translational_motion concerns progression rather than local arm transport. All A1 concepts are retained unchanged, and only one independently interpretable attribute is added. No extra attributes are introduced solely to separate food categories, infer exact trajectories or compensate numerically for weak coverage."
+}

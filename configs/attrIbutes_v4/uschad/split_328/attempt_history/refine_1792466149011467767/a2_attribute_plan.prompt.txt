@@ -1,0 +1,457 @@
+===== SYSTEM =====
+You are an expert in wearable-IMU human activity recognition, biomechanics,
+zero-shot learning, and interpretable semantic attribute design.
+
+Create one compact, split-specific A2 semantic attribute set for a zero-shot activity
+recognition experiment. Use only the supplied class-level semantics and IMU capability
+summary. Do not assume recordings, sample statistics, predictions, classifier accuracy, or
+unlisted features. Think through the comparison internally and return JSON only.
+
+===== USER =====
+Refine the initial A1 semantic attributes for this zero-shot split.
+
+1. Zero-shot task and class split
+{
+  "dataset": "uschad",
+  "outer_split_index": 328,
+  "seen_classes": [
+    "Walking Forward",
+    "Walking Left",
+    "Walking Upstairs",
+    "Running Forward",
+    "Jumping Up",
+    "Standing",
+    "Sleeping",
+    "Elevator Up"
+  ],
+  "unseen_classes": [
+    "Walking Right",
+    "Walking Downstairs",
+    "Sitting",
+    "Elevator Down"
+  ]
+}
+
+2. Complete A1 ontology
+Learn the exact meaning and Low/Medium/High ordering of every initial attribute from this
+ontology. Preserve a kept attribute's name, definition and levels exactly.
+[
+  {
+    "name": "motion_intensity",
+    "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+    "levels": {
+      "Low": "Weak or nearly static motion.",
+      "Medium": "Moderate motion magnitude and energy.",
+      "High": "Strong or vigorous motion."
+    }
+  },
+  {
+    "name": "cadence",
+    "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+    "levels": {
+      "Low": "No clear periodic repetition or a slow repetition rate.",
+      "Medium": "Moderate repetition rate.",
+      "High": "Fast repetition rate."
+    }
+  },
+  {
+    "name": "smoothness",
+    "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+    "levels": {
+      "Low": "Frequent or sustained abrupt fluctuations.",
+      "Medium": "Moderately smooth motion with some fluctuations.",
+      "High": "Continuous and smooth motion with little fluctuation."
+    }
+  },
+  {
+    "name": "impulsiveness",
+    "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+    "levels": {
+      "Low": "Few or no pronounced abrupt peaks.",
+      "Medium": "Moderate abrupt peaks or impacts.",
+      "High": "Strong short-duration peaks or impacts."
+    }
+  },
+  {
+    "name": "posture_inclination",
+    "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+    "levels": {
+      "Low": "Nearly upright relative to gravity.",
+      "Medium": "Moderately inclined relative to gravity.",
+      "High": "Strongly inclined or nearly horizontal relative to gravity."
+    }
+  },
+  {
+    "name": "posture_variability",
+    "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+    "levels": {
+      "Low": "Posture remains nearly constant.",
+      "Medium": "Posture changes moderately.",
+      "High": "Posture changes substantially."
+    }
+  },
+  {
+    "name": "rotational_motion",
+    "definition": "Prominence of angular or rotational motion during the activity.",
+    "levels": {
+      "Low": "Little or no rotational motion.",
+      "Medium": "Moderate rotational motion.",
+      "High": "Prominent rotational motion."
+    }
+  },
+  {
+    "name": "translational_motion",
+    "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+    "levels": {
+      "Low": "Little or no sustained translation.",
+      "Medium": "Moderate translational motion.",
+      "High": "Prominent sustained translational or locomotor motion."
+    }
+  },
+  {
+    "name": "motion_regularity",
+    "definition": "Temporal consistency and predictability of the motion pattern.",
+    "levels": {
+      "Low": "Irregular and poorly predictable motion pattern.",
+      "Medium": "Partly structured motion with moderate variability.",
+      "High": "Consistent and predictable motion pattern."
+    }
+  }
+]
+
+3. Complete A1 class prototype matrix
+Compare all activity pairs directly. Focus especially on semantically similar pairs whose
+A1 vectors differ in only one or two coordinates. When physically justified, add, split or
+replace a dimension so that such a pair gains another clear and transferable distinction.
+Do not manufacture differences when the supplied IMU capabilities cannot support them.
+{
+  "Walking Forward": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "Medium",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "Medium",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  },
+  "Walking Left": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "Medium",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Low",
+    "posture_variability": "Medium",
+    "rotational_motion": "High",
+    "translational_motion": "High",
+    "motion_regularity": "Medium"
+  },
+  "Walking Right": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "High",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Low",
+    "posture_variability": "Medium",
+    "rotational_motion": "Medium",
+    "translational_motion": "High",
+    "motion_regularity": "Medium"
+  },
+  "Walking Upstairs": {
+    "motion_intensity": "High",
+    "cadence": "Medium",
+    "smoothness": "Medium",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Medium",
+    "posture_variability": "Medium",
+    "rotational_motion": "Medium",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  },
+  "Walking Downstairs": {
+    "motion_intensity": "Medium",
+    "cadence": "Medium",
+    "smoothness": "Low",
+    "impulsiveness": "High",
+    "posture_inclination": "Low",
+    "posture_variability": "Medium",
+    "rotational_motion": "Medium",
+    "translational_motion": "High",
+    "motion_regularity": "Medium"
+  },
+  "Running Forward": {
+    "motion_intensity": "High",
+    "cadence": "High",
+    "smoothness": "Medium",
+    "impulsiveness": "High",
+    "posture_inclination": "Medium",
+    "posture_variability": "Medium",
+    "rotational_motion": "High",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  },
+  "Jumping Up": {
+    "motion_intensity": "High",
+    "cadence": "Low",
+    "smoothness": "Low",
+    "impulsiveness": "High",
+    "posture_inclination": "Low",
+    "posture_variability": "High",
+    "rotational_motion": "Low",
+    "translational_motion": "Medium",
+    "motion_regularity": "Low"
+  },
+  "Sitting": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Medium",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "Standing": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "Sleeping": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "High",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "Low",
+    "motion_regularity": "High"
+  },
+  "Elevator Up": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "High",
+    "impulsiveness": "Low",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  },
+  "Elevator Down": {
+    "motion_intensity": "Low",
+    "cadence": "Low",
+    "smoothness": "Medium",
+    "impulsiveness": "Medium",
+    "posture_inclination": "Low",
+    "posture_variability": "Low",
+    "rotational_motion": "Low",
+    "translational_motion": "High",
+    "motion_regularity": "High"
+  }
+}
+
+4. Precomputed A1 coverage and unseen-pair diagnostics
+These values were calculated before refinement and are reused directly from the GAP CSV.
+- A high D_kNN means an unseen class has weak coverage by nearby seen prototypes; prioritize
+  checking whether its semantics need a better seen-supported distinction.
+- A low U_NN means an unseen class is close to another unseen class; prioritize adding a
+  physically meaningful distinction for that confusing unseen pair.
+- nearest_seen_topk identifies possible transferable seen anchors.
+Use these diagnostics as guidance, not as recognition accuracy.
+{
+  "D_kNN": 0.1319444444444444,
+  "D_kNN_per_unseen": {
+    "Walking Right": 0.1388888888888889,
+    "Walking Downstairs": 0.19444444444444442,
+    "Sitting": 0.05555555555555555,
+    "Elevator Down": 0.1388888888888889
+  },
+  "U_NN": 0.2222222222222222,
+  "U_NN_per_unseen": {
+    "Walking Right": 0.16666666666666666,
+    "Walking Downstairs": 0.16666666666666666,
+    "Sitting": 0.2777777777777778,
+    "Elevator Down": 0.2777777777777778
+  },
+  "nearest_seen_topk": {
+    "Walking Right": [
+      [
+        "Walking Left",
+        0.1111111111111111
+      ],
+      [
+        "Walking Forward",
+        0.16666666666666666
+      ]
+    ],
+    "Walking Downstairs": [
+      [
+        "Walking Left",
+        0.16666666666666666
+      ],
+      [
+        "Walking Forward",
+        0.2222222222222222
+      ]
+    ],
+    "Sitting": [
+      [
+        "Standing",
+        0.05555555555555555
+      ],
+      [
+        "Sleeping",
+        0.05555555555555555
+      ]
+    ],
+    "Elevator Down": [
+      [
+        "Elevator Up",
+        0.1111111111111111
+      ],
+      [
+        "Walking Forward",
+        0.16666666666666666
+      ]
+    ]
+  },
+  "top_k": 2,
+  "effective_k": 2,
+  "distance_metric": "normalized_ordinal"
+}
+
+5. Available IMU support
+Every final attribute must be plausibly supported by at least one listed G1-G14 physical
+capability. Cite supporting group IDs as semantic evidence in operation reasons only;
+this is a feasibility assessment, not a feature binding. Do not return group bindings,
+selectors, feature names or feature indices.
+{
+  "G1": {
+    "name": "Static Orientation / Static Acceleration Orientation",
+    "physical_capability": "static gravity-relative orientation and mean posture"
+  },
+  "G2": {
+    "name": "Rotational Motion Level",
+    "physical_capability": "sustained or directional rotational motion"
+  },
+  "G3": {
+    "name": "Motion Magnitude & Energy",
+    "physical_capability": "overall motion magnitude and energy"
+  },
+  "G4": {
+    "name": "Intensity Variability",
+    "physical_capability": "temporal variability of motion intensity"
+  },
+  "G5": {
+    "name": "Temporal Trend",
+    "physical_capability": "gradual temporal trend or sustained change"
+  },
+  "G6": {
+    "name": "Frequency & Periodicity Features",
+    "physical_capability": "repetition rate, dominant frequency and periodicity"
+  },
+  "G7": {
+    "name": "Frequency Distribution",
+    "physical_capability": "distribution of motion energy across frequency bands"
+  },
+  "G8": {
+    "name": "Spectral Complexity",
+    "physical_capability": "spectral complexity or frequency dispersion"
+  },
+  "G9": {
+    "name": "RMS Jerk Features",
+    "physical_capability": "sustained rapid signal change related to smoothness"
+  },
+  "G10": {
+    "name": "Peak Jerk Features",
+    "physical_capability": "peak rapid change related to impulsiveness or impact"
+  },
+  "G11": {
+    "name": "Temporal Regularity / Nonlinear Temporal Structure",
+    "physical_capability": "temporal regularity, recurrence and predictability"
+  },
+  "G12": {
+    "name": "Gravity-Angle Variation",
+    "physical_capability": "variation of gravity-relative posture over time"
+  },
+  "G13": {
+    "name": "Translational Velocity Proxies",
+    "physical_capability": "short-window translational-motion or velocity proxy"
+  },
+  "G14": {
+    "name": "Axis & Acceleration–Rotation Coupling",
+    "physical_capability": "multiaxial motion structure and acceleration-rotation relation"
+  }
+}
+
+The dataset sensor inventory is shown only to establish what can physically be observed:
+{
+  "hip": {
+    "body_position": "front-right hip",
+    "modalities": [
+      "acc",
+      "gyro"
+    ]
+  }
+}
+
+6. Refinement policy
+- Compare unseen activities with one another and use seen activities as semantic anchors.
+- Keep useful A1 concepts. You may keep, split, merge, drop, replace or add concepts.
+- Account for every A1 input and every A2 output exactly once in operations.
+- Prefer a change when it adds a supported independent contrast for a close A1 activity pair,
+  improves weak seen coverage indicated by D_kNN, or separates a low-U_NN unseen pair.
+- Sensor modality, body position or motion axis may be used in a refinement when that scope
+  is available in the sensor inventory, has a clear physical meaning, and materially
+  distinguishes a confusing activity pair. Avoid arbitrary sensor-specific renaming.
+- Attribute names may be one word. Multiword names must use lowercase snake_case.
+- Return between 9 and 15 attributes. Do not add attributes only
+  to reach a number.
+- Give a concise physical and zero-shot transfer reason for every operation. Lists named
+  target_unseen and contrast_unseen may contain only unseen classes; seen_anchors may contain
+  only seen classes. Copy every activity name verbatim from the supplied class split; do not
+  add, remove or alter punctuation. Use empty lists when a role does not apply.
+
+When proposing a new or refined attribute, consider not only its semantic discriminability
+but also its expected predictability from the available IMU signals and extracted features.
+Prefer attributes whose ordinal states correspond to distinct, observable, and stable motion
+patterns that can generalize across activity classes.
+For each proposed attribute, identify the supporting feature groups, explain the expected
+sensor evidence, and describe potential sources of prediction ambiguity. Avoid attributes
+that rely on fine-grained motion details unlikely to be reliably captured by the available
+sensors.
+Do not assume that semantic distinctiveness guarantees sensor-level predictability. If the
+expected predictability or added discriminative value is uncertain, prefer preserving the
+existing A1 attributes. Do not generate class-level attribute vectors at this stage.
+Include each proposed attribute's concise assessment in its operation's reason, naming each
+output attribute separately when an operation has multiple outputs. Use only listed groups
+and the supplied sensor inventory; these are expected evidence, not measured performance.
+
+7. Output contract
+Return JSON only:
+{"schema_version":"2.0", "dataset":"uschad",
+ "split_index":328, "refinement_needed":true,
+ "decision_reason":"split-specific diagnosis of A1",
+ "attributes":[{
+   "name":"physical_concept",
+   "definition":"physical meaning",
+   "levels":{"Low":"low degree", "Medium":"intermediate degree", "High":"high degree"}
+ }],
+ "operations":[{"action":"keep|split|merge|drop|replace|add",
+   "inputs":["source_name"], "outputs":["output_name"],
+   "reason":"physical distinction and transfer basis; per output: supporting groups, expected sensor evidence, prediction ambiguity",
+   "target_unseen":[], "contrast_unseen":[], "seen_anchors":[]}],
+ "semantic_redundancy_review":"review of conceptual overlap"}
+
+Before returning, check that the final attributes are physically distinct, ordinal,
+supported in principle by the listed capabilities, and completely accounted for by the
+operations. Do not return feature-group binding fields.

@@ -1,0 +1,550 @@
+{
+  "dataset": "mhealth",
+  "attribute_set": "A1",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity"
+  ],
+  "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json",
+  "a1_sha256": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+  "activity_vectors": {
+    "standing still": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "sitting and relaxing": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "lying down": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "High",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "walking": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "climbing stairs": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "waist bends forward": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "High",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "frontal elevation of arms": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "knees bending (crouching)": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "High",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "cycling": {
+      "motion_intensity": "Medium",
+      "cadence": "High",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "jogging": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "running": {
+      "motion_intensity": "High",
+      "cadence": "High",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "jump front & back": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "Medium",
+      "motion_regularity": "High"
+    }
+  },
+  "split_manifest": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/mhealth/gap/selected_seed42_splits.json",
+  "split_source": "manifest",
+  "splits": [
+    {
+      "split_index": 13,
+      "seen_activities": [
+        "lying down",
+        "climbing stairs",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "cycling",
+        "jogging",
+        "running",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "sitting and relaxing",
+        "walking",
+        "knees bending (crouching)"
+      ]
+    },
+    {
+      "split_index": 16,
+      "seen_activities": [
+        "lying down",
+        "climbing stairs",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "cycling",
+        "jogging",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "sitting and relaxing",
+        "walking",
+        "running"
+      ]
+    },
+    {
+      "split_index": 17,
+      "seen_activities": [
+        "lying down",
+        "climbing stairs",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "sitting and relaxing",
+        "walking",
+        "jump front & back"
+      ]
+    },
+    {
+      "split_index": 45,
+      "seen_activities": [
+        "lying down",
+        "walking",
+        "climbing stairs",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "cycling",
+        "jogging"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "sitting and relaxing",
+        "running",
+        "jump front & back"
+      ]
+    },
+    {
+      "split_index": 48,
+      "seen_activities": [
+        "sitting and relaxing",
+        "climbing stairs",
+        "waist bends forward",
+        "knees bending (crouching)",
+        "cycling",
+        "jogging",
+        "running",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "lying down",
+        "walking",
+        "frontal elevation of arms"
+      ]
+    },
+    {
+      "split_index": 53,
+      "seen_activities": [
+        "sitting and relaxing",
+        "climbing stairs",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "lying down",
+        "walking",
+        "jump front & back"
+      ]
+    },
+    {
+      "split_index": 58,
+      "seen_activities": [
+        "sitting and relaxing",
+        "walking",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "cycling",
+        "running",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "lying down",
+        "climbing stairs",
+        "jogging"
+      ]
+    },
+    {
+      "split_index": 72,
+      "seen_activities": [
+        "sitting and relaxing",
+        "walking",
+        "climbing stairs",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "jogging",
+        "running",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "lying down",
+        "knees bending (crouching)",
+        "cycling"
+      ]
+    },
+    {
+      "split_index": 112,
+      "seen_activities": [
+        "sitting and relaxing",
+        "lying down",
+        "walking",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "jogging",
+        "running",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "climbing stairs",
+        "waist bends forward",
+        "cycling"
+      ]
+    },
+    {
+      "split_index": 115,
+      "seen_activities": [
+        "sitting and relaxing",
+        "lying down",
+        "walking",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "climbing stairs",
+        "waist bends forward",
+        "jump front & back"
+      ]
+    },
+    {
+      "split_index": 126,
+      "seen_activities": [
+        "sitting and relaxing",
+        "lying down",
+        "walking",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "jogging",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "climbing stairs",
+        "cycling",
+        "running"
+      ]
+    },
+    {
+      "split_index": 141,
+      "seen_activities": [
+        "sitting and relaxing",
+        "lying down",
+        "walking",
+        "climbing stairs",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "jogging",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "standing still",
+        "waist bends forward",
+        "cycling",
+        "running"
+      ]
+    },
+    {
+      "split_index": 217,
+      "seen_activities": [
+        "standing still",
+        "lying down",
+        "climbing stairs",
+        "waist bends forward",
+        "knees bending (crouching)",
+        "cycling",
+        "running",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "sitting and relaxing",
+        "walking",
+        "frontal elevation of arms",
+        "jogging"
+      ]
+    },
+    {
+      "split_index": 280,
+      "seen_activities": [
+        "standing still",
+        "lying down",
+        "walking",
+        "climbing stairs",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "cycling",
+        "running"
+      ],
+      "unseen_activities": [
+        "sitting and relaxing",
+        "knees bending (crouching)",
+        "jogging",
+        "jump front & back"
+      ]
+    },
+    {
+      "split_index": 303,
+      "seen_activities": [
+        "standing still",
+        "sitting and relaxing",
+        "climbing stairs",
+        "waist bends forward",
+        "knees bending (crouching)",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "lying down",
+        "walking",
+        "frontal elevation of arms",
+        "jump front & back"
+      ]
+    },
+    {
+      "split_index": 328,
+      "seen_activities": [
+        "standing still",
+        "sitting and relaxing",
+        "walking",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "lying down",
+        "climbing stairs",
+        "knees bending (crouching)",
+        "jump front & back"
+      ]
+    },
+    {
+      "split_index": 347,
+      "seen_activities": [
+        "standing still",
+        "sitting and relaxing",
+        "walking",
+        "climbing stairs",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "cycling",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "lying down",
+        "waist bends forward",
+        "jogging",
+        "running"
+      ]
+    },
+    {
+      "split_index": 378,
+      "seen_activities": [
+        "standing still",
+        "sitting and relaxing",
+        "lying down",
+        "waist bends forward",
+        "knees bending (crouching)",
+        "cycling",
+        "running",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "walking",
+        "climbing stairs",
+        "frontal elevation of arms",
+        "jogging"
+      ]
+    },
+    {
+      "split_index": 380,
+      "seen_activities": [
+        "standing still",
+        "sitting and relaxing",
+        "lying down",
+        "waist bends forward",
+        "knees bending (crouching)",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "walking",
+        "climbing stairs",
+        "frontal elevation of arms",
+        "jump front & back"
+      ]
+    },
+    {
+      "split_index": 457,
+      "seen_activities": [
+        "standing still",
+        "sitting and relaxing",
+        "lying down",
+        "walking",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "jump front & back"
+      ],
+      "unseen_activities": [
+        "climbing stairs",
+        "cycling",
+        "jogging",
+        "running"
+      ]
+    }
+  ],
+  "seed": 42,
+  "top_k": 2,
+  "distance_metric": "normalized_ordinal",
+  "attribute_weighting": "uniform",
+  "distance_formula": "(1/K_A) * sum_k(abs(a_i,k - a_j,k) / 2)",
+  "formula_ordinal_values": {
+    "Low": 0,
+    "Medium": 1,
+    "High": 2
+  },
+  "ordinal_values": {
+    "Low": 0.0,
+    "Medium": 0.5,
+    "High": 1.0
+  }
+}

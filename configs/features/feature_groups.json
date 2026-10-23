@@ -1,0 +1,391 @@
+{
+  "version": "1.1",
+  "groups": {
+    "G1": {
+      "name": "Static Orientation / Static Acceleration Orientation",
+      "feature_templates": [
+        "{prefix}_acc_x_mean",
+        "{prefix}_acc_y_mean",
+        "{prefix}_acc_z_mean",
+        "{prefix}_acc_z_grav_angle_mean"
+      ]
+    },
+    "G2": {
+      "name": "Rotational Motion Level",
+      "feature_templates": [
+        "{prefix}_gyro_x_mean",
+        "{prefix}_gyro_y_mean",
+        "{prefix}_gyro_z_mean",
+        "{prefix}_ARATG"
+      ]
+    },
+    "G3": {
+      "name": "Motion Magnitude & Energy",
+      "feature_templates": [
+        "{prefix}_acc_x_std",
+        "{prefix}_acc_x_rms",
+        "{prefix}_acc_x_range",
+        "{prefix}_acc_x_sma",
+        "{prefix}_acc_y_std",
+        "{prefix}_acc_y_rms",
+        "{prefix}_acc_y_range",
+        "{prefix}_acc_y_sma",
+        "{prefix}_acc_z_std",
+        "{prefix}_acc_z_rms",
+        "{prefix}_acc_z_range",
+        "{prefix}_acc_z_sma",
+        "{prefix}_acc_mag_mean",
+        "{prefix}_acc_mag_std",
+        "{prefix}_acc_mag_rms",
+        "{prefix}_acc_mag_range",
+        "{prefix}_acc_mag_sma",
+        "{prefix}_acc_x_fft_energy",
+        "{prefix}_acc_y_fft_energy",
+        "{prefix}_acc_z_fft_energy",
+        "{prefix}_acc_mag_fft_energy",
+        "{prefix}_acc_x_stft_mid_mean",
+        "{prefix}_acc_y_stft_mid_mean",
+        "{prefix}_acc_z_stft_mid_mean",
+        "{prefix}_gyro_x_std",
+        "{prefix}_gyro_x_rms",
+        "{prefix}_gyro_x_range",
+        "{prefix}_gyro_x_sma",
+        "{prefix}_gyro_y_std",
+        "{prefix}_gyro_y_rms",
+        "{prefix}_gyro_y_range",
+        "{prefix}_gyro_y_sma",
+        "{prefix}_gyro_z_std",
+        "{prefix}_gyro_z_rms",
+        "{prefix}_gyro_z_range",
+        "{prefix}_gyro_z_sma",
+        "{prefix}_gyro_mag_mean",
+        "{prefix}_gyro_mag_std",
+        "{prefix}_gyro_mag_rms",
+        "{prefix}_gyro_mag_range",
+        "{prefix}_gyro_mag_sma",
+        "{prefix}_gyro_x_fft_energy",
+        "{prefix}_gyro_y_fft_energy",
+        "{prefix}_gyro_z_fft_energy",
+        "{prefix}_gyro_mag_fft_energy",
+        "{prefix}_gyro_x_stft_mid_mean",
+        "{prefix}_gyro_y_stft_mid_mean",
+        "{prefix}_gyro_z_stft_mid_mean",
+        "{prefix}_AI",
+        "{prefix}_SMA_phys",
+        "{prefix}_ACC_X_ENERGY_phys",
+        "{prefix}_ACC_Y_ENERGY_phys",
+        "{prefix}_ACC_Z_ENERGY_phys",
+        "{prefix}_GYRO_X_ENERGY_phys",
+        "{prefix}_GYRO_Y_ENERGY_phys",
+        "{prefix}_GYRO_Z_ENERGY_phys",
+        "{prefix}_AAE",
+        "{prefix}_ARE"
+      ]
+    },
+    "G4": {
+      "name": "Intensity Variability",
+      "feature_templates": [
+        "{prefix}_VI"
+      ]
+    },
+    "G5": {
+      "name": "Temporal Trend",
+      "feature_templates": [
+        "{prefix}_acc_x_slope",
+        "{prefix}_acc_y_slope",
+        "{prefix}_acc_z_slope",
+        "{prefix}_acc_mag_slope",
+        "{prefix}_gyro_x_slope",
+        "{prefix}_gyro_y_slope",
+        "{prefix}_gyro_z_slope",
+        "{prefix}_gyro_mag_slope"
+      ]
+    },
+    "G6": {
+      "name": "Frequency & Periodicity Features",
+      "feature_templates": [
+        "{prefix}_acc_x_fft_dom_freq",
+        "{prefix}_acc_y_fft_dom_freq",
+        "{prefix}_acc_z_fft_dom_freq",
+        "{prefix}_acc_mag_fft_dom_freq",
+        "{prefix}_acc_x_fft_weighted_avg_freq",
+        "{prefix}_acc_y_fft_weighted_avg_freq",
+        "{prefix}_acc_z_fft_weighted_avg_freq",
+        "{prefix}_acc_mag_fft_weighted_avg_freq",
+        "{prefix}_acc_x_acf_first_peak_lag",
+        "{prefix}_acc_y_acf_first_peak_lag",
+        "{prefix}_acc_z_acf_first_peak_lag",
+        "{prefix}_gyro_x_fft_dom_freq",
+        "{prefix}_gyro_y_fft_dom_freq",
+        "{prefix}_gyro_z_fft_dom_freq",
+        "{prefix}_gyro_mag_fft_dom_freq",
+        "{prefix}_gyro_x_fft_weighted_avg_freq",
+        "{prefix}_gyro_y_fft_weighted_avg_freq",
+        "{prefix}_gyro_z_fft_weighted_avg_freq",
+        "{prefix}_gyro_mag_fft_weighted_avg_freq",
+        "{prefix}_gyro_x_acf_first_peak_lag",
+        "{prefix}_gyro_y_acf_first_peak_lag",
+        "{prefix}_gyro_z_acf_first_peak_lag",
+        "{prefix}_ACC_X_DF",
+        "{prefix}_ACC_Y_DF",
+        "{prefix}_ACC_Z_DF",
+        "{prefix}_GYRO_X_DF",
+        "{prefix}_GYRO_Y_DF",
+        "{prefix}_GYRO_Z_DF"
+      ]
+    },
+    "G7": {
+      "name": "Frequency Distribution",
+      "feature_templates": [
+        "{prefix}_acc_x_bp_fft_low_ratio",
+        "{prefix}_acc_x_bp_fft_mid_ratio",
+        "{prefix}_acc_x_bp_fft_high_ratio",
+        "{prefix}_acc_y_bp_fft_low_ratio",
+        "{prefix}_acc_y_bp_fft_mid_ratio",
+        "{prefix}_acc_y_bp_fft_high_ratio",
+        "{prefix}_acc_z_bp_fft_low_ratio",
+        "{prefix}_acc_z_bp_fft_mid_ratio",
+        "{prefix}_acc_z_bp_fft_high_ratio",
+        "{prefix}_acc_mag_bp_fft_low_ratio",
+        "{prefix}_acc_mag_bp_fft_mid_ratio",
+        "{prefix}_acc_mag_bp_fft_high_ratio",
+        "{prefix}_acc_x_stft_centroid_mean",
+        "{prefix}_acc_y_stft_centroid_mean",
+        "{prefix}_acc_z_stft_centroid_mean",
+        "{prefix}_gyro_x_bp_fft_low_ratio",
+        "{prefix}_gyro_x_bp_fft_mid_ratio",
+        "{prefix}_gyro_x_bp_fft_high_ratio",
+        "{prefix}_gyro_y_bp_fft_low_ratio",
+        "{prefix}_gyro_y_bp_fft_mid_ratio",
+        "{prefix}_gyro_y_bp_fft_high_ratio",
+        "{prefix}_gyro_z_bp_fft_low_ratio",
+        "{prefix}_gyro_z_bp_fft_mid_ratio",
+        "{prefix}_gyro_z_bp_fft_high_ratio",
+        "{prefix}_gyro_mag_bp_fft_low_ratio",
+        "{prefix}_gyro_mag_bp_fft_mid_ratio",
+        "{prefix}_gyro_mag_bp_fft_high_ratio",
+        "{prefix}_gyro_x_stft_centroid_mean",
+        "{prefix}_gyro_y_stft_centroid_mean",
+        "{prefix}_gyro_z_stft_centroid_mean"
+      ]
+    },
+    "G8": {
+      "name": "Spectral Complexity",
+      "feature_templates": [
+        "{prefix}_acc_x_fft_sp_entropy",
+        "{prefix}_acc_y_fft_sp_entropy",
+        "{prefix}_acc_z_fft_sp_entropy",
+        "{prefix}_acc_mag_fft_sp_entropy",
+        "{prefix}_acc_x_stft_ent_mean",
+        "{prefix}_acc_y_stft_ent_mean",
+        "{prefix}_acc_z_stft_ent_mean",
+        "{prefix}_gyro_x_fft_sp_entropy",
+        "{prefix}_gyro_y_fft_sp_entropy",
+        "{prefix}_gyro_z_fft_sp_entropy",
+        "{prefix}_gyro_mag_fft_sp_entropy",
+        "{prefix}_gyro_x_stft_ent_mean",
+        "{prefix}_gyro_y_stft_ent_mean",
+        "{prefix}_gyro_z_stft_ent_mean"
+      ]
+    },
+    "G9": {
+      "name": "RMS Jerk Features",
+      "feature_templates": [
+        "{prefix}_acc_x_jerk_rms",
+        "{prefix}_acc_y_jerk_rms",
+        "{prefix}_acc_z_jerk_rms",
+        "{prefix}_gyro_x_jerk_rms",
+        "{prefix}_gyro_y_jerk_rms",
+        "{prefix}_gyro_z_jerk_rms"
+      ]
+    },
+    "G10": {
+      "name": "Peak Jerk Features",
+      "feature_templates": [
+        "{prefix}_acc_x_jerk_peak",
+        "{prefix}_acc_y_jerk_peak",
+        "{prefix}_acc_z_jerk_peak",
+        "{prefix}_gyro_x_jerk_peak",
+        "{prefix}_gyro_y_jerk_peak",
+        "{prefix}_gyro_z_jerk_peak"
+      ]
+    },
+    "G11": {
+      "name": "Temporal Regularity / Nonlinear Temporal Structure",
+      "feature_templates": [
+        "{prefix}_acc_x_pe",
+        "{prefix}_acc_x_rr",
+        "{prefix}_acc_y_pe",
+        "{prefix}_acc_y_rr",
+        "{prefix}_acc_z_pe",
+        "{prefix}_acc_z_rr",
+        "{prefix}_gyro_x_pe",
+        "{prefix}_gyro_x_rr",
+        "{prefix}_gyro_y_pe",
+        "{prefix}_gyro_y_rr",
+        "{prefix}_gyro_z_pe",
+        "{prefix}_gyro_z_rr"
+      ]
+    },
+    "G12": {
+      "name": "Gravity-Angle Variation",
+      "feature_templates": [
+        "{prefix}_acc_z_grav_angle_std"
+      ]
+    },
+    "G13": {
+      "name": "Translational Velocity Proxies",
+      "feature_templates": [
+        "{prefix}_AVG",
+        "{prefix}_AVH"
+      ]
+    },
+    "G14": {
+      "name": "Axis & Acceleration–Rotation Coupling",
+      "feature_templates": [
+        "{prefix}_EVA_1",
+        "{prefix}_EVA_2",
+        "{prefix}_CAGH",
+        "{prefix}_acc_gyro_ratio"
+      ]
+    }
+  },
+  "prefix_placeholder": "{prefix}",
+  "prefix_note": "Substitute the exact prefix emitted by preprocessing. body_position describes its physical meaning; it is not a feature-name replacement. Expand only templates supported by the available modalities. Feature spelling and case match zshar.features.all_features.",
+  "dataset_sensors": {
+    "pamap2": {
+      "hand": {
+        "body_position": "hand",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      },
+      "chest": {
+        "body_position": "chest",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      },
+      "ankle": {
+        "body_position": "ankle",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      }
+    },
+    "mhealth": {
+      "hand": {
+        "body_position": "right lower arm",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      },
+      "chest": {
+        "body_position": "chest",
+        "modalities": [
+          "acc"
+        ]
+      },
+      "ankle": {
+        "body_position": "left ankle",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      }
+    },
+    "dsads": {
+      "torso": {
+        "body_position": "torso",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      },
+      "right_arm": {
+        "body_position": "right_arm",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      },
+      "left_arm": {
+        "body_position": "left_arm",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      },
+      "right_leg": {
+        "body_position": "right_leg",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      },
+      "left_leg": {
+        "body_position": "left_leg",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      }
+    },
+    "uschad": {
+      "hip": {
+        "body_position": "front-right hip",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      }
+    },
+    "wisdm": {
+      "phone": {
+        "body_position": "user-carried phone",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      },
+      "watch": {
+        "body_position": "wrist-worn watch",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      }
+    },
+    "ucihar": {
+      "phone": {
+        "body_position": "waist-mounted phone",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      }
+    },
+    "shoaib": {
+      "device": {
+        "body_position": "phone placement recorded per window; pooled placements",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      }
+    },
+    "hhar": {
+      "phone": {
+        "body_position": "phone",
+        "modalities": [
+          "acc",
+          "gyro"
+        ]
+      }
+    }
+  }
+}

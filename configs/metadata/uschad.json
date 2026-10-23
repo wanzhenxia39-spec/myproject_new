@@ -1,0 +1,41 @@
+{
+  "dataset_name": "USC-HAD",
+  "full_name": "USC Human Activity Dataset",
+  "sampling_rate_hz": 100,
+  "preprocessed_sampling_rate_hz": 20,
+  "sensor_units": [
+    {
+      "device": "MotionNode",
+      "body_position": "front-right-hip",
+      "sensor_types": ["accelerometer", "gyroscope"],
+      "axes": ["x", "y", "z"],
+      "accelerometer_unit": "g",
+      "gyroscope_unit": "degrees_per_second"
+    }
+  ],
+  "preprocessing_note": "Each .mat trial provides sensor_readings with acc_x, acc_y, acc_z, gyro_x, gyro_y, gyro_z. The current project downsamples from 100 Hz to 20 Hz and windows each trial independently.",
+  "available_feature_prefixes": ["hip"],
+  "available_feature_types": [
+    "time-domain statistics",
+    "derivative and dynamic-change features",
+    "frequency/energy features",
+    "periodicity/autocorrelation features",
+    "gravity-angle and orientation-related features",
+    "physical HAR features including AI, VI, SMA_phys, EVA, CAGH, AVG, AVH, ARATG, DF, ENERGY_phys, AAE, and ARE"
+  ],
+  "activity_label_order": [
+    "Walking Forward",
+    "Walking Left",
+    "Walking Right",
+    "Walking Upstairs",
+    "Walking Downstairs",
+    "Running Forward",
+    "Jumping Up",
+    "Sitting",
+    "Standing",
+    "Sleeping",
+    "Elevator Up",
+    "Elevator Down"
+  ],
+  "note": "Use only the hip-worn accelerometer and gyroscope observability. Do not assume video, GPS, object identity, environment context, or subject identity."
+}

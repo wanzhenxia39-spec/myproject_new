@@ -1,0 +1,309 @@
+{
+  "schema_version": "2.0",
+  "dataset": "pamap2",
+  "split_index": 115,
+  "refinement_needed": true,
+  "decision_reason": "A1 distinguishes all classes, but its single rotational-motion dimension hides potentially transferable differences in the distribution of limb motion. Running and rope jumping are close unseen neighbors, while cycling and rope jumping have the weakest seen coverage. Splitting rotational motion into hand and lower-leg components adds a physically interpretable contrast without introducing unsupported contact, flight-phase, or displacement measurements. The remaining A1 concepts are preserved because additional distinctions would have uncertain sensor-level predictability.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "hand_rotational_motion",
+      "definition": "Prominence of angular motion of the instrumented hand during the activity, including rotation associated with arm swing or hand manipulation.",
+      "levels": {
+        "Low": "Little or no hand rotational motion.",
+        "Medium": "Moderate hand rotational motion.",
+        "High": "Prominent hand rotational motion."
+      }
+    },
+    {
+      "name": "lower_leg_rotational_motion",
+      "definition": "Prominence of angular motion of the instrumented lower leg during the activity, as observable at the ankle.",
+      "levels": {
+        "Low": "Little or no lower-leg rotational motion.",
+        "Medium": "Moderate lower-leg rotational motion.",
+        "High": "Prominent lower-leg rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity: G3 supports overall acceleration and rotation magnitude across the available sensors. It preserves an exertion-related motion contrast linking running and rope jumping to vigorous seen activities, without equating motion energy with physiological effort. Pace, technique, and sensor location can blur adjacent levels.",
+      "target_unseen": [
+        "running",
+        "rope jumping",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "lying"
+      ],
+      "seen_anchors": [
+        "walking",
+        "Nordic walking",
+        "ascending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence: G6 supports repetition rate in recurring hand or ankle motion. This remains transferable from walking and stair activities to running, cycling, and rope jumping. Harmonics, different limb-cycle conventions, and variable execution speed can make ordinal boundaries ambiguous; no fixed class-specific frequency is assumed.",
+      "target_unseen": [
+        "running",
+        "cycling",
+        "rope jumping"
+      ],
+      "contrast_unseen": [
+        "lying"
+      ],
+      "seen_anchors": [
+        "walking",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness: G9 supports sustained rapid signal change, with G7 providing complementary evidence of broadly distributed faster fluctuations. Continuous pedaling and repeated landing fluctuations offer a transferable cycling-versus-rope-jumping contrast. Speed, vibration, and incidental movements can reduce predictability, so smoothness is not interpreted as absence of isolated impacts.",
+      "target_unseen": [
+        "cycling",
+        "rope jumping",
+        "running"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "descending stairs",
+        "ironing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness: G10 supports short peak rapid changes observable especially at the ankle. Impact-bearing running and rope jumping can reuse distinctions represented by walking and descending stairs, unlike typically low-impact cycling. Footwear, landing technique, and external jolts can alter peaks; direct ground-contact measurement is not assumed.",
+      "target_unseen": [
+        "running",
+        "rope jumping"
+      ],
+      "contrast_unseen": [
+        "cycling"
+      ],
+      "seen_anchors": [
+        "walking",
+        "descending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination: G1 supports gravity-relative orientation, with chest orientation providing evidence about the global configuration rather than an isolated moving limb. It retains the principal lying-versus-upright distinction and a possible inclined-posture anchor for cycling. Sitting configurations, cycling torso angle, and dynamic acceleration create ambiguity; a separate near-duplicate trunk-angle attribute is therefore not added.",
+      "target_unseen": [
+        "lying",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "running",
+        "rope jumping"
+      ],
+      "seen_anchors": [
+        "sitting",
+        "standing",
+        "ascending stairs",
+        "vacuum cleaning"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability: G12 supports changes in gravity-relative configuration, particularly through chest orientation over time. Stable postures and relatively stable locomotor configurations can transfer from standing and walking to the unseen classes. Limb cycling or vertical bouncing alone does not imply global posture change; acceleration contamination and brief bends remain ambiguous.",
+      "target_unseen": [
+        "lying",
+        "running",
+        "cycling",
+        "rope jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "standing",
+        "walking",
+        "vacuum cleaning",
+        "ascending stairs"
+      ]
+    },
+    {
+      "action": "split",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "hand_rotational_motion",
+        "lower_leg_rotational_motion"
+      ],
+      "reason": "hand_rotational_motion: G2 supports angular motion at the hand. Relatively restrained handlebar holding, locomotor arm swing, and rope-related hand motion can differ despite similar overall rotation. Walking, Nordic walking, and manual tasks provide seen examples of varied hand rotation. Grip, arm-swing style, and whether rope turning is wrist- or arm-dominated can blur levels, so high rotation is not presumed for every rope-jumping execution. lower_leg_rotational_motion: G2 supports angular motion at the ankle, with G14 supporting its distinction from predominantly translational acceleration. Running generally involves more lower-leg swing than predominantly vertical rope jumping; walking and stairs supply transferable angular-motion anchors, while cycling supplies a different periodic lower-limb pattern. Pedaling technique, jump style, and ankle articulation can blur levels. The split exposes regional motion differences hidden by A1 without requiring interlimb phase, joint-angle reconstruction, or a unique unseen-only state.",
+      "target_unseen": [
+        "running",
+        "rope jumping",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion: G13 supports short-window translational-motion proxies. Sustained progression remains a useful running-versus-rope-jumping distinction, anchored by walking versus relatively stationary manual tasks. Absolute progression is only indirectly observable: steady cycling, stationary exercise variants, and integration ambiguity can weaken prediction. The concept is preserved rather than expanded into unsupported distance or vertical-travel measurements.",
+      "target_unseen": [
+        "running",
+        "cycling",
+        "rope jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "Nordic walking",
+        "ironing",
+        "vacuum cleaning"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity: G11 supports temporal recurrence and predictability, complemented by periodicity evidence from G6. Predictable locomotor cycles and stable inactivity both have seen anchors relevant to the unseen classes. Transitions, uneven execution, and short windows can obscure regularity; a highly regular static signal is not treated as having a high cadence.",
+      "target_unseen": [
+        "lying",
+        "running",
+        "cycling",
+        "rope jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "sitting",
+        "standing",
+        "walking",
+        "Nordic walking",
+        "vacuum cleaning"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The ten attributes retain distinct physical meanings. Intensity measures magnitude, cadence repetition rate, and regularity predictability. Smoothness concerns sustained fluctuations, whereas impulsiveness concerns brief peaks. Inclination describes average global configuration and posture variability its change over time. Hand and lower-leg rotation replace, rather than duplicate, aggregate rotation and are not complementary: both may be low or high. Translation concerns progression rather than local limb motion. The regional rotation split offers an additional plausible running-versus-rope-jumping contrast and a cycling transfer description, but does not guarantee separability. No extra static-posture dimension is added because sitting-versus-standing or lying-versus-sitting distinctions beyond the existing inclination concept would be configuration-dependent with the supplied sensors. No flight, contact, bilateral synchrony, or precise travel-direction attributes are introduced."
+}

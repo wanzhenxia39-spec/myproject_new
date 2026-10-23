@@ -1,0 +1,376 @@
+{
+  "dataset": "uschad",
+  "seed": 42,
+  "split_count": 20,
+  "top_k": 2,
+  "distance_metric": "normalized_ordinal",
+  "attribute_weighting": "uniform",
+  "distance_formula": "(1/K_A) * sum_k(abs(a_i,k - a_j,k) / 2)",
+  "formula_ordinal_values": {
+    "Low": 0,
+    "Medium": 1,
+    "High": 2
+  },
+  "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_uschad_v1_5.json",
+  "a1_sha256": "a9c06ea5c4bb8e8256ae33dbb105b0047774375ec1f1393a13cfd6c9f0da4934",
+  "split_manifest": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/gap/selected_seed42_splits.json",
+  "split_manifest_sha256": "7de80f507b343a7e2397d41a662f8345749776be9e9d4e6ca0cc7358b5c0587c",
+  "a2_inputs": [
+    {
+      "split_index": 13,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_13/activity_attribute_vectors_a2.json",
+      "sha256": "c6ad2da1bbad4811c52b6b6738f48d4f555f3e5378133c9242f5289a4584cb3d",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "split_index": 16,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_16/activity_attribute_vectors_a2.json",
+      "sha256": "e9e0097c6ca20e9a3cf87dc7a7712aaa55f2eaea12a0eb455e71175400dc59a5",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "split_index": 17,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_17/activity_attribute_vectors_a2.json",
+      "sha256": "94793fbf98d0a3875214d660e8e37bea8f93f296b2c5c4d60c78e44350eb5dcd",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "vertical_motion_prominence"
+      ]
+    },
+    {
+      "split_index": 45,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_45/activity_attribute_vectors_a2.json",
+      "sha256": "632e1acb98e88e015f0f850057d407144b7fb80e53ed8b092c976ad401dbda72",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "split_index": 48,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_48/activity_attribute_vectors_a2.json",
+      "sha256": "d9f05b196a7a618756474873440b14656f9407b7be10beca0a2dc6aa6d8d1f31",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "vertical_motion_dominance"
+      ]
+    },
+    {
+      "split_index": 53,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_53/activity_attribute_vectors_a2.json",
+      "sha256": "891cc0e85721942c5c65c319bafdefc6d04764a26044b96d5bd66f95b3ee7c06",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "ballistic_unloading"
+      ]
+    },
+    {
+      "split_index": 58,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_58/activity_attribute_vectors_a2.json",
+      "sha256": "fa9d65c1eebab4e2048f9eb75fa40b62d1c9d823741c8fed61f385e14ccabed7",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "split_index": 72,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_72/activity_attribute_vectors_a2.json",
+      "sha256": "b993776110c114936d9d79efaeba82bd8b651f78d77a170266c1a3d8522f3fe1",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "motion_periodicity"
+      ]
+    },
+    {
+      "split_index": 112,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_112/activity_attribute_vectors_a2.json",
+      "sha256": "cbfad42cbddf32a4b44adff588c2181b27dcde41869c3eeabf883005b21c01ab",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "vertical_dynamic_emphasis"
+      ]
+    },
+    {
+      "split_index": 115,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_115/activity_attribute_vectors_a2.json",
+      "sha256": "66e0ce893c2501fdeeba88dfe726dc55484ab2cddd63429434a1508b87223879",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "vertical_rebound"
+      ]
+    },
+    {
+      "split_index": 126,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_126/activity_attribute_vectors_a2.json",
+      "sha256": "eceac11fbb9fc7f462249dd16deb84b0a4ec7a58a9e08146eb743717d249a054",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "split_index": 141,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_141/activity_attribute_vectors_a2.json",
+      "sha256": "c5015e21e6e01f49cf3e03a4cfbd7ca9cf3a9405f8dc79eb66870d23ee0ac381",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "vertical_translation_prominence"
+      ]
+    },
+    {
+      "split_index": 217,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_217/activity_attribute_vectors_a2.json",
+      "sha256": "40f56d8a1a2593fdab3266a032fe20c29d7f9aedb7e0719ea216427a26c9aef1",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "vertical_motion_dominance"
+      ]
+    },
+    {
+      "split_index": 280,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_280/activity_attribute_vectors_a2.json",
+      "sha256": "219f35f7a0378d97b2d77d4d7910e74e298aa0417d1e4e2cae508fe139b0e925",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "split_index": 303,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_303/activity_attribute_vectors_a2.json",
+      "sha256": "65cf8d7688a7d0e2833227c968ab825f37916290faca7768b252681a6b5aaea4",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "vertical_motion_dominance"
+      ]
+    },
+    {
+      "split_index": 328,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_328/activity_attribute_vectors_a2.json",
+      "sha256": "d8a74309648fa47e4a21ee45646cc8c01e402deee1b32b3977053de241d6a310",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "split_index": 347,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_347/activity_attribute_vectors_a2.json",
+      "sha256": "ea22d2c3e5590aee57405e0c650b4df5b6e47c57d0e8f92822b339e7b99d1739",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "vertical_oscillation_amplitude"
+      ]
+    },
+    {
+      "split_index": 378,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_378/activity_attribute_vectors_a2.json",
+      "sha256": "519e1330aa4eb7d402692ba879caea454d916779fa1b0f09d7f0c1a25504e5b8",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "motion_intensity_variability"
+      ]
+    },
+    {
+      "split_index": 380,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_380/activity_attribute_vectors_a2.json",
+      "sha256": "6509e1065747b0ce6f1f093f1b940c93f86ae6ddcb974ceb00bc13638e37af85",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity",
+        "ballistic_unloading"
+      ]
+    },
+    {
+      "split_index": 457,
+      "path": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/uschad/split_457/activity_attribute_vectors_a2.json",
+      "sha256": "4886f620a237534be0359fc6d431e1a5d38f5f7e8007f380120d3be5f1dffe48",
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    }
+  ],
+  "vector_source": "existing_saved_vectors; no LLM generation or classifier training",
+  "maximum_absolute_difference_from_uniform_mad": 1.1102230246251565e-16,
+  "metrics": {
+    "D_kNN": {
+      "A1": 0.17118055555555553,
+      "A2": 0.10694444444444444,
+      "delta": -0.0642361111111111
+    },
+    "U_NN": {
+      "A1": 0.2333333333333333,
+      "A2": 0.16999999999999998,
+      "delta": -0.06333333333333332
+    },
+    "U_Conf": {
+      "A1": 0.7666666666666667,
+      "A2": 0.8300000000000001,
+      "delta": 0.06333333333333332
+    },
+    "JointGap_DkNN_UConf": {
+      "A1": 0.46892361111111114,
+      "A2": 0.4684722222222223,
+      "delta": -0.0004513888888888734
+    }
+  }
+}

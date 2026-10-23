@@ -1,0 +1,49 @@
+{
+  "dataset": "pamap2",
+  "seed": 42,
+  "order_variant": "forward",
+  "note": "Every reverse order is the exact reversal of its forward order, so its pairwise similarity is identical to the corresponding forward comparison.",
+  "methods": {
+    "semantic_dependency_dp": "/home/wanzhen/myproject_new/configs/attribute_orders/pamap2/semantic_dependency_dp_seed42.json",
+    "autogluon_seen_only": "/home/wanzhen/myproject_new/configs/attribute_orders/pamap2/autogluon_seen_only_seed42.json",
+    "catboost_seen_only": "/home/wanzhen/myproject_new/configs/attribute_orders/pamap2/catboost_seen_only_seed42.json",
+    "logistic_regression_seen_only": "/home/wanzhen/myproject_new/configs/attribute_orders/pamap2/logistic_regression_seen_only_seed42.json"
+  },
+  "metrics": {
+    "kendall_tau": "1 - 2 * discordant_pairs / all_pairs; 1 means identical",
+    "pairwise_disagreement_rate": "fraction of attribute pairs ordered differently",
+    "normalized_mean_position_shift": "mean absolute rank shift divided by K-1",
+    "top3_overlap_rate": "intersection size of the two top-3 sets divided by 3"
+  },
+  "semantic_vs_classifiers": {
+    "autogluon_seen_only": {
+      "mean_kendall_tau": 0.016370296370296383,
+      "mean_pairwise_disagreement_rate": 0.49181485181485185,
+      "mean_normalized_position_shift": 0.3581945831945832,
+      "exact_match_count": 0,
+      "top1_match_count": 1,
+      "mean_top3_overlap_count": 0.6
+    },
+    "catboost_seen_only": {
+      "mean_kendall_tau": 0.0648984348984349,
+      "mean_pairwise_disagreement_rate": 0.46755078255078264,
+      "mean_normalized_position_shift": 0.3460528360528361,
+      "exact_match_count": 0,
+      "top1_match_count": 1,
+      "mean_top3_overlap_count": 0.4
+    },
+    "logistic_regression_seen_only": {
+      "mean_kendall_tau": 0.0321867021867022,
+      "mean_pairwise_disagreement_rate": 0.48390664890664886,
+      "mean_normalized_position_shift": 0.35313408813408814,
+      "exact_match_count": 0,
+      "top1_match_count": 1,
+      "mean_top3_overlap_count": 0.45
+    }
+  },
+  "classifier_to_classifier_baseline": {
+    "mean_kendall_tau_across_pairs": 0.333010693010693,
+    "mean_pairwise_disagreement_across_pairs": 0.33349465349465346,
+    "mean_normalized_position_shift_across_pairs": 0.25557942057942057
+  }
+}

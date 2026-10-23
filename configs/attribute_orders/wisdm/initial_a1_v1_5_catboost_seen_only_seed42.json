@@ -1,0 +1,3894 @@
+{
+  "schema_version": 1,
+  "dataset": "wisdm",
+  "attribute_set": "initial_A1_v1_5_9d",
+  "ontology_version": "1.5",
+  "seed": 42,
+  "selection_scope": "seen-class sensor samples only; independent per-attribute CatBoost models; no unseen samples, labels, or test metrics",
+  "ranking_backend": "catboost",
+  "ranking": {
+    "validation_balanced_accuracy": 0.45,
+    "validation_macro_f1": 0.3,
+    "inverse_normalized_ordinal_mae": 0.2,
+    "mean_dependency_nmi": 0.05
+  },
+  "constant_attribute_policy": "place constants last in forward before exact reversal",
+  "forward_definition": "descending weighted priority; ties follow the A1 schema order",
+  "reverse_definition": "exact reversal of the complete forward order",
+  "split_manifest": "/home/wanzhen/myproject_new/split/zero_shot_split/wisdm_unseen6_random20_splits_seed42.json",
+  "split_manifest_sha256": "d5e7d4613f304ea0a317b45fe087732c983cc6d6b8b600cf65474f1a804808dd",
+  "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+  "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+  "ontology": "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json",
+  "ontology_sha256": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+  "preparation_config": {
+    "algorithm_version": 1,
+    "dataset": "wisdm",
+    "seed": 42,
+    "attribute_set": "initial_A1_v1_5_9d",
+    "selection_scope": "seen-class sensor samples only; independent per-attribute CatBoost models; no unseen samples, labels, or test metrics",
+    "validation_fraction": 0.3,
+    "split_manifest_sha256": "d5e7d4613f304ea0a317b45fe087732c983cc6d6b8b600cf65474f1a804808dd",
+    "sample_manifest_sha256": "d59720e14bab7722d882cece5300cbc1888c98975c6cad4a72fffb9d05ee9255",
+    "dataset_profile_sha256": "65dee6d2120b3c7960b2f13ce60317a493ca86c9107df66a2c73846b4e77317b",
+    "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+    "ontology_sha256": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "feature_inputs": {
+      "/home/wanzhen/windows/wisdm_windows/all_features_20_120.npy": {
+        "size": 76665440,
+        "mtime_ns": 1776168346000000000
+      },
+      "/home/wanzhen/windows/wisdm_windows/all_features_name_20_120.npy": {
+        "size": 51392,
+        "mtime_ns": 1776168346000000000
+      },
+      "/home/wanzhen/windows/wisdm_windows/label_20_120.npy": {
+        "size": 51684608,
+        "mtime_ns": 1776168346000000000
+      }
+    },
+    "selected_split_indices": [
+      820,
+      870,
+      977,
+      1042,
+      2849,
+      3071,
+      3359,
+      3649,
+      4573,
+      6516,
+      7165,
+      7315,
+      7624,
+      8025,
+      9013,
+      13826,
+      16560,
+      17857,
+      17871,
+      18391
+    ],
+    "ranking_backend": "catboost",
+    "ranking_backend_config": {
+      "random_state": 42,
+      "n_jobs": 112,
+      "iterations": 500,
+      "learning_rate": 0.05,
+      "depth": 6,
+      "task_type": "GPU",
+      "devices": "0",
+      "auto_class_weights": "Balanced",
+      "allow_writing_files": false
+    },
+    "ranking_weights": {
+      "validation_balanced_accuracy": 0.45,
+      "validation_macro_f1": 0.3,
+      "inverse_normalized_ordinal_mae": 0.2,
+      "mean_dependency_nmi": 0.05
+    }
+  },
+  "generated_at": "2026-09-18T11:28:19+00:00",
+  "splits": {
+    "820": {
+      "split_index": 820,
+      "seen_activities": [
+        "stairs",
+        "sitting",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "jogging",
+        "standing",
+        "typing",
+        "brushing teeth",
+        "eating soup"
+      ],
+      "training_sample_count": 12561,
+      "validation_sample_count": 5384,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "translational_motion",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "smoothness",
+        "cadence",
+        "motion_intensity",
+        "rotational_motion",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "rotational_motion",
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "posture_variability",
+        "posture_inclination",
+        "impulsiveness",
+        "translational_motion"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9504018188973417,
+          "validation_macro_f1": 0.9478421554781308,
+          "inverse_normalized_ordinal_mae": 0.9744613670133729,
+          "mean_dependency_nmi": 0.2629283507511666,
+          "priority": 0.9200721560874758,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9496656760772659,
+            "macro_f1": 0.9478421554781308,
+            "balanced_accuracy": 0.9504018188973417,
+            "ordinal_mae": 0.025538632986627043
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9537831032960714,
+          "validation_macro_f1": 0.9533060584517875,
+          "inverse_normalized_ordinal_mae": 0.9774331352154532,
+          "mean_dependency_nmi": 0.20888964606688076,
+          "priority": 0.921125323365203,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.961738484398217,
+            "macro_f1": 0.9533060584517875,
+            "balanced_accuracy": 0.9537831032960714,
+            "ordinal_mae": 0.022566864784546805
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9540154435658338,
+          "validation_macro_f1": 0.9532957221415669,
+          "inverse_normalized_ordinal_mae": 0.9733469539375929,
+          "mean_dependency_nmi": 0.26286893180463644,
+          "priority": 0.9231085036248456,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9489227340267459,
+            "macro_f1": 0.9532957221415669,
+            "balanced_accuracy": 0.9540154435658338,
+            "ordinal_mae": 0.02665304606240713
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9776424314751367,
+          "validation_macro_f1": 0.9731943585579875,
+          "inverse_normalized_ordinal_mae": 0.9858841010401189,
+          "mean_dependency_nmi": 0.3457883419828012,
+          "priority": 0.9463636390383716,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9821693907875185,
+            "macro_f1": 0.9731943585579875,
+            "balanced_accuracy": 0.9776424314751367,
+            "ordinal_mae": 0.01411589895988113
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.986492233460345,
+          "validation_macro_f1": 0.9825332435376168,
+          "inverse_normalized_ordinal_mae": 0.9934063893016345,
+          "mean_dependency_nmi": 0.1756285143259001,
+          "priority": 0.9461441816950622,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.986812778603269,
+            "macro_f1": 0.9825332435376168,
+            "balanced_accuracy": 0.986492233460345,
+            "ordinal_mae": 0.0065936106983655275
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9724535947470181,
+          "validation_macro_f1": 0.9678969840106865,
+          "inverse_normalized_ordinal_mae": 0.9895059435364042,
+          "mean_dependency_nmi": 0.259622935306455,
+          "priority": 0.9388555483119677,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9797548291233283,
+            "macro_f1": 0.9678969840106865,
+            "balanced_accuracy": 0.9724535947470181,
+            "ordinal_mae": 0.010494056463595839
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9325538889758546,
+          "validation_macro_f1": 0.9116511154751877,
+          "inverse_normalized_ordinal_mae": 0.9567236255572066,
+          "mean_dependency_nmi": 0.15717228583679246,
+          "priority": 0.8923479240849718,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.924777117384844,
+            "macro_f1": 0.9116511154751877,
+            "balanced_accuracy": 0.9325538889758546,
+            "ordinal_mae": 0.04327637444279346
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9798949965844018,
+          "validation_macro_f1": 0.9732860977673438,
+          "inverse_normalized_ordinal_mae": 0.9943350668647846,
+          "mean_dependency_nmi": 0.2967980789067257,
+          "priority": 0.9466454951114772,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9903417533432393,
+            "macro_f1": 0.9732860977673438,
+            "balanced_accuracy": 0.9798949965844018,
+            "ordinal_mae": 0.005664933135215453
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9250981413230072,
+          "validation_macro_f1": 0.9212412304275698,
+          "inverse_normalized_ordinal_mae": 0.9536589895988112,
+          "mean_dependency_nmi": 0.15655883590236191,
+          "priority": 0.8912262724385045,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9223625557206538,
+            "macro_f1": 0.9212412304275698,
+            "balanced_accuracy": 0.9250981413230072,
+            "ordinal_mae": 0.04634101040118871
+          }
+        }
+      }
+    },
+    "870": {
+      "split_index": 870,
+      "seen_activities": [
+        "stairs",
+        "sitting",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping"
+      ],
+      "unseen_activities": [
+        "walking",
+        "jogging",
+        "standing",
+        "typing",
+        "eating sandwich",
+        "folding clothes"
+      ],
+      "training_sample_count": 12576,
+      "validation_sample_count": 5390,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "posture_variability",
+        "impulsiveness",
+        "translational_motion",
+        "posture_inclination",
+        "motion_intensity",
+        "smoothness",
+        "cadence",
+        "motion_regularity",
+        "rotational_motion"
+      ],
+      "reverse": [
+        "rotational_motion",
+        "motion_regularity",
+        "cadence",
+        "smoothness",
+        "motion_intensity",
+        "posture_inclination",
+        "translational_motion",
+        "impulsiveness",
+        "posture_variability"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9679053859660365,
+          "validation_macro_f1": 0.9657579041181138,
+          "inverse_normalized_ordinal_mae": 0.9829313543599257,
+          "mean_dependency_nmi": 0.29906527916278347,
+          "priority": 0.936824329750275,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9673469387755103,
+            "macro_f1": 0.9657579041181138,
+            "balanced_accuracy": 0.9679053859660365,
+            "ordinal_mae": 0.017068645640074213
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9517322663659726,
+          "validation_macro_f1": 0.9541035491504225,
+          "inverse_normalized_ordinal_mae": 0.9751391465677179,
+          "mean_dependency_nmi": 0.16540293597432523,
+          "priority": 0.9178085607220743,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9565862708719851,
+            "macro_f1": 0.9541035491504225,
+            "balanced_accuracy": 0.9517322663659726,
+            "ordinal_mae": 0.024860853432282004
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9527325093443034,
+          "validation_macro_f1": 0.9536169751858771,
+          "inverse_normalized_ordinal_mae": 0.9730055658627087,
+          "mean_dependency_nmi": 0.28869130397371756,
+          "priority": 0.9238504001319274,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9495361781076067,
+            "macro_f1": 0.9536169751858771,
+            "balanced_accuracy": 0.9527325093443034,
+            "ordinal_mae": 0.02699443413729128
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9787400939970622,
+          "validation_macro_f1": 0.9722613701319366,
+          "inverse_normalized_ordinal_mae": 0.986178107606679,
+          "mean_dependency_nmi": 0.33530052467045207,
+          "priority": 0.9461121010931173,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9821892393320965,
+            "macro_f1": 0.9722613701319366,
+            "balanced_accuracy": 0.9787400939970622,
+            "ordinal_mae": 0.013821892393320965
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9848377970434083,
+          "validation_macro_f1": 0.9829617148599537,
+          "inverse_normalized_ordinal_mae": 0.9923933209647495,
+          "mean_dependency_nmi": 0.12905898429764984,
+          "priority": 0.9429971365353522,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.984786641929499,
+            "macro_f1": 0.9829617148599537,
+            "balanced_accuracy": 0.9848377970434083,
+            "ordinal_mae": 0.007606679035250464
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9784641346103141,
+          "validation_macro_f1": 0.9738098113781382,
+          "inverse_normalized_ordinal_mae": 0.9933209647495361,
+          "mean_dependency_nmi": 0.3382965292945136,
+          "priority": 0.9480308234027156,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.987569573283859,
+            "macro_f1": 0.9738098113781382,
+            "balanced_accuracy": 0.9784641346103141,
+            "ordinal_mae": 0.006679035250463822
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9329277770027532,
+          "validation_macro_f1": 0.9129761886431824,
+          "inverse_normalized_ordinal_mae": 0.9579777365491651,
+          "mean_dependency_nmi": 0.14835358155590644,
+          "priority": 0.892723582631822,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9263450834879406,
+            "macro_f1": 0.9129761886431824,
+            "balanced_accuracy": 0.9329277770027532,
+            "ordinal_mae": 0.04202226345083488
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9795565654352562,
+          "validation_macro_f1": 0.9672629967604514,
+          "inverse_normalized_ordinal_mae": 0.9925788497217068,
+          "mean_dependency_nmi": 0.31213133477001453,
+          "priority": 0.9451016901568428,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9879406307977736,
+            "macro_f1": 0.9672629967604514,
+            "balanced_accuracy": 0.9795565654352562,
+            "ordinal_mae": 0.0074211502782931356
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9375987820220638,
+          "validation_macro_f1": 0.9310324357028333,
+          "inverse_normalized_ordinal_mae": 0.9615027829313544,
+          "mean_dependency_nmi": 0.19789331323379464,
+          "priority": 0.9034244048687393,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9380333951762523,
+            "macro_f1": 0.9310324357028333,
+            "balanced_accuracy": 0.9375987820220638,
+            "ordinal_mae": 0.03849721706864564
+          }
+        }
+      }
+    },
+    "977": {
+      "split_index": 977,
+      "seen_activities": [
+        "stairs",
+        "sitting",
+        "typing",
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "dribbling (basketball)",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "jogging",
+        "standing",
+        "eating soup",
+        "playing catch w/tennis ball",
+        "writing"
+      ],
+      "training_sample_count": 12597,
+      "validation_sample_count": 5400,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "posture_inclination",
+        "translational_motion",
+        "posture_variability",
+        "impulsiveness",
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "motion_regularity",
+        "rotational_motion"
+      ],
+      "reverse": [
+        "rotational_motion",
+        "motion_regularity",
+        "smoothness",
+        "cadence",
+        "motion_intensity",
+        "impulsiveness",
+        "posture_variability",
+        "translational_motion",
+        "posture_inclination"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9556593200840996,
+          "validation_macro_f1": 0.9508438317347392,
+          "inverse_normalized_ordinal_mae": 0.9750925925925926,
+          "mean_dependency_nmi": 0.24958031194795602,
+          "priority": 0.922797377674183,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9507407407407408,
+            "macro_f1": 0.9508438317347392,
+            "balanced_accuracy": 0.9556593200840996,
+            "ordinal_mae": 0.024907407407407406
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9560013457525699,
+          "validation_macro_f1": 0.9572315963067369,
+          "inverse_normalized_ordinal_mae": 0.9736111111111111,
+          "mean_dependency_nmi": 0.14499130998088705,
+          "priority": 0.9193418722019441,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9588888888888889,
+            "macro_f1": 0.9572315963067369,
+            "balanced_accuracy": 0.9560013457525699,
+            "ordinal_mae": 0.02638888888888889
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9490302205574682,
+          "validation_macro_f1": 0.9468452344745342,
+          "inverse_normalized_ordinal_mae": 0.9687962962962963,
+          "mean_dependency_nmi": 0.2657097936104382,
+          "priority": 0.9181619185330021,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9416666666666667,
+            "macro_f1": 0.9468452344745342,
+            "balanced_accuracy": 0.9490302205574682,
+            "ordinal_mae": 0.031203703703703702
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9720372721158217,
+          "validation_macro_f1": 0.9680885173545608,
+          "inverse_normalized_ordinal_mae": 0.9843518518518518,
+          "mean_dependency_nmi": 0.3195624939598753,
+          "priority": 0.9406918227268521,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9803703703703703,
+            "macro_f1": 0.9680885173545608,
+            "balanced_accuracy": 0.9720372721158217,
+            "ordinal_mae": 0.015648148148148147
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9854132267607164,
+          "validation_macro_f1": 0.9841255304209787,
+          "inverse_normalized_ordinal_mae": 0.9939814814814815,
+          "mean_dependency_nmi": 0.1428637847062187,
+          "priority": 0.9446130967002234,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9879629629629629,
+            "macro_f1": 0.9841255304209787,
+            "balanced_accuracy": 0.9854132267607164,
+            "ordinal_mae": 0.0060185185185185185
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9765290121754336,
+          "validation_macro_f1": 0.9687806023334091,
+          "inverse_normalized_ordinal_mae": 0.990462962962963,
+          "mean_dependency_nmi": 0.2681714463010712,
+          "priority": 0.941573401086614,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.982037037037037,
+            "macro_f1": 0.9687806023334091,
+            "balanced_accuracy": 0.9765290121754336,
+            "ordinal_mae": 0.009537037037037037
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9243721478453253,
+          "validation_macro_f1": 0.8995190294560649,
+          "inverse_normalized_ordinal_mae": 0.9541666666666667,
+          "mean_dependency_nmi": 0.1819634590424712,
+          "priority": 0.8857546816526729,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9201851851851852,
+            "macro_f1": 0.8995190294560649,
+            "balanced_accuracy": 0.9243721478453253,
+            "ordinal_mae": 0.04583333333333333
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9753567300770141,
+          "validation_macro_f1": 0.9684464117023692,
+          "inverse_normalized_ordinal_mae": 0.9934259259259259,
+          "mean_dependency_nmi": 0.3267179731781257,
+          "priority": 0.9444655358894586,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9896296296296296,
+            "macro_f1": 0.9684464117023692,
+            "balanced_accuracy": 0.9753567300770141,
+            "ordinal_mae": 0.006574074074074074
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9272733142495432,
+          "validation_macro_f1": 0.9253535913640976,
+          "inverse_normalized_ordinal_mae": 0.9542592592592593,
+          "mean_dependency_nmi": 0.2148173116542576,
+          "priority": 0.8964717862560885,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9275925925925926,
+            "macro_f1": 0.9253535913640976,
+            "balanced_accuracy": 0.9272733142495432,
+            "ordinal_mae": 0.04574074074074074
+          }
+        }
+      }
+    },
+    "1042": {
+      "split_index": 1042,
+      "seen_activities": [
+        "stairs",
+        "sitting",
+        "typing",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "dribbling (basketball)",
+        "writing",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "jogging",
+        "standing",
+        "eating pasta",
+        "playing catch w/tennis ball",
+        "clapping"
+      ],
+      "training_sample_count": 12603,
+      "validation_sample_count": 5402,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "translational_motion",
+        "posture_variability",
+        "impulsiveness",
+        "posture_inclination",
+        "cadence",
+        "motion_intensity",
+        "smoothness",
+        "rotational_motion",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "rotational_motion",
+        "smoothness",
+        "motion_intensity",
+        "cadence",
+        "posture_inclination",
+        "impulsiveness",
+        "posture_variability",
+        "translational_motion"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9518409519302075,
+          "validation_macro_f1": 0.9516786066074365,
+          "inverse_normalized_ordinal_mae": 0.9736208811551277,
+          "mean_dependency_nmi": 0.2910838894832406,
+          "priority": 0.923110381056012,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.947611995557201,
+            "macro_f1": 0.9516786066074365,
+            "balanced_accuracy": 0.9518409519302075,
+            "ordinal_mae": 0.02637911884487227
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9715020885958155,
+          "validation_macro_f1": 0.9609822962084474,
+          "inverse_normalized_ordinal_mae": 0.9758422806368012,
+          "mean_dependency_nmi": 0.22527681004027636,
+          "priority": 0.9319029253600252,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9713069233617179,
+            "macro_f1": 0.9609822962084474,
+            "balanced_accuracy": 0.9715020885958155,
+            "ordinal_mae": 0.024157719363198816
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9501976964243095,
+          "validation_macro_f1": 0.9483302401213539,
+          "inverse_normalized_ordinal_mae": 0.9710292484265087,
+          "mean_dependency_nmi": 0.2418129806324596,
+          "priority": 0.9183845341442701,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9453905960755276,
+            "macro_f1": 0.9483302401213539,
+            "balanced_accuracy": 0.9501976964243095,
+            "ordinal_mae": 0.0289707515734913
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9722606272395612,
+          "validation_macro_f1": 0.9737382955983356,
+          "inverse_normalized_ordinal_mae": 0.9902813772676786,
+          "mean_dependency_nmi": 0.3853019817976666,
+          "priority": 0.9469601454807224,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9872269529803777,
+            "macro_f1": 0.9737382955983356,
+            "balanced_accuracy": 0.9722606272395612,
+            "ordinal_mae": 0.009718622732321363
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9851185478653368,
+          "validation_macro_f1": 0.9807014455780922,
+          "inverse_normalized_ordinal_mae": 0.9945390596075527,
+          "mean_dependency_nmi": 0.1813331790876599,
+          "priority": 0.9454882510887227,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9890781192151055,
+            "macro_f1": 0.9807014455780922,
+            "balanced_accuracy": 0.9851185478653368,
+            "ordinal_mae": 0.0054609403924472414
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9803877097038813,
+          "validation_macro_f1": 0.9762844443768479,
+          "inverse_normalized_ordinal_mae": 0.9921325435024065,
+          "mean_dependency_nmi": 0.3384453472529241,
+          "priority": 0.9494085787429285,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9846353202517586,
+            "macro_f1": 0.9762844443768479,
+            "balanced_accuracy": 0.9803877097038813,
+            "ordinal_mae": 0.007867456497593484
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9269823817273893,
+          "validation_macro_f1": 0.9155579804797477,
+          "inverse_normalized_ordinal_mae": 0.9637171417993335,
+          "mean_dependency_nmi": 0.21115553020207847,
+          "priority": 0.8951106707912201,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9339133654202147,
+            "macro_f1": 0.9155579804797477,
+            "balanced_accuracy": 0.9269823817273893,
+            "ordinal_mae": 0.03628285820066642
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9798340726406453,
+          "validation_macro_f1": 0.9761200774265829,
+          "inverse_normalized_ordinal_mae": 0.9953720844131803,
+          "mean_dependency_nmi": 0.3861435998286951,
+          "priority": 0.952142952790336,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9922251018141429,
+            "macro_f1": 0.9761200774265829,
+            "balanced_accuracy": 0.9798340726406453,
+            "ordinal_mae": 0.004627915586819697
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9236464858029204,
+          "validation_macro_f1": 0.9193382367724947,
+          "inverse_normalized_ordinal_mae": 0.9512217697149205,
+          "mean_dependency_nmi": 0.20282410973920745,
+          "priority": 0.8918279490730071,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.920584968530174,
+            "macro_f1": 0.9193382367724947,
+            "balanced_accuracy": 0.9236464858029204,
+            "ordinal_mae": 0.0487782302850796
+          }
+        }
+      }
+    },
+    "2849": {
+      "split_index": 2849,
+      "seen_activities": [
+        "jogging",
+        "sitting",
+        "standing",
+        "typing",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "dribbling (basketball)",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "stairs",
+        "brushing teeth",
+        "playing catch w/tennis ball",
+        "writing",
+        "clapping"
+      ],
+      "training_sample_count": 12584,
+      "validation_sample_count": 5394,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "impulsiveness",
+        "translational_motion",
+        "posture_variability",
+        "posture_inclination",
+        "motion_intensity",
+        "smoothness",
+        "cadence",
+        "rotational_motion",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "rotational_motion",
+        "cadence",
+        "smoothness",
+        "motion_intensity",
+        "posture_inclination",
+        "posture_variability",
+        "translational_motion",
+        "impulsiveness"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9511350219154764,
+          "validation_macro_f1": 0.950443949195102,
+          "inverse_normalized_ordinal_mae": 0.9725621060437524,
+          "mean_dependency_nmi": 0.350154139909885,
+          "priority": 0.9251640728247397,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9460511679644049,
+            "macro_f1": 0.950443949195102,
+            "balanced_accuracy": 0.9511350219154764,
+            "ordinal_mae": 0.027437893956247683
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9570457306017436,
+          "validation_macro_f1": 0.9250608220997846,
+          "inverse_normalized_ordinal_mae": 0.9708008898776418,
+          "mean_dependency_nmi": 0.23323166706813603,
+          "priority": 0.9140105867296553,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9560622914349277,
+            "macro_f1": 0.9250608220997846,
+            "balanced_accuracy": 0.9570457306017436,
+            "ordinal_mae": 0.029199110122358176
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9489406876506367,
+          "validation_macro_f1": 0.9461585476633291,
+          "inverse_normalized_ordinal_mae": 0.9666295884315906,
+          "mean_dependency_nmi": 0.2296739646646474,
+          "priority": 0.9156804896613358,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9352984797923619,
+            "macro_f1": 0.9461585476633291,
+            "balanced_accuracy": 0.9489406876506367,
+            "ordinal_mae": 0.03337041156840934
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9934667358907234,
+          "validation_macro_f1": 0.9933456124096803,
+          "inverse_normalized_ordinal_mae": 0.9949944382647385,
+          "mean_dependency_nmi": 0.3501919158173366,
+          "priority": 0.9615721983175441,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9949944382647385,
+            "macro_f1": 0.9933456124096803,
+            "balanced_accuracy": 0.9934667358907234,
+            "ordinal_mae": 0.005005561735261402
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9907126322751323,
+          "validation_macro_f1": 0.9898602677088494,
+          "inverse_normalized_ordinal_mae": 0.9961994809047089,
+          "mean_dependency_nmi": 0.19023757543178355,
+          "priority": 0.9515305397889954,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9923989618094179,
+            "macro_f1": 0.9898602677088494,
+            "balanced_accuracy": 0.9907126322751323,
+            "ordinal_mae": 0.003800519095291064
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.988620728326102,
+          "validation_macro_f1": 0.9861877440924208,
+          "inverse_normalized_ordinal_mae": 0.9938820912124583,
+          "mean_dependency_nmi": 0.342889152788011,
+          "priority": 0.9566565268563645,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9888765294771968,
+            "macro_f1": 0.9861877440924208,
+            "balanced_accuracy": 0.988620728326102,
+            "ordinal_mae": 0.006117908787541713
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9297866381787881,
+          "validation_macro_f1": 0.9217550053446223,
+          "inverse_normalized_ordinal_mae": 0.9574527252502781,
+          "mean_dependency_nmi": 0.20098414329705638,
+          "priority": 0.8964702409987497,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9247311827956989,
+            "macro_f1": 0.9217550053446223,
+            "balanced_accuracy": 0.9297866381787881,
+            "ordinal_mae": 0.04254727474972191
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9936855117172966,
+          "validation_macro_f1": 0.9908260841324908,
+          "inverse_normalized_ordinal_mae": 0.9976826103077494,
+          "mean_dependency_nmi": 0.35007885148876283,
+          "priority": 0.9614467701485188,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9959213941416388,
+            "macro_f1": 0.9908260841324908,
+            "balanced_accuracy": 0.9936855117172966,
+            "ordinal_mae": 0.0023173896922506487
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9265642862385001,
+          "validation_macro_f1": 0.9242686861572929,
+          "inverse_normalized_ordinal_mae": 0.9507786429365962,
+          "mean_dependency_nmi": 0.19702646065379198,
+          "priority": 0.8942415862745218,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9262143121987393,
+            "macro_f1": 0.9242686861572929,
+            "balanced_accuracy": 0.9265642862385001,
+            "ordinal_mae": 0.04922135706340378
+          }
+        }
+      }
+    },
+    "3071": {
+      "split_index": 3071,
+      "seen_activities": [
+        "jogging",
+        "sitting",
+        "standing",
+        "typing",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "stairs",
+        "eating pasta",
+        "drinking from cup",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)"
+      ],
+      "training_sample_count": 12593,
+      "validation_sample_count": 5397,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "translational_motion",
+        "impulsiveness",
+        "posture_variability",
+        "posture_inclination",
+        "cadence",
+        "motion_intensity",
+        "smoothness",
+        "rotational_motion",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "rotational_motion",
+        "smoothness",
+        "motion_intensity",
+        "cadence",
+        "posture_inclination",
+        "posture_variability",
+        "impulsiveness",
+        "translational_motion"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9601628173516347,
+          "validation_macro_f1": 0.9587878378072973,
+          "inverse_normalized_ordinal_mae": 0.9752640355753196,
+          "mean_dependency_nmi": 0.30137346532103587,
+          "priority": 0.9298310995315405,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9512692236427644,
+            "macro_f1": 0.9587878378072973,
+            "balanced_accuracy": 0.9601628173516347,
+            "ordinal_mae": 0.024735964424680377
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9834408215155163,
+          "validation_macro_f1": 0.9822812191682688,
+          "inverse_normalized_ordinal_mae": 0.9853622382805263,
+          "mean_dependency_nmi": 0.19220752003808683,
+          "priority": 0.9439155590904726,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9842505095423383,
+            "macro_f1": 0.9822812191682688,
+            "balanced_accuracy": 0.9834408215155163,
+            "ordinal_mae": 0.014637761719473782
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9633962115799557,
+          "validation_macro_f1": 0.961927061590246,
+          "inverse_normalized_ordinal_mae": 0.9760051880674449,
+          "mean_dependency_nmi": 0.2258668477979078,
+          "priority": 0.9286007936914382,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9546044098573282,
+            "macro_f1": 0.961927061590246,
+            "balanced_accuracy": 0.9633962115799557,
+            "ordinal_mae": 0.023994811932555125
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9948148110204155,
+          "validation_macro_f1": 0.993597976931146,
+          "inverse_normalized_ordinal_mae": 0.9951825088011859,
+          "mean_dependency_nmi": 0.3147571313598695,
+          "priority": 0.9605204163667612,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9951825088011859,
+            "macro_f1": 0.993597976931146,
+            "balanced_accuracy": 0.9948148110204155,
+            "ordinal_mae": 0.004817491198814156
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9851639908677603,
+          "validation_macro_f1": 0.9858901761387404,
+          "inverse_normalized_ordinal_mae": 0.9931443394478414,
+          "mean_dependency_nmi": 0.22278851027153834,
+          "priority": 0.9488591421352596,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9862886788956828,
+            "macro_f1": 0.9858901761387404,
+            "balanced_accuracy": 0.9851639908677603,
+            "ordinal_mae": 0.0068556605521586066
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9875232700546283,
+          "validation_macro_f1": 0.9813506460267934,
+          "inverse_normalized_ordinal_mae": 0.9929590513248101,
+          "mean_dependency_nmi": 0.286197272299895,
+          "priority": 0.9516923392125776,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9874004076338707,
+            "macro_f1": 0.9813506460267934,
+            "balanced_accuracy": 0.9875232700546283,
+            "ordinal_mae": 0.0070409486751899205
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9532428838314839,
+          "validation_macro_f1": 0.9457143657025228,
+          "inverse_normalized_ordinal_mae": 0.9747081712062257,
+          "mean_dependency_nmi": 0.19804823432638882,
+          "priority": 0.9175176533924893,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9557161385955161,
+            "macro_f1": 0.9457143657025228,
+            "balanced_accuracy": 0.9532428838314839,
+            "ordinal_mae": 0.02529182879377432
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9926162316877555,
+          "validation_macro_f1": 0.9909880416538775,
+          "inverse_normalized_ordinal_mae": 0.9981471187696869,
+          "mean_dependency_nmi": 0.3699023405348468,
+          "priority": 0.9620982575363329,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.996479525662405,
+            "macro_f1": 0.9909880416538775,
+            "balanced_accuracy": 0.9926162316877555,
+            "ordinal_mae": 0.0018528812303131369
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9373684203588158,
+          "validation_macro_f1": 0.934863422097901,
+          "inverse_normalized_ordinal_mae": 0.9599777654252363,
+          "mean_dependency_nmi": 0.22235265876146854,
+          "priority": 0.9053880018139581,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9377431906614786,
+            "macro_f1": 0.934863422097901,
+            "balanced_accuracy": 0.9373684203588158,
+            "ordinal_mae": 0.040022234574763754
+          }
+        }
+      }
+    },
+    "3359": {
+      "split_index": 3359,
+      "seen_activities": [
+        "jogging",
+        "stairs",
+        "typing",
+        "brushing teeth",
+        "eating soup",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping"
+      ],
+      "unseen_activities": [
+        "walking",
+        "sitting",
+        "standing",
+        "eating chips",
+        "eating pasta",
+        "folding clothes"
+      ],
+      "training_sample_count": 12522,
+      "validation_sample_count": 5367,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "motion_intensity",
+        "posture_variability",
+        "impulsiveness",
+        "translational_motion",
+        "posture_inclination",
+        "cadence",
+        "smoothness",
+        "rotational_motion",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "rotational_motion",
+        "smoothness",
+        "cadence",
+        "posture_inclination",
+        "translational_motion",
+        "impulsiveness",
+        "posture_variability",
+        "motion_intensity"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9884995621475686,
+          "validation_macro_f1": 0.9877244255661443,
+          "inverse_normalized_ordinal_mae": 0.9945034469908701,
+          "mean_dependency_nmi": 0.2903907299763998,
+          "priority": 0.9545623565332432,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9895658654741941,
+            "macro_f1": 0.9877244255661443,
+            "balanced_accuracy": 0.9884995621475686,
+            "ordinal_mae": 0.005496553009129867
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9750093261043937,
+          "validation_macro_f1": 0.9744266151552393,
+          "inverse_normalized_ordinal_mae": 0.9813676169182038,
+          "mean_dependency_nmi": 0.1484332111605577,
+          "priority": 0.9347773652352176,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9761505496553009,
+            "macro_f1": 0.9744266151552393,
+            "balanced_accuracy": 0.9750093261043937,
+            "ordinal_mae": 0.018632383081796162
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.963578594457604,
+          "validation_macro_f1": 0.9619895336612,
+          "inverse_normalized_ordinal_mae": 0.9786659213713433,
+          "mean_dependency_nmi": 0.23309128220036518,
+          "priority": 0.9295949759885688,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9586361095584125,
+            "macro_f1": 0.9619895336612,
+            "balanced_accuracy": 0.963578594457604,
+            "ordinal_mae": 0.021334078628656605
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9793598449083604,
+          "validation_macro_f1": 0.9768005781110208,
+          "inverse_normalized_ordinal_mae": 0.9889137320663313,
+          "mean_dependency_nmi": 0.3391379114993809,
+          "priority": 0.9484917456303037,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9852804173653811,
+            "macro_f1": 0.9768005781110208,
+            "balanced_accuracy": 0.9793598449083604,
+            "ordinal_mae": 0.011086267933668716
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9874802815469548,
+          "validation_macro_f1": 0.9869856389716203,
+          "inverse_normalized_ordinal_mae": 0.9936649897521893,
+          "mean_dependency_nmi": 0.14178149790419894,
+          "priority": 0.9462838912332635,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9873299795043786,
+            "macro_f1": 0.9869856389716203,
+            "balanced_accuracy": 0.9874802815469548,
+            "ordinal_mae": 0.006335010247810695
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9825220143335954,
+          "validation_macro_f1": 0.9754676093915265,
+          "inverse_normalized_ordinal_mae": 0.9931060182597354,
+          "mean_dependency_nmi": 0.355116291546411,
+          "priority": 0.9511522074968436,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9871436556735607,
+            "macro_f1": 0.9754676093915265,
+            "balanced_accuracy": 0.9825220143335954,
+            "ordinal_mae": 0.00689398174026458
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9690369746564904,
+          "validation_macro_f1": 0.9657739921298598,
+          "inverse_normalized_ordinal_mae": 0.9846282839575181,
+          "mean_dependency_nmi": 0.13527067654866087,
+          "priority": 0.9294880268533152,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9692565679150363,
+            "macro_f1": 0.9657739921298598,
+            "balanced_accuracy": 0.9690369746564904,
+            "ordinal_mae": 0.015371716042481833
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9823347046881503,
+          "validation_macro_f1": 0.9731379968586037,
+          "inverse_normalized_ordinal_mae": 0.9919880752748277,
+          "mean_dependency_nmi": 0.3141703281079482,
+          "priority": 0.9480981476276117,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9875163033351966,
+            "macro_f1": 0.9731379968586037,
+            "balanced_accuracy": 0.9823347046881503,
+            "ordinal_mae": 0.00801192472517235
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9636935891395368,
+          "validation_macro_f1": 0.9508064528612975,
+          "inverse_normalized_ordinal_mae": 0.9784795975405254,
+          "mean_dependency_nmi": 0.2440604986638948,
+          "priority": 0.9268029954124806,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9586361095584125,
+            "macro_f1": 0.9508064528612975,
+            "balanced_accuracy": 0.9636935891395368,
+            "ordinal_mae": 0.021520402459474567
+          }
+        }
+      }
+    },
+    "3649": {
+      "split_index": 3649,
+      "seen_activities": [
+        "jogging",
+        "stairs",
+        "standing",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "dribbling (basketball)",
+        "writing",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "sitting",
+        "typing",
+        "drinking from cup",
+        "playing catch w/tennis ball",
+        "clapping"
+      ],
+      "training_sample_count": 12539,
+      "validation_sample_count": 5375,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "translational_motion",
+        "impulsiveness",
+        "posture_variability",
+        "posture_inclination",
+        "motion_intensity",
+        "smoothness",
+        "cadence",
+        "rotational_motion",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "rotational_motion",
+        "cadence",
+        "smoothness",
+        "motion_intensity",
+        "posture_inclination",
+        "posture_variability",
+        "impulsiveness",
+        "translational_motion"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9557814094744163,
+          "validation_macro_f1": 0.9549873754853984,
+          "inverse_normalized_ordinal_mae": 0.9779534883720931,
+          "mean_dependency_nmi": 0.30636833130087426,
+          "priority": 0.9275069611485691,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9568372093023256,
+            "macro_f1": 0.9549873754853984,
+            "balanced_accuracy": 0.9557814094744163,
+            "ordinal_mae": 0.022046511627906978
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9522637926137426,
+          "validation_macro_f1": 0.9479271127290146,
+          "inverse_normalized_ordinal_mae": 0.9748837209302326,
+          "mean_dependency_nmi": 0.23988037374046334,
+          "priority": 0.9198676033679583,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9583255813953488,
+            "macro_f1": 0.9479271127290146,
+            "balanced_accuracy": 0.9522637926137426,
+            "ordinal_mae": 0.025116279069767444
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9588803830058431,
+          "validation_macro_f1": 0.958354578625677,
+          "inverse_normalized_ordinal_mae": 0.9758139534883721,
+          "mean_dependency_nmi": 0.2139709534443667,
+          "priority": 0.9248638843102251,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.954046511627907,
+            "macro_f1": 0.958354578625677,
+            "balanced_accuracy": 0.9588803830058431,
+            "ordinal_mae": 0.024186046511627906
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9731443141653214,
+          "validation_macro_f1": 0.9729459471065796,
+          "inverse_normalized_ordinal_mae": 0.9892093023255814,
+          "mean_dependency_nmi": 0.3715978826364511,
+          "priority": 0.9462204801033074,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9853023255813953,
+            "macro_f1": 0.9729459471065796,
+            "balanced_accuracy": 0.9731443141653214,
+            "ordinal_mae": 0.010790697674418604
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9800815850815852,
+          "validation_macro_f1": 0.9789583830828927,
+          "inverse_normalized_ordinal_mae": 0.9906046511627907,
+          "mean_dependency_nmi": 0.1571810261671611,
+          "priority": 0.9407042097524974,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9812093023255813,
+            "macro_f1": 0.9789583830828927,
+            "balanced_accuracy": 0.9800815850815852,
+            "ordinal_mae": 0.009395348837209303
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9773497994087365,
+          "validation_macro_f1": 0.973155594176197,
+          "inverse_normalized_ordinal_mae": 0.9906046511627907,
+          "mean_dependency_nmi": 0.3108579735103669,
+          "priority": 0.9454179168948671,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9817674418604652,
+            "macro_f1": 0.973155594176197,
+            "balanced_accuracy": 0.9773497994087365,
+            "ordinal_mae": 0.009395348837209303
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9522055416821119,
+          "validation_macro_f1": 0.9426976433238615,
+          "inverse_normalized_ordinal_mae": 0.9722790697674418,
+          "mean_dependency_nmi": 0.16869975681864446,
+          "priority": 0.9141925885485294,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9495813953488372,
+            "macro_f1": 0.9426976433238615,
+            "balanced_accuracy": 0.9522055416821119,
+            "ordinal_mae": 0.02772093023255814
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9825654770959807,
+          "validation_macro_f1": 0.977085960507519,
+          "inverse_normalized_ordinal_mae": 0.9929302325581395,
+          "mean_dependency_nmi": 0.3373635839007111,
+          "priority": 0.9507344785521105,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9893953488372093,
+            "macro_f1": 0.977085960507519,
+            "balanced_accuracy": 0.9825654770959807,
+            "ordinal_mae": 0.007069767441860465
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9426339394300122,
+          "validation_macro_f1": 0.940953854347268,
+          "inverse_normalized_ordinal_mae": 0.9662325581395349,
+          "mean_dependency_nmi": 0.222799161737345,
+          "priority": 0.9108578987624601,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9436279069767441,
+            "macro_f1": 0.940953854347268,
+            "balanced_accuracy": 0.9426339394300122,
+            "ordinal_mae": 0.03376744186046512
+          }
+        }
+      }
+    },
+    "4573": {
+      "split_index": 4573,
+      "seen_activities": [
+        "jogging",
+        "stairs",
+        "sitting",
+        "typing",
+        "brushing teeth",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "walking",
+        "standing",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich"
+      ],
+      "training_sample_count": 12571,
+      "validation_sample_count": 5388,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "translational_motion",
+        "impulsiveness",
+        "motion_intensity",
+        "smoothness",
+        "posture_inclination",
+        "posture_variability",
+        "cadence",
+        "motion_regularity",
+        "rotational_motion"
+      ],
+      "reverse": [
+        "rotational_motion",
+        "motion_regularity",
+        "cadence",
+        "posture_variability",
+        "posture_inclination",
+        "smoothness",
+        "motion_intensity",
+        "impulsiveness",
+        "translational_motion"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9753588293162535,
+          "validation_macro_f1": 0.975213702279242,
+          "inverse_normalized_ordinal_mae": 0.9881217520415738,
+          "mean_dependency_nmi": 0.32079415024859814,
+          "priority": 0.9451396417968314,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9769858945805494,
+            "macro_f1": 0.975213702279242,
+            "balanced_accuracy": 0.9753588293162535,
+            "ordinal_mae": 0.011878247958426132
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9736297650914135,
+          "validation_macro_f1": 0.9735251820628807,
+          "inverse_normalized_ordinal_mae": 0.9793058648849294,
+          "mean_dependency_nmi": 0.1678219606703093,
+          "priority": 0.9344432199205016,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9745731254639941,
+            "macro_f1": 0.9735251820628807,
+            "balanced_accuracy": 0.9736297650914135,
+            "ordinal_mae": 0.02069413511507053
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9758653112716319,
+          "validation_macro_f1": 0.9774362803442856,
+          "inverse_normalized_ordinal_mae": 0.987286562731997,
+          "mean_dependency_nmi": 0.2903569779756926,
+          "priority": 0.944345435620704,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9782850779510023,
+            "macro_f1": 0.9774362803442856,
+            "balanced_accuracy": 0.9758653112716319,
+            "ordinal_mae": 0.01271343726800297
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9790453978184835,
+          "validation_macro_f1": 0.9731135599711783,
+          "inverse_normalized_ordinal_mae": 0.9862657757980697,
+          "mean_dependency_nmi": 0.3248250614452609,
+          "priority": 0.9459989052415481,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9821826280623608,
+            "macro_f1": 0.9731135599711783,
+            "balanced_accuracy": 0.9790453978184835,
+            "ordinal_mae": 0.013734224201930215
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9864433025733514,
+          "validation_macro_f1": 0.985878742888229,
+          "inverse_normalized_ordinal_mae": 0.9931328878990349,
+          "mean_dependency_nmi": 0.12004950085460166,
+          "priority": 0.9442921616470139,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9862657757980697,
+            "macro_f1": 0.985878742888229,
+            "balanced_accuracy": 0.9864433025733514,
+            "ordinal_mae": 0.006867112100965108
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.976646143426874,
+          "validation_macro_f1": 0.9741175144018133,
+          "inverse_normalized_ordinal_mae": 0.991833704528582,
+          "mean_dependency_nmi": 0.27069020572331626,
+          "priority": 0.9436272700545195,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9840386043058649,
+            "macro_f1": 0.9741175144018133,
+            "balanced_accuracy": 0.976646143426874,
+            "ordinal_mae": 0.008166295471417966
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9619325233018593,
+          "validation_macro_f1": 0.943898012731014,
+          "inverse_normalized_ordinal_mae": 0.9761507052709726,
+          "mean_dependency_nmi": 0.2142186335023088,
+          "priority": 0.9219801120344508,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.96362286562732,
+            "macro_f1": 0.943898012731014,
+            "balanced_accuracy": 0.9619325233018593,
+            "ordinal_mae": 0.023849294729027467
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9818442008808166,
+          "validation_macro_f1": 0.9755545911503356,
+          "inverse_normalized_ordinal_mae": 0.9920193021529324,
+          "mean_dependency_nmi": 0.29724573333236803,
+          "priority": 0.947762414838673,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9881217520415738,
+            "macro_f1": 0.9755545911503356,
+            "balanced_accuracy": 0.9818442008808166,
+            "ordinal_mae": 0.007980697847067557
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9661664603133775,
+          "validation_macro_f1": 0.9605452845852528,
+          "inverse_normalized_ordinal_mae": 0.9793986636971047,
+          "mean_dependency_nmi": 0.18254835939510278,
+          "priority": 0.9279456432257719,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9652932442464737,
+            "macro_f1": 0.9605452845852528,
+            "balanced_accuracy": 0.9661664603133775,
+            "ordinal_mae": 0.02060133630289532
+          }
+        }
+      }
+    },
+    "6516": {
+      "split_index": 6516,
+      "seen_activities": [
+        "walking",
+        "standing",
+        "typing",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "clapping"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "stairs",
+        "sitting",
+        "drinking from cup",
+        "writing",
+        "folding clothes"
+      ],
+      "training_sample_count": 12560,
+      "validation_sample_count": 5384,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "impulsiveness",
+        "translational_motion",
+        "posture_variability",
+        "posture_inclination",
+        "motion_intensity",
+        "smoothness",
+        "cadence",
+        "motion_regularity",
+        "rotational_motion"
+      ],
+      "reverse": [
+        "rotational_motion",
+        "motion_regularity",
+        "cadence",
+        "smoothness",
+        "motion_intensity",
+        "posture_inclination",
+        "posture_variability",
+        "translational_motion",
+        "impulsiveness"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9630624116238918,
+          "validation_macro_f1": 0.9580238210366203,
+          "inverse_normalized_ordinal_mae": 0.9781760772659732,
+          "mean_dependency_nmi": 0.26859686301122665,
+          "priority": 0.9298502901454933,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9583952451708767,
+            "macro_f1": 0.9580238210366203,
+            "balanced_accuracy": 0.9630624116238918,
+            "ordinal_mae": 0.021823922734026745
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.953087405135712,
+          "validation_macro_f1": 0.9555832578167373,
+          "inverse_normalized_ordinal_mae": 0.9739041604754829,
+          "mean_dependency_nmi": 0.14678171623475236,
+          "priority": 0.9176842275629257,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9572808320950966,
+            "macro_f1": 0.9555832578167373,
+            "balanced_accuracy": 0.953087405135712,
+            "ordinal_mae": 0.02609583952451709
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9558885473777478,
+          "validation_macro_f1": 0.9576781525317601,
+          "inverse_normalized_ordinal_mae": 0.9760401188707281,
+          "mean_dependency_nmi": 0.2419027085480488,
+          "priority": 0.9247564512810625,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9548662704309064,
+            "macro_f1": 0.9576781525317601,
+            "balanced_accuracy": 0.9558885473777478,
+            "ordinal_mae": 0.02395988112927192
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9868054560961684,
+          "validation_macro_f1": 0.9849920134742555,
+          "inverse_normalized_ordinal_mae": 0.9905274888558693,
+          "mean_dependency_nmi": 0.3053413230175031,
+          "priority": 0.9529326232076014,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9886701337295691,
+            "macro_f1": 0.9849920134742555,
+            "balanced_accuracy": 0.9868054560961684,
+            "ordinal_mae": 0.009472511144130757
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9884840406704405,
+          "validation_macro_f1": 0.9884840406704405,
+          "inverse_normalized_ordinal_mae": 0.9942421991084696,
+          "mean_dependency_nmi": 0.12858873269811852,
+          "priority": 0.9466409069594303,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9884843982169391,
+            "macro_f1": 0.9884840406704405,
+            "balanced_accuracy": 0.9884840406704405,
+            "ordinal_mae": 0.005757800891530461
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9849570066839343,
+          "validation_macro_f1": 0.9778102151143259,
+          "inverse_normalized_ordinal_mae": 0.9923848439821694,
+          "mean_dependency_nmi": 0.30011738531708004,
+          "priority": 0.950056555604356,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9888558692421991,
+            "macro_f1": 0.9778102151143259,
+            "balanced_accuracy": 0.9849570066839343,
+            "ordinal_mae": 0.007615156017830609
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9441185383138809,
+          "validation_macro_f1": 0.9377414996885639,
+          "inverse_normalized_ordinal_mae": 0.9709323922734027,
+          "mean_dependency_nmi": 0.16265957852517032,
+          "priority": 0.9084952495287546,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9470653789004457,
+            "macro_f1": 0.9377414996885639,
+            "balanced_accuracy": 0.9441185383138809,
+            "ordinal_mae": 0.029067607726597326
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9856643948234947,
+          "validation_macro_f1": 0.9803117947387886,
+          "inverse_normalized_ordinal_mae": 0.9952637444279346,
+          "mean_dependency_nmi": 0.29563634067022854,
+          "priority": 0.9514770820113074,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9920133729569094,
+            "macro_f1": 0.9803117947387886,
+            "balanced_accuracy": 0.9856643948234947,
+            "ordinal_mae": 0.0047362555720653786
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9512964020408644,
+          "validation_macro_f1": 0.9457242803020368,
+          "inverse_normalized_ordinal_mae": 0.9729754829123328,
+          "mean_dependency_nmi": 0.2229795946616525,
+          "priority": 0.9175447413245492,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9548662704309064,
+            "macro_f1": 0.9457242803020368,
+            "balanced_accuracy": 0.9512964020408644,
+            "ordinal_mae": 0.027024517087667163
+          }
+        }
+      }
+    },
+    "7165": {
+      "split_index": 7165,
+      "seen_activities": [
+        "walking",
+        "sitting",
+        "standing",
+        "typing",
+        "eating soup",
+        "eating chips",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "stairs",
+        "brushing teeth",
+        "eating pasta",
+        "writing",
+        "clapping"
+      ],
+      "training_sample_count": 12613,
+      "validation_sample_count": 5406,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "impulsiveness",
+        "translational_motion",
+        "posture_inclination",
+        "posture_variability",
+        "cadence",
+        "motion_intensity",
+        "smoothness",
+        "rotational_motion",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "rotational_motion",
+        "smoothness",
+        "motion_intensity",
+        "cadence",
+        "posture_variability",
+        "posture_inclination",
+        "translational_motion",
+        "impulsiveness"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9463798510524516,
+          "validation_macro_f1": 0.9447633512887617,
+          "inverse_normalized_ordinal_mae": 0.9689234184239733,
+          "mean_dependency_nmi": 0.28891562581659236,
+          "priority": 0.917530403335856,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9408065112837588,
+            "macro_f1": 0.9447633512887617,
+            "balanced_accuracy": 0.9463798510524516,
+            "ordinal_mae": 0.03107658157602664
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9774679740181303,
+          "validation_macro_f1": 0.9698457669242967,
+          "inverse_normalized_ordinal_mae": 0.9811320754716981,
+          "mean_dependency_nmi": 0.27041034879443937,
+          "priority": 0.9405612509195092,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.978912319644839,
+            "macro_f1": 0.9698457669242967,
+            "balanced_accuracy": 0.9774679740181303,
+            "ordinal_mae": 0.018867924528301886
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9441610214514776,
+          "validation_macro_f1": 0.9445158147775036,
+          "inverse_normalized_ordinal_mae": 0.9671661117277099,
+          "mean_dependency_nmi": 0.25797920589114276,
+          "priority": 0.914559386726515,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9363669996300407,
+            "macro_f1": 0.9445158147775036,
+            "balanced_accuracy": 0.9441610214514776,
+            "ordinal_mae": 0.03283388827229005
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9882095814251696,
+          "validation_macro_f1": 0.986087359620495,
+          "inverse_normalized_ordinal_mae": 0.9910284868664447,
+          "mean_dependency_nmi": 0.3848678581956547,
+          "priority": 0.9579696098105466,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9896411394746578,
+            "macro_f1": 0.986087359620495,
+            "balanced_accuracy": 0.9882095814251696,
+            "ordinal_mae": 0.00897151313355531
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9848634896929762,
+          "validation_macro_f1": 0.9829685784772735,
+          "inverse_normalized_ordinal_mae": 0.9924158342582315,
+          "mean_dependency_nmi": 0.16027808418367195,
+          "priority": 0.9445762149658513,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9848316685164632,
+            "macro_f1": 0.9829685784772735,
+            "balanced_accuracy": 0.9848634896929762,
+            "ordinal_mae": 0.007584165741768406
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9762803119810552,
+          "validation_macro_f1": 0.9668426128758544,
+          "inverse_normalized_ordinal_mae": 0.9864964853866075,
+          "mean_dependency_nmi": 0.2926844637511684,
+          "priority": 0.9413124445191112,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9785423603403626,
+            "macro_f1": 0.9668426128758544,
+            "balanced_accuracy": 0.9762803119810552,
+            "ordinal_mae": 0.013503514613392527
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9283211949863982,
+          "validation_macro_f1": 0.9206208757940827,
+          "inverse_normalized_ordinal_mae": 0.9575471698113207,
+          "mean_dependency_nmi": 0.211581589995616,
+          "priority": 0.8960193139441489,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9265630780614132,
+            "macro_f1": 0.9206208757940827,
+            "balanced_accuracy": 0.9283211949863982,
+            "ordinal_mae": 0.04245283018867924
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9833276763453287,
+          "validation_macro_f1": 0.9780166645129942,
+          "inverse_normalized_ordinal_mae": 0.994913059563448,
+          "mean_dependency_nmi": 0.3442464229894175,
+          "priority": 0.9520973867714567,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9911209766925638,
+            "macro_f1": 0.9780166645129942,
+            "balanced_accuracy": 0.9833276763453287,
+            "ordinal_mae": 0.005086940436551979
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9148672111598556,
+          "validation_macro_f1": 0.9106118320583398,
+          "inverse_normalized_ordinal_mae": 0.9415464298927118,
+          "mean_dependency_nmi": 0.1563581214249259,
+          "priority": 0.8810009866892257,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9123196448390677,
+            "macro_f1": 0.9106118320583398,
+            "balanced_accuracy": 0.9148672111598556,
+            "ordinal_mae": 0.058453570107288196
+          }
+        }
+      }
+    },
+    "7315": {
+      "split_index": 7315,
+      "seen_activities": [
+        "walking",
+        "sitting",
+        "standing",
+        "typing",
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "dribbling (basketball)",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "stairs",
+        "eating soup",
+        "eating sandwich",
+        "playing catch w/tennis ball",
+        "writing"
+      ],
+      "training_sample_count": 12672,
+      "validation_sample_count": 5432,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "translational_motion",
+        "impulsiveness",
+        "posture_variability",
+        "posture_inclination",
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "rotational_motion",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "rotational_motion",
+        "smoothness",
+        "cadence",
+        "motion_intensity",
+        "posture_inclination",
+        "posture_variability",
+        "impulsiveness",
+        "translational_motion"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9593401814301504,
+          "validation_macro_f1": 0.954229979420381,
+          "inverse_normalized_ordinal_mae": 0.9741347569955817,
+          "mean_dependency_nmi": 0.25767177399758523,
+          "priority": 0.9256826155686776,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9510309278350515,
+            "macro_f1": 0.954229979420381,
+            "balanced_accuracy": 0.9593401814301504,
+            "ordinal_mae": 0.02586524300441826
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9595477889681852,
+          "validation_macro_f1": 0.960785479511257,
+          "inverse_normalized_ordinal_mae": 0.9746870397643593,
+          "mean_dependency_nmi": 0.1833154864977704,
+          "priority": 0.9241353311668208,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9620765832106039,
+            "macro_f1": 0.960785479511257,
+            "balanced_accuracy": 0.9595477889681852,
+            "ordinal_mae": 0.02531296023564065
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9518753963554291,
+          "validation_macro_f1": 0.9484679521037044,
+          "inverse_normalized_ordinal_mae": 0.9686119293078056,
+          "mean_dependency_nmi": 0.25891491009837225,
+          "priority": 0.919552445357534,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9444035346097202,
+            "macro_f1": 0.9484679521037044,
+            "balanced_accuracy": 0.9518753963554291,
+            "ordinal_mae": 0.0313880706921944
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9891379948405562,
+          "validation_macro_f1": 0.9855479797532164,
+          "inverse_normalized_ordinal_mae": 0.990058910162003,
+          "mean_dependency_nmi": 0.29992640669270143,
+          "priority": 0.9537845939712508,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9887702503681886,
+            "macro_f1": 0.9855479797532164,
+            "balanced_accuracy": 0.9891379948405562,
+            "ordinal_mae": 0.009941089837997054
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9840301162252382,
+          "validation_macro_f1": 0.9842977036363263,
+          "inverse_normalized_ordinal_mae": 0.992360088365243,
+          "mean_dependency_nmi": 0.12121078986000833,
+          "priority": 0.9426354205583041,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9847201767304861,
+            "macro_f1": 0.9842977036363263,
+            "balanced_accuracy": 0.9840301162252382,
+            "ordinal_mae": 0.007639911634756995
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9831165041301371,
+          "validation_macro_f1": 0.974272205637522,
+          "inverse_normalized_ordinal_mae": 0.9899668630338734,
+          "mean_dependency_nmi": 0.2691531568246154,
+          "priority": 0.9461351189978237,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9839837997054491,
+            "macro_f1": 0.974272205637522,
+            "balanced_accuracy": 0.9831165041301371,
+            "ordinal_mae": 0.010033136966126658
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9388979324177421,
+          "validation_macro_f1": 0.9335298206606586,
+          "inverse_normalized_ordinal_mae": 0.9601435935198822,
+          "mean_dependency_nmi": 0.18550584763630074,
+          "priority": 0.903867026871973,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9385125184094256,
+            "macro_f1": 0.9335298206606586,
+            "balanced_accuracy": 0.9388979324177421,
+            "ordinal_mae": 0.03985640648011782
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9904925455273084,
+          "validation_macro_f1": 0.9822471826279124,
+          "inverse_normalized_ordinal_mae": 0.9956737849779087,
+          "mean_dependency_nmi": 0.30638036012772385,
+          "priority": 0.9548495752776305,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9926362297496318,
+            "macro_f1": 0.9822471826279124,
+            "balanced_accuracy": 0.9904925455273084,
+            "ordinal_mae": 0.004326215022091311
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9394639037000209,
+          "validation_macro_f1": 0.9272990104285824,
+          "inverse_normalized_ordinal_mae": 0.9522275405007363,
+          "mean_dependency_nmi": 0.21515990981882926,
+          "priority": 0.9021519633846729,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9374079528718704,
+            "macro_f1": 0.9272990104285824,
+            "balanced_accuracy": 0.9394639037000209,
+            "ordinal_mae": 0.04777245949926362
+          }
+        }
+      }
+    },
+    "7624": {
+      "split_index": 7624,
+      "seen_activities": [
+        "walking",
+        "stairs",
+        "typing",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "eating sandwich",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "sitting",
+        "standing",
+        "brushing teeth",
+        "eating soup",
+        "kicking (soccer ball)"
+      ],
+      "training_sample_count": 12525,
+      "validation_sample_count": 5369,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "impulsiveness",
+        "translational_motion",
+        "posture_inclination",
+        "posture_variability",
+        "cadence",
+        "motion_intensity",
+        "rotational_motion",
+        "smoothness",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "smoothness",
+        "rotational_motion",
+        "motion_intensity",
+        "cadence",
+        "posture_variability",
+        "posture_inclination",
+        "translational_motion",
+        "impulsiveness"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9525873455958859,
+          "validation_macro_f1": 0.9475487654203824,
+          "inverse_normalized_ordinal_mae": 0.9736449990687279,
+          "mean_dependency_nmi": 0.2244439362289858,
+          "priority": 0.9188801317694583,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9474762525609983,
+            "macro_f1": 0.9475487654203824,
+            "balanced_accuracy": 0.9525873455958859,
+            "ordinal_mae": 0.02635500093127212
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9609519483484444,
+          "validation_macro_f1": 0.9611548481218309,
+          "inverse_normalized_ordinal_mae": 0.9760663065747811,
+          "mean_dependency_nmi": 0.18268179617272354,
+          "priority": 0.9251221823169417,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9616315887502328,
+            "macro_f1": 0.9611548481218309,
+            "balanced_accuracy": 0.9609519483484444,
+            "ordinal_mae": 0.02393369342521885
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9480414599876505,
+          "validation_macro_f1": 0.9480288379703686,
+          "inverse_normalized_ordinal_mae": 0.9701992922331906,
+          "mean_dependency_nmi": 0.1745678931629533,
+          "priority": 0.9137955614903391,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9426336375488917,
+            "macro_f1": 0.9480288379703686,
+            "balanced_accuracy": 0.9480414599876505,
+            "ordinal_mae": 0.029800707766809462
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9881861950480859,
+          "validation_macro_f1": 0.9872092699438157,
+          "inverse_normalized_ordinal_mae": 0.990687278822872,
+          "mean_dependency_nmi": 0.3053001904837146,
+          "priority": 0.9542490340435436,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9888247345874465,
+            "macro_f1": 0.9872092699438157,
+            "balanced_accuracy": 0.9881861950480859,
+            "ordinal_mae": 0.009312721177127958
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9856196450332377,
+          "validation_macro_f1": 0.9827587946983167,
+          "inverse_normalized_ordinal_mae": 0.9934810951760105,
+          "mean_dependency_nmi": 0.10897778987942894,
+          "priority": 0.9425015872036255,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9869621903520208,
+            "macro_f1": 0.9827587946983167,
+            "balanced_accuracy": 0.9856196450332377,
+            "ordinal_mae": 0.00651890482398957
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.985175912040849,
+          "validation_macro_f1": 0.9830550912049958,
+          "inverse_normalized_ordinal_mae": 0.9924566958465264,
+          "mean_dependency_nmi": 0.0950490819673768,
+          "priority": 0.9414894810475549,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9849133916930527,
+            "macro_f1": 0.9830550912049958,
+            "balanced_accuracy": 0.985175912040849,
+            "ordinal_mae": 0.007543304153473645
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9605917366946779,
+          "validation_macro_f1": 0.9542511707881518,
+          "inverse_normalized_ordinal_mae": 0.9794188861985472,
+          "mean_dependency_nmi": 0.08691597612841885,
+          "priority": 0.918771208795181,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9588377723970944,
+            "macro_f1": 0.9542511707881518,
+            "balanced_accuracy": 0.9605917366946779,
+            "ordinal_mae": 0.020581113801452784
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9958592547259486,
+          "validation_macro_f1": 0.9929825629301642,
+          "inverse_normalized_ordinal_mae": 0.9960886571056062,
+          "mean_dependency_nmi": 0.16900325343140593,
+          "priority": 0.9536993275984176,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9960886571056062,
+            "macro_f1": 0.9929825629301642,
+            "balanced_accuracy": 0.9958592547259486,
+            "ordinal_mae": 0.003911342894393742
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9336410118890816,
+          "validation_macro_f1": 0.9193010460144793,
+          "inverse_normalized_ordinal_mae": 0.9581858819146954,
+          "mean_dependency_nmi": 0.1485676775245128,
+          "priority": 0.8949943294135952,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9251257217358912,
+            "macro_f1": 0.9193010460144793,
+            "balanced_accuracy": 0.9336410118890816,
+            "ordinal_mae": 0.041814118085304525
+          }
+        }
+      }
+    },
+    "8025": {
+      "split_index": 8025,
+      "seen_activities": [
+        "walking",
+        "stairs",
+        "standing",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "sitting",
+        "typing",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball"
+      ],
+      "training_sample_count": 12621,
+      "validation_sample_count": 5410,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "impulsiveness",
+        "translational_motion",
+        "posture_variability",
+        "posture_inclination",
+        "cadence",
+        "rotational_motion",
+        "motion_intensity",
+        "smoothness",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "smoothness",
+        "motion_intensity",
+        "rotational_motion",
+        "cadence",
+        "posture_inclination",
+        "posture_variability",
+        "translational_motion",
+        "impulsiveness"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9522288545086299,
+          "validation_macro_f1": 0.9387170107377166,
+          "inverse_normalized_ordinal_mae": 0.9703327171903882,
+          "mean_dependency_nmi": 0.24109890817572838,
+          "priority": 0.9162395765970625,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9414048059149722,
+            "macro_f1": 0.9387170107377166,
+            "balanced_accuracy": 0.9522288545086299,
+            "ordinal_mae": 0.02966728280961183
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9629658107020692,
+          "validation_macro_f1": 0.9666904824043439,
+          "inverse_normalized_ordinal_mae": 0.9804066543438078,
+          "mean_dependency_nmi": 0.2197221858914749,
+          "priority": 0.9304091997005696,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9652495378927911,
+            "macro_f1": 0.9666904824043439,
+            "balanced_accuracy": 0.9629658107020692,
+            "ordinal_mae": 0.019593345656192238
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9472612011427036,
+          "validation_macro_f1": 0.9376830037207395,
+          "inverse_normalized_ordinal_mae": 0.9656192236598891,
+          "mean_dependency_nmi": 0.22023816100073335,
+          "priority": 0.9117081944124531,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9378927911275415,
+            "macro_f1": 0.9376830037207395,
+            "balanced_accuracy": 0.9472612011427036,
+            "ordinal_mae": 0.034380776340110906
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.991747030790195,
+          "validation_macro_f1": 0.9896833109483755,
+          "inverse_normalized_ordinal_mae": 0.9936229205175601,
+          "mean_dependency_nmi": 0.31872566071636366,
+          "priority": 0.9578520242794306,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9922365988909427,
+            "macro_f1": 0.9896833109483755,
+            "balanced_accuracy": 0.991747030790195,
+            "ordinal_mae": 0.0063770794824399265
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9800078055649086,
+          "validation_macro_f1": 0.9809196270533099,
+          "inverse_normalized_ordinal_mae": 0.9914972273567467,
+          "mean_dependency_nmi": 0.1394764398697356,
+          "priority": 0.940552668085038,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9829944547134936,
+            "macro_f1": 0.9809196270533099,
+            "balanced_accuracy": 0.9800078055649086,
+            "ordinal_mae": 0.008502772643253234
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9870490337454909,
+          "validation_macro_f1": 0.9821485807798529,
+          "inverse_normalized_ordinal_mae": 0.9932532347504621,
+          "mean_dependency_nmi": 0.12149675999165688,
+          "priority": 0.9435421243691021,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9865064695009242,
+            "macro_f1": 0.9821485807798529,
+            "balanced_accuracy": 0.9870490337454909,
+            "ordinal_mae": 0.006746765249537893
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9581740521806444,
+          "validation_macro_f1": 0.9507169088426307,
+          "inverse_normalized_ordinal_mae": 0.9743068391866914,
+          "mean_dependency_nmi": 0.15837972752587826,
+          "priority": 0.9191737503477114,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9519408502772643,
+            "macro_f1": 0.9507169088426307,
+            "balanced_accuracy": 0.9581740521806444,
+            "ordinal_mae": 0.025693160813308687
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9963263537777143,
+          "validation_macro_f1": 0.9929994733430039,
+          "inverse_normalized_ordinal_mae": 0.9961182994454714,
+          "mean_dependency_nmi": 0.18252285631776405,
+          "priority": 0.9545965039078551,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9961182994454714,
+            "macro_f1": 0.9929994733430039,
+            "balanced_accuracy": 0.9963263537777143,
+            "ordinal_mae": 0.0038817005545286505
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.943258416484626,
+          "validation_macro_f1": 0.9344397360161061,
+          "inverse_normalized_ordinal_mae": 0.9622920517560074,
+          "mean_dependency_nmi": 0.16699953479038482,
+          "priority": 0.9056065953136343,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9430683918669132,
+            "macro_f1": 0.9344397360161061,
+            "balanced_accuracy": 0.943258416484626,
+            "ordinal_mae": 0.03770794824399261
+          }
+        }
+      }
+    },
+    "9013": {
+      "split_index": 9013,
+      "seen_activities": [
+        "walking",
+        "stairs",
+        "sitting",
+        "typing",
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "jogging",
+        "standing",
+        "eating soup",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "clapping"
+      ],
+      "training_sample_count": 12524,
+      "validation_sample_count": 5368,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "translational_motion",
+        "impulsiveness",
+        "posture_variability",
+        "posture_inclination",
+        "cadence",
+        "motion_intensity",
+        "smoothness",
+        "motion_regularity",
+        "rotational_motion"
+      ],
+      "reverse": [
+        "rotational_motion",
+        "motion_regularity",
+        "smoothness",
+        "motion_intensity",
+        "cadence",
+        "posture_inclination",
+        "posture_variability",
+        "impulsiveness",
+        "translational_motion"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9499544838642127,
+          "validation_macro_f1": 0.948123213499647,
+          "inverse_normalized_ordinal_mae": 0.9720566318926974,
+          "mean_dependency_nmi": 0.24762355951126547,
+          "priority": 0.9187089861428925,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9454172876304023,
+            "macro_f1": 0.948123213499647,
+            "balanced_accuracy": 0.9499544838642127,
+            "ordinal_mae": 0.027943368107302535
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9568132965627246,
+          "validation_macro_f1": 0.9563054334782962,
+          "inverse_normalized_ordinal_mae": 0.9694485842026825,
+          "mean_dependency_nmi": 0.16121246509385118,
+          "priority": 0.919407953591944,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9573397913561847,
+            "macro_f1": 0.9563054334782962,
+            "balanced_accuracy": 0.9568132965627246,
+            "ordinal_mae": 0.030551415797317436
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9508904710838723,
+          "validation_macro_f1": 0.9527032062731933,
+          "inverse_normalized_ordinal_mae": 0.9746646795827124,
+          "mean_dependency_nmi": 0.1811250351210942,
+          "priority": 0.9177008615422977,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9515648286140089,
+            "macro_f1": 0.9527032062731933,
+            "balanced_accuracy": 0.9508904710838723,
+            "ordinal_mae": 0.02533532041728763
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9838357968487245,
+          "validation_macro_f1": 0.9834160478795272,
+          "inverse_normalized_ordinal_mae": 0.9916169895678092,
+          "mean_dependency_nmi": 0.3118057637376429,
+          "priority": 0.9516646090462282,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9890089418777943,
+            "macro_f1": 0.9834160478795272,
+            "balanced_accuracy": 0.9838357968487245,
+            "ordinal_mae": 0.00838301043219076
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9817837385648138,
+          "validation_macro_f1": 0.9804789711586641,
+          "inverse_normalized_ordinal_mae": 0.9926415797317437,
+          "mean_dependency_nmi": 0.08681606576445952,
+          "priority": 0.9388154929363373,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9852831594634873,
+            "macro_f1": 0.9804789711586641,
+            "balanced_accuracy": 0.9817837385648138,
+            "ordinal_mae": 0.007358420268256334
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9848972229529143,
+          "validation_macro_f1": 0.9824380030098803,
+          "inverse_normalized_ordinal_mae": 0.9921758569299552,
+          "mean_dependency_nmi": 0.13830264710153276,
+          "priority": 0.9432854549728433,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9843517138599106,
+            "macro_f1": 0.9824380030098803,
+            "balanced_accuracy": 0.9848972229529143,
+            "ordinal_mae": 0.00782414307004471
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9290625341685029,
+          "validation_macro_f1": 0.9122178116110486,
+          "inverse_normalized_ordinal_mae": 0.9652570789865872,
+          "mean_dependency_nmi": 0.13534299712286543,
+          "priority": 0.8915620495126015,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9374068554396423,
+            "macro_f1": 0.9122178116110486,
+            "balanced_accuracy": 0.9290625341685029,
+            "ordinal_mae": 0.034742921013412816
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9957471236730424,
+          "validation_macro_f1": 0.99265139083206,
+          "inverse_normalized_ordinal_mae": 0.9959016393442623,
+          "mean_dependency_nmi": 0.18703351803325932,
+          "priority": 0.9544136266730026,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9959016393442623,
+            "macro_f1": 0.99265139083206,
+            "balanced_accuracy": 0.9957471236730424,
+            "ordinal_mae": 0.004098360655737705
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9349184844783845,
+          "validation_macro_f1": 0.9222561696141945,
+          "inverse_normalized_ordinal_mae": 0.9597615499254843,
+          "mean_dependency_nmi": 0.13329301286218237,
+          "priority": 0.8960071295277374,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9297690014903129,
+            "macro_f1": 0.9222561696141945,
+            "balanced_accuracy": 0.9349184844783845,
+            "ordinal_mae": 0.040238450074515646
+          }
+        }
+      }
+    },
+    "13826": {
+      "split_index": 13826,
+      "seen_activities": [
+        "walking",
+        "jogging",
+        "stairs",
+        "typing",
+        "eating soup",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "standing",
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich"
+      ],
+      "training_sample_count": 12556,
+      "validation_sample_count": 5382,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "impulsiveness",
+        "translational_motion",
+        "motion_intensity",
+        "posture_inclination",
+        "cadence",
+        "smoothness",
+        "rotational_motion",
+        "posture_variability",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "posture_variability",
+        "rotational_motion",
+        "smoothness",
+        "cadence",
+        "posture_inclination",
+        "motion_intensity",
+        "translational_motion",
+        "impulsiveness"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.977264967813646,
+          "validation_macro_f1": 0.9750676839184332,
+          "inverse_normalized_ordinal_mae": 0.9871794871794872,
+          "mean_dependency_nmi": 0.27596006663423994,
+          "priority": 0.9435234414592801,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9751021924934968,
+            "macro_f1": 0.9750676839184332,
+            "balanced_accuracy": 0.977264967813646,
+            "ordinal_mae": 0.01282051282051282
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9760350003207088,
+          "validation_macro_f1": 0.9768257010592505,
+          "inverse_normalized_ordinal_mae": 0.9834633965068748,
+          "mean_dependency_nmi": 0.23546960123813046,
+          "priority": 0.9407296198253756,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9778892604979561,
+            "macro_f1": 0.9768257010592505,
+            "balanced_accuracy": 0.9760350003207088,
+            "ordinal_mae": 0.016536603493125232
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9728740915243937,
+          "validation_macro_f1": 0.9748634562062074,
+          "inverse_normalized_ordinal_mae": 0.9854143441099963,
+          "mean_dependency_nmi": 0.24170383031007014,
+          "priority": 0.9394204383853421,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9739873652917131,
+            "macro_f1": 0.9748634562062074,
+            "balanced_accuracy": 0.9728740915243937,
+            "ordinal_mae": 0.014585655890003716
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9852540773320758,
+          "validation_macro_f1": 0.9842687945041328,
+          "inverse_normalized_ordinal_mae": 0.9898736529171311,
+          "mean_dependency_nmi": 0.3117076414855377,
+          "priority": 0.952205085808377,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9860646599777034,
+            "macro_f1": 0.9842687945041328,
+            "balanced_accuracy": 0.9852540773320758,
+            "ordinal_mae": 0.010126347082868822
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9834690364040296,
+          "validation_macro_f1": 0.9822684838619524,
+          "inverse_normalized_ordinal_mae": 0.9913600891861761,
+          "mean_dependency_nmi": 0.13625383735484403,
+          "priority": 0.9423263212453765,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9827201783723523,
+            "macro_f1": 0.9822684838619524,
+            "balanced_accuracy": 0.9834690364040296,
+            "ordinal_mae": 0.008639910813823858
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9740358823099994,
+          "validation_macro_f1": 0.967294534555364,
+          "inverse_normalized_ordinal_mae": 0.9868078781122259,
+          "mean_dependency_nmi": 0.23810795198314844,
+          "priority": 0.9377714806277115,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9751021924934968,
+            "macro_f1": 0.967294534555364,
+            "balanced_accuracy": 0.9740358823099994,
+            "ordinal_mae": 0.013192121887774062
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9772997414418492,
+          "validation_macro_f1": 0.9735116653165445,
+          "inverse_normalized_ordinal_mae": 0.9881085098476403,
+          "mean_dependency_nmi": 0.17075106123238434,
+          "priority": 0.9379976382749428,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9762170196952805,
+            "macro_f1": 0.9735116653165445,
+            "balanced_accuracy": 0.9772997414418492,
+            "ordinal_mae": 0.011891490152359718
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9816787794534666,
+          "validation_macro_f1": 0.9745602079306804,
+          "inverse_normalized_ordinal_mae": 0.9923820141211446,
+          "mean_dependency_nmi": 0.2767863320051136,
+          "priority": 0.9464392325577488,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9875510962467484,
+            "macro_f1": 0.9745602079306804,
+            "balanced_accuracy": 0.9816787794534666,
+            "ordinal_mae": 0.007617985878855444
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9591807427321918,
+          "validation_macro_f1": 0.9515522298074207,
+          "inverse_normalized_ordinal_mae": 0.9741731698253437,
+          "mean_dependency_nmi": 0.1921666906558852,
+          "priority": 0.9215399716695756,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9548494983277592,
+            "macro_f1": 0.9515522298074207,
+            "balanced_accuracy": 0.9591807427321918,
+            "ordinal_mae": 0.02582683017465626
+          }
+        }
+      }
+    },
+    "16560": {
+      "split_index": 16560,
+      "seen_activities": [
+        "walking",
+        "jogging",
+        "stairs",
+        "sitting",
+        "typing",
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "writing"
+      ],
+      "unseen_activities": [
+        "standing",
+        "eating soup",
+        "drinking from cup",
+        "dribbling (basketball)",
+        "clapping",
+        "folding clothes"
+      ],
+      "training_sample_count": 12479,
+      "validation_sample_count": 5349,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "impulsiveness",
+        "translational_motion",
+        "posture_inclination",
+        "posture_variability",
+        "smoothness",
+        "motion_intensity",
+        "cadence",
+        "motion_regularity",
+        "rotational_motion"
+      ],
+      "reverse": [
+        "rotational_motion",
+        "motion_regularity",
+        "cadence",
+        "motion_intensity",
+        "smoothness",
+        "posture_variability",
+        "posture_inclination",
+        "translational_motion",
+        "impulsiveness"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9510932352201977,
+          "validation_macro_f1": 0.9508929584496335,
+          "inverse_normalized_ordinal_mae": 0.9748551131052533,
+          "mean_dependency_nmi": 0.3135237584471662,
+          "priority": 0.9239070539273879,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9508319312020939,
+            "macro_f1": 0.9508929584496335,
+            "balanced_accuracy": 0.9510932352201977,
+            "ordinal_mae": 0.02514488689474668
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9586654517212908,
+          "validation_macro_f1": 0.9585898532390716,
+          "inverse_normalized_ordinal_mae": 0.9742007851934941,
+          "mean_dependency_nmi": 0.144666069321453,
+          "priority": 0.9210498697510738,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9596186203028604,
+            "macro_f1": 0.9585898532390716,
+            "balanced_accuracy": 0.9586654517212908,
+            "ordinal_mae": 0.025799214806505887
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9665110746436901,
+          "validation_macro_f1": 0.9657053896803953,
+          "inverse_normalized_ordinal_mae": 0.9845765563656759,
+          "mean_dependency_nmi": 0.13383204965913204,
+          "priority": 0.928248514249871,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9691531127313516,
+            "macro_f1": 0.9657053896803953,
+            "balanced_accuracy": 0.9665110746436901,
+            "ordinal_mae": 0.015423443634324173
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9875106092396454,
+          "validation_macro_f1": 0.9865992825963654,
+          "inverse_normalized_ordinal_mae": 0.9938306225462703,
+          "mean_dependency_nmi": 0.36608562944843703,
+          "priority": 0.9574299649184258,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9904655075715086,
+            "macro_f1": 0.9865992825963654,
+            "balanced_accuracy": 0.9875106092396454,
+            "ordinal_mae": 0.0061693774537296695
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9851782843666584,
+          "validation_macro_f1": 0.9839153573405648,
+          "inverse_normalized_ordinal_mae": 0.9921480650588895,
+          "mean_dependency_nmi": 0.1879496488839823,
+          "priority": 0.9463319306231428,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9842961301177791,
+            "macro_f1": 0.9839153573405648,
+            "balanced_accuracy": 0.9851782843666584,
+            "ordinal_mae": 0.007851934941110488
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9769830349993877,
+          "validation_macro_f1": 0.9699603979019026,
+          "inverse_normalized_ordinal_mae": 0.9893438025799215,
+          "mean_dependency_nmi": 0.33306264480329195,
+          "priority": 0.9451523778764441,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.981491867638811,
+            "macro_f1": 0.9699603979019026,
+            "balanced_accuracy": 0.9769830349993877,
+            "ordinal_mae": 0.01065619742007852
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9277128979262513,
+          "validation_macro_f1": 0.9143556205871116,
+          "inverse_normalized_ordinal_mae": 0.9674705552439709,
+          "mean_dependency_nmi": 0.169627338813766,
+          "priority": 0.8937529682324291,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9412974387736025,
+            "macro_f1": 0.9143556205871116,
+            "balanced_accuracy": 0.9277128979262513,
+            "ordinal_mae": 0.03252944475602917
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9859038151008953,
+          "validation_macro_f1": 0.9749763499992853,
+          "inverse_normalized_ordinal_mae": 0.992521966722752,
+          "mean_dependency_nmi": 0.3170449054910421,
+          "priority": 0.950506260414291,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9876612450925406,
+            "macro_f1": 0.9749763499992853,
+            "balanced_accuracy": 0.9859038151008953,
+            "ordinal_mae": 0.007478033277248084
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9290935879582509,
+          "validation_macro_f1": 0.9218992898211632,
+          "inverse_normalized_ordinal_mae": 0.9604598990465507,
+          "mean_dependency_nmi": 0.17531274379369788,
+          "priority": 0.895519518526557,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9312020938493176,
+            "macro_f1": 0.9218992898211632,
+            "balanced_accuracy": 0.9290935879582509,
+            "ordinal_mae": 0.039540100953449245
+          }
+        }
+      }
+    },
+    "17857": {
+      "split_index": 17857,
+      "seen_activities": [
+        "walking",
+        "jogging",
+        "stairs",
+        "sitting",
+        "standing",
+        "typing",
+        "eating soup",
+        "eating sandwich",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball"
+      ],
+      "training_sample_count": 12568,
+      "validation_sample_count": 5387,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "translational_motion",
+        "impulsiveness",
+        "cadence",
+        "posture_variability",
+        "posture_inclination",
+        "motion_intensity",
+        "motion_regularity",
+        "rotational_motion",
+        "smoothness"
+      ],
+      "reverse": [
+        "smoothness",
+        "rotational_motion",
+        "motion_regularity",
+        "motion_intensity",
+        "posture_inclination",
+        "posture_variability",
+        "cadence",
+        "impulsiveness",
+        "translational_motion"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9628272568817476,
+          "validation_macro_f1": 0.9605688285844214,
+          "inverse_normalized_ordinal_mae": 0.9790235752738073,
+          "mean_dependency_nmi": 0.27367364511566394,
+          "priority": 0.9309313114826575,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9591609430109523,
+            "macro_f1": 0.9605688285844214,
+            "balanced_accuracy": 0.9628272568817476,
+            "ordinal_mae": 0.020976424726192686
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9796404432022513,
+          "validation_macro_f1": 0.9795109235983738,
+          "inverse_normalized_ordinal_mae": 0.98487098570633,
+          "mean_dependency_nmi": 0.2820135980014127,
+          "priority": 0.9457663535618619,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9810655281232596,
+            "macro_f1": 0.9795109235983738,
+            "balanced_accuracy": 0.9796404432022513,
+            "ordinal_mae": 0.015129014293669946
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9621508556874371,
+          "validation_macro_f1": 0.9617436059363723,
+          "inverse_normalized_ordinal_mae": 0.9767959903471319,
+          "mean_dependency_nmi": 0.21395356729542414,
+          "priority": 0.9275478432744559,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9597178392426211,
+            "macro_f1": 0.9617436059363723,
+            "balanced_accuracy": 0.9621508556874371,
+            "ordinal_mae": 0.023204009652868014
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9883851000544794,
+          "validation_macro_f1": 0.9874184121955327,
+          "inverse_normalized_ordinal_mae": 0.9922962687952478,
+          "mean_dependency_nmi": 0.34057143059201267,
+          "priority": 0.9564866439718258,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9897902357527381,
+            "macro_f1": 0.9874184121955327,
+            "balanced_accuracy": 0.9883851000544794,
+            "ordinal_mae": 0.0077037312047521815
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9823586435823762,
+          "validation_macro_f1": 0.9822922727298216,
+          "inverse_normalized_ordinal_mae": 0.9921106367180249,
+          "mean_dependency_nmi": 0.11499089670092683,
+          "priority": 0.940920743609667,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9842212734360497,
+            "macro_f1": 0.9822922727298216,
+            "balanced_accuracy": 0.9823586435823762,
+            "ordinal_mae": 0.007889363281975125
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9857882937902835,
+          "validation_macro_f1": 0.983542229948893,
+          "inverse_normalized_ordinal_mae": 0.9926675329496937,
+          "mean_dependency_nmi": 0.1692984688705479,
+          "priority": 0.9456658312237616,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9853350658993875,
+            "macro_f1": 0.983542229948893,
+            "balanced_accuracy": 0.9857882937902835,
+            "ordinal_mae": 0.007332467050306293
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.967834336175254,
+          "validation_macro_f1": 0.9475206022175908,
+          "inverse_normalized_ordinal_mae": 0.9806014479302023,
+          "mean_dependency_nmi": 0.24182465133457445,
+          "priority": 0.9279931540969107,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9641730090959718,
+            "macro_f1": 0.9475206022175908,
+            "balanced_accuracy": 0.967834336175254,
+            "ordinal_mae": 0.01939855206979766
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9972654528758105,
+          "validation_macro_f1": 0.9965145061762628,
+          "inverse_normalized_ordinal_mae": 0.9974011509188788,
+          "mean_dependency_nmi": 0.20458923329676154,
+          "priority": 0.9574334974956074,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9974011509188788,
+            "macro_f1": 0.9965145061762628,
+            "balanced_accuracy": 0.9972654528758105,
+            "ordinal_mae": 0.0025988490811212177
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9671795860812488,
+          "validation_macro_f1": 0.9573890423289598,
+          "inverse_normalized_ordinal_mae": 0.9763319101540746,
+          "mean_dependency_nmi": 0.22153545932600588,
+          "priority": 0.9287906814323651,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9589753109337293,
+            "macro_f1": 0.9573890423289598,
+            "balanced_accuracy": 0.9671795860812488,
+            "ordinal_mae": 0.023668089845925375
+          }
+        }
+      }
+    },
+    "17871": {
+      "split_index": 17871,
+      "seen_activities": [
+        "walking",
+        "jogging",
+        "stairs",
+        "sitting",
+        "standing",
+        "typing",
+        "eating soup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing"
+      ],
+      "unseen_activities": [
+        "brushing teeth",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "clapping",
+        "folding clothes"
+      ],
+      "training_sample_count": 12510,
+      "validation_sample_count": 5362,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "impulsiveness",
+        "translational_motion",
+        "posture_variability",
+        "cadence",
+        "posture_inclination",
+        "motion_intensity",
+        "rotational_motion",
+        "smoothness",
+        "motion_regularity"
+      ],
+      "reverse": [
+        "motion_regularity",
+        "smoothness",
+        "rotational_motion",
+        "motion_intensity",
+        "posture_inclination",
+        "cadence",
+        "posture_variability",
+        "translational_motion",
+        "impulsiveness"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9610147341154388,
+          "validation_macro_f1": 0.9615342013956089,
+          "inverse_normalized_ordinal_mae": 0.9809772472957852,
+          "mean_dependency_nmi": 0.32522771433975883,
+          "priority": 0.9333737259467751,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9651249533756061,
+            "macro_f1": 0.9615342013956089,
+            "balanced_accuracy": 0.9610147341154388,
+            "ordinal_mae": 0.019022752704214847
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9710090516820685,
+          "validation_macro_f1": 0.9694499988264846,
+          "inverse_normalized_ordinal_mae": 0.9807907497202536,
+          "mean_dependency_nmi": 0.24438505827742119,
+          "priority": 0.936166475762798,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9738903394255874,
+            "macro_f1": 0.9694499988264846,
+            "balanced_accuracy": 0.9710090516820685,
+            "ordinal_mae": 0.019209250279746362
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9539753239823824,
+          "validation_macro_f1": 0.9549856132595652,
+          "inverse_normalized_ordinal_mae": 0.9750093248787766,
+          "mean_dependency_nmi": 0.26151419480163585,
+          "priority": 0.9238621544857787,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9509511376352108,
+            "macro_f1": 0.9549856132595652,
+            "balanced_accuracy": 0.9539753239823824,
+            "ordinal_mae": 0.024990675121223424
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9805831996711066,
+          "validation_macro_f1": 0.9798118206435239,
+          "inverse_normalized_ordinal_mae": 0.9902088772845953,
+          "mean_dependency_nmi": 0.40479131697381765,
+          "priority": 0.9534873273506651,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.984520701230884,
+            "macro_f1": 0.9798118206435239,
+            "balanced_accuracy": 0.9805831996711066,
+            "ordinal_mae": 0.0097911227154047
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9757650942323088,
+          "validation_macro_f1": 0.9740075096893699,
+          "inverse_normalized_ordinal_mae": 0.9873181648638568,
+          "mean_dependency_nmi": 0.13673174806838845,
+          "priority": 0.9355967656875408,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9746363297277135,
+            "macro_f1": 0.9740075096893699,
+            "balanced_accuracy": 0.9757650942323088,
+            "ordinal_mae": 0.01268183513614323
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9660061812782144,
+          "validation_macro_f1": 0.9588667981512801,
+          "inverse_normalized_ordinal_mae": 0.9848004475941813,
+          "mean_dependency_nmi": 0.39237545639055116,
+          "priority": 0.9389416833589442,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9731443491234614,
+            "macro_f1": 0.9588667981512801,
+            "balanced_accuracy": 0.9660061812782144,
+            "ordinal_mae": 0.015199552405818724
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9600372264724665,
+          "validation_macro_f1": 0.9397298698598183,
+          "inverse_normalized_ordinal_mae": 0.9746363297277135,
+          "mean_dependency_nmi": 0.3273119020995772,
+          "priority": 0.925228573921077,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9515106303618053,
+            "macro_f1": 0.9397298698598183,
+            "balanced_accuracy": 0.9600372264724665,
+            "ordinal_mae": 0.02536367027228646
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9775692475692476,
+          "validation_macro_f1": 0.967778257881945,
+          "inverse_normalized_ordinal_mae": 0.9893696381947035,
+          "mean_dependency_nmi": 0.3331307449772267,
+          "priority": 0.9447701036585469,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9834017157776949,
+            "macro_f1": 0.967778257881945,
+            "balanced_accuracy": 0.9775692475692476,
+            "ordinal_mae": 0.01063036180529653
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9463744412273272,
+          "validation_macro_f1": 0.9304890724012115,
+          "inverse_normalized_ordinal_mae": 0.9674561730697501,
+          "mean_dependency_nmi": 0.23408332761661133,
+          "priority": 0.9102106212674413,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9401342782543827,
+            "macro_f1": 0.9304890724012115,
+            "balanced_accuracy": 0.9463744412273272,
+            "ordinal_mae": 0.03254382693024991
+          }
+        }
+      }
+    },
+    "18391": {
+      "split_index": 18391,
+      "seen_activities": [
+        "walking",
+        "jogging",
+        "stairs",
+        "sitting",
+        "standing",
+        "typing",
+        "brushing teeth",
+        "eating soup",
+        "drinking from cup",
+        "dribbling (basketball)",
+        "clapping",
+        "folding clothes"
+      ],
+      "unseen_activities": [
+        "eating chips",
+        "eating pasta",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "writing"
+      ],
+      "training_sample_count": 12626,
+      "validation_sample_count": 5412,
+      "attribute_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "attribute_vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ],
+      "forward": [
+        "impulsiveness",
+        "translational_motion",
+        "posture_variability",
+        "cadence",
+        "smoothness",
+        "posture_inclination",
+        "motion_intensity",
+        "motion_regularity",
+        "rotational_motion"
+      ],
+      "reverse": [
+        "rotational_motion",
+        "motion_regularity",
+        "motion_intensity",
+        "posture_inclination",
+        "smoothness",
+        "cadence",
+        "posture_variability",
+        "translational_motion",
+        "impulsiveness"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.966117417853484,
+          "validation_macro_f1": 0.9633921293763904,
+          "inverse_normalized_ordinal_mae": 0.9815225424981523,
+          "mean_dependency_nmi": 0.2837852961643771,
+          "priority": 0.9342642501548342,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.96359940872136,
+            "macro_f1": 0.9633921293763904,
+            "balanced_accuracy": 0.966117417853484,
+            "ordinal_mae": 0.018477457501847747
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9782645286590949,
+          "validation_macro_f1": 0.9782133727053007,
+          "inverse_normalized_ordinal_mae": 0.9822616407982262,
+          "mean_dependency_nmi": 0.24300233928583986,
+          "priority": 0.9422854948321201,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9780118255728012,
+            "macro_f1": 0.9782133727053007,
+            "balanced_accuracy": 0.9782645286590949,
+            "ordinal_mae": 0.017738359201773836
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9738490160310231,
+          "validation_macro_f1": 0.9715059334252182,
+          "inverse_normalized_ordinal_mae": 0.9842017738359202,
+          "mean_dependency_nmi": 0.26890872120559906,
+          "priority": 0.9399696280689899,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9739467849223947,
+            "macro_f1": 0.9715059334252182,
+            "balanced_accuracy": 0.9738490160310231,
+            "ordinal_mae": 0.01579822616407982
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9903801055097666,
+          "validation_macro_f1": 0.9895964875302713,
+          "inverse_normalized_ordinal_mae": 0.9929785661492978,
+          "mean_dependency_nmi": 0.33139174401556976,
+          "priority": 0.9577152941691145,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.991130820399113,
+            "macro_f1": 0.9895964875302713,
+            "balanced_accuracy": 0.9903801055097666,
+            "ordinal_mae": 0.007021433850702144
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9829101343156192,
+          "validation_macro_f1": 0.9832731396383209,
+          "inverse_normalized_ordinal_mae": 0.991869918699187,
+          "mean_dependency_nmi": 0.07830019664696847,
+          "priority": 0.9395804959057107,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.983739837398374,
+            "macro_f1": 0.9832731396383209,
+            "balanced_accuracy": 0.9829101343156192,
+            "ordinal_mae": 0.008130081300813009
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9863975435945301,
+          "validation_macro_f1": 0.9842017738359201,
+          "inverse_normalized_ordinal_mae": 0.9929785661492978,
+          "mean_dependency_nmi": 0.15601506727057324,
+          "priority": 0.9455358933617029,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9859571322985957,
+            "macro_f1": 0.9842017738359201,
+            "balanced_accuracy": 0.9863975435945301,
+            "ordinal_mae": 0.007021433850702144
+          }
+        },
+        "rotational_motion": {
+          "validation_balanced_accuracy": 0.9525837389162586,
+          "validation_macro_f1": 0.9453435176371924,
+          "inverse_normalized_ordinal_mae": 0.9714523281596452,
+          "mean_dependency_nmi": 0.26128225377913655,
+          "priority": 0.9196203161243599,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9562084257206208,
+            "macro_f1": 0.9453435176371924,
+            "balanced_accuracy": 0.9525837389162586,
+            "ordinal_mae": 0.02854767184035477
+          }
+        },
+        "translational_motion": {
+          "validation_balanced_accuracy": 0.9971659159159159,
+          "validation_macro_f1": 0.9952875409793243,
+          "inverse_normalized_ordinal_mae": 0.9964892830746489,
+          "mean_dependency_nmi": 0.2086823204805479,
+          "priority": 0.9570428970949167,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9964892830746489,
+            "macro_f1": 0.9952875409793243,
+            "balanced_accuracy": 0.9971659159159159,
+            "ordinal_mae": 0.003510716925351072
+          }
+        },
+        "motion_regularity": {
+          "validation_balanced_accuracy": 0.9657616200216513,
+          "validation_macro_f1": 0.9477813653893993,
+          "inverse_normalized_ordinal_mae": 0.9746858832224686,
+          "mean_dependency_nmi": 0.1680013599499557,
+          "priority": 0.9222643832685544,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9575018477457502,
+            "macro_f1": 0.9477813653893993,
+            "balanced_accuracy": 0.9657616200216513,
+            "ordinal_mae": 0.025314116777531412
+          }
+        }
+      }
+    }
+  }
+}

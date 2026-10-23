@@ -1,0 +1,354 @@
+{
+  "schema_version": "2.0",
+  "dataset": "pamap2",
+  "split_index": 2,
+  "refinement_needed": true,
+  "decision_reason": "The three static unseen activities differ only in posture_inclination in A1, consistent with their low U_NN and relatively weak seen coverage. Add lower-leg inclination as a segment-specific, physically observable distinction for lying versus upright-shank sitting or standing. Preserve the existing motion concepts that connect running to Nordic walking and rope jumping. Do not manufacture an additional sitting–standing distinction: chest and ankle orientation can be similar in both, and no thigh sensor is available. The refinement provides a plausible additional posture contrast, not a guaranteed improvement in coverage or recognition.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "lower_leg_inclination",
+      "definition": "Average acute angle between the lower leg's longitudinal axis and the gravity-defined vertical within a window, assessed from the ankle-mounted sensor rather than the global body configuration.",
+      "levels": {
+        "Low": "Lower leg remains predominantly near vertical.",
+        "Medium": "Lower leg has an intermediate average inclination from vertical.",
+        "High": "Lower leg remains predominantly near horizontal."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity preserves the static-to-vigorous distinction and running's relationship to vigorous seen activities. G3 supports overall acceleration and angular-motion magnitude across the available sensors. Effort, speed and hand-dominated work can overlap in magnitude, so intensity alone does not identify activity.",
+      "target_unseen": [
+        "lying",
+        "sitting",
+        "standing",
+        "running"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "Nordic walking",
+        "rope jumping",
+        "ironing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence retains a transferable rate contrast between running and Nordic walking without introducing an uncertain gait-specific attribute. G6 supports repeated ankle or hand motion. Harmonics, different repeating units and nonperiodic static windows make rate interpretation ambiguous.",
+      "target_unseen": [
+        "running"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "Nordic walking",
+        "rope jumping",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness preserves sustained-fluctuation contrasts, including running versus rope jumping. G9 supports persistent rapid changes in acceleration, with G7 providing complementary frequency-distribution evidence. Speed, vibration and movement transitions can reduce apparent smoothness independently of activity.",
+      "target_unseen": [
+        "running"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "rope jumping",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness preserves an impact-related contrast between running and Nordic walking and a shared property with rope jumping. G10 supports brief abrupt acceleration changes, especially at the ankle. Surface, footwear and isolated incidental movements can change peak strength.",
+      "target_unseen": [
+        "running"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "Nordic walking",
+        "rope jumping",
+        "descending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination remains the primary A1 distinction among the static unseen classes. G1 supports gravity-relative orientation, with chest and ankle evidence informing global configuration. Global load-bearing posture is only partially observable: sitting can have an upright chest and shank, so its intermediate A1 semantics are not guaranteed to be readily predictable.",
+      "target_unseen": [
+        "lying",
+        "sitting",
+        "standing"
+      ],
+      "contrast_unseen": [
+        "lying",
+        "sitting",
+        "standing"
+      ],
+      "seen_anchors": [
+        "cycling",
+        "vacuum cleaning",
+        "ironing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability distinguishes stable global configurations from changing configurations without equating limb cycling with whole-body posture change. G12 supports gravity-relative orientation variation, particularly at the chest. Dynamic acceleration and local limb movement can obscure global variation; this attribute does not independently separate the static unseen classes.",
+      "target_unseen": [
+        "lying",
+        "sitting",
+        "standing"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "ironing",
+        "vacuum cleaning",
+        "ascending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "rotational_motion retains angular-motion information distinct from impact strength and repetition rate, connecting running to Nordic walking and cycling. G2 supports sustained gyroscope motion at the hand, chest or ankle. Different segment contributions can produce similar overall levels, so no finer regional split is imposed.",
+      "target_unseen": [
+        "running"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "Nordic walking",
+        "cycling",
+        "walking"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion preserves running's locomotor contrast with rope jumping and connection to Nordic walking. G13 supports short-window translational-motion proxies. These cannot establish absolute displacement reliably; local oscillation, constant-speed travel and drift make sustained progression an indirect inference.",
+      "target_unseen": [
+        "running"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "Nordic walking",
+        "rope jumping",
+        "walking"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity retains temporal predictability independently of cadence, linking running to structured locomotion and separating it from less consistent seen motion. G11 supports recurrence and predictability. Near-static signals can also be highly predictable, and transitions or voluntary pace changes can reduce regularity.",
+      "target_unseen": [
+        "running",
+        "lying",
+        "sitting",
+        "standing"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "Nordic walking",
+        "vacuum cleaning"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "lower_leg_inclination"
+      ],
+      "reason": "lower_leg_inclination adds a segment-specific posture contrast for lying versus sitting or standing when the lying shank is horizontal and the seated or standing shank is upright. G1 supports ankle gravity-relative orientation, provided sensor-to-segment alignment is interpretable. Upright-leg configurations in ironing and walking provide low-inclination anchors; cycling offers inclined-leg examples, although its varying posture is not equivalent to static lying. Bent-knee lying, extended-leg sitting, mounting variation and dynamic acceleration create ambiguity. This attribute cannot reliably separate sitting from standing, and high-inclination seen support may remain limited.",
+      "target_unseen": [
+        "lying"
+      ],
+      "contrast_unseen": [
+        "sitting",
+        "standing"
+      ],
+      "seen_anchors": [
+        "ironing",
+        "walking",
+        "cycling"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The ten attributes describe magnitude, rate, sustained fluctuation, isolated impacts, global inclination, global posture change, angular motion, linear progression, temporal predictability and segment-specific inclination. Smoothness and impulsiveness remain distinct because sustained fluctuations need not contain strong isolated peaks; cadence and regularity describe rate versus consistency. Lower-leg inclination can correlate with global inclination during lying and standing but is not equivalent: seated or cycling configurations can combine different global and shank inclinations. All activity pairs were considered; no further additions were justified strongly enough to outweigh uncertain predictability or redundancy. In particular, sitting–standing separation remains limited rather than being artificially encoded.",
+  "_meta": {
+    "dataset": "pamap2",
+    "split_index": 2,
+    "seen": [
+      "walking",
+      "cycling",
+      "Nordic walking",
+      "ascending stairs",
+      "descending stairs",
+      "vacuum cleaning",
+      "ironing",
+      "rope jumping"
+    ],
+    "unseen": [
+      "lying",
+      "sitting",
+      "standing",
+      "running"
+    ],
+    "refinement_strategy": "full_a1_semantic_refinement_v3",
+    "planning_stages": 1,
+    "min_attributes": 9,
+    "max_attributes": 15,
+    "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5.json",
+    "a1_sha256": "d9c7469bf376db9661ad8a93f4a233b3d31bd9c19751d6da4ea9af1934fae887",
+    "a1_ontology_json": "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json",
+    "a1_ontology_sha256": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "split_csv_sha256": "2482ab2d696d13eff2a500bb41fabbc108824105a31d11ce341c99ed298ecb9a",
+    "gap_diagnostics_source": "reused_from_gap_csv",
+    "refinement_evidence": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/pamap2/split_2/a2_attribute_plan.refinement_evidence.json",
+    "refinement_evidence_sha256": "684db87aa53b57f674bbb1559d45a79ba435a2b6bd2b1ffe623a0e8ead99f06f",
+    "prompt_json": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/pamap2/split_2/a2_attribute_plan.prompt.json",
+    "prompt_json_sha256": "5b8a30184881ee9768bdf401061d0fb8cd88dfea0f1cc918f5832aae9bd1976e",
+    "prompt_text": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/pamap2/split_2/a2_attribute_plan.prompt.txt",
+    "prompt_text_sha256": "5aa9cb6e4a196f3cc6cde4091ffa6e3515ac64740d1f744280886139049e17a4",
+    "gap_a1_hash_verified": true,
+    "feature_source": "/home/wanzhen/windows/pamap_windows/all_features_name_20_120.npy",
+    "feature_names_sha256": "6ab7b9f1794d3ca765f891b649acfab4ec9657bbe842837f71393d1c6ca287cb",
+    "groups_sha256": "baf73e9cd119edfed55f10f9dc5b2404df597874ab5cf7f709646ecbb513213c",
+    "model": "gpt-6.1-sol",
+    "api_format": "openai",
+    "base_url": "https://xxapi.info/v1",
+    "stream": false,
+    "response_source": "live",
+    "validation_decision": "validated_semantic_a2",
+    "validation": "Semantic schema and complete A1-to-A2 lineage validated; no feature binding performed.",
+    "activity_role_repairs": []
+  }
+}

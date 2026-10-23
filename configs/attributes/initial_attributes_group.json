@@ -1,0 +1,134 @@
+{
+  "version": "A1",
+  "levels": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "scope": "Compact, cross-dataset, sensor-grounded base motion semantics for class-level activity description.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "primary_groups": [
+        "G3"
+      ],
+      "auxiliary_groups": [
+        "G4"
+      ],
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time.",
+      "primary_groups": [
+        "G6"
+      ],
+      "auxiliary_groups": [],
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "primary_groups": [
+        "G9"
+      ],
+      "auxiliary_groups": [],
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "primary_groups": [
+        "G10"
+      ],
+      "auxiliary_groups": [],
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the instrumented body segment within a window.",
+      "primary_groups": [
+        "G1"
+      ],
+      "auxiliary_groups": [],
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which gravity-relative posture changes within a window.",
+      "primary_groups": [
+        "G12"
+      ],
+      "auxiliary_groups": [],
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "primary_groups": [
+        "G2"
+      ],
+      "auxiliary_groups": [],
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear or locomotor motion during the activity.",
+      "primary_groups": [
+        "G13"
+      ],
+      "auxiliary_groups": [],
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      },
+      "note": "G13 provides translational-motion proxies rather than direct measurements of absolute displacement."
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern, independent of its repetition rate.",
+      "primary_groups": [
+        "G11"
+      ],
+      "auxiliary_groups": [
+        "G7",
+        "G8"
+      ],
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    }
+  ]
+}

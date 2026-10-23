@@ -1,0 +1,712 @@
+{
+  "dataset": "mhealth",
+  "unseen_count": 4,
+  "seed": 42,
+  "num_splits": 20,
+  "evaluation_protocol": "gzsl",
+  "training_label_space": "seen_only",
+  "candidate_label_space": "seen_union_unseen",
+  "source_split_manifest": "/home/wanzhen/split/zero_shot_split/mhealth_unseen4_random20_splits_seed42.json",
+  "splits": [
+    {
+      "split_index": 13,
+      "seen_ids": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        1,
+        3,
+        7
+      ],
+      "seen_activities": [
+        "lying_down",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "frontal_elevation_of_arms",
+        "cycling",
+        "jogging",
+        "running",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "sitting_and_relaxing",
+        "walking",
+        "knees_bending"
+      ]
+    },
+    {
+      "split_index": 16,
+      "seen_ids": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        1,
+        3,
+        10
+      ],
+      "seen_activities": [
+        "lying_down",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "frontal_elevation_of_arms",
+        "knees_bending",
+        "cycling",
+        "jogging",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "sitting_and_relaxing",
+        "walking",
+        "running"
+      ]
+    },
+    {
+      "split_index": 17,
+      "seen_ids": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        0,
+        1,
+        3,
+        11
+      ],
+      "seen_activities": [
+        "lying_down",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "frontal_elevation_of_arms",
+        "knees_bending",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "sitting_and_relaxing",
+        "walking",
+        "jump_front_and_back"
+      ]
+    },
+    {
+      "split_index": 45,
+      "seen_ids": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unseen_ids": [
+        0,
+        1,
+        10,
+        11
+      ],
+      "seen_activities": [
+        "lying_down",
+        "walking",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "frontal_elevation_of_arms",
+        "knees_bending",
+        "cycling",
+        "jogging"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "sitting_and_relaxing",
+        "running",
+        "jump_front_and_back"
+      ]
+    },
+    {
+      "split_index": 48,
+      "seen_ids": [
+        1,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        3,
+        6
+      ],
+      "seen_activities": [
+        "sitting_and_relaxing",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "knees_bending",
+        "cycling",
+        "jogging",
+        "running",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "lying_down",
+        "walking",
+        "frontal_elevation_of_arms"
+      ]
+    },
+    {
+      "split_index": 53,
+      "seen_ids": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        3,
+        11
+      ],
+      "seen_activities": [
+        "sitting_and_relaxing",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "frontal_elevation_of_arms",
+        "knees_bending",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "lying_down",
+        "walking",
+        "jump_front_and_back"
+      ]
+    },
+    {
+      "split_index": 58,
+      "seen_ids": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        4,
+        9
+      ],
+      "seen_activities": [
+        "sitting_and_relaxing",
+        "walking",
+        "waist_bends_forward",
+        "frontal_elevation_of_arms",
+        "knees_bending",
+        "cycling",
+        "running",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "lying_down",
+        "climbing_stairs",
+        "jogging"
+      ]
+    },
+    {
+      "split_index": 72,
+      "seen_ids": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        2,
+        7,
+        8
+      ],
+      "seen_activities": [
+        "sitting_and_relaxing",
+        "walking",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "frontal_elevation_of_arms",
+        "jogging",
+        "running",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "lying_down",
+        "knees_bending",
+        "cycling"
+      ]
+    },
+    {
+      "split_index": 112,
+      "seen_ids": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        4,
+        5,
+        8
+      ],
+      "seen_activities": [
+        "sitting_and_relaxing",
+        "lying_down",
+        "walking",
+        "frontal_elevation_of_arms",
+        "knees_bending",
+        "jogging",
+        "running",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "cycling"
+      ]
+    },
+    {
+      "split_index": 115,
+      "seen_ids": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        0,
+        4,
+        5,
+        11
+      ],
+      "seen_activities": [
+        "sitting_and_relaxing",
+        "lying_down",
+        "walking",
+        "frontal_elevation_of_arms",
+        "knees_bending",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "jump_front_and_back"
+      ]
+    },
+    {
+      "split_index": 126,
+      "seen_ids": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        4,
+        8,
+        10
+      ],
+      "seen_activities": [
+        "sitting_and_relaxing",
+        "lying_down",
+        "walking",
+        "waist_bends_forward",
+        "frontal_elevation_of_arms",
+        "knees_bending",
+        "jogging",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "climbing_stairs",
+        "cycling",
+        "running"
+      ]
+    },
+    {
+      "split_index": 141,
+      "seen_ids": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11
+      ],
+      "unseen_ids": [
+        0,
+        5,
+        8,
+        10
+      ],
+      "seen_activities": [
+        "sitting_and_relaxing",
+        "lying_down",
+        "walking",
+        "climbing_stairs",
+        "frontal_elevation_of_arms",
+        "knees_bending",
+        "jogging",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "standing_still",
+        "waist_bends_forward",
+        "cycling",
+        "running"
+      ]
+    },
+    {
+      "split_index": 217,
+      "seen_ids": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        1,
+        3,
+        6,
+        9
+      ],
+      "seen_activities": [
+        "standing_still",
+        "lying_down",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "knees_bending",
+        "cycling",
+        "running",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "sitting_and_relaxing",
+        "walking",
+        "frontal_elevation_of_arms",
+        "jogging"
+      ]
+    },
+    {
+      "split_index": 280,
+      "seen_ids": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "unseen_ids": [
+        1,
+        7,
+        9,
+        11
+      ],
+      "seen_activities": [
+        "standing_still",
+        "lying_down",
+        "walking",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "frontal_elevation_of_arms",
+        "cycling",
+        "running"
+      ],
+      "unseen_activities": [
+        "sitting_and_relaxing",
+        "knees_bending",
+        "jogging",
+        "jump_front_and_back"
+      ]
+    },
+    {
+      "split_index": 303,
+      "seen_ids": [
+        0,
+        1,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        2,
+        3,
+        6,
+        11
+      ],
+      "seen_activities": [
+        "standing_still",
+        "sitting_and_relaxing",
+        "climbing_stairs",
+        "waist_bends_forward",
+        "knees_bending",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "lying_down",
+        "walking",
+        "frontal_elevation_of_arms",
+        "jump_front_and_back"
+      ]
+    },
+    {
+      "split_index": 328,
+      "seen_ids": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        2,
+        4,
+        7,
+        11
+      ],
+      "seen_activities": [
+        "standing_still",
+        "sitting_and_relaxing",
+        "walking",
+        "waist_bends_forward",
+        "frontal_elevation_of_arms",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "lying_down",
+        "climbing_stairs",
+        "knees_bending",
+        "jump_front_and_back"
+      ]
+    },
+    {
+      "split_index": 347,
+      "seen_ids": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "unseen_ids": [
+        2,
+        5,
+        9,
+        10
+      ],
+      "seen_activities": [
+        "standing_still",
+        "sitting_and_relaxing",
+        "walking",
+        "climbing_stairs",
+        "frontal_elevation_of_arms",
+        "knees_bending",
+        "cycling",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "lying_down",
+        "waist_bends_forward",
+        "jogging",
+        "running"
+      ]
+    },
+    {
+      "split_index": 378,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        8,
+        10,
+        11
+      ],
+      "unseen_ids": [
+        3,
+        4,
+        6,
+        9
+      ],
+      "seen_activities": [
+        "standing_still",
+        "sitting_and_relaxing",
+        "lying_down",
+        "waist_bends_forward",
+        "knees_bending",
+        "cycling",
+        "running",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "walking",
+        "climbing_stairs",
+        "frontal_elevation_of_arms",
+        "jogging"
+      ]
+    },
+    {
+      "split_index": 380,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unseen_ids": [
+        3,
+        4,
+        6,
+        11
+      ],
+      "seen_activities": [
+        "standing_still",
+        "sitting_and_relaxing",
+        "lying_down",
+        "waist_bends_forward",
+        "knees_bending",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "unseen_activities": [
+        "walking",
+        "climbing_stairs",
+        "frontal_elevation_of_arms",
+        "jump_front_and_back"
+      ]
+    },
+    {
+      "split_index": 457,
+      "seen_ids": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        11
+      ],
+      "unseen_ids": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "seen_activities": [
+        "standing_still",
+        "sitting_and_relaxing",
+        "lying_down",
+        "walking",
+        "waist_bends_forward",
+        "frontal_elevation_of_arms",
+        "knees_bending",
+        "jump_front_and_back"
+      ],
+      "unseen_activities": [
+        "climbing_stairs",
+        "cycling",
+        "jogging",
+        "running"
+      ]
+    }
+  ]
+}

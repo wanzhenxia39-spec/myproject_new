@@ -1,0 +1,633 @@
+{
+  "schema_version": 1,
+  "dataset": "pamap2",
+  "attribute_set": "A2_refined_per_split",
+  "seed": 42,
+  "selection_scope": "seen-training AutoGluon internal validation only",
+  "ranking": {
+    "validation_balanced_accuracy": 0.45,
+    "validation_macro_f1": 0.3,
+    "inverse_normalized_ordinal_mae": 0.2,
+    "mean_dependency_nmi": 0.05
+  },
+  "constant_attribute_policy": "place_last",
+  "source_forward_config": "/home/wanzhen/myproject/configs/attributes/pamap2_a2_chain_orders_seed42.json",
+  "forward_definition": "descending priority score computed from seen-training AutoGluon internal validation only",
+  "reverse_definition": "exact list reversal of the corresponding forward order",
+  "splits": {
+    "1": {
+      "forward": [
+        "smoothness",
+        "limb_load_bearing",
+        "vertical_motion",
+        "impulsiveness",
+        "motion_type",
+        "overall_stillness",
+        "motion_intensity",
+        "posture_variability",
+        "body_coordination",
+        "spatial_variability",
+        "cadence",
+        "trunk_posture_stability"
+      ],
+      "reverse": [
+        "trunk_posture_stability",
+        "cadence",
+        "spatial_variability",
+        "body_coordination",
+        "posture_variability",
+        "motion_intensity",
+        "overall_stillness",
+        "motion_type",
+        "impulsiveness",
+        "vertical_motion",
+        "limb_load_bearing",
+        "smoothness"
+      ]
+    },
+    "2": {
+      "forward": [
+        "posture_inclination",
+        "stability_of_base",
+        "upper_body_involvement",
+        "limb_activity_level",
+        "vertical_motion",
+        "smoothness",
+        "spatial_variability",
+        "cadence",
+        "body_coordination",
+        "motion_intensity",
+        "gravitational_alignment_variability",
+        "impulsiveness",
+        "cyclic_translational_motion"
+      ],
+      "reverse": [
+        "cyclic_translational_motion",
+        "impulsiveness",
+        "gravitational_alignment_variability",
+        "motion_intensity",
+        "body_coordination",
+        "cadence",
+        "spatial_variability",
+        "smoothness",
+        "vertical_motion",
+        "limb_activity_level",
+        "upper_body_involvement",
+        "stability_of_base",
+        "posture_inclination"
+      ]
+    },
+    "3": {
+      "forward": [
+        "posture_inclination",
+        "spatial_variability",
+        "impulsiveness",
+        "vertical_motion",
+        "body_coordination",
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "motion_type",
+        "localized_limb_motion",
+        "postural_stability",
+        "seated_locomotion_signature"
+      ],
+      "reverse": [
+        "seated_locomotion_signature",
+        "postural_stability",
+        "localized_limb_motion",
+        "motion_type",
+        "smoothness",
+        "cadence",
+        "motion_intensity",
+        "body_coordination",
+        "vertical_motion",
+        "impulsiveness",
+        "spatial_variability",
+        "posture_inclination"
+      ]
+    },
+    "13": {
+      "forward": [
+        "posture_inclination",
+        "impulsiveness",
+        "vertical_motion",
+        "vertical_motion_direction",
+        "spatial_variability",
+        "smoothness",
+        "posture_variability",
+        "limb_activity_level",
+        "cadence",
+        "locomotion_translational_rotational_balance",
+        "motion_type",
+        "motion_intensity",
+        "body_coordination"
+      ],
+      "reverse": [
+        "body_coordination",
+        "motion_intensity",
+        "motion_type",
+        "locomotion_translational_rotational_balance",
+        "cadence",
+        "limb_activity_level",
+        "posture_variability",
+        "smoothness",
+        "spatial_variability",
+        "vertical_motion_direction",
+        "vertical_motion",
+        "impulsiveness",
+        "posture_inclination"
+      ]
+    },
+    "16": {
+      "forward": [
+        "smoothness",
+        "motion_type",
+        "cadence",
+        "vertical_motion",
+        "localized_limb_dominance",
+        "posture_variability",
+        "spatial_variability",
+        "torso_tilt_angle",
+        "motion_intensity",
+        "impulsiveness"
+      ],
+      "reverse": [
+        "impulsiveness",
+        "motion_intensity",
+        "torso_tilt_angle",
+        "spatial_variability",
+        "posture_variability",
+        "localized_limb_dominance",
+        "vertical_motion",
+        "cadence",
+        "motion_type",
+        "smoothness"
+      ]
+    },
+    "17": {
+      "forward": [
+        "sustained_vertical_oscillation",
+        "cadence",
+        "posture_variability",
+        "body_coordination",
+        "motion_intensity",
+        "spatial_variability",
+        "horizontal_locomotion_dominance",
+        "motion_type",
+        "impulsiveness",
+        "static_posture_stability",
+        "smoothness",
+        "upper_body_involvement",
+        "posture_inclination"
+      ],
+      "reverse": [
+        "posture_inclination",
+        "upper_body_involvement",
+        "smoothness",
+        "static_posture_stability",
+        "impulsiveness",
+        "motion_type",
+        "horizontal_locomotion_dominance",
+        "spatial_variability",
+        "motion_intensity",
+        "body_coordination",
+        "posture_variability",
+        "cadence",
+        "sustained_vertical_oscillation"
+      ]
+    },
+    "45": {
+      "forward": [
+        "vertical_rhythmicity",
+        "smoothness",
+        "impulsiveness",
+        "motion_intensity",
+        "vertical_motion",
+        "motion_type",
+        "localized_repetitive_motion",
+        "cadence",
+        "spatial_variability",
+        "upper_body_dominance",
+        "postural_orientation_stability",
+        "body_coordination"
+      ],
+      "reverse": [
+        "body_coordination",
+        "postural_orientation_stability",
+        "upper_body_dominance",
+        "spatial_variability",
+        "cadence",
+        "localized_repetitive_motion",
+        "motion_type",
+        "vertical_motion",
+        "motion_intensity",
+        "impulsiveness",
+        "smoothness",
+        "vertical_rhythmicity"
+      ]
+    },
+    "48": {
+      "forward": [
+        "locomotion_impact_intensity",
+        "posture_inclination",
+        "motion_type",
+        "lower_body_locomotion_rhythm",
+        "spatial_variability",
+        "body_coordination",
+        "vertical_motion",
+        "posture_variability",
+        "motion_intensity",
+        "postural_stability_upright",
+        "upper_body_rhythmicity",
+        "smoothness"
+      ],
+      "reverse": [
+        "smoothness",
+        "upper_body_rhythmicity",
+        "postural_stability_upright",
+        "motion_intensity",
+        "posture_variability",
+        "vertical_motion",
+        "body_coordination",
+        "spatial_variability",
+        "lower_body_locomotion_rhythm",
+        "motion_type",
+        "posture_inclination",
+        "locomotion_impact_intensity"
+      ]
+    },
+    "53": {
+      "forward": [
+        "sustained_body_orientation",
+        "upper_body_stability_during_motion",
+        "cadence",
+        "vertical_motion",
+        "spatial_variability",
+        "impact_sharpness",
+        "body_coordination",
+        "posture_variability",
+        "motion_intensity",
+        "gait_pattern_complexity",
+        "vertical_oscillation_frequency",
+        "smoothness"
+      ],
+      "reverse": [
+        "smoothness",
+        "vertical_oscillation_frequency",
+        "gait_pattern_complexity",
+        "motion_intensity",
+        "posture_variability",
+        "body_coordination",
+        "impact_sharpness",
+        "spatial_variability",
+        "vertical_motion",
+        "cadence",
+        "upper_body_stability_during_motion",
+        "sustained_body_orientation"
+      ]
+    },
+    "58": {
+      "forward": [
+        "vertical_motion",
+        "spatial_variability",
+        "motion_type",
+        "body_coordination",
+        "upper_limb_dominance",
+        "cadence",
+        "trunk_gravity_alignment",
+        "motion_intensity",
+        "posture_variability",
+        "smoothness",
+        "lower_limb_impact_intensity"
+      ],
+      "reverse": [
+        "lower_limb_impact_intensity",
+        "smoothness",
+        "posture_variability",
+        "motion_intensity",
+        "trunk_gravity_alignment",
+        "cadence",
+        "upper_limb_dominance",
+        "body_coordination",
+        "motion_type",
+        "spatial_variability",
+        "vertical_motion"
+      ]
+    },
+    "72": {
+      "forward": [
+        "impulsiveness",
+        "limb_elevation",
+        "vertical_motion",
+        "cadence",
+        "posture_inclination",
+        "motion_intensity",
+        "posture_variability",
+        "spatial_variability",
+        "body_coordination",
+        "motion_type",
+        "postural_stability",
+        "smoothness",
+        "gravitational_effort_direction"
+      ],
+      "reverse": [
+        "gravitational_effort_direction",
+        "smoothness",
+        "postural_stability",
+        "motion_type",
+        "body_coordination",
+        "spatial_variability",
+        "posture_variability",
+        "motion_intensity",
+        "posture_inclination",
+        "cadence",
+        "vertical_motion",
+        "limb_elevation",
+        "impulsiveness"
+      ]
+    },
+    "112": {
+      "forward": [
+        "flight_phase_presence",
+        "impulsiveness",
+        "vertical_displacement_magnitude",
+        "motion_intensity",
+        "body_coordination",
+        "posture_variability",
+        "motion_type",
+        "cadence",
+        "smoothness",
+        "vertical_directionality",
+        "spatial_variability",
+        "posture_inclination",
+        "seated_locomotion_propulsion"
+      ],
+      "reverse": [
+        "seated_locomotion_propulsion",
+        "posture_inclination",
+        "spatial_variability",
+        "vertical_directionality",
+        "smoothness",
+        "cadence",
+        "motion_type",
+        "posture_variability",
+        "body_coordination",
+        "motion_intensity",
+        "vertical_displacement_magnitude",
+        "impulsiveness",
+        "flight_phase_presence"
+      ]
+    },
+    "115": {
+      "forward": [
+        "body_coordination",
+        "motion_type",
+        "smoothness",
+        "torso_stability_during_locomotion",
+        "posture_variability",
+        "vertical_motion",
+        "spatial_variability",
+        "rhythmic_impact_strength",
+        "posture_inclination",
+        "cadence",
+        "motion_intensity",
+        "flight_phase_prominence"
+      ],
+      "reverse": [
+        "flight_phase_prominence",
+        "motion_intensity",
+        "cadence",
+        "posture_inclination",
+        "rhythmic_impact_strength",
+        "spatial_variability",
+        "vertical_motion",
+        "posture_variability",
+        "torso_stability_during_locomotion",
+        "smoothness",
+        "motion_type",
+        "body_coordination"
+      ]
+    },
+    "126": {
+      "forward": [
+        "body_coordination",
+        "arm_dominant_repetition",
+        "cadence",
+        "motion_type",
+        "posture_inclination",
+        "spatial_variability",
+        "motion_intensity",
+        "impulsiveness",
+        "smoothness",
+        "vertical_load_direction",
+        "posture_variability",
+        "flight_phase_presence"
+      ],
+      "reverse": [
+        "flight_phase_presence",
+        "posture_variability",
+        "vertical_load_direction",
+        "smoothness",
+        "impulsiveness",
+        "motion_intensity",
+        "spatial_variability",
+        "posture_inclination",
+        "motion_type",
+        "cadence",
+        "arm_dominant_repetition",
+        "body_coordination"
+      ]
+    },
+    "141": {
+      "forward": [
+        "smoothness",
+        "vertical_translation_magnitude",
+        "body_coordination",
+        "cadence",
+        "vertical_impact_intensity",
+        "motion_type",
+        "motion_intensity",
+        "lower_body_dominance",
+        "posture_inclination",
+        "posture_variability",
+        "spatial_variability",
+        "upper_limb_repetitiveness"
+      ],
+      "reverse": [
+        "upper_limb_repetitiveness",
+        "spatial_variability",
+        "posture_variability",
+        "posture_inclination",
+        "lower_body_dominance",
+        "motion_intensity",
+        "motion_type",
+        "vertical_impact_intensity",
+        "cadence",
+        "body_coordination",
+        "vertical_translation_magnitude",
+        "smoothness"
+      ]
+    },
+    "217": {
+      "forward": [
+        "body_coordination",
+        "limb_rhythmicity_and_coordination",
+        "cadence",
+        "smoothness",
+        "spatial_variability",
+        "dynamic_stability_demand",
+        "posture_inclination",
+        "cyclic_impact_characteristics",
+        "impulsiveness",
+        "manipulative_upper_body_motion",
+        "motion_intensity",
+        "motion_type",
+        "vertical_motion",
+        "trunk_orientation_variability"
+      ],
+      "reverse": [
+        "trunk_orientation_variability",
+        "vertical_motion",
+        "motion_type",
+        "motion_intensity",
+        "manipulative_upper_body_motion",
+        "impulsiveness",
+        "cyclic_impact_characteristics",
+        "posture_inclination",
+        "dynamic_stability_demand",
+        "spatial_variability",
+        "smoothness",
+        "cadence",
+        "limb_rhythmicity_and_coordination",
+        "body_coordination"
+      ]
+    },
+    "280": {
+      "forward": [
+        "cadence",
+        "body_coordination",
+        "posture_inclination",
+        "impact_frequency",
+        "upward_propulsive_effort",
+        "upper_body_manipulation",
+        "localized_repetitive_motion",
+        "horizontal_locomotion_dominance",
+        "spatial_variability",
+        "posture_variability",
+        "motion_intensity",
+        "smoothness",
+        "impulsiveness"
+      ],
+      "reverse": [
+        "impulsiveness",
+        "smoothness",
+        "motion_intensity",
+        "posture_variability",
+        "spatial_variability",
+        "horizontal_locomotion_dominance",
+        "localized_repetitive_motion",
+        "upper_body_manipulation",
+        "upward_propulsive_effort",
+        "impact_frequency",
+        "posture_inclination",
+        "body_coordination",
+        "cadence"
+      ]
+    },
+    "303": {
+      "forward": [
+        "impulsiveness",
+        "motion_intensity",
+        "vertical_periodicity",
+        "upper_body_engagement",
+        "body_coordination",
+        "motion_type",
+        "smoothness",
+        "posture_variability",
+        "vertical_motion",
+        "cadence",
+        "spatial_variability",
+        "posture_inclination"
+      ],
+      "reverse": [
+        "posture_inclination",
+        "spatial_variability",
+        "cadence",
+        "vertical_motion",
+        "posture_variability",
+        "smoothness",
+        "motion_type",
+        "body_coordination",
+        "upper_body_engagement",
+        "vertical_periodicity",
+        "motion_intensity",
+        "impulsiveness"
+      ]
+    },
+    "328": {
+      "forward": [
+        "anti_gravity_effort",
+        "cadence",
+        "motion_intensity",
+        "vertical_motion",
+        "impulsiveness",
+        "spatial_variability",
+        "ballistic_motion_presence",
+        "body_coordination",
+        "motion_type",
+        "smoothness",
+        "posture_inclination",
+        "posture_variability"
+      ],
+      "reverse": [
+        "posture_variability",
+        "posture_inclination",
+        "smoothness",
+        "motion_type",
+        "body_coordination",
+        "ballistic_motion_presence",
+        "spatial_variability",
+        "impulsiveness",
+        "vertical_motion",
+        "motion_intensity",
+        "cadence",
+        "anti_gravity_effort"
+      ]
+    },
+    "378": {
+      "forward": [
+        "spatial_variability",
+        "cadence",
+        "motion_type",
+        "cyclical_locomotion_pattern",
+        "posture_inclination",
+        "posture_variability",
+        "smoothness",
+        "body_coordination",
+        "vertical_motion",
+        "upper_lower_body_coupling",
+        "arm_motion_prominence",
+        "impulsiveness",
+        "locomotion_impact_severity",
+        "motion_intensity"
+      ],
+      "reverse": [
+        "motion_intensity",
+        "locomotion_impact_severity",
+        "impulsiveness",
+        "arm_motion_prominence",
+        "upper_lower_body_coupling",
+        "vertical_motion",
+        "body_coordination",
+        "smoothness",
+        "posture_variability",
+        "posture_inclination",
+        "cyclical_locomotion_pattern",
+        "motion_type",
+        "cadence",
+        "spatial_variability"
+      ]
+    }
+  }
+}

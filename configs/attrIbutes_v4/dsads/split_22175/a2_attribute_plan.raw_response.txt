@@ -1,0 +1,338 @@
+{
+  "schema_version": "2.0",
+  "dataset": "dsads",
+  "split_index": 22175,
+  "refinement_needed": true,
+  "decision_reason": "A1 provides useful intensity, periodicity, impact and posture concepts, but several close pairs lack an independent structural distinction. Add bilateral leg synchrony to help distinguish jumping from alternating-leg locomotion, using rowing as a seen anchor for simultaneous leg action. Add lateral body inclination to distinguish the two lying postures without relying on their unsupported A1 smoothness difference. Preserve other concepts rather than inventing elevator-specific signatures, guaranteed stair-direction cues or equipment-specific arm behavior. The supplied coverage diagnostics motivate these checks but do not establish sensor-level separability.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "bilateral_leg_synchrony",
+      "definition": "Degree to which meaningful left- and right-leg movement occurs simultaneously in corresponding phases, rather than alternately; absence of meaningful leg movement is assigned Low.",
+      "levels": {
+        "Low": "No meaningful bilateral leg movement, or predominantly alternating leg movement.",
+        "Medium": "Mixed or intermittently simultaneous bilateral leg movement.",
+        "High": "Predominantly simultaneous, in-phase bilateral leg movement."
+      }
+    },
+    {
+      "name": "lateral_body_inclination",
+      "definition": "Magnitude of sustained sideward inclination of the torso relative to gravity, distinguishing lateral tilt from forward or backward inclination.",
+      "levels": {
+        "Low": "Little or no sustained sideward inclination.",
+        "Medium": "Moderate sustained sideward inclination.",
+        "High": "Strong sustained sideward inclination, approaching side-lying."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity: G3 supports observable overall acceleration and rotation magnitude. It transfers from walking and running to stair locomotion and jumping, but effort, execution style and window composition can overlap; intensity alone does not establish stair direction.",
+      "target_unseen": [
+        "ascending stairs",
+        "descending stairs",
+        "jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking in a parking lot",
+        "running on a treadmill with a speed of 8 km/h"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence: G6 supports repeated leg and body motion rates, transferring stepping and pedaling semantics from seen locomotion and cycling. Short windows, harmonics and unconstrained pace make ordinal boundaries ambiguous; no new class-specific rate assumptions are justified.",
+      "target_unseen": [
+        "ascending stairs",
+        "descending stairs",
+        "cycling on an exercise bike in horizontal positions",
+        "jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking in a parking lot",
+        "cycling on an exercise bike in vertical positions",
+        "running on a treadmill with a speed of 8 km/h"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness: G9 supports sustained rapid fluctuations, complementing isolated impact peaks when transferring walking, running and cycling patterns. Filtering, pace and execution can alter apparent smoothness. The A1 difference between the two lying classes is not physically warranted by their names and should not serve as their discriminative basis.",
+      "target_unseen": [
+        "descending stairs",
+        "cycling on an exercise bike in horizontal positions",
+        "jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "running on a treadmill with a speed of 8 km/h",
+        "cycling on an exercise bike in vertical positions"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness: G10 supports brief abrupt changes associated with landing and foot contact, providing transferable evidence from running and basketball for jumping and stair descent. Landing technique and sensor attachment affect peaks. Elevator starts or stops may produce transients, but their presence in every window cannot be assumed.",
+      "target_unseen": [
+        "descending stairs",
+        "jumping",
+        "standing in an elevator still"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "running on a treadmill with a speed of 8 km/h",
+        "playing basketball",
+        "standing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination: G1 supports gravity-relative mean orientation interpreted across torso and leg posture. It preserves transfer from upright cycling and strongly inclined lying configurations to horizontal cycling. Exact bike posture and dynamic acceleration create ambiguity; an isolated limb angle must not substitute for the global configuration.",
+      "target_unseen": [
+        "cycling on an exercise bike in horizontal positions"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "cycling on an exercise bike in vertical positions",
+        "lying on back",
+        "lying on right side"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability: G12 supports changes in gravity-relative torso and overall body configuration. Stable standing and variable locomotor or rowing postures provide seen support for elevator movement and jumping. Local leg cycling and dynamic acceleration can resemble posture changes, so global posture must remain distinct from limb articulation.",
+      "target_unseen": [
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "standing",
+        "walking in a parking lot",
+        "rowing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "rotational_motion: G2 supports angular motion of torso and limbs, transferring pedaling and stepping patterns to horizontal cycling and stairs. Rotation magnitude does not specify bilateral timing, and turning or arm use can change the evidence; retain this broad concept rather than making equipment-specific assumptions.",
+      "target_unseen": [
+        "cycling on an exercise bike in horizontal positions",
+        "ascending stairs",
+        "descending stairs",
+        "moving around in an elevator"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "cycling on an exercise bike in vertical positions",
+        "walking in a parking lot",
+        "exercising on a stepper"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion: G13 supports only short-window translational proxies, retaining a useful distinction between locomotor progression and largely stationary exercise. Parking-lot walking and stationary exercise supply transfer anchors for stairs and jumping. Constant elevator velocity is not directly observable from inertial signals, and integration drift and treadmill motion limit predictability; this concept cannot guarantee standing-versus-elevator separation.",
+      "target_unseen": [
+        "ascending stairs",
+        "descending stairs",
+        "standing in an elevator still",
+        "jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking in a parking lot",
+        "standing",
+        "exercising on a stepper"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity: G11 and G6 support recurrence and predictability independently of repetition rate. Structured treadmill movement, quiet standing and irregular basketball provide transferable anchors for stairs and elevator activities. Brief windows and pauses may blur the distinction, and moving around does not require uniformly irregular behavior.",
+      "target_unseen": [
+        "ascending stairs",
+        "descending stairs",
+        "standing in an elevator still",
+        "moving around in an elevator"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "standing",
+        "playing basketball"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "bilateral_leg_synchrony"
+      ],
+      "reason": "bilateral_leg_synchrony: G14 and G11 support coordinated multiaxial timing and recurrence in the two leg IMUs. Simultaneous leg action in rowing and alternating action in walking or running provide seen anchors for the typical two-leg jumping pattern, adding a structural contrast to the close descending-stairs/jumping pair and addressing jumping's weak seen coverage. This is coarse coordination, not foot-contact detection. One-legged or alternating jumps, mixed windows and common torso-driven signals can obscure synchrony; the class name does not guarantee uniformly bilateral jumping.",
+      "target_unseen": [
+        "jumping"
+      ],
+      "contrast_unseen": [
+        "descending stairs",
+        "ascending stairs"
+      ],
+      "seen_anchors": [
+        "rowing",
+        "walking in a parking lot",
+        "running on a treadmill with a speed of 8 km/h"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "lateral_body_inclination"
+      ],
+      "reason": "lateral_body_inclination: G1 supports the sideward component of gravity-relative torso orientation. The two seen lying classes provide direct anchors for separating lateral from sagittal recumbency, replacing reliance on their questionable A1 smoothness contrast while retaining overall inclination. This can help distinguish horizontal cycling from side-lying without claiming another guaranteed distinction from vertical cycling. Interpretation requires anatomically consistent sensor orientation; mounting variation, transient leaning and acceleration are ambiguity sources.",
+      "target_unseen": [
+        "cycling on an exercise bike in horizontal positions"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "lying on back",
+        "lying on right side",
+        "cycling on an exercise bike in vertical positions"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The eleven attributes retain distinct physical roles. Intensity measures magnitude; cadence measures rate; regularity measures predictability. Smoothness concerns sustained fluctuations, whereas impulsiveness concerns brief peaks. Rotation magnitude differs from bilateral timing, so synchrony can distinguish simultaneous from alternating motion at similar cadence and energy. Overall inclination, lateral inclination and posture variability respectively describe inclination magnitude, its sideward component and temporal change; the first two partially overlap but resolve otherwise conflated recumbent postures. Translation is not vertical displacement or elevator identity. No added attribute presumes reliable ascent/descent direction, elevator motion at constant speed, or mandatory arm use on exercise equipment. The synchrony addition is a transferable expectation with explicit jumping-style ambiguity, not a guaranteed class discriminator."
+}

@@ -1,0 +1,362 @@
+{
+  "schema_version": "2.0",
+  "dataset": "mhealth",
+  "split_index": 13,
+  "refinement_needed": true,
+  "decision_reason": "A1 provides useful separation for the static unseen trio through posture_inclination and for locomotor activities through translational_motion, but walking and knees bending (crouching) remain insufficiently distinguished by intensity, cadence, smoothness, and posture variability alone. Two supported temporal-structural attributes are added: continuity of locomotor translation and magnitude of gravity-relative vertical postural change. These strengthen transfer from walking, waist bends forward, jump front & back, and other locomotor anchors without relying on unlisted features.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "locomotor_continuity",
+      "definition": "Degree to which translational movement persists continuously rather than occurring only as intermittent displacement.",
+      "levels": {
+        "Low": "No sustained locomotor progression or only isolated displacement.",
+        "Medium": "Intermittent or partly sustained locomotor progression.",
+        "High": "Continuous or persistently sustained locomotor progression."
+      }
+    },
+    {
+      "name": "vertical_postural_change",
+      "definition": "Magnitude of gravity-relative lowering or raising of the global body configuration during a window.",
+      "levels": {
+        "Low": "Little or no gravity-relative vertical lowering or raising.",
+        "Medium": "Moderate lowering or raising of the body configuration.",
+        "High": "Pronounced lowering or raising of the body configuration."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "Overall motion magnitude is independently supported by motion-energy capability and separates static activities from locomotor and vigorous seen anchors.",
+      "target_unseen": [
+        "standing still",
+        "sitting and relaxing",
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "jogging",
+        "running",
+        "lying down"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "Repetition rate is physically distinct from motion magnitude and remains useful for transferring the cycling and running rate contrasts to locomotor unseen classes.",
+      "target_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "cycling",
+        "running",
+        "climbing stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "Rapid sustained signal changes provide a supported distinction between continuous locomotion and more fluctuant or impact-prone movement.",
+      "target_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "cycling",
+        "running",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "Peak-change capability supports an independent impact contrast, especially against the high-impact running and jumping anchors.",
+      "target_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "running",
+        "jump front & back",
+        "jogging"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "Static gravity-relative posture is the clearest supported distinction among standing still, sitting and relaxing, and lying down, and also anchors the inclined posture of knees bending (crouching).",
+      "target_unseen": [
+        "standing still",
+        "sitting and relaxing",
+        "knees bending (crouching)"
+      ],
+      "contrast_unseen": [
+        "standing still",
+        "sitting and relaxing"
+      ],
+      "seen_anchors": [
+        "lying down",
+        "waist bends forward",
+        "climbing stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "Gravity-angle variation captures changing body configuration and supports transfer from bending and crouching anchors while remaining distinct from average posture inclination.",
+      "target_unseen": [
+        "knees bending (crouching)"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "waist bends forward",
+        "jump front & back",
+        "lying down"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "Gyroscope-supported rotational prominence provides a transferable contrast between limb or body rotation and primarily translational activity.",
+      "target_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "frontal elevation of arms",
+        "waist bends forward",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "Short-window translational proxies directly support the main separation between walking and nonlocomotor crouching or static activities.",
+      "target_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "jogging",
+        "climbing stairs",
+        "cycling"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "Temporal recurrence and predictability remain useful for distinguishing structured locomotor repetitions from weakly organized movement without duplicating repetition rate.",
+      "target_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "cycling",
+        "jogging",
+        "running"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "locomotor_continuity"
+      ],
+      "reason": "Translational magnitude alone does not express whether movement is persistent or intermittent. A continuity attribute supported by translational proxies gives walking a clear transferable distinction from intermittent crouching and from the bounded displacement of jumping.",
+      "target_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "jogging",
+        "cycling",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "vertical_postural_change"
+      ],
+      "reason": "Posture variability measures how much posture changes but not the magnitude of gravity-relative lowering or raising. This supported temporal-orientation distinction separates knees bending (crouching) from forward waist bending and from ordinary walking.",
+      "target_unseen": [
+        "knees bending (crouching)",
+        "walking"
+      ],
+      "contrast_unseen": [
+        "walking",
+        "knees bending (crouching)"
+      ],
+      "seen_anchors": [
+        "waist bends forward",
+        "jump front & back",
+        "climbing stairs"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The retained attributes cover distinct physical axes: motion magnitude, repetition rate, signal smoothness, peak abruptness, average gravity-relative posture, posture variability, rotation, translational prominence, and temporal regularity. The two additions refine rather than duplicate existing concepts: locomotor_continuity describes persistence of translation, whereas translational_motion describes its prominence; vertical_postural_change describes the magnitude of gravity-relative lowering or raising, whereas posture_variability describes overall posture change without specifying this vertical transition. All attributes are ordinal and supported in principle by the listed orientation, motion, jerk, periodicity, regularity, gravity-variation, translational-proxy, and acceleration-rotation capabilities."
+}

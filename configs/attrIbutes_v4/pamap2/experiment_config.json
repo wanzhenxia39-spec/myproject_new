@@ -1,0 +1,32 @@
+{
+  "policy": "pamap2_predictability_xxapi_full_a2_v1",
+  "dataset": "pamap2",
+  "scenario": "zsl",
+  "seed": 42,
+  "api_format": "openai",
+  "base_url": "https://xxapi.info/v1",
+  "model": "gpt-6.1-sol",
+  "temperature": 0.7,
+  "stream": false,
+  "min_attributes": 9,
+  "max_attributes": 15,
+  "distance_metric": "normalized_ordinal",
+  "top_k": 2,
+  "vector_generation_mode": "full_a2_generation_v1",
+  "launcher_sha256": "0253bed208c14d224f99224041b7c1874fcb39b0c141c9a03fb8cb55e96b3e4c",
+  "input_files": {
+    "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5.json": "d9c7469bf376db9661ad8a93f4a233b3d31bd9c19751d6da4ea9af1934fae887",
+    "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "/home/wanzhen/myproject_new/split/zero_shot_split/pamap2_unseen4_random20_splits_seed42.json": "d6bc1f30b551c99c7c5b7a3972c606de6eff490e5589079f10579fb8d0180f13",
+    "/home/wanzhen/windows/pamap_windows/all_features_name_20_120.npy": "cb732f8f5bee19a1f98b913802c358ea2fa77afa6f946a61908b9319719f875e"
+  },
+  "groups_sha256": "baf73e9cd119edfed55f10f9dc5b2404df597874ab5cf7f709646ecbb513213c",
+  "implementation_sha256": {
+    "semantics/planner1.py": "e3b3e2475b4e095bd567493afc3cc1a4ca5bc3993984ee18a09e3a7f06da5e5d",
+    "semantics/completion.py": "69cfef2a1cc40e70c545694b95204aa2914537e1a815149630a34b14c9d53f2b",
+    "semantics/gap.py": "7588dccfd0e4b817b59be679dcb1ca5184552271d28b9b37c7806ad07a4c6310",
+    "semantics/gap_analysis.py": "8b0c7e09961f38e286893cddd1878fbbb3573a47fa6cb294441b465a3abc8261",
+    "semantics/gap_comparison.py": "024b91576f9e5939adb8199893cb31be966d98b1ba1b67552c13baeeb1b663d1",
+    "llm/transport.py": "0db9a13cf3cd34ac7d33828c3732834e8d8c7ba8bc1c09f8c7d588df4909d0d9"
+  }
+}

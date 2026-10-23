@@ -1,0 +1,550 @@
+{
+  "dataset": "uschad",
+  "attribute_set": "A1",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity"
+  ],
+  "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_uschad_v1_5.json",
+  "a1_sha256": "a9c06ea5c4bb8e8256ae33dbb105b0047774375ec1f1393a13cfd6c9f0da4934",
+  "activity_vectors": {
+    "Walking Forward": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "Walking Left": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "High",
+      "translational_motion": "High",
+      "motion_regularity": "Medium"
+    },
+    "Walking Right": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "Medium"
+    },
+    "Walking Upstairs": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "Walking Downstairs": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "Medium"
+    },
+    "Running Forward": {
+      "motion_intensity": "High",
+      "cadence": "High",
+      "smoothness": "Medium",
+      "impulsiveness": "High",
+      "posture_inclination": "Medium",
+      "posture_variability": "Medium",
+      "rotational_motion": "High",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "Jumping Up": {
+      "motion_intensity": "High",
+      "cadence": "Low",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "High",
+      "rotational_motion": "Low",
+      "translational_motion": "Medium",
+      "motion_regularity": "Low"
+    },
+    "Sitting": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "Standing": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "Sleeping": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "High",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "Elevator Up": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "Elevator Down": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    }
+  },
+  "split_manifest": "/home/wanzhen/myproject_new/split/zero_shot_split/uschad_unseen4_random20_splits_seed42.json",
+  "split_source": "manifest",
+  "splits": [
+    {
+      "split_index": 13,
+      "seen_activities": [
+        "Walking Right",
+        "Walking Downstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Standing",
+        "Sleeping",
+        "Elevator Up",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Walking Left",
+        "Walking Upstairs",
+        "Sitting"
+      ]
+    },
+    {
+      "split_index": 16,
+      "seen_activities": [
+        "Walking Right",
+        "Walking Downstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Sitting",
+        "Standing",
+        "Sleeping",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Walking Left",
+        "Walking Upstairs",
+        "Elevator Up"
+      ]
+    },
+    {
+      "split_index": 17,
+      "seen_activities": [
+        "Walking Right",
+        "Walking Downstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Sitting",
+        "Standing",
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Walking Left",
+        "Walking Upstairs",
+        "Elevator Down"
+      ]
+    },
+    {
+      "split_index": 45,
+      "seen_activities": [
+        "Walking Right",
+        "Walking Upstairs",
+        "Walking Downstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Sitting",
+        "Standing",
+        "Sleeping"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Walking Left",
+        "Elevator Up",
+        "Elevator Down"
+      ]
+    },
+    {
+      "split_index": 48,
+      "seen_activities": [
+        "Walking Left",
+        "Walking Downstairs",
+        "Running Forward",
+        "Sitting",
+        "Standing",
+        "Sleeping",
+        "Elevator Up",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Walking Right",
+        "Walking Upstairs",
+        "Jumping Up"
+      ]
+    },
+    {
+      "split_index": 53,
+      "seen_activities": [
+        "Walking Left",
+        "Walking Downstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Sitting",
+        "Standing",
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Walking Right",
+        "Walking Upstairs",
+        "Elevator Down"
+      ]
+    },
+    {
+      "split_index": 58,
+      "seen_activities": [
+        "Walking Left",
+        "Walking Upstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Sitting",
+        "Standing",
+        "Elevator Up",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Walking Right",
+        "Walking Downstairs",
+        "Sleeping"
+      ]
+    },
+    {
+      "split_index": 72,
+      "seen_activities": [
+        "Walking Left",
+        "Walking Upstairs",
+        "Walking Downstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Sleeping",
+        "Elevator Up",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Walking Right",
+        "Sitting",
+        "Standing"
+      ]
+    },
+    {
+      "split_index": 112,
+      "seen_activities": [
+        "Walking Left",
+        "Walking Right",
+        "Walking Upstairs",
+        "Jumping Up",
+        "Sitting",
+        "Sleeping",
+        "Elevator Up",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Walking Downstairs",
+        "Running Forward",
+        "Standing"
+      ]
+    },
+    {
+      "split_index": 115,
+      "seen_activities": [
+        "Walking Left",
+        "Walking Right",
+        "Walking Upstairs",
+        "Jumping Up",
+        "Sitting",
+        "Standing",
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Walking Downstairs",
+        "Running Forward",
+        "Elevator Down"
+      ]
+    },
+    {
+      "split_index": 126,
+      "seen_activities": [
+        "Walking Left",
+        "Walking Right",
+        "Walking Upstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Sitting",
+        "Sleeping",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Walking Downstairs",
+        "Standing",
+        "Elevator Up"
+      ]
+    },
+    {
+      "split_index": 141,
+      "seen_activities": [
+        "Walking Left",
+        "Walking Right",
+        "Walking Upstairs",
+        "Walking Downstairs",
+        "Jumping Up",
+        "Sitting",
+        "Sleeping",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Forward",
+        "Running Forward",
+        "Standing",
+        "Elevator Up"
+      ]
+    },
+    {
+      "split_index": 217,
+      "seen_activities": [
+        "Walking Forward",
+        "Walking Right",
+        "Walking Downstairs",
+        "Running Forward",
+        "Sitting",
+        "Standing",
+        "Elevator Up",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Left",
+        "Walking Upstairs",
+        "Jumping Up",
+        "Sleeping"
+      ]
+    },
+    {
+      "split_index": 280,
+      "seen_activities": [
+        "Walking Forward",
+        "Walking Right",
+        "Walking Upstairs",
+        "Walking Downstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Standing",
+        "Elevator Up"
+      ],
+      "unseen_activities": [
+        "Walking Left",
+        "Sitting",
+        "Sleeping",
+        "Elevator Down"
+      ]
+    },
+    {
+      "split_index": 303,
+      "seen_activities": [
+        "Walking Forward",
+        "Walking Left",
+        "Walking Downstairs",
+        "Running Forward",
+        "Sitting",
+        "Standing",
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "unseen_activities": [
+        "Walking Right",
+        "Walking Upstairs",
+        "Jumping Up",
+        "Elevator Down"
+      ]
+    },
+    {
+      "split_index": 328,
+      "seen_activities": [
+        "Walking Forward",
+        "Walking Left",
+        "Walking Upstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Standing",
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "unseen_activities": [
+        "Walking Right",
+        "Walking Downstairs",
+        "Sitting",
+        "Elevator Down"
+      ]
+    },
+    {
+      "split_index": 347,
+      "seen_activities": [
+        "Walking Forward",
+        "Walking Left",
+        "Walking Upstairs",
+        "Walking Downstairs",
+        "Jumping Up",
+        "Sitting",
+        "Standing",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Right",
+        "Running Forward",
+        "Sleeping",
+        "Elevator Up"
+      ]
+    },
+    {
+      "split_index": 378,
+      "seen_activities": [
+        "Walking Forward",
+        "Walking Left",
+        "Walking Right",
+        "Running Forward",
+        "Sitting",
+        "Standing",
+        "Elevator Up",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Upstairs",
+        "Walking Downstairs",
+        "Jumping Up",
+        "Sleeping"
+      ]
+    },
+    {
+      "split_index": 380,
+      "seen_activities": [
+        "Walking Forward",
+        "Walking Left",
+        "Walking Right",
+        "Running Forward",
+        "Sitting",
+        "Standing",
+        "Sleeping",
+        "Elevator Up"
+      ],
+      "unseen_activities": [
+        "Walking Upstairs",
+        "Walking Downstairs",
+        "Jumping Up",
+        "Elevator Down"
+      ]
+    },
+    {
+      "split_index": 457,
+      "seen_activities": [
+        "Walking Forward",
+        "Walking Left",
+        "Walking Right",
+        "Walking Upstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Sitting",
+        "Elevator Down"
+      ],
+      "unseen_activities": [
+        "Walking Downstairs",
+        "Standing",
+        "Sleeping",
+        "Elevator Up"
+      ]
+    }
+  ],
+  "seed": 42,
+  "top_k": 2,
+  "distance_metric": "normalized_ordinal",
+  "attribute_weighting": "uniform",
+  "distance_formula": "(1/K_A) * sum_k(abs(a_i,k - a_j,k) / 2)",
+  "formula_ordinal_values": {
+    "Low": 0,
+    "Medium": 1,
+    "High": 2
+  },
+  "ordinal_values": {
+    "Low": 0.0,
+    "Medium": 0.5,
+    "High": 1.0
+  }
+}

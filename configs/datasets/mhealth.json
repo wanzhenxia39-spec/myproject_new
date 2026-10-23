@@ -1,0 +1,29 @@
+{
+  "key": "mhealth",
+  "name": "MHEALTH",
+  "files": {
+    "features": "/home/wanzhen/windows/mhealth_windows/all_features_20_120.npy",
+    "feature_names": "/home/wanzhen/windows/mhealth_windows/all_features_name_20_120.npy",
+    "labels": "/home/wanzhen/windows/mhealth_windows/label_20_120.npy"
+  },
+  "attributes": "configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json",
+  "metadata": "configs/metadata/mhealth.json",
+  "defaults": {
+    "unseen_count": 4,
+    "eval_samples_per_activity": 30
+  },
+  "labels": {
+    "0": "standing still",
+    "1": "sitting and relaxing",
+    "2": "lying down",
+    "3": "walking",
+    "4": "climbing stairs",
+    "5": "waist bends forward",
+    "6": "frontal elevation of arms",
+    "7": "knees bending (crouching)",
+    "8": "cycling",
+    "9": "jogging",
+    "10": "running",
+    "11": "jump front & back"
+  }
+}

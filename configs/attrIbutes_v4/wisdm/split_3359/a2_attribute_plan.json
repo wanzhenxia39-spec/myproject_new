@@ -1,0 +1,380 @@
+{
+  "schema_version": "2.0",
+  "dataset": "wisdm",
+  "split_index": 3359,
+  "refinement_needed": true,
+  "decision_reason": "Walking has the weakest supplied seen coverage, but jogging and stairs already provide meaningful locomotor anchors; no additional gait dimension is justified by the supplied semantics alone. Sitting and standing are the closest unseen pair, but neither seated-body geometry nor phone placement is sufficiently specified to justify another reliable distinction. Retain the nine A1 concepts and add wrist_orientation_excursion to distinguish the extent of local orientation change from overall rotational activity. This offers a transferable contrast for close manipulation pairs such as eating soup versus writing, while avoiding unsupported food-identity or seated-posture attributes. The diagnostics motivate these checks but do not establish recognition performance.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "wrist_orientation_excursion",
+      "definition": "Extent of the gravity-relative orientation range traversed by the watch-bearing wrist within a window, irrespective of repetition rate or angular speed.",
+      "levels": {
+        "Low": "Wrist orientation remains within a narrow gravity-relative range.",
+        "Medium": "Wrist orientation traverses a moderate gravity-relative range.",
+        "High": "Wrist orientation traverses a broad gravity-relative range."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity: G3 supports overall acceleration and rotation magnitude from the phone and watch. Preserve the broad energetic contrast linking walking to jogging and stairs and separating quiet postures from active tasks. Effort, execution style and sensor carriage can change magnitude; low-intensity hand activities may overlap.",
+      "target_unseen": [
+        "walking",
+        "sitting",
+        "standing",
+        "eating chips"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "jogging",
+        "stairs",
+        "writing",
+        "eating sandwich"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence: G6 supports repetition rate in recurring phone or wrist motion. Preserve transfer from locomotor and repetitive manipulation anchors without introducing an unsupported gait subtype. Pauses, mixed motion units and windows containing few repetitions make slow or irregular activities ambiguous.",
+      "target_unseen": [
+        "walking",
+        "eating pasta"
+      ],
+      "contrast_unseen": [
+        "eating chips"
+      ],
+      "seen_anchors": [
+        "jogging",
+        "stairs",
+        "typing",
+        "brushing teeth"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness: G9 supports sustained rapid signal changes, distinguishing continuously controlled motion from repeatedly fluctuating motion. Retain the existing contrast between eating soup and eating sandwich as a transferable reference for unseen eating activities. Small movements, sensor noise and execution speed can obscure smoothness; it is not a food identifier.",
+      "target_unseen": [
+        "walking",
+        "eating chips",
+        "eating pasta",
+        "folding clothes"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "eating soup",
+        "eating sandwich",
+        "writing",
+        "dribbling (basketball)"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness: G10 supports isolated abrupt acceleration or rotation changes. Preserve the distinction between impact-bearing locomotion and controlled manipulation, with seen impact activities supplying transfer anchors. Loose phone carriage or object contact may produce peaks unrelated to the dominant activity, and gentle execution may suppress them.",
+      "target_unseen": [
+        "walking",
+        "eating chips",
+        "folding clothes"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "jogging",
+        "clapping",
+        "dribbling (basketball)",
+        "eating soup"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination: G1 provides gravity-relative orientation evidence when phone orientation is sufficiently coupled to the load-bearing body. Preserve the only existing sitting-standing coordinate rather than inventing a second unsupported posture cue. Predictability is conditional: a user-carried phone has unspecified alignment, wrist orientation is not global posture, and sitting need not imply trunk inclination. This attribute cannot guarantee separation of that pair.",
+      "target_unseen": [
+        "sitting",
+        "standing"
+      ],
+      "contrast_unseen": [
+        "sitting",
+        "standing"
+      ],
+      "seen_anchors": [
+        "writing",
+        "eating soup",
+        "brushing teeth"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability: G12 supports changing gravity-relative body configuration when the phone follows body motion. Preserve potential transfer from seen whole-body adjustments to folding clothes, without treating wrist manipulation as global posture change. Phone repositioning and folding performed with a stable trunk are important ambiguities.",
+      "target_unseen": [
+        "folding clothes",
+        "walking",
+        "sitting",
+        "standing"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "stairs",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "rotational_motion: G2 supports the prominence of angular movement in phone and watch signals. Preserve a transferable manipulation contrast for eating pasta and folding clothes using rotational seen activities. Sensor-side participation, wrist technique and body turns can change the observed level; rotational prominence does not identify utensils or objects.",
+      "target_unseen": [
+        "eating pasta",
+        "folding clothes",
+        "eating chips"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "brushing teeth",
+        "drinking from cup",
+        "eating sandwich"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion: G13 supports short-window evidence of progression, retaining the principal shared locomotor property connecting walking to jogging and stairs despite walking's weak A1 coverage. IMUs do not establish absolute displacement reliably; wrist sweeps, drift and intermittent steps can resemble translation, so local hand transport must not be interpreted as sustained locomotion.",
+      "target_unseen": [
+        "walking"
+      ],
+      "contrast_unseen": [
+        "sitting",
+        "standing",
+        "folding clothes"
+      ],
+      "seen_anchors": [
+        "jogging",
+        "stairs",
+        "kicking (soccer ball)"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity: G11 supports recurrence and temporal predictability independently of repetition speed. Preserve transfer from structured locomotion and repetitive hand tasks to walking and from variable manipulation to eating chips and folding clothes. Short windows, pauses and consistently quiet signals can make distinct activities similarly regular.",
+      "target_unseen": [
+        "walking",
+        "eating chips",
+        "folding clothes"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "jogging",
+        "brushing teeth",
+        "eating sandwich",
+        "playing catch w/tennis ball"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "wrist_orientation_excursion"
+      ],
+      "reason": "wrist_orientation_excursion: G12 supports the range of gravity-relative wrist orientation, with G1 supporting its orientation reference and G2 providing corroborating rotation evidence. The watch can plausibly distinguish locally constrained writing from larger reorientation during hand-to-mouth or cup-handling motion, adding a contrast to eating soup versus writing, which differ in only intensity in A1. This transfers to assessing eating chips, eating pasta and folding clothes without encoding food identity. Unlike rotational_motion, this measures orientation range rather than rotational prominence; fast small strokes can remain narrow. Ambiguities include the watch being on a nonparticipating hand, stable-wrist hand transport, variable folding technique and dynamic acceleration contaminating the gravity reference. No guaranteed distinction between eating chips and eating sandwich, or between eating pasta and other eating tasks, is asserted.",
+      "target_unseen": [
+        "eating chips",
+        "eating pasta",
+        "folding clothes"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "writing",
+        "typing",
+        "eating soup",
+        "drinking from cup",
+        "eating sandwich",
+        "brushing teeth"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The ten attributes describe separate physical aspects: magnitude, repetition rate, sustained fluctuations, isolated abrupt changes, global mean inclination, global posture change, rotational prominence, sustained translation, temporal predictability and local wrist orientation range. Smoothness and impulsiveness distinguish sustained fluctuation from isolated peaks; cadence and regularity distinguish rate from predictability. Wrist orientation excursion is explicitly local, unlike global posture variability, and measures angular range rather than rotational activity. Some correlations are expected, but they do not make these definitions equivalent. No additional sitting-standing distinction or fine-grained eating distinction is claimed without adequate sensor support. All nine A1 inputs and all ten A2 outputs are accounted for exactly once.",
+  "_meta": {
+    "dataset": "wisdm",
+    "split_index": 3359,
+    "seen": [
+      "jogging",
+      "stairs",
+      "typing",
+      "brushing teeth",
+      "eating soup",
+      "drinking from cup",
+      "eating sandwich",
+      "kicking (soccer ball)",
+      "playing catch w/tennis ball",
+      "dribbling (basketball)",
+      "writing",
+      "clapping"
+    ],
+    "unseen": [
+      "walking",
+      "sitting",
+      "standing",
+      "eating chips",
+      "eating pasta",
+      "folding clothes"
+    ],
+    "refinement_strategy": "full_a1_semantic_refinement_v3",
+    "planning_stages": 1,
+    "min_attributes": 9,
+    "max_attributes": 15,
+    "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+    "a1_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+    "a1_ontology_json": "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json",
+    "a1_ontology_sha256": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "split_csv_sha256": "5bebb5b4c57b129f5f8a05ec76bcdd7888ab6115b465ed0ee1c04bfff3936ddf",
+    "gap_diagnostics_source": "reused_from_gap_csv",
+    "refinement_evidence": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/split_3359/a2_attribute_plan.refinement_evidence.json",
+    "refinement_evidence_sha256": "1e2378f3b5a879ac0699df63b7d692172777f9b4881f4019aebdb3abcce8ef16",
+    "prompt_json": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/split_3359/a2_attribute_plan.prompt.json",
+    "prompt_json_sha256": "60c97f5a39259241c50f9035d2aaf4daaae23c1ce8c6096aaf4f17ce98543a56",
+    "prompt_text": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/wisdm/split_3359/a2_attribute_plan.prompt.txt",
+    "prompt_text_sha256": "1136cbb7c3e87c03fa9ac46b23f6f9d5bc5d4c86636527b39f5559dd97898099",
+    "gap_a1_hash_verified": true,
+    "feature_source": "/home/wanzhen/windows/wisdm_windows/all_features_name_20_120.npy",
+    "feature_names_sha256": "13f32a7fda6bf9f311d27fbdbda385fb3eeb77881eb10701d750f3ff0d13ab99",
+    "groups_sha256": "baf73e9cd119edfed55f10f9dc5b2404df597874ab5cf7f709646ecbb513213c",
+    "model": "gpt-6.1-sol",
+    "api_format": "openai",
+    "base_url": "https://xxapi.info/v1",
+    "stream": false,
+    "response_source": "live",
+    "validation_decision": "validated_semantic_a2",
+    "validation": "Semantic schema and complete A1-to-A2 lineage validated; no feature binding performed.",
+    "activity_role_repairs": []
+  }
+}

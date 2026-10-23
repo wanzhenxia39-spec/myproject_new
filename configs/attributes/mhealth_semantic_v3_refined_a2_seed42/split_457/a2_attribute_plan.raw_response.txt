@@ -1,0 +1,315 @@
+{
+  "schema_version": "2.0",
+  "dataset": "mhealth",
+  "split_index": 457,
+  "refinement_needed": true,
+  "decision_reason": "A1 leaves climbing stairs and jogging close because they differ mainly in posture, while cycling has weak seen-class coverage and generic rotational motion does not distinguish lower-limb cycling from upper-limb exercise. Splitting translation by gravity-relative direction adds a transferable stair-versus-level-locomotion contrast, splitting rotation by instrumented body region gives cycling a clearer seen-supported signature, and adding a ballistic loading-cycle concept separates impact-based gait from stair climbing and cycling. Motion regularity is dropped because every supplied class prototype has the same High level.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "upper_limb_rotational_motion",
+      "definition": "Prominence of angular or rotational motion of the instrumented right lower arm during the activity.",
+      "levels": {
+        "Low": "Little or no right-lower-arm rotational motion.",
+        "Medium": "Moderate right-lower-arm rotational motion.",
+        "High": "Prominent right-lower-arm rotational motion."
+      }
+    },
+    {
+      "name": "lower_limb_rotational_motion",
+      "definition": "Prominence of angular or rotational motion of the instrumented left ankle during the activity.",
+      "levels": {
+        "Low": "Little or no left-ankle rotational motion.",
+        "Medium": "Moderate left-ankle rotational motion.",
+        "High": "Prominent left-ankle rotational motion."
+      }
+    },
+    {
+      "name": "horizontal_translation",
+      "definition": "Prominence of sustained global or locomotor translation approximately perpendicular to gravity within a window.",
+      "levels": {
+        "Low": "Little or no sustained horizontal translation.",
+        "Medium": "Moderate or intermittent horizontal translation.",
+        "High": "Prominent sustained horizontal progression."
+      }
+    },
+    {
+      "name": "gravity_aligned_translation",
+      "definition": "Prominence of sustained or repeated global load-bearing body translation approximately parallel to gravity within a window.",
+      "levels": {
+        "Low": "Little or no gravity-aligned translation.",
+        "Medium": "Moderate or intermittently reversing gravity-aligned translation.",
+        "High": "Prominent sustained or repeated gravity-aligned translation."
+      }
+    },
+    {
+      "name": "ballistic_loading_cycle",
+      "definition": "Prominence of a repeated unloading-to-reloading pattern in which load-bearing support is reduced and then restored with a landing-like acceleration transient.",
+      "levels": {
+        "Low": "No clear unloading-to-reloading cycle.",
+        "Medium": "Moderate or brief recurrent unloading and reloading.",
+        "High": "Pronounced recurrent ballistic unloading and landing-like reloading."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "Overall motion energy remains an independent, IMU-observable distinction between moderate activities such as walking or cycling and vigorous activities such as jogging, running, and climbing stairs.",
+      "target_unseen": [
+        "climbing stairs",
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "Repetition rate provides a direct periodic distinction for high-rate cycling and running while remaining transferable from periodic seen activities.",
+      "target_unseen": [
+        "cycling",
+        "running"
+      ],
+      "contrast_unseen": [
+        "climbing stairs",
+        "jogging"
+      ],
+      "seen_anchors": [
+        "walking",
+        "frontal elevation of arms"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "Sustained rapid fluctuation is physically distinct from motion magnitude and repetition rate, preserving the contrast between smooth cycling and less smooth impact-dominated running.",
+      "target_unseen": [
+        "cycling",
+        "running"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "frontal elevation of arms",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "Peak abrupt changes remain useful for distinguishing running from cycling and are supported by the contrasting seen examples of jump front & back and smooth limb exercises.",
+      "target_unseen": [
+        "running",
+        "cycling"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "jump front & back",
+        "frontal elevation of arms"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "Mean gravity-relative body inclination is a stable physical distinction that links the inclined configurations of climbing stairs and cycling to available seen posture anchors.",
+      "target_unseen": [
+        "climbing stairs",
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "jogging",
+        "running"
+      ],
+      "seen_anchors": [
+        "standing still",
+        "sitting and relaxing",
+        "lying down"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "Variation in the global load-bearing configuration adds a transferable contrast between stair negotiation and gait with a comparatively stable upright trunk.",
+      "target_unseen": [
+        "climbing stairs"
+      ],
+      "contrast_unseen": [
+        "jogging",
+        "running"
+      ],
+      "seen_anchors": [
+        "waist bends forward",
+        "knees bending (crouching)",
+        "walking"
+      ]
+    },
+    {
+      "action": "split",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "upper_limb_rotational_motion",
+        "lower_limb_rotational_motion"
+      ],
+      "reason": "Generic rotation conflates physically different limb sources. The available right-lower-arm and left-ankle gyroscopes support a body-region split, allowing lower-limb-dominant cycling to contrast with the seen upper-limb rotation of frontal elevation of arms.",
+      "target_unseen": [
+        "cycling"
+      ],
+      "contrast_unseen": [
+        "climbing stairs",
+        "jogging",
+        "running"
+      ],
+      "seen_anchors": [
+        "frontal elevation of arms",
+        "walking",
+        "knees bending (crouching)"
+      ]
+    },
+    {
+      "action": "split",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "horizontal_translation",
+        "gravity_aligned_translation"
+      ],
+      "reason": "A single translation level cannot distinguish upward stair progression from predominantly level locomotion. Gravity-relative direction separates climbing stairs from jogging and running while retaining walking and jump front & back as transferable seen anchors.",
+      "target_unseen": [
+        "climbing stairs"
+      ],
+      "contrast_unseen": [
+        "cycling",
+        "jogging",
+        "running"
+      ],
+      "seen_anchors": [
+        "walking",
+        "jump front & back"
+      ]
+    },
+    {
+      "action": "drop",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [],
+      "reason": "Every supplied A1 class prototype assigns motion_regularity the same High level, so it contributes no split-specific class contrast despite being physically measurable.",
+      "target_unseen": [],
+      "contrast_unseen": [],
+      "seen_anchors": []
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "ballistic_loading_cycle"
+      ],
+      "reason": "The unloading-and-reloading sequence is more specific than an isolated impact peak. It provides an additional physical distinction between the close climbing stairs and jogging prototypes and transfers from the seen contrast between walking and jump front & back.",
+      "target_unseen": [
+        "jogging",
+        "running"
+      ],
+      "contrast_unseen": [
+        "climbing stairs",
+        "cycling"
+      ],
+      "seen_anchors": [
+        "walking",
+        "jump front & back"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The final attributes separate magnitude, repetition rate, sustained fluctuation, isolated peaks, mean posture, posture change, body-region-specific rotation, gravity-relative translation direction, and cyclic unloading/reloading. Cadence measures rate rather than predictability; the nondiscriminative motion_regularity attribute was therefore removed. Smoothness concerns sustained rapid change, impulsiveness concerns peak abrupt change, and ballistic_loading_cycle requires an ordered unloading-to-reloading pattern, so these concepts are related but not duplicates. Horizontal_translation and gravity_aligned_translation are directionally distinct components rather than a broad translation attribute plus a redundant subcomponent. Upper- and lower-limb rotation are separated only where the sensor inventory provides physically meaningful regional observations."
+}

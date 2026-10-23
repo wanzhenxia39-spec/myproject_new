@@ -1,0 +1,4928 @@
+{
+  "schema_version": 1,
+  "dataset": "pamap2",
+  "attribute_set": "old_pipeline_A2_refined_per_split",
+  "seed": 42,
+  "selection_scope": "seen-class training data only; no unseen samples, labels, or test metrics",
+  "ranking_backend": "catboost",
+  "ranking": {
+    "validation_balanced_accuracy": 0.45,
+    "validation_macro_f1": 0.3,
+    "inverse_normalized_ordinal_mae": 0.2,
+    "mean_dependency_nmi": 0.05
+  },
+  "constant_attribute_policy": "place constants last in forward before exact reversal",
+  "forward_definition": "descending weighted priority; ties follow each split A2 schema order",
+  "reverse_definition": "exact reversal of the complete split-specific forward order",
+  "split_manifest": "/home/wanzhen/myproject_new/split/zero_shot_split/pamap2_unseen4_random20_splits_seed42.json",
+  "split_manifest_sha256": "d6bc1f30b551c99c7c5b7a3972c606de6eff490e5589079f10579fb8d0180f13",
+  "a2_root": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42",
+  "preparation_config": {
+    "algorithm_version": 1,
+    "dataset": "pamap2",
+    "seed": 42,
+    "selection_scope": "seen-class data only",
+    "validation_fraction": 0.3,
+    "split_manifest_sha256": "d6bc1f30b551c99c7c5b7a3972c606de6eff490e5589079f10579fb8d0180f13",
+    "sample_manifest_sha256": "7df2c67233c6db91cef333e792e92cf2cdcf6be608a944b41821139447ffc071",
+    "dataset_profile_sha256": "0eaa89266b290f6355e768b27a52eef73bd0e5914ecfb40fd2f3035d11ca8c4d",
+    "feature_inputs": {
+      "/home/wanzhen/windows/pamap_windows/all_features_20_120.npy": {
+        "size": 6805424,
+        "mtime_ns": 1774971360000000000
+      },
+      "/home/wanzhen/windows/pamap_windows/all_features_name_20_120.npy": {
+        "size": 16398,
+        "mtime_ns": 1774971360000000000
+      },
+      "/home/wanzhen/windows/pamap_windows/label_20_120.npy": {
+        "size": 3058688,
+        "mtime_ns": 1774971360000000000
+      }
+    },
+    "selected_split_indices": [
+      1,
+      2,
+      3,
+      13,
+      16,
+      17,
+      45,
+      48,
+      53,
+      58,
+      72,
+      112,
+      115,
+      126,
+      141,
+      217,
+      280,
+      303,
+      328,
+      378
+    ],
+    "a2_sha256": {
+      "1": "2b6a07b77140cd9fa8a3beb27c44a2f9cfb47624e36d11f1581f1ebcf3dfb032",
+      "2": "ad1e51a9a00d0ba84ba30b8fc3d63c2353e4cb97bd4853ad743d899046c5238e",
+      "3": "c2064e780092306a3525096752c43bd30749de9dd60a1620e29ef5e792b4a558",
+      "13": "f608ec3c7ef3c54eff322357188a9aa40ed9c44c10bd247af552174aae9f336e",
+      "16": "43d86b1e55a7f6f058540582bd9eab493c7eb95b9c7e5d399b22e4d25683d174",
+      "17": "9d056912db91450cb2ff152c357f603ceb3a63b3fced0eddd92b0865f2402861",
+      "45": "6c052c752fd1acd0d8f25406a329ff1201242106432b0534f1f8faad84dd8668",
+      "48": "6b29aa7673a210d01440cba824f1548e2f72e65a23c822bd317e218de1e195f0",
+      "53": "fb7ae9e6266de413a5566a84dec5e05c246df8285cc4b26363fa93f4b0da53da",
+      "58": "dda10d5c51b9e21ff3a42e6ac7bb9ac1b14fe7dcd773f696fa8360ff32a01eeb",
+      "72": "ebcfee04e7711acab3433bc52cdb4bfc8f4dc60ff96858bfca4fcbb2d6d0dc6c",
+      "112": "647268a671bbac02b3fbc7b7ad4fc3225fd60e4dfe4cf8b688ddb2919cf93805",
+      "115": "6a4720c6217bbb9d905422293b1d22d5740f38f412e956591de15cb5326962e3",
+      "126": "71f9e884e83ac44f8ac6df592372f453ec52137fffd882346ea4ab486992e9f4",
+      "141": "5fe20ded6c864a596b3fe767c7021cf0c3028d5ec730e934fd5326b6a391659d",
+      "217": "45c70ac3cf32209a1b21254d62e4e217f413ccc7e3e0818c6a3eb413e0ac967c",
+      "280": "49eef38d4caf5461a020370bd801b8f87ae733c3778856a78bff4a36f9ff372b",
+      "303": "578fb6aa2aac169487437c0335bc5f16acd0551403e5330e29f4b403fe830e52",
+      "328": "0d1718a4a8b206a60e6c6c3548d17037170b3582ba7df65c10c16f94f4d1f810",
+      "378": "a36d31d1213e27719bbc9db3166fbdd21de5542af0a30164eaa9b7cf4705d7c5"
+    },
+    "ranking_backend": "catboost",
+    "ranking_backend_config": {
+      "random_state": 42,
+      "n_jobs": 112,
+      "iterations": 500,
+      "learning_rate": 0.05,
+      "depth": 6,
+      "task_type": "GPU",
+      "devices": "0",
+      "auto_class_weights": "Balanced",
+      "allow_writing_files": false
+    },
+    "ranking_weights": {
+      "validation_balanced_accuracy": 0.45,
+      "validation_macro_f1": 0.3,
+      "inverse_normalized_ordinal_mae": 0.2,
+      "mean_dependency_nmi": 0.05
+    }
+  },
+  "generated_at": "2026-09-17T08:16:23+00:00",
+  "splits": {
+    "1": {
+      "split_index": 1,
+      "seen_activities": [
+        "running",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "standing",
+        "walking"
+      ],
+      "training_sample_count": 1299,
+      "validation_sample_count": 558,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_1/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "2b6a07b77140cd9fa8a3beb27c44a2f9cfb47624e36d11f1581f1ebcf3dfb032",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "trunk_posture_stability",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "limb_load_bearing",
+        "overall_stillness"
+      ],
+      "forward": [
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "overall_stillness",
+        "motion_intensity",
+        "trunk_posture_stability",
+        "limb_load_bearing",
+        "spatial_variability",
+        "impulsiveness",
+        "cadence",
+        "smoothness",
+        "vertical_motion"
+      ],
+      "reverse": [
+        "vertical_motion",
+        "smoothness",
+        "cadence",
+        "impulsiveness",
+        "spatial_variability",
+        "limb_load_bearing",
+        "trunk_posture_stability",
+        "motion_intensity",
+        "overall_stillness",
+        "motion_type",
+        "body_coordination",
+        "posture_variability"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9784642102175406,
+          "validation_macro_f1": 0.9721961138600869,
+          "inverse_normalized_ordinal_mae": 0.985663082437276,
+          "mean_dependency_nmi": 0.4715883678563888,
+          "priority": 0.952679763636194,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.974910394265233,
+            "macro_f1": 0.9721961138600869,
+            "balanced_accuracy": 0.9784642102175406,
+            "ordinal_mae": 0.014336917562724014
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9724661002167009,
+          "validation_macro_f1": 0.9732241285766333,
+          "inverse_normalized_ordinal_mae": 0.9829749103942652,
+          "mean_dependency_nmi": 0.41636045031553853,
+          "priority": 0.9469899882651354,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9731182795698925,
+            "macro_f1": 0.9732241285766333,
+            "balanced_accuracy": 0.9724661002167009,
+            "ordinal_mae": 0.017025089605734768
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9643400070557693,
+          "validation_macro_f1": 0.9618869421372538,
+          "inverse_normalized_ordinal_mae": 0.9775985663082437,
+          "mean_dependency_nmi": 0.5413903421126512,
+          "priority": 0.9451083161835535,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9623655913978495,
+            "macro_f1": 0.9618869421372538,
+            "balanced_accuracy": 0.9643400070557693,
+            "ordinal_mae": 0.022401433691756272
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9683823566772182,
+          "validation_macro_f1": 0.9660400859261705,
+          "inverse_normalized_ordinal_mae": 0.9811827956989247,
+          "mean_dependency_nmi": 0.5239281575872797,
+          "priority": 0.9480170533017482,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9659498207885304,
+            "macro_f1": 0.9660400859261705,
+            "balanced_accuracy": 0.9683823566772182,
+            "ordinal_mae": 0.01881720430107527
+          }
+        },
+        "trunk_posture_stability": {
+          "validation_balanced_accuracy": 0.9708594181334981,
+          "validation_macro_f1": 0.9711639969647368,
+          "inverse_normalized_ordinal_mae": 0.9811827956989247,
+          "mean_dependency_nmi": 0.5610547429166552,
+          "priority": 0.9525252335351129,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9713261648745519,
+            "macro_f1": 0.9711639969647368,
+            "balanced_accuracy": 0.9708594181334981,
+            "ordinal_mae": 0.01881720430107527
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9815118137650541,
+          "validation_macro_f1": 0.9795818879939877,
+          "inverse_normalized_ordinal_mae": 0.9883512544802867,
+          "mean_dependency_nmi": 0.5997778040936705,
+          "priority": 0.9632140236932116,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.982078853046595,
+            "macro_f1": 0.9795818879939877,
+            "balanced_accuracy": 0.9815118137650541,
+            "ordinal_mae": 0.011648745519713262
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9815118137650541,
+          "validation_macro_f1": 0.9795818879939877,
+          "inverse_normalized_ordinal_mae": 0.9883512544802867,
+          "mean_dependency_nmi": 0.5997778040936705,
+          "priority": 0.9632140236932116,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.982078853046595,
+            "macro_f1": 0.9795818879939877,
+            "balanced_accuracy": 0.9815118137650541,
+            "ordinal_mae": 0.011648745519713262
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9824282935095145,
+          "validation_macro_f1": 0.9814835695883697,
+          "inverse_normalized_ordinal_mae": 0.982078853046595,
+          "mean_dependency_nmi": 0.5625688728698726,
+          "priority": 0.9610820172086052,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9802867383512545,
+            "macro_f1": 0.9814835695883697,
+            "balanced_accuracy": 0.9824282935095145,
+            "ordinal_mae": 0.017921146953405017
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.9643400070557693,
+          "validation_macro_f1": 0.9618869421372538,
+          "inverse_normalized_ordinal_mae": 0.9775985663082437,
+          "mean_dependency_nmi": 0.5413903421126514,
+          "priority": 0.9451083161835535,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9623655913978495,
+            "macro_f1": 0.9618869421372538,
+            "balanced_accuracy": 0.9643400070557693,
+            "ordinal_mae": 0.022401433691756272
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9675482542033036,
+          "validation_macro_f1": 0.9676794164093973,
+          "inverse_normalized_ordinal_mae": 0.9811827956989247,
+          "mean_dependency_nmi": 0.5322691091592633,
+          "priority": 0.9485505539120539,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9713261648745519,
+            "macro_f1": 0.9676794164093973,
+            "balanced_accuracy": 0.9675482542033036,
+            "ordinal_mae": 0.01881720430107527
+          }
+        },
+        "limb_load_bearing": {
+          "validation_balanced_accuracy": 0.9814814814814814,
+          "validation_macro_f1": 0.9889986396167267,
+          "inverse_normalized_ordinal_mae": 0.9973118279569892,
+          "mean_dependency_nmi": 0.25264318956916876,
+          "priority": 0.9504607836215409,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9946236559139785,
+            "macro_f1": 0.9889986396167267,
+            "balanced_accuracy": 0.9814814814814814,
+            "ordinal_mae": 0.002688172043010753
+          }
+        },
+        "overall_stillness": {
+          "validation_balanced_accuracy": 0.9900808936825887,
+          "validation_macro_f1": 0.9840753424657533,
+          "inverse_normalized_ordinal_mae": 0.9946236559139785,
+          "mean_dependency_nmi": 0.41004486980474353,
+          "priority": 0.9601859795699238,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.989247311827957,
+            "macro_f1": 0.9840753424657533,
+            "balanced_accuracy": 0.9900808936825887,
+            "ordinal_mae": 0.005376344086021506
+          }
+        }
+      }
+    },
+    "2": {
+      "split_index": 2,
+      "seen_activities": [
+        "walking",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "standing",
+        "running"
+      ],
+      "training_sample_count": 1463,
+      "validation_sample_count": 627,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_2/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "ad1e51a9a00d0ba84ba30b8fc3d63c2353e4cb97bd4853ad743d899046c5238e",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "gravitational_alignment_variability",
+        "body_coordination",
+        "cyclic_translational_motion",
+        "vertical_motion",
+        "spatial_variability",
+        "limb_activity_level",
+        "stability_of_base",
+        "upper_body_involvement"
+      ],
+      "forward": [
+        "stability_of_base",
+        "cadence",
+        "limb_activity_level",
+        "cyclic_translational_motion",
+        "body_coordination",
+        "upper_body_involvement",
+        "posture_inclination",
+        "vertical_motion",
+        "spatial_variability",
+        "motion_intensity",
+        "impulsiveness",
+        "gravitational_alignment_variability",
+        "smoothness"
+      ],
+      "reverse": [
+        "smoothness",
+        "gravitational_alignment_variability",
+        "impulsiveness",
+        "motion_intensity",
+        "spatial_variability",
+        "vertical_motion",
+        "posture_inclination",
+        "upper_body_involvement",
+        "body_coordination",
+        "cyclic_translational_motion",
+        "limb_activity_level",
+        "cadence",
+        "stability_of_base"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9603112198341973,
+          "validation_macro_f1": 0.9698589698893834,
+          "inverse_normalized_ordinal_mae": 0.9912280701754386,
+          "mean_dependency_nmi": 0.4107198422515425,
+          "priority": 0.9418793460398687,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9840510366826156,
+            "macro_f1": 0.9698589698893834,
+            "balanced_accuracy": 0.9603112198341973,
+            "ordinal_mae": 0.008771929824561403
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9794005066366201,
+          "validation_macro_f1": 0.9723295809881175,
+          "inverse_normalized_ordinal_mae": 0.9872408293460925,
+          "mean_dependency_nmi": 0.5318467978629244,
+          "priority": 0.9564696080452791,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9776714513556619,
+            "macro_f1": 0.9723295809881175,
+            "balanced_accuracy": 0.9794005066366201,
+            "ordinal_mae": 0.012759170653907496
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9576244069292729,
+          "validation_macro_f1": 0.963726012497364,
+          "inverse_normalized_ordinal_mae": 0.9872408293460925,
+          "mean_dependency_nmi": 0.2965222128062071,
+          "priority": 0.9323230633769108,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9760765550239234,
+            "macro_f1": 0.963726012497364,
+            "balanced_accuracy": 0.9576244069292729,
+            "ordinal_mae": 0.012759170653907496
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9572712296355265,
+          "validation_macro_f1": 0.9552428839879127,
+          "inverse_normalized_ordinal_mae": 0.9864433811802232,
+          "mean_dependency_nmi": 0.5413404867284713,
+          "priority": 0.9417006191048289,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9744816586921851,
+            "macro_f1": 0.9552428839879127,
+            "balanced_accuracy": 0.9572712296355265,
+            "ordinal_mae": 0.013556618819776715
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9839429835980213,
+          "validation_macro_f1": 0.9876623376623377,
+          "inverse_normalized_ordinal_mae": 0.9952153110047847,
+          "mean_dependency_nmi": 0.2176886186237669,
+          "priority": 0.9490005370499561,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9904306220095693,
+            "macro_f1": 0.9876623376623377,
+            "balanced_accuracy": 0.9839429835980213,
+            "ordinal_mae": 0.004784688995215311
+          }
+        },
+        "gravitational_alignment_variability": {
+          "validation_balanced_accuracy": 0.9572712296355265,
+          "validation_macro_f1": 0.9552428839879127,
+          "inverse_normalized_ordinal_mae": 0.9864433811802232,
+          "mean_dependency_nmi": 0.5413404867284713,
+          "priority": 0.9417006191048289,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9744816586921851,
+            "macro_f1": 0.9552428839879127,
+            "balanced_accuracy": 0.9572712296355265,
+            "ordinal_mae": 0.013556618819776715
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9646448389551913,
+          "validation_macro_f1": 0.9684477410261138,
+          "inverse_normalized_ordinal_mae": 0.9848484848484849,
+          "mean_dependency_nmi": 0.5925615228486426,
+          "priority": 0.9512222729497993,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9776714513556619,
+            "macro_f1": 0.9684477410261138,
+            "balanced_accuracy": 0.9646448389551913,
+            "ordinal_mae": 0.015151515151515152
+          }
+        },
+        "cyclic_translational_motion": {
+          "validation_balanced_accuracy": 0.9669811320754716,
+          "validation_macro_f1": 0.9726602965686562,
+          "inverse_normalized_ordinal_mae": 0.9936204146730463,
+          "mean_dependency_nmi": 0.5426671325258395,
+          "priority": 0.9527970379654603,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.988835725677831,
+            "macro_f1": 0.9726602965686562,
+            "balanced_accuracy": 0.9669811320754716,
+            "ordinal_mae": 0.006379585326953748
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.973656201461564,
+          "validation_macro_f1": 0.9713838792786161,
+          "inverse_normalized_ordinal_mae": 0.9824561403508771,
+          "mean_dependency_nmi": 0.44596518944867714,
+          "priority": 0.9483499419838979,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9760765550239234,
+            "macro_f1": 0.9713838792786161,
+            "balanced_accuracy": 0.973656201461564,
+            "ordinal_mae": 0.017543859649122806
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9607593578412302,
+          "validation_macro_f1": 0.9657343627487324,
+          "inverse_normalized_ordinal_mae": 0.9824561403508771,
+          "mean_dependency_nmi": 0.4722663189460045,
+          "priority": 0.9421665638706489,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9681020733652312,
+            "macro_f1": 0.9657343627487324,
+            "balanced_accuracy": 0.9607593578412302,
+            "ordinal_mae": 0.017543859649122806
+          }
+        },
+        "limb_activity_level": {
+          "validation_balanced_accuracy": 0.9891878737310527,
+          "validation_macro_f1": 0.9873323462434302,
+          "inverse_normalized_ordinal_mae": 0.9944178628389154,
+          "mean_dependency_nmi": 0.32285921288429026,
+          "priority": 0.9563607802640004,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.988835725677831,
+            "macro_f1": 0.9873323462434302,
+            "balanced_accuracy": 0.9891878737310527,
+            "ordinal_mae": 0.005582137161084529
+          }
+        },
+        "stability_of_base": {
+          "validation_balanced_accuracy": 0.9884028335180726,
+          "validation_macro_f1": 0.9864936973226487,
+          "inverse_normalized_ordinal_mae": 0.9936204146730463,
+          "mean_dependency_nmi": 0.5511978693692937,
+          "priority": 0.9670133606830011,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9872408293460925,
+            "macro_f1": 0.9864936973226487,
+            "balanced_accuracy": 0.9884028335180726,
+            "ordinal_mae": 0.006379585326953748
+          }
+        },
+        "upper_body_involvement": {
+          "validation_balanced_accuracy": 0.9774224068305065,
+          "validation_macro_f1": 0.9795429515418501,
+          "inverse_normalized_ordinal_mae": 0.9872408293460925,
+          "mean_dependency_nmi": 0.38724437147968255,
+          "priority": 0.9505133529794857,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9808612440191388,
+            "macro_f1": 0.9795429515418501,
+            "balanced_accuracy": 0.9774224068305065,
+            "ordinal_mae": 0.012759170653907496
+          }
+        }
+      }
+    },
+    "3": {
+      "split_index": 3,
+      "seen_activities": [
+        "walking",
+        "running",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "standing",
+        "cycling"
+      ],
+      "training_sample_count": 1387,
+      "validation_sample_count": 595,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_3/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "c2064e780092306a3525096752c43bd30749de9dd60a1620e29ef5e792b4a558",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "postural_stability",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "localized_limb_motion",
+        "seated_locomotion_signature"
+      ],
+      "forward": [
+        "posture_inclination",
+        "impulsiveness",
+        "cadence",
+        "postural_stability",
+        "body_coordination",
+        "localized_limb_motion",
+        "spatial_variability",
+        "motion_type",
+        "motion_intensity",
+        "smoothness",
+        "vertical_motion",
+        "seated_locomotion_signature"
+      ],
+      "reverse": [
+        "seated_locomotion_signature",
+        "vertical_motion",
+        "smoothness",
+        "motion_intensity",
+        "motion_type",
+        "spatial_variability",
+        "localized_limb_motion",
+        "body_coordination",
+        "postural_stability",
+        "cadence",
+        "impulsiveness",
+        "posture_inclination"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9583525858970852,
+          "validation_macro_f1": 0.959728952500833,
+          "inverse_normalized_ordinal_mae": 0.9831932773109243,
+          "mean_dependency_nmi": 0.43264485541172154,
+          "priority": 0.9374482476367091,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.973109243697479,
+            "macro_f1": 0.959728952500833,
+            "balanced_accuracy": 0.9583525858970852,
+            "ordinal_mae": 0.01680672268907563
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.961463873995871,
+          "validation_macro_f1": 0.9685916226955898,
+          "inverse_normalized_ordinal_mae": 0.9747899159663865,
+          "mean_dependency_nmi": 0.493366313174688,
+          "priority": 0.9428625289588306,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9697478991596639,
+            "macro_f1": 0.9685916226955898,
+            "balanced_accuracy": 0.961463873995871,
+            "ordinal_mae": 0.025210084033613446
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9626259552309461,
+          "validation_macro_f1": 0.9660267268962922,
+          "inverse_normalized_ordinal_mae": 0.9882352941176471,
+          "mean_dependency_nmi": 0.27392869297531564,
+          "priority": 0.9343331913951086,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9798319327731092,
+            "macro_f1": 0.9660267268962922,
+            "balanced_accuracy": 0.9626259552309461,
+            "ordinal_mae": 0.011764705882352941
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9586026963010453,
+          "validation_macro_f1": 0.970301557535182,
+          "inverse_normalized_ordinal_mae": 0.9882352941176471,
+          "mean_dependency_nmi": 0.5657617524844366,
+          "priority": 0.9483968270437763,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9781512605042016,
+            "macro_f1": 0.970301557535182,
+            "balanced_accuracy": 0.9586026963010453,
+            "ordinal_mae": 0.011764705882352941
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9738917306052857,
+          "validation_macro_f1": 0.9738917306052857,
+          "inverse_normalized_ordinal_mae": 0.9882352941176471,
+          "mean_dependency_nmi": 0.5534506145252959,
+          "priority": 0.9557383875037584,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9764705882352941,
+            "macro_f1": 0.9738917306052857,
+            "balanced_accuracy": 0.9738917306052857,
+            "ordinal_mae": 0.011764705882352941
+          }
+        },
+        "postural_stability": {
+          "validation_balanced_accuracy": 0.9525777235197004,
+          "validation_macro_f1": 0.957000165359622,
+          "inverse_normalized_ordinal_mae": 0.9773109243697479,
+          "mean_dependency_nmi": 0.6098309492550222,
+          "priority": 0.9417137575284524,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9697478991596639,
+            "macro_f1": 0.957000165359622,
+            "balanced_accuracy": 0.9525777235197004,
+            "ordinal_mae": 0.0226890756302521
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9525777235197004,
+          "validation_macro_f1": 0.957000165359622,
+          "inverse_normalized_ordinal_mae": 0.9773109243697479,
+          "mean_dependency_nmi": 0.6098309492550222,
+          "priority": 0.9417137575284524,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9697478991596639,
+            "macro_f1": 0.957000165359622,
+            "balanced_accuracy": 0.9525777235197004,
+            "ordinal_mae": 0.0226890756302521
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9517341707846487,
+          "validation_macro_f1": 0.9562485801953651,
+          "inverse_normalized_ordinal_mae": 0.9781512605042016,
+          "mean_dependency_nmi": 0.5547515413472618,
+          "priority": 0.938522780079905,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9680672268907563,
+            "macro_f1": 0.9562485801953651,
+            "balanced_accuracy": 0.9517341707846487,
+            "ordinal_mae": 0.021848739495798318
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.9409144427001569,
+          "validation_macro_f1": 0.9445195811189641,
+          "inverse_normalized_ordinal_mae": 0.973109243697479,
+          "mean_dependency_nmi": 0.2957237282783884,
+          "priority": 0.916175408704175,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9663865546218487,
+            "macro_f1": 0.9445195811189641,
+            "balanced_accuracy": 0.9409144427001569,
+            "ordinal_mae": 0.02689075630252101
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9674456789242116,
+          "validation_macro_f1": 0.9530053447245544,
+          "inverse_normalized_ordinal_mae": 0.9714285714285714,
+          "mean_dependency_nmi": 0.48709057608057477,
+          "priority": 0.9398924020230046,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.957983193277311,
+            "macro_f1": 0.9530053447245544,
+            "balanced_accuracy": 0.9674456789242116,
+            "ordinal_mae": 0.02857142857142857
+          }
+        },
+        "localized_limb_motion": {
+          "validation_balanced_accuracy": 0.9525777235197004,
+          "validation_macro_f1": 0.957000165359622,
+          "inverse_normalized_ordinal_mae": 0.9773109243697479,
+          "mean_dependency_nmi": 0.6098309492550222,
+          "priority": 0.9417137575284524,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9697478991596639,
+            "macro_f1": 0.957000165359622,
+            "balanced_accuracy": 0.9525777235197004,
+            "ordinal_mae": 0.0226890756302521
+          }
+        },
+        "seated_locomotion_signature": {
+          "validation_balanced_accuracy": 1.0,
+          "validation_macro_f1": 1.0,
+          "inverse_normalized_ordinal_mae": 1.0,
+          "mean_dependency_nmi": 0.0,
+          "priority": 0.95,
+          "constant": true,
+          "validation_metrics": {
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "balanced_accuracy": 1.0,
+            "ordinal_mae": 0.0
+          }
+        }
+      }
+    },
+    "13": {
+      "split_index": 13,
+      "seen_activities": [
+        "standing",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "walking",
+        "ascending stairs"
+      ],
+      "training_sample_count": 1386,
+      "validation_sample_count": 595,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_13/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "f608ec3c7ef3c54eff322357188a9aa40ed9c44c10bd247af552174aae9f336e",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "vertical_motion_direction",
+        "locomotion_translational_rotational_balance",
+        "limb_activity_level"
+      ],
+      "forward": [
+        "posture_inclination",
+        "body_coordination",
+        "motion_intensity",
+        "smoothness",
+        "locomotion_translational_rotational_balance",
+        "spatial_variability",
+        "motion_type",
+        "impulsiveness",
+        "vertical_motion",
+        "posture_variability",
+        "cadence",
+        "limb_activity_level",
+        "vertical_motion_direction"
+      ],
+      "reverse": [
+        "vertical_motion_direction",
+        "limb_activity_level",
+        "cadence",
+        "posture_variability",
+        "vertical_motion",
+        "impulsiveness",
+        "motion_type",
+        "spatial_variability",
+        "locomotion_translational_rotational_balance",
+        "smoothness",
+        "motion_intensity",
+        "body_coordination",
+        "posture_inclination"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9649250869191839,
+          "validation_macro_f1": 0.9712210695086229,
+          "inverse_normalized_ordinal_mae": 0.9831932773109243,
+          "mean_dependency_nmi": 0.5341589037840311,
+          "priority": 0.9489292106176059,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9747899159663865,
+            "macro_f1": 0.9712210695086229,
+            "balanced_accuracy": 0.9649250869191839,
+            "ordinal_mae": 0.01680672268907563
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9576394067445522,
+          "validation_macro_f1": 0.9676785373742778,
+          "inverse_normalized_ordinal_mae": 0.9747899159663865,
+          "mean_dependency_nmi": 0.4951201543882499,
+          "priority": 0.9409552851600216,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9697478991596639,
+            "macro_f1": 0.9676785373742778,
+            "balanced_accuracy": 0.9576394067445522,
+            "ordinal_mae": 0.025210084033613446
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9616093867509882,
+          "validation_macro_f1": 0.9698577761050672,
+          "inverse_normalized_ordinal_mae": 0.9815126050420168,
+          "mean_dependency_nmi": 0.5784575987634804,
+          "priority": 0.9489069578160422,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9714285714285714,
+            "macro_f1": 0.9698577761050672,
+            "balanced_accuracy": 0.9616093867509882,
+            "ordinal_mae": 0.018487394957983194
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.95659626548789,
+          "validation_macro_f1": 0.9598256446326348,
+          "inverse_normalized_ordinal_mae": 0.9739495798319328,
+          "mean_dependency_nmi": 0.5708267650497342,
+          "priority": 0.9417472670782142,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9630252100840336,
+            "macro_f1": 0.9598256446326348,
+            "balanced_accuracy": 0.95659626548789,
+            "ordinal_mae": 0.026050420168067228
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9832278929229026,
+          "validation_macro_f1": 0.9807821616177632,
+          "inverse_normalized_ordinal_mae": 0.9907563025210084,
+          "mean_dependency_nmi": 0.4082735754826812,
+          "priority": 0.9552521395789708,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9815126050420168,
+            "macro_f1": 0.9807821616177632,
+            "balanced_accuracy": 0.9832278929229026,
+            "ordinal_mae": 0.009243697478991597
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9586715060157892,
+          "validation_macro_f1": 0.959290506803114,
+          "inverse_normalized_ordinal_mae": 0.9722689075630252,
+          "mean_dependency_nmi": 0.5555461549298406,
+          "priority": 0.9414204190071365,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9647058823529412,
+            "macro_f1": 0.959290506803114,
+            "balanced_accuracy": 0.9586715060157892,
+            "ordinal_mae": 0.02773109243697479
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.971414090058876,
+          "validation_macro_f1": 0.9715610708747965,
+          "inverse_normalized_ordinal_mae": 0.9789915966386554,
+          "mean_dependency_nmi": 0.574788957698756,
+          "priority": 0.953142429001602,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9714285714285714,
+            "macro_f1": 0.9715610708747965,
+            "balanced_accuracy": 0.971414090058876,
+            "ordinal_mae": 0.02100840336134454
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.958767671155559,
+          "validation_macro_f1": 0.9574523313659475,
+          "inverse_normalized_ordinal_mae": 0.9747899159663865,
+          "mean_dependency_nmi": 0.6037297796695532,
+          "priority": 0.9438256236065408,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9647058823529412,
+            "macro_f1": 0.9574523313659475,
+            "balanced_accuracy": 0.958767671155559,
+            "ordinal_mae": 0.025210084033613446
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.95659626548789,
+          "validation_macro_f1": 0.9598256446326348,
+          "inverse_normalized_ordinal_mae": 0.9739495798319328,
+          "mean_dependency_nmi": 0.5708267650497342,
+          "priority": 0.9417472670782142,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9630252100840336,
+            "macro_f1": 0.9598256446326348,
+            "balanced_accuracy": 0.95659626548789,
+            "ordinal_mae": 0.026050420168067228
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9686117463306729,
+          "validation_macro_f1": 0.9687879739131212,
+          "inverse_normalized_ordinal_mae": 0.980672268907563,
+          "mean_dependency_nmi": 0.4587732619469615,
+          "priority": 0.9455847949015999,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9697478991596639,
+            "macro_f1": 0.9687879739131212,
+            "balanced_accuracy": 0.9686117463306729,
+            "ordinal_mae": 0.019327731092436976
+          }
+        },
+        "vertical_motion_direction": {
+          "validation_balanced_accuracy": 0.9490825688073394,
+          "validation_macro_f1": 0.9660077696526508,
+          "inverse_normalized_ordinal_mae": 0.9949579831932773,
+          "mean_dependency_nmi": 0.14388989937898475,
+          "priority": 0.9230755784667027,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9899159663865547,
+            "macro_f1": 0.9660077696526508,
+            "balanced_accuracy": 0.9490825688073394,
+            "ordinal_mae": 0.005042016806722689
+          }
+        },
+        "locomotion_translational_rotational_balance": {
+          "validation_balanced_accuracy": 0.9616093867509882,
+          "validation_macro_f1": 0.9698577761050672,
+          "inverse_normalized_ordinal_mae": 0.9815126050420168,
+          "mean_dependency_nmi": 0.5784575987634805,
+          "priority": 0.9489069578160422,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9714285714285714,
+            "macro_f1": 0.9698577761050672,
+            "balanced_accuracy": 0.9616093867509882,
+            "ordinal_mae": 0.018487394957983194
+          }
+        },
+        "limb_activity_level": {
+          "validation_balanced_accuracy": 0.968513531926131,
+          "validation_macro_f1": 0.9596752680467646,
+          "inverse_normalized_ordinal_mae": 0.9781512605042016,
+          "mean_dependency_nmi": 0.3662532324316976,
+          "priority": 0.9376765835032136,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9647058823529412,
+            "macro_f1": 0.9596752680467646,
+            "balanced_accuracy": 0.968513531926131,
+            "ordinal_mae": 0.021848739495798318
+          }
+        }
+      }
+    },
+    "16": {
+      "split_index": 16,
+      "seen_activities": [
+        "standing",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "walking",
+        "ironing"
+      ],
+      "training_sample_count": 1242,
+      "validation_sample_count": 533,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_16/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "43d86b1e55a7f6f058540582bd9eab493c7eb95b9c7e5d399b22e4d25683d174",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "torso_tilt_angle",
+        "posture_variability",
+        "localized_limb_dominance",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability"
+      ],
+      "forward": [
+        "cadence",
+        "motion_type",
+        "motion_intensity",
+        "spatial_variability",
+        "impulsiveness",
+        "posture_variability",
+        "localized_limb_dominance",
+        "vertical_motion",
+        "torso_tilt_angle",
+        "smoothness"
+      ],
+      "reverse": [
+        "smoothness",
+        "torso_tilt_angle",
+        "vertical_motion",
+        "localized_limb_dominance",
+        "posture_variability",
+        "impulsiveness",
+        "spatial_variability",
+        "motion_intensity",
+        "motion_type",
+        "cadence"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9753474561469172,
+          "validation_macro_f1": 0.9765024016241298,
+          "inverse_normalized_ordinal_mae": 0.9896810506566605,
+          "mean_dependency_nmi": 0.50795377658399,
+          "priority": 0.9551909747138833,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9868667917448405,
+            "macro_f1": 0.9765024016241298,
+            "balanced_accuracy": 0.9753474561469172,
+            "ordinal_mae": 0.010318949343339587
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9952785646836638,
+          "validation_macro_f1": 0.9889868655436719,
+          "inverse_normalized_ordinal_mae": 0.9906191369606003,
+          "mean_dependency_nmi": 0.45730740298448347,
+          "priority": 0.9655606113120945,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9906191369606003,
+            "macro_f1": 0.9889868655436719,
+            "balanced_accuracy": 0.9952785646836638,
+            "ordinal_mae": 0.009380863039399626
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9504405474764756,
+          "validation_macro_f1": 0.9649474343526266,
+          "inverse_normalized_ordinal_mae": 0.9878048780487805,
+          "mean_dependency_nmi": 0.38839139221183067,
+          "priority": 0.9341630218905496,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9812382739212008,
+            "macro_f1": 0.9649474343526266,
+            "balanced_accuracy": 0.9504405474764756,
+            "ordinal_mae": 0.012195121951219513
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9662394619751077,
+          "validation_macro_f1": 0.9745143453465056,
+          "inverse_normalized_ordinal_mae": 0.9849906191369606,
+          "mean_dependency_nmi": 0.49454596286432856,
+          "priority": 0.9488874834633586,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9774859287054409,
+            "macro_f1": 0.9745143453465056,
+            "balanced_accuracy": 0.9662394619751077,
+            "ordinal_mae": 0.0150093808630394
+          }
+        },
+        "torso_tilt_angle": {
+          "validation_balanced_accuracy": 0.9569491396952929,
+          "validation_macro_f1": 0.9725476679536279,
+          "inverse_normalized_ordinal_mae": 0.9868667917448405,
+          "mean_dependency_nmi": 0.3183246778039655,
+          "priority": 0.9356810054881365,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9849906191369606,
+            "macro_f1": 0.9725476679536279,
+            "balanced_accuracy": 0.9569491396952929,
+            "ordinal_mae": 0.013133208255159476
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9694162346505534,
+          "validation_macro_f1": 0.9744325439515803,
+          "inverse_normalized_ordinal_mae": 0.9849906191369606,
+          "mean_dependency_nmi": 0.46580343491936965,
+          "priority": 0.9488553643515837,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9793621013133208,
+            "macro_f1": 0.9744325439515803,
+            "balanced_accuracy": 0.9694162346505534,
+            "ordinal_mae": 0.0150093808630394
+          }
+        },
+        "localized_limb_dominance": {
+          "validation_balanced_accuracy": 0.9725345930525933,
+          "validation_macro_f1": 0.9775274069125238,
+          "inverse_normalized_ordinal_mae": 0.9812382739212008,
+          "mean_dependency_nmi": 0.3452772085695674,
+          "priority": 0.9444103041601427,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9793621013133208,
+            "macro_f1": 0.9775274069125238,
+            "balanced_accuracy": 0.9725345930525933,
+            "ordinal_mae": 0.01876172607879925
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9931224563391892,
+          "validation_macro_f1": 0.9899264475679518,
+          "inverse_normalized_ordinal_mae": 0.9915572232645403,
+          "mean_dependency_nmi": 0.42457105801985134,
+          "priority": 0.9634230371769213,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9906191369606003,
+            "macro_f1": 0.9899264475679518,
+            "balanced_accuracy": 0.9931224563391892,
+            "ordinal_mae": 0.008442776735459663
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.9664891928797821,
+          "validation_macro_f1": 0.9726246248628447,
+          "inverse_normalized_ordinal_mae": 0.9784240150093808,
+          "mean_dependency_nmi": 0.42156303040601056,
+          "priority": 0.9434704787769321,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9737335834896811,
+            "macro_f1": 0.9726246248628447,
+            "balanced_accuracy": 0.9664891928797821,
+            "ordinal_mae": 0.021575984990619138
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9753474561469172,
+          "validation_macro_f1": 0.9765024016241298,
+          "inverse_normalized_ordinal_mae": 0.9896810506566605,
+          "mean_dependency_nmi": 0.5079537765839901,
+          "priority": 0.9551909747138833,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9868667917448405,
+            "macro_f1": 0.9765024016241298,
+            "balanced_accuracy": 0.9753474561469172,
+            "ordinal_mae": 0.010318949343339587
+          }
+        }
+      }
+    },
+    "17": {
+      "split_index": 17,
+      "seen_activities": [
+        "standing",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "walking",
+        "rope jumping"
+      ],
+      "training_sample_count": 1463,
+      "validation_sample_count": 627,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_17/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "9d056912db91450cb2ff152c357f603ceb3a63b3fced0eddd92b0865f2402861",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "spatial_variability",
+        "sustained_vertical_oscillation",
+        "horizontal_locomotion_dominance",
+        "static_posture_stability",
+        "upper_body_involvement"
+      ],
+      "forward": [
+        "motion_intensity",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "static_posture_stability",
+        "sustained_vertical_oscillation",
+        "spatial_variability",
+        "horizontal_locomotion_dominance",
+        "smoothness",
+        "cadence",
+        "impulsiveness",
+        "posture_inclination",
+        "upper_body_involvement"
+      ],
+      "reverse": [
+        "upper_body_involvement",
+        "posture_inclination",
+        "impulsiveness",
+        "cadence",
+        "smoothness",
+        "horizontal_locomotion_dominance",
+        "spatial_variability",
+        "sustained_vertical_oscillation",
+        "static_posture_stability",
+        "motion_type",
+        "body_coordination",
+        "posture_variability",
+        "motion_intensity"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9850270548373734,
+          "validation_macro_f1": 0.9840516824258408,
+          "inverse_normalized_ordinal_mae": 0.9880382775119617,
+          "mean_dependency_nmi": 0.6442872900627429,
+          "priority": 0.9682996994100999,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9840510366826156,
+            "macro_f1": 0.9840516824258408,
+            "balanced_accuracy": 0.9850270548373734,
+            "ordinal_mae": 0.011961722488038277
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9690513729230833,
+          "validation_macro_f1": 0.9718493785762065,
+          "inverse_normalized_ordinal_mae": 0.9856459330143541,
+          "mean_dependency_nmi": 0.5358818685773808,
+          "priority": 0.9515512114199893,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9744816586921851,
+            "macro_f1": 0.9718493785762065,
+            "balanced_accuracy": 0.9690513729230833,
+            "ordinal_mae": 0.014354066985645933
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9753687750826879,
+          "validation_macro_f1": 0.9786242872220111,
+          "inverse_normalized_ordinal_mae": 0.9848484848484849,
+          "mean_dependency_nmi": 0.5085297525839518,
+          "priority": 0.9548994195527076,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9792663476874003,
+            "macro_f1": 0.9786242872220111,
+            "balanced_accuracy": 0.9753687750826879,
+            "ordinal_mae": 0.015151515151515152
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9720744198290502,
+          "validation_macro_f1": 0.9745170542646472,
+          "inverse_normalized_ordinal_mae": 0.9832535885167464,
+          "mean_dependency_nmi": 0.4803692182665625,
+          "priority": 0.9504577838191441,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9760765550239234,
+            "macro_f1": 0.9745170542646472,
+            "balanced_accuracy": 0.9720744198290502,
+            "ordinal_mae": 0.01674641148325359
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9805657305657305,
+          "validation_macro_f1": 0.9856718464351005,
+          "inverse_normalized_ordinal_mae": 0.9968102073365231,
+          "mean_dependency_nmi": 0.19364942198687962,
+          "priority": 0.9460006452517574,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9936204146730463,
+            "macro_f1": 0.9856718464351005,
+            "balanced_accuracy": 0.9805657305657305,
+            "ordinal_mae": 0.003189792663476874
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9850270548373734,
+          "validation_macro_f1": 0.9840516824258408,
+          "inverse_normalized_ordinal_mae": 0.9880382775119617,
+          "mean_dependency_nmi": 0.6442872900627429,
+          "priority": 0.9682996994100999,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9840510366826156,
+            "macro_f1": 0.9840516824258408,
+            "balanced_accuracy": 0.9850270548373734,
+            "ordinal_mae": 0.011961722488038277
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9850270548373734,
+          "validation_macro_f1": 0.9840516824258408,
+          "inverse_normalized_ordinal_mae": 0.9880382775119617,
+          "mean_dependency_nmi": 0.6442872900627429,
+          "priority": 0.9682996994100999,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9840510366826156,
+            "macro_f1": 0.9840516824258408,
+            "balanced_accuracy": 0.9850270548373734,
+            "ordinal_mae": 0.011961722488038277
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9775760845355572,
+          "validation_macro_f1": 0.9751511104319993,
+          "inverse_normalized_ordinal_mae": 0.9864433811802232,
+          "mean_dependency_nmi": 0.6038321238041434,
+          "priority": 0.9599348535968524,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9808612440191388,
+            "macro_f1": 0.9751511104319993,
+            "balanced_accuracy": 0.9775760845355572,
+            "ordinal_mae": 0.013556618819776715
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9720655816855658,
+          "validation_macro_f1": 0.976380051404998,
+          "inverse_normalized_ordinal_mae": 0.9872408293460925,
+          "mean_dependency_nmi": 0.578990770716459,
+          "priority": 0.9567412315850454,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9776714513556619,
+            "macro_f1": 0.976380051404998,
+            "balanced_accuracy": 0.9720655816855658,
+            "ordinal_mae": 0.012759170653907496
+          }
+        },
+        "sustained_vertical_oscillation": {
+          "validation_balanced_accuracy": 0.9799131841007745,
+          "validation_macro_f1": 0.9815899827297648,
+          "inverse_normalized_ordinal_mae": 0.9912280701754386,
+          "mean_dependency_nmi": 0.4864437570493724,
+          "priority": 0.9580057295518343,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9824561403508771,
+            "macro_f1": 0.9815899827297648,
+            "balanced_accuracy": 0.9799131841007745,
+            "ordinal_mae": 0.008771929824561403
+          }
+        },
+        "horizontal_locomotion_dominance": {
+          "validation_balanced_accuracy": 0.978030313713324,
+          "validation_macro_f1": 0.9774588701841109,
+          "inverse_normalized_ordinal_mae": 0.9864433811802232,
+          "mean_dependency_nmi": 0.5127274009605044,
+          "priority": 0.9562763485102989,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9776714513556619,
+            "macro_f1": 0.9774588701841109,
+            "balanced_accuracy": 0.978030313713324,
+            "ordinal_mae": 0.013556618819776715
+          }
+        },
+        "static_posture_stability": {
+          "validation_balanced_accuracy": 0.9775760845355572,
+          "validation_macro_f1": 0.9751511104319993,
+          "inverse_normalized_ordinal_mae": 0.9864433811802232,
+          "mean_dependency_nmi": 0.6038321238041434,
+          "priority": 0.9599348535968524,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9808612440191388,
+            "macro_f1": 0.9751511104319993,
+            "balanced_accuracy": 0.9775760845355572,
+            "ordinal_mae": 0.013556618819776715
+          }
+        },
+        "upper_body_involvement": {
+          "validation_balanced_accuracy": 0.9727348288609092,
+          "validation_macro_f1": 0.9780656999641962,
+          "inverse_normalized_ordinal_mae": 0.9792663476874003,
+          "mean_dependency_nmi": 0.1915585398858595,
+          "priority": 0.936581579508441,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9776714513556619,
+            "macro_f1": 0.9780656999641962,
+            "balanced_accuracy": 0.9727348288609092,
+            "ordinal_mae": 0.02073365231259968
+          }
+        }
+      }
+    },
+    "45": {
+      "split_index": 45,
+      "seen_activities": [
+        "standing",
+        "walking",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning"
+      ],
+      "unseen_activities": [
+        "lying",
+        "sitting",
+        "ironing",
+        "rope jumping"
+      ],
+      "training_sample_count": 1463,
+      "validation_sample_count": 628,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_45/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "6c052c752fd1acd0d8f25406a329ff1201242106432b0534f1f8faad84dd8668",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "postural_orientation_stability",
+        "upper_body_dominance",
+        "vertical_rhythmicity",
+        "localized_repetitive_motion"
+      ],
+      "forward": [
+        "postural_orientation_stability",
+        "body_coordination",
+        "motion_type",
+        "cadence",
+        "spatial_variability",
+        "upper_body_dominance",
+        "smoothness",
+        "impulsiveness",
+        "vertical_motion",
+        "localized_repetitive_motion",
+        "motion_intensity",
+        "vertical_rhythmicity"
+      ],
+      "reverse": [
+        "vertical_rhythmicity",
+        "motion_intensity",
+        "localized_repetitive_motion",
+        "vertical_motion",
+        "impulsiveness",
+        "smoothness",
+        "upper_body_dominance",
+        "spatial_variability",
+        "cadence",
+        "motion_type",
+        "body_coordination",
+        "postural_orientation_stability"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9733318614581484,
+          "validation_macro_f1": 0.9651637204688184,
+          "inverse_normalized_ordinal_mae": 0.9800955414012739,
+          "mean_dependency_nmi": 0.4318843674425014,
+          "priority": 0.9451617804491921,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9697452229299363,
+            "macro_f1": 0.9651637204688184,
+            "balanced_accuracy": 0.9733318614581484,
+            "ordinal_mae": 0.019904458598726114
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9805243198125337,
+          "validation_macro_f1": 0.9713801755083523,
+          "inverse_normalized_ordinal_mae": 0.9848726114649682,
+          "mean_dependency_nmi": 0.3927891823324142,
+          "priority": 0.9492639779777602,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9761146496815286,
+            "macro_f1": 0.9713801755083523,
+            "balanced_accuracy": 0.9805243198125337,
+            "ordinal_mae": 0.015127388535031847
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9698644315920782,
+          "validation_macro_f1": 0.9662540725021936,
+          "inverse_normalized_ordinal_mae": 0.9800955414012739,
+          "mean_dependency_nmi": 0.5197847132608113,
+          "priority": 0.9483235599103887,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9681528662420382,
+            "macro_f1": 0.9662540725021936,
+            "balanced_accuracy": 0.9698644315920782,
+            "ordinal_mae": 0.019904458598726114
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9698644315920782,
+          "validation_macro_f1": 0.9662540725021936,
+          "inverse_normalized_ordinal_mae": 0.9800955414012739,
+          "mean_dependency_nmi": 0.5197847132608113,
+          "priority": 0.9483235599103887,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9681528662420382,
+            "macro_f1": 0.9662540725021936,
+            "balanced_accuracy": 0.9698644315920782,
+            "ordinal_mae": 0.019904458598726114
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.98036170801819,
+          "validation_macro_f1": 0.9741534669639246,
+          "inverse_normalized_ordinal_mae": 0.9872611464968153,
+          "mean_dependency_nmi": 0.5089722798191397,
+          "priority": 0.9563096519876829,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9840764331210191,
+            "macro_f1": 0.9741534669639246,
+            "balanced_accuracy": 0.98036170801819,
+            "ordinal_mae": 0.012738853503184714
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9719218537028623,
+          "validation_macro_f1": 0.9759927945631705,
+          "inverse_normalized_ordinal_mae": 0.9840764331210191,
+          "mean_dependency_nmi": 0.4715574047881045,
+          "priority": 0.9505558293988484,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9792993630573248,
+            "macro_f1": 0.9759927945631705,
+            "balanced_accuracy": 0.9719218537028623,
+            "ordinal_mae": 0.01592356687898089
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.9698644315920782,
+          "validation_macro_f1": 0.9662540725021936,
+          "inverse_normalized_ordinal_mae": 0.9800955414012739,
+          "mean_dependency_nmi": 0.5197847132608113,
+          "priority": 0.9483235599103887,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9681528662420382,
+            "macro_f1": 0.9662540725021936,
+            "balanced_accuracy": 0.9698644315920782,
+            "ordinal_mae": 0.019904458598726114
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9693812225546313,
+          "validation_macro_f1": 0.9622026648358367,
+          "inverse_normalized_ordinal_mae": 0.9792993630573248,
+          "mean_dependency_nmi": 0.5674364344388091,
+          "priority": 0.9491140439337405,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9681528662420382,
+            "macro_f1": 0.9622026648358367,
+            "balanced_accuracy": 0.9693812225546313,
+            "ordinal_mae": 0.020700636942675158
+          }
+        },
+        "postural_orientation_stability": {
+          "validation_balanced_accuracy": 0.984636180475658,
+          "validation_macro_f1": 0.9798436806017604,
+          "inverse_normalized_ordinal_mae": 0.9912420382165605,
+          "mean_dependency_nmi": 0.49211174662878965,
+          "priority": 0.9598933803693258,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9856687898089171,
+            "macro_f1": 0.9798436806017604,
+            "balanced_accuracy": 0.984636180475658,
+            "ordinal_mae": 0.00875796178343949
+          }
+        },
+        "upper_body_dominance": {
+          "validation_balanced_accuracy": 0.9693812225546313,
+          "validation_macro_f1": 0.9622026648358367,
+          "inverse_normalized_ordinal_mae": 0.9792993630573248,
+          "mean_dependency_nmi": 0.5674364344388091,
+          "priority": 0.9491140439337405,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9681528662420382,
+            "macro_f1": 0.9622026648358367,
+            "balanced_accuracy": 0.9693812225546313,
+            "ordinal_mae": 0.020700636942675158
+          }
+        },
+        "vertical_rhythmicity": {
+          "validation_balanced_accuracy": 0.9662708862913343,
+          "validation_macro_f1": 0.9763617376987535,
+          "inverse_normalized_ordinal_mae": 0.9888535031847133,
+          "mean_dependency_nmi": 0.3491913199842017,
+          "priority": 0.9429606867768792,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9840764331210191,
+            "macro_f1": 0.9763617376987535,
+            "balanced_accuracy": 0.9662708862913343,
+            "ordinal_mae": 0.011146496815286623
+          }
+        },
+        "localized_repetitive_motion": {
+          "validation_balanced_accuracy": 0.9737467494494283,
+          "validation_macro_f1": 0.9801955219173762,
+          "inverse_normalized_ordinal_mae": 0.9920382165605095,
+          "mean_dependency_nmi": 0.3453077558932688,
+          "priority": 0.947917724934221,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9840764331210191,
+            "macro_f1": 0.9801955219173762,
+            "balanced_accuracy": 0.9737467494494283,
+            "ordinal_mae": 0.007961783439490446
+          }
+        }
+      }
+    },
+    "48": {
+      "split_index": 48,
+      "seen_activities": [
+        "sitting",
+        "running",
+        "cycling",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "standing",
+        "walking",
+        "Nordic walking"
+      ],
+      "training_sample_count": 1297,
+      "validation_sample_count": 556,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_48/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "6b29aa7673a210d01440cba824f1548e2f72e65a23c822bd317e218de1e195f0",
+      "attribute_schema": [
+        "motion_intensity",
+        "smoothness",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "lower_body_locomotion_rhythm",
+        "locomotion_impact_intensity",
+        "upper_body_rhythmicity",
+        "postural_stability_upright"
+      ],
+      "forward": [
+        "postural_stability_upright",
+        "lower_body_locomotion_rhythm",
+        "locomotion_impact_intensity",
+        "posture_variability",
+        "motion_intensity",
+        "smoothness",
+        "body_coordination",
+        "vertical_motion",
+        "spatial_variability",
+        "motion_type",
+        "upper_body_rhythmicity",
+        "posture_inclination"
+      ],
+      "reverse": [
+        "posture_inclination",
+        "upper_body_rhythmicity",
+        "motion_type",
+        "spatial_variability",
+        "vertical_motion",
+        "body_coordination",
+        "smoothness",
+        "motion_intensity",
+        "posture_variability",
+        "locomotion_impact_intensity",
+        "lower_body_locomotion_rhythm",
+        "postural_stability_upright"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.971234549316741,
+          "validation_macro_f1": 0.9764984253861181,
+          "inverse_normalized_ordinal_mae": 0.9865107913669064,
+          "mean_dependency_nmi": 0.492674473346625,
+          "priority": 0.9519409567490814,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9784172661870504,
+            "macro_f1": 0.9764984253861181,
+            "balanced_accuracy": 0.971234549316741,
+            "ordinal_mae": 0.013489208633093525
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9760008169934641,
+          "validation_macro_f1": 0.9756322429002843,
+          "inverse_normalized_ordinal_mae": 0.9901079136690647,
+          "mean_dependency_nmi": 0.40429939263262943,
+          "priority": 0.9501265928825886,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9838129496402878,
+            "macro_f1": 0.9756322429002843,
+            "balanced_accuracy": 0.9760008169934641,
+            "ordinal_mae": 0.009892086330935251
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.962962962962963,
+          "validation_macro_f1": 0.9776311554554232,
+          "inverse_normalized_ordinal_mae": 0.9946043165467626,
+          "mean_dependency_nmi": 0.22882471866839627,
+          "priority": 0.9369847792127327,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9892086330935251,
+            "macro_f1": 0.9776311554554232,
+            "balanced_accuracy": 0.962962962962963,
+            "ordinal_mae": 0.00539568345323741
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9703015983938416,
+          "validation_macro_f1": 0.9746108243044332,
+          "inverse_normalized_ordinal_mae": 0.9784172661870504,
+          "mean_dependency_nmi": 0.5460405816197254,
+          "priority": 0.952004448886955,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9748201438848921,
+            "macro_f1": 0.9746108243044332,
+            "balanced_accuracy": 0.9703015983938416,
+            "ordinal_mae": 0.02158273381294964
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9694778090126928,
+          "validation_macro_f1": 0.969845363366634,
+          "inverse_normalized_ordinal_mae": 0.97931654676259,
+          "mean_dependency_nmi": 0.5286154717237992,
+          "priority": 0.94951270600441,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9730215827338129,
+            "macro_f1": 0.969845363366634,
+            "balanced_accuracy": 0.9694778090126928,
+            "ordinal_mae": 0.02068345323741007
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9650472157370068,
+          "validation_macro_f1": 0.9661657871673465,
+          "inverse_normalized_ordinal_mae": 0.97931654676259,
+          "mean_dependency_nmi": 0.4779525570705991,
+          "priority": 0.9438819204379049,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9712230215827338,
+            "macro_f1": 0.9661657871673465,
+            "balanced_accuracy": 0.9650472157370068,
+            "ordinal_mae": 0.02068345323741007
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.969247009148487,
+          "validation_macro_f1": 0.9770063728926403,
+          "inverse_normalized_ordinal_mae": 0.9865107913669064,
+          "mean_dependency_nmi": 0.443346030171541,
+          "priority": 0.9487325257665695,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9838129496402878,
+            "macro_f1": 0.9770063728926403,
+            "balanced_accuracy": 0.969247009148487,
+            "ordinal_mae": 0.013489208633093525
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9695447671441669,
+          "validation_macro_f1": 0.9706186512927756,
+          "inverse_normalized_ordinal_mae": 0.9802158273381295,
+          "mean_dependency_nmi": 0.4979040823952095,
+          "priority": 0.9484191101900941,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9748201438848921,
+            "macro_f1": 0.9706186512927756,
+            "balanced_accuracy": 0.9695447671441669,
+            "ordinal_mae": 0.019784172661870502
+          }
+        },
+        "lower_body_locomotion_rhythm": {
+          "validation_balanced_accuracy": 0.9784714265846342,
+          "validation_macro_f1": 0.9805276316809826,
+          "inverse_normalized_ordinal_mae": 0.9865107913669064,
+          "mean_dependency_nmi": 0.49686599578173146,
+          "priority": 0.956615889529848,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9820143884892086,
+            "macro_f1": 0.9805276316809826,
+            "balanced_accuracy": 0.9784714265846342,
+            "ordinal_mae": 0.013489208633093525
+          }
+        },
+        "locomotion_impact_intensity": {
+          "validation_balanced_accuracy": 0.9736775050453182,
+          "validation_macro_f1": 0.9797032599235513,
+          "inverse_normalized_ordinal_mae": 0.9901079136690647,
+          "mean_dependency_nmi": 0.4715730502648394,
+          "priority": 0.9536660904945136,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9856115107913669,
+            "macro_f1": 0.9797032599235513,
+            "balanced_accuracy": 0.9736775050453182,
+            "ordinal_mae": 0.009892086330935251
+          }
+        },
+        "upper_body_rhythmicity": {
+          "validation_balanced_accuracy": 0.9660543273883961,
+          "validation_macro_f1": 0.9733317388868569,
+          "inverse_normalized_ordinal_mae": 0.9865107913669064,
+          "mean_dependency_nmi": 0.25923011435316484,
+          "priority": 0.9369876329818748,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9748201438848921,
+            "macro_f1": 0.9733317388868569,
+            "balanced_accuracy": 0.9660543273883961,
+            "ordinal_mae": 0.013489208633093525
+          }
+        },
+        "postural_stability_upright": {
+          "validation_balanced_accuracy": 0.9760808789444256,
+          "validation_macro_f1": 0.9770532755674565,
+          "inverse_normalized_ordinal_mae": 0.9820143884892086,
+          "mean_dependency_nmi": 0.560156900972577,
+          "priority": 0.956763100941699,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9766187050359713,
+            "macro_f1": 0.9770532755674565,
+            "balanced_accuracy": 0.9760808789444256,
+            "ordinal_mae": 0.017985611510791366
+          }
+        }
+      }
+    },
+    "53": {
+      "split_index": 53,
+      "seen_activities": [
+        "sitting",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "lying",
+        "standing",
+        "walking",
+        "rope jumping"
+      ],
+      "training_sample_count": 1458,
+      "validation_sample_count": 625,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_53/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "fb7ae9e6266de413a5566a84dec5e05c246df8285cc4b26363fa93f4b0da53da",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "posture_variability",
+        "body_coordination",
+        "vertical_motion",
+        "spatial_variability",
+        "sustained_body_orientation",
+        "impact_sharpness",
+        "gait_pattern_complexity",
+        "vertical_oscillation_frequency",
+        "upper_body_stability_during_motion"
+      ],
+      "forward": [
+        "cadence",
+        "gait_pattern_complexity",
+        "vertical_oscillation_frequency",
+        "upper_body_stability_during_motion",
+        "spatial_variability",
+        "smoothness",
+        "body_coordination",
+        "motion_intensity",
+        "vertical_motion",
+        "impact_sharpness",
+        "sustained_body_orientation",
+        "posture_variability"
+      ],
+      "reverse": [
+        "posture_variability",
+        "sustained_body_orientation",
+        "impact_sharpness",
+        "vertical_motion",
+        "motion_intensity",
+        "body_coordination",
+        "smoothness",
+        "spatial_variability",
+        "upper_body_stability_during_motion",
+        "vertical_oscillation_frequency",
+        "gait_pattern_complexity",
+        "cadence"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9720039137707919,
+          "validation_macro_f1": 0.9734776095444024,
+          "inverse_normalized_ordinal_mae": 0.984,
+          "mean_dependency_nmi": 0.4950232655801939,
+          "priority": 0.9509962073391868,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9744,
+            "macro_f1": 0.9734776095444024,
+            "balanced_accuracy": 0.9720039137707919,
+            "ordinal_mae": 0.016
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9812348190484391,
+          "validation_macro_f1": 0.984715006454523,
+          "inverse_normalized_ordinal_mae": 0.9856,
+          "mean_dependency_nmi": 0.5989971265469527,
+          "priority": 0.9640400268355022,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.984,
+            "macro_f1": 0.984715006454523,
+            "balanced_accuracy": 0.9812348190484391,
+            "ordinal_mae": 0.0144
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9719592032208465,
+          "validation_macro_f1": 0.9785386138683357,
+          "inverse_normalized_ordinal_mae": 0.9864,
+          "mean_dependency_nmi": 0.5177798905404578,
+          "priority": 0.9541122201369044,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9824,
+            "macro_f1": 0.9785386138683357,
+            "balanced_accuracy": 0.9719592032208465,
+            "ordinal_mae": 0.0136
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.962513473475285,
+          "validation_macro_f1": 0.9615859887140124,
+          "inverse_normalized_ordinal_mae": 0.9784,
+          "mean_dependency_nmi": 0.35468638401509794,
+          "priority": 0.935021178878837,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9616,
+            "macro_f1": 0.9615859887140124,
+            "balanced_accuracy": 0.962513473475285,
+            "ordinal_mae": 0.0216
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9725147852312622,
+          "validation_macro_f1": 0.9747334147334148,
+          "inverse_normalized_ordinal_mae": 0.984,
+          "mean_dependency_nmi": 0.5428515308347556,
+          "priority": 0.9539942543158302,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9792,
+            "macro_f1": 0.9747334147334148,
+            "balanced_accuracy": 0.9725147852312622,
+            "ordinal_mae": 0.016
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.9712684177538445,
+          "validation_macro_f1": 0.970958013664664,
+          "inverse_normalized_ordinal_mae": 0.9832,
+          "mean_dependency_nmi": 0.5051192049900894,
+          "priority": 0.9502541523381338,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9712,
+            "macro_f1": 0.970958013664664,
+            "balanced_accuracy": 0.9712684177538445,
+            "ordinal_mae": 0.0168
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.968920602143663,
+          "validation_macro_f1": 0.9734189117131048,
+          "inverse_normalized_ordinal_mae": 0.984,
+          "mean_dependency_nmi": 0.625235736284611,
+          "priority": 0.9561017312928104,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9776,
+            "macro_f1": 0.9734189117131048,
+            "balanced_accuracy": 0.968920602143663,
+            "ordinal_mae": 0.016
+          }
+        },
+        "sustained_body_orientation": {
+          "validation_balanced_accuracy": 0.9814814814814814,
+          "validation_macro_f1": 0.9891911523096346,
+          "inverse_normalized_ordinal_mae": 0.9976,
+          "mean_dependency_nmi": 0.20936521799387134,
+          "priority": 0.9484122732592506,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9952,
+            "macro_f1": 0.9891911523096346,
+            "balanced_accuracy": 0.9814814814814814,
+            "ordinal_mae": 0.0024
+          }
+        },
+        "impact_sharpness": {
+          "validation_balanced_accuracy": 0.9667605300027228,
+          "validation_macro_f1": 0.9704781539432368,
+          "inverse_normalized_ordinal_mae": 0.9816,
+          "mean_dependency_nmi": 0.5438160349138705,
+          "priority": 0.9496964864298899,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9712,
+            "macro_f1": 0.9704781539432368,
+            "balanced_accuracy": 0.9667605300027228,
+            "ordinal_mae": 0.0184
+          }
+        },
+        "gait_pattern_complexity": {
+          "validation_balanced_accuracy": 0.9863221884498481,
+          "validation_macro_f1": 0.9855787349794514,
+          "inverse_normalized_ordinal_mae": 0.9856,
+          "mean_dependency_nmi": 0.4353296794479951,
+          "priority": 0.9584050892686667,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9856,
+            "macro_f1": 0.9855787349794514,
+            "balanced_accuracy": 0.9863221884498481,
+            "ordinal_mae": 0.0144
+          }
+        },
+        "vertical_oscillation_frequency": {
+          "validation_balanced_accuracy": 0.9771351751449283,
+          "validation_macro_f1": 0.9844706414937513,
+          "inverse_normalized_ordinal_mae": 0.992,
+          "mean_dependency_nmi": 0.4905591986005698,
+          "priority": 0.9579799811933717,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9872,
+            "macro_f1": 0.9844706414937513,
+            "balanced_accuracy": 0.9771351751449283,
+            "ordinal_mae": 0.008
+          }
+        },
+        "upper_body_stability_during_motion": {
+          "validation_balanced_accuracy": 0.9766411163881302,
+          "validation_macro_f1": 0.9751465241743503,
+          "inverse_normalized_ordinal_mae": 0.9824,
+          "mean_dependency_nmi": 0.5527995322193248,
+          "priority": 0.9561524362379299,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.976,
+            "macro_f1": 0.9751465241743503,
+            "balanced_accuracy": 0.9766411163881302,
+            "ordinal_mae": 0.0176
+          }
+        }
+      }
+    },
+    "58": {
+      "split_index": 58,
+      "seen_activities": [
+        "sitting",
+        "walking",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "standing",
+        "running",
+        "vacuum cleaning"
+      ],
+      "training_sample_count": 1474,
+      "validation_sample_count": 633,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_58/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "dda10d5c51b9e21ff3a42e6ac7bb9ac1b14fe7dcd773f696fa8360ff32a01eeb",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "lower_limb_impact_intensity",
+        "trunk_gravity_alignment",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "upper_limb_dominance"
+      ],
+      "forward": [
+        "cadence",
+        "motion_type",
+        "vertical_motion",
+        "body_coordination",
+        "trunk_gravity_alignment",
+        "motion_intensity",
+        "posture_variability",
+        "lower_limb_impact_intensity",
+        "smoothness",
+        "spatial_variability",
+        "upper_limb_dominance"
+      ],
+      "reverse": [
+        "upper_limb_dominance",
+        "spatial_variability",
+        "smoothness",
+        "lower_limb_impact_intensity",
+        "posture_variability",
+        "motion_intensity",
+        "trunk_gravity_alignment",
+        "body_coordination",
+        "vertical_motion",
+        "motion_type",
+        "cadence"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9653874634833061,
+          "validation_macro_f1": 0.9611067059989334,
+          "inverse_normalized_ordinal_mae": 0.9826224328593997,
+          "mean_dependency_nmi": 0.4695245114034051,
+          "priority": 0.942757082509218,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9715639810426541,
+            "macro_f1": 0.9611067059989334,
+            "balanced_accuracy": 0.9653874634833061,
+            "ordinal_mae": 0.017377567140600316
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9793195771592115,
+          "validation_macro_f1": 0.9805715808073784,
+          "inverse_normalized_ordinal_mae": 0.9873617693522907,
+          "mean_dependency_nmi": 0.40889035690802134,
+          "priority": 0.9527821556797179,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.981042654028436,
+            "macro_f1": 0.9805715808073784,
+            "balanced_accuracy": 0.9793195771592115,
+            "ordinal_mae": 0.01263823064770932
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9619567709049685,
+          "validation_macro_f1": 0.9686913346649426,
+          "inverse_normalized_ordinal_mae": 0.9913112164296999,
+          "mean_dependency_nmi": 0.3474240315556912,
+          "priority": 0.9391213921704432,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9842022116903634,
+            "macro_f1": 0.9686913346649426,
+            "balanced_accuracy": 0.9619567709049685,
+            "ordinal_mae": 0.008688783570300158
+          }
+        },
+        "lower_limb_impact_intensity": {
+          "validation_balanced_accuracy": 0.9587148311567453,
+          "validation_macro_f1": 0.968259934151607,
+          "inverse_normalized_ordinal_mae": 0.9834123222748815,
+          "mean_dependency_nmi": 0.42580507391902406,
+          "priority": 0.9398723724169449,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.976303317535545,
+            "macro_f1": 0.968259934151607,
+            "balanced_accuracy": 0.9587148311567453,
+            "ordinal_mae": 0.016587677725118485
+          }
+        },
+        "trunk_gravity_alignment": {
+          "validation_balanced_accuracy": 0.9814814814814814,
+          "validation_macro_f1": 0.9892110241857135,
+          "inverse_normalized_ordinal_mae": 0.9976303317535545,
+          "mean_dependency_nmi": 0.1374384878144147,
+          "priority": 0.9448279646638124,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.995260663507109,
+            "macro_f1": 0.9892110241857135,
+            "balanced_accuracy": 0.9814814814814814,
+            "ordinal_mae": 0.002369668246445498
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9653874634833061,
+          "validation_macro_f1": 0.9611067059989334,
+          "inverse_normalized_ordinal_mae": 0.9826224328593997,
+          "mean_dependency_nmi": 0.4695245114034051,
+          "priority": 0.942757082509218,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9715639810426541,
+            "macro_f1": 0.9611067059989334,
+            "balanced_accuracy": 0.9653874634833061,
+            "ordinal_mae": 0.017377567140600316
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9700363202571038,
+          "validation_macro_f1": 0.9683673673675264,
+          "inverse_normalized_ordinal_mae": 0.9849921011058452,
+          "mean_dependency_nmi": 0.4724872138959647,
+          "priority": 0.947649335241922,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.976303317535545,
+            "macro_f1": 0.9683673673675264,
+            "balanced_accuracy": 0.9700363202571038,
+            "ordinal_mae": 0.015007898894154818
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9848178137651822,
+          "validation_macro_f1": 0.9831095504418734,
+          "inverse_normalized_ordinal_mae": 0.9842022116903634,
+          "mean_dependency_nmi": 0.31421994582760426,
+          "priority": 0.9506523209563469,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9842022116903634,
+            "macro_f1": 0.9831095504418734,
+            "balanced_accuracy": 0.9848178137651822,
+            "ordinal_mae": 0.01579778830963665
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.9703107413669562,
+          "validation_macro_f1": 0.9710315771226964,
+          "inverse_normalized_ordinal_mae": 0.9826224328593997,
+          "mean_dependency_nmi": 0.48025404231373836,
+          "priority": 0.948486495439506,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9747235387045814,
+            "macro_f1": 0.9710315771226964,
+            "balanced_accuracy": 0.9703107413669562,
+            "ordinal_mae": 0.017377567140600316
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9659591142533183,
+          "validation_macro_f1": 0.97067877190249,
+          "inverse_normalized_ordinal_mae": 0.9913112164296999,
+          "mean_dependency_nmi": 0.27020068616796095,
+          "priority": 0.9376575105790782,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9826224328593997,
+            "macro_f1": 0.97067877190249,
+            "balanced_accuracy": 0.9659591142533183,
+            "ordinal_mae": 0.008688783570300158
+          }
+        },
+        "upper_limb_dominance": {
+          "validation_balanced_accuracy": 0.9636841312167094,
+          "validation_macro_f1": 0.9665447824051966,
+          "inverse_normalized_ordinal_mae": 0.981042654028436,
+          "mean_dependency_nmi": 0.22671933222962096,
+          "priority": 0.9311657911862465,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9731437598736177,
+            "macro_f1": 0.9665447824051966,
+            "balanced_accuracy": 0.9636841312167094,
+            "ordinal_mae": 0.018957345971563982
+          }
+        }
+      }
+    },
+    "72": {
+      "split_index": 72,
+      "seen_activities": [
+        "sitting",
+        "walking",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "standing",
+        "ascending stairs",
+        "descending stairs"
+      ],
+      "training_sample_count": 1541,
+      "validation_sample_count": 661,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_72/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "ebcfee04e7711acab3433bc52cdb4bfc8f4dc60ff96858bfca4fcbb2d6d0dc6c",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "gravitational_effort_direction",
+        "postural_stability",
+        "limb_elevation"
+      ],
+      "forward": [
+        "impulsiveness",
+        "body_coordination",
+        "motion_type",
+        "cadence",
+        "spatial_variability",
+        "vertical_motion",
+        "limb_elevation",
+        "posture_inclination",
+        "postural_stability",
+        "motion_intensity",
+        "posture_variability",
+        "smoothness",
+        "gravitational_effort_direction"
+      ],
+      "reverse": [
+        "gravitational_effort_direction",
+        "smoothness",
+        "posture_variability",
+        "motion_intensity",
+        "postural_stability",
+        "posture_inclination",
+        "limb_elevation",
+        "vertical_motion",
+        "spatial_variability",
+        "cadence",
+        "motion_type",
+        "body_coordination",
+        "impulsiveness"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.941519153558513,
+          "validation_macro_f1": 0.9563127230521892,
+          "inverse_normalized_ordinal_mae": 0.9856278366111951,
+          "mean_dependency_nmi": 0.4613668183512311,
+          "priority": 0.9307713442567883,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.972768532526475,
+            "macro_f1": 0.9563127230521892,
+            "balanced_accuracy": 0.941519153558513,
+            "ordinal_mae": 0.014372163388804841
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9635247855635177,
+          "validation_macro_f1": 0.9718688334017154,
+          "inverse_normalized_ordinal_mae": 0.983358547655068,
+          "mean_dependency_nmi": 0.3946721836322548,
+          "priority": 0.9415521222367239,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9742813918305597,
+            "macro_f1": 0.9718688334017154,
+            "balanced_accuracy": 0.9635247855635177,
+            "ordinal_mae": 0.01664145234493192
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9319975827290156,
+          "validation_macro_f1": 0.9520824456308327,
+          "inverse_normalized_ordinal_mae": 0.983358547655068,
+          "mean_dependency_nmi": 0.4330187013054423,
+          "priority": 0.9233462905135926,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9682299546142209,
+            "macro_f1": 0.9520824456308327,
+            "balanced_accuracy": 0.9319975827290156,
+            "ordinal_mae": 0.01664145234493192
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9699931167728938,
+          "validation_macro_f1": 0.9798348759315955,
+          "inverse_normalized_ordinal_mae": 0.9886535552193646,
+          "mean_dependency_nmi": 0.45865513792675006,
+          "priority": 0.9511108332674914,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9848714069591528,
+            "macro_f1": 0.9798348759315955,
+            "balanced_accuracy": 0.9699931167728938,
+            "ordinal_mae": 0.0113464447806354
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9741379310344828,
+          "validation_macro_f1": 0.9821478407259698,
+          "inverse_normalized_ordinal_mae": 0.9931921331316188,
+          "mean_dependency_nmi": 0.12624098710513224,
+          "priority": 0.9379568971648887,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9863842662632375,
+            "macro_f1": 0.9821478407259698,
+            "balanced_accuracy": 0.9741379310344828,
+            "ordinal_mae": 0.00680786686838124
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.941519153558513,
+          "validation_macro_f1": 0.9563127230521892,
+          "inverse_normalized_ordinal_mae": 0.9856278366111951,
+          "mean_dependency_nmi": 0.4613668183512311,
+          "priority": 0.9307713442567883,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.972768532526475,
+            "macro_f1": 0.9563127230521892,
+            "balanced_accuracy": 0.941519153558513,
+            "ordinal_mae": 0.014372163388804841
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9718960802477978,
+          "validation_macro_f1": 0.9701442102539756,
+          "inverse_normalized_ordinal_mae": 0.9780635400907716,
+          "mean_dependency_nmi": 0.3700356899571044,
+          "priority": 0.9425109917037112,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9712556732223904,
+            "macro_f1": 0.9701442102539756,
+            "balanced_accuracy": 0.9718960802477978,
+            "ordinal_mae": 0.02193645990922844
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9718960802477978,
+          "validation_macro_f1": 0.9701442102539756,
+          "inverse_normalized_ordinal_mae": 0.9780635400907716,
+          "mean_dependency_nmi": 0.3700356899571044,
+          "priority": 0.9425109917037112,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9712556732223904,
+            "macro_f1": 0.9701442102539756,
+            "balanced_accuracy": 0.9718960802477978,
+            "ordinal_mae": 0.02193645990922844
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.9502421459553508,
+          "validation_macro_f1": 0.9603432258502084,
+          "inverse_normalized_ordinal_mae": 0.981089258698941,
+          "mean_dependency_nmi": 0.5212735776127054,
+          "priority": 0.937993464055394,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9652042360060514,
+            "macro_f1": 0.9603432258502084,
+            "balanced_accuracy": 0.9502421459553508,
+            "ordinal_mae": 0.018910741301059002
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9641036212464784,
+          "validation_macro_f1": 0.9618823968452263,
+          "inverse_normalized_ordinal_mae": 0.9773071104387292,
+          "mean_dependency_nmi": 0.41681246551240775,
+          "priority": 0.9387133939778495,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9652042360060514,
+            "macro_f1": 0.9618823968452263,
+            "balanced_accuracy": 0.9641036212464784,
+            "ordinal_mae": 0.0226928895612708
+          }
+        },
+        "gravitational_effort_direction": {
+          "validation_balanced_accuracy": 0.9375,
+          "validation_macro_f1": 0.9654920386322109,
+          "inverse_normalized_ordinal_mae": 0.9977307110438729,
+          "mean_dependency_nmi": 0.1393771526809762,
+          "priority": 0.9180376114324867,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9954614220877458,
+            "macro_f1": 0.9654920386322109,
+            "balanced_accuracy": 0.9375,
+            "ordinal_mae": 0.0022692889561270802
+          }
+        },
+        "postural_stability": {
+          "validation_balanced_accuracy": 0.9580227461096262,
+          "validation_macro_f1": 0.958706163734376,
+          "inverse_normalized_ordinal_mae": 0.9757942511346445,
+          "mean_dependency_nmi": 0.47234569546858957,
+          "priority": 0.937498219870003,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.962178517397882,
+            "macro_f1": 0.958706163734376,
+            "balanced_accuracy": 0.9580227461096262,
+            "ordinal_mae": 0.024205748865355523
+          }
+        },
+        "limb_elevation": {
+          "validation_balanced_accuracy": 0.9502421459553508,
+          "validation_macro_f1": 0.9603432258502084,
+          "inverse_normalized_ordinal_mae": 0.981089258698941,
+          "mean_dependency_nmi": 0.5212735776127054,
+          "priority": 0.937993464055394,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9652042360060514,
+            "macro_f1": 0.9603432258502084,
+            "balanced_accuracy": 0.9502421459553508,
+            "ordinal_mae": 0.018910741301059002
+          }
+        }
+      }
+    },
+    "112": {
+      "split_index": 112,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "walking",
+        "Nordic walking",
+        "ascending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "running",
+        "cycling",
+        "descending stairs"
+      ],
+      "training_sample_count": 1589,
+      "validation_sample_count": 681,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_112/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "647268a671bbac02b3fbc7b7ad4fc3225fd60e4dfe4cf8b688ddb2919cf93805",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_displacement_magnitude",
+        "spatial_variability",
+        "vertical_directionality",
+        "seated_locomotion_propulsion",
+        "flight_phase_presence"
+      ],
+      "forward": [
+        "impulsiveness",
+        "vertical_displacement_magnitude",
+        "cadence",
+        "vertical_directionality",
+        "motion_type",
+        "smoothness",
+        "body_coordination",
+        "motion_intensity",
+        "spatial_variability",
+        "posture_variability",
+        "posture_inclination",
+        "flight_phase_presence",
+        "seated_locomotion_propulsion"
+      ],
+      "reverse": [
+        "seated_locomotion_propulsion",
+        "flight_phase_presence",
+        "posture_inclination",
+        "posture_variability",
+        "spatial_variability",
+        "motion_intensity",
+        "body_coordination",
+        "smoothness",
+        "motion_type",
+        "vertical_directionality",
+        "cadence",
+        "vertical_displacement_magnitude",
+        "impulsiveness"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.960372619583146,
+          "validation_macro_f1": 0.9668468115744365,
+          "inverse_normalized_ordinal_mae": 0.9816446402349486,
+          "mean_dependency_nmi": 0.44008209367728424,
+          "priority": 0.9405547550156006,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9676945668135095,
+            "macro_f1": 0.9668468115744365,
+            "balanced_accuracy": 0.960372619583146,
+            "ordinal_mae": 0.018355359765051395
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9708259072914531,
+          "validation_macro_f1": 0.9706580419055063,
+          "inverse_normalized_ordinal_mae": 0.9838472834067548,
+          "mean_dependency_nmi": 0.47468234476388527,
+          "priority": 0.948572644772351,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.973568281938326,
+            "macro_f1": 0.9706580419055063,
+            "balanced_accuracy": 0.9708259072914531,
+            "ordinal_mae": 0.016152716593245228
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9634994982348619,
+          "validation_macro_f1": 0.9671115005303786,
+          "inverse_normalized_ordinal_mae": 0.9787077826725403,
+          "mean_dependency_nmi": 0.5266236126933719,
+          "priority": 0.9457809615339781,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9750367107195301,
+            "macro_f1": 0.9671115005303786,
+            "balanced_accuracy": 0.9634994982348619,
+            "ordinal_mae": 0.021292217327459617
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9746381948136333,
+          "validation_macro_f1": 0.9717292443579707,
+          "inverse_normalized_ordinal_mae": 0.9845814977973568,
+          "mean_dependency_nmi": 0.48739609036987147,
+          "priority": 0.9513920650514912,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9706314243759178,
+            "macro_f1": 0.9717292443579707,
+            "balanced_accuracy": 0.9746381948136333,
+            "ordinal_mae": 0.015418502202643172
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9448710547025958,
+          "validation_macro_f1": 0.9478997385538793,
+          "inverse_normalized_ordinal_mae": 0.9794419970631424,
+          "mean_dependency_nmi": 0.30479638508793583,
+          "priority": 0.9206901148493573,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9647577092511013,
+            "macro_f1": 0.9478997385538793,
+            "balanced_accuracy": 0.9448710547025958,
+            "ordinal_mae": 0.020558002936857563
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9455243681050133,
+          "validation_macro_f1": 0.9494255691661765,
+          "inverse_normalized_ordinal_mae": 0.9750367107195301,
+          "mean_dependency_nmi": 0.4070147084559493,
+          "priority": 0.9256717139638124,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9574155653450808,
+            "macro_f1": 0.9494255691661765,
+            "balanced_accuracy": 0.9455243681050133,
+            "ordinal_mae": 0.024963289280469897
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9641088005981686,
+          "validation_macro_f1": 0.9635516118704023,
+          "inverse_normalized_ordinal_mae": 0.9823788546255506,
+          "mean_dependency_nmi": 0.4726744865253134,
+          "priority": 0.9430239390816724,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9676945668135095,
+            "macro_f1": 0.9635516118704023,
+            "balanced_accuracy": 0.9641088005981686,
+            "ordinal_mae": 0.01762114537444934
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9634994982348619,
+          "validation_macro_f1": 0.9671115005303786,
+          "inverse_normalized_ordinal_mae": 0.9853157121879589,
+          "mean_dependency_nmi": 0.526623612693372,
+          "priority": 0.9471025474370618,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9750367107195301,
+            "macro_f1": 0.9671115005303786,
+            "balanced_accuracy": 0.9634994982348619,
+            "ordinal_mae": 0.014684287812041116
+          }
+        },
+        "vertical_displacement_magnitude": {
+          "validation_balanced_accuracy": 0.9746381948136333,
+          "validation_macro_f1": 0.9717292443579707,
+          "inverse_normalized_ordinal_mae": 0.9845814977973568,
+          "mean_dependency_nmi": 0.48739609036987147,
+          "priority": 0.9513920650514912,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9706314243759178,
+            "macro_f1": 0.9717292443579707,
+            "balanced_accuracy": 0.9746381948136333,
+            "ordinal_mae": 0.015418502202643172
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9628867277247978,
+          "validation_macro_f1": 0.9626688341117283,
+          "inverse_normalized_ordinal_mae": 0.9698972099853157,
+          "mean_dependency_nmi": 0.46124470061374656,
+          "priority": 0.9391413547374281,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9647577092511013,
+            "macro_f1": 0.9626688341117283,
+            "balanced_accuracy": 0.9628867277247978,
+            "ordinal_mae": 0.03010279001468429
+          }
+        },
+        "vertical_directionality": {
+          "validation_balanced_accuracy": 0.9894714285714286,
+          "validation_macro_f1": 0.9855247029481993,
+          "inverse_normalized_ordinal_mae": 0.9977973568281938,
+          "mean_dependency_nmi": 0.13890388488022498,
+          "priority": 0.9474242193512528,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9955947136563876,
+            "macro_f1": 0.9855247029481993,
+            "balanced_accuracy": 0.9894714285714286,
+            "ordinal_mae": 0.0022026431718061676
+          }
+        },
+        "seated_locomotion_propulsion": {
+          "validation_balanced_accuracy": 1.0,
+          "validation_macro_f1": 1.0,
+          "inverse_normalized_ordinal_mae": 1.0,
+          "mean_dependency_nmi": 0.0,
+          "priority": 0.95,
+          "constant": true,
+          "validation_metrics": {
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "balanced_accuracy": 1.0,
+            "ordinal_mae": 0.0
+          }
+        },
+        "flight_phase_presence": {
+          "validation_balanced_accuracy": 0.9375,
+          "validation_macro_f1": 0.9655277145026575,
+          "inverse_normalized_ordinal_mae": 0.9955947136563876,
+          "mean_dependency_nmi": 0.0885049880525924,
+          "priority": 0.9150775064847044,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9955947136563876,
+            "macro_f1": 0.9655277145026575,
+            "balanced_accuracy": 0.9375,
+            "ordinal_mae": 0.004405286343612335
+          }
+        }
+      }
+    },
+    "115": {
+      "split_index": 115,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "walking",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "lying",
+        "running",
+        "cycling",
+        "rope jumping"
+      ],
+      "training_sample_count": 1650,
+      "validation_sample_count": 708,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_115/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "6a4720c6217bbb9d905422293b1d22d5740f38f412e956591de15cb5326962e3",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "rhythmic_impact_strength",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "flight_phase_prominence",
+        "torso_stability_during_locomotion"
+      ],
+      "forward": [
+        "body_coordination",
+        "motion_type",
+        "spatial_variability",
+        "rhythmic_impact_strength",
+        "smoothness",
+        "torso_stability_during_locomotion",
+        "vertical_motion",
+        "motion_intensity",
+        "cadence",
+        "posture_inclination",
+        "posture_variability",
+        "flight_phase_prominence"
+      ],
+      "reverse": [
+        "flight_phase_prominence",
+        "posture_variability",
+        "posture_inclination",
+        "cadence",
+        "motion_intensity",
+        "vertical_motion",
+        "torso_stability_during_locomotion",
+        "smoothness",
+        "rhythmic_impact_strength",
+        "spatial_variability",
+        "motion_type",
+        "body_coordination"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9742534872170366,
+          "validation_macro_f1": 0.9730437289025802,
+          "inverse_normalized_ordinal_mae": 0.9851694915254238,
+          "mean_dependency_nmi": 0.4487785904964161,
+          "priority": 0.9498000157483462,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9731638418079096,
+            "macro_f1": 0.9730437289025802,
+            "balanced_accuracy": 0.9742534872170366,
+            "ordinal_mae": 0.014830508474576272
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9660173921438817,
+          "validation_macro_f1": 0.9665210224945108,
+          "inverse_normalized_ordinal_mae": 0.9823446327683616,
+          "mean_dependency_nmi": 0.5372533102395053,
+          "priority": 0.9479957252787475,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9689265536723164,
+            "macro_f1": 0.9665210224945108,
+            "balanced_accuracy": 0.9660173921438817,
+            "ordinal_mae": 0.01765536723163842
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9719886875541593,
+          "validation_macro_f1": 0.9725501045373096,
+          "inverse_normalized_ordinal_mae": 0.9830508474576272,
+          "mean_dependency_nmi": 0.5821837934888429,
+          "priority": 0.9548792999265321,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9731638418079096,
+            "macro_f1": 0.9725501045373096,
+            "balanced_accuracy": 0.9719886875541593,
+            "ordinal_mae": 0.01694915254237288
+          }
+        },
+        "rhythmic_impact_strength": {
+          "validation_balanced_accuracy": 0.9735943387556292,
+          "validation_macro_f1": 0.9793290443557435,
+          "inverse_normalized_ordinal_mae": 0.990819209039548,
+          "mean_dependency_nmi": 0.5225466428966412,
+          "priority": 0.9562073396994978,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9844632768361582,
+            "macro_f1": 0.9793290443557435,
+            "balanced_accuracy": 0.9735943387556292,
+            "ordinal_mae": 0.009180790960451978
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9729699760272887,
+          "validation_macro_f1": 0.9791661650816581,
+          "inverse_normalized_ordinal_mae": 0.992231638418079,
+          "mean_dependency_nmi": 0.24497169489825,
+          "priority": 0.9422812511653057,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9844632768361582,
+            "macro_f1": 0.9791661650816581,
+            "balanced_accuracy": 0.9729699760272887,
+            "ordinal_mae": 0.007768361581920904
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9640143216232193,
+          "validation_macro_f1": 0.9615893025695081,
+          "inverse_normalized_ordinal_mae": 0.9837570621468926,
+          "mean_dependency_nmi": 0.44923359830285214,
+          "priority": 0.9414963278458223,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9717514124293786,
+            "macro_f1": 0.9615893025695081,
+            "balanced_accuracy": 0.9640143216232193,
+            "ordinal_mae": 0.016242937853107344
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9719930448103584,
+          "validation_macro_f1": 0.9759729131734177,
+          "inverse_normalized_ordinal_mae": 0.9865819209039548,
+          "mean_dependency_nmi": 0.6557763577571214,
+          "priority": 0.9602939461853336,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.981638418079096,
+            "macro_f1": 0.9759729131734177,
+            "balanced_accuracy": 0.9719930448103584,
+            "ordinal_mae": 0.013418079096045197
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9719930448103584,
+          "validation_macro_f1": 0.9759729131734177,
+          "inverse_normalized_ordinal_mae": 0.9865819209039548,
+          "mean_dependency_nmi": 0.6557763577571214,
+          "priority": 0.9602939461853336,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.981638418079096,
+            "macro_f1": 0.9759729131734177,
+            "balanced_accuracy": 0.9719930448103584,
+            "ordinal_mae": 0.013418079096045197
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.97385099177552,
+          "validation_macro_f1": 0.9656356538553003,
+          "inverse_normalized_ordinal_mae": 0.9851694915254238,
+          "mean_dependency_nmi": 0.5184529022099795,
+          "priority": 0.9508801858711579,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9759887005649718,
+            "macro_f1": 0.9656356538553003,
+            "balanced_accuracy": 0.97385099177552,
+            "ordinal_mae": 0.014830508474576272
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9719930448103584,
+          "validation_macro_f1": 0.9759729131734177,
+          "inverse_normalized_ordinal_mae": 0.9865819209039548,
+          "mean_dependency_nmi": 0.6557763577571214,
+          "priority": 0.9602939461853336,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.981638418079096,
+            "macro_f1": 0.9759729131734177,
+            "balanced_accuracy": 0.9719930448103584,
+            "ordinal_mae": 0.013418079096045197
+          }
+        },
+        "flight_phase_prominence": {
+          "validation_balanced_accuracy": 1.0,
+          "validation_macro_f1": 1.0,
+          "inverse_normalized_ordinal_mae": 1.0,
+          "mean_dependency_nmi": 0.0,
+          "priority": 0.95,
+          "constant": true,
+          "validation_metrics": {
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "balanced_accuracy": 1.0,
+            "ordinal_mae": 0.0
+          }
+        },
+        "torso_stability_during_locomotion": {
+          "validation_balanced_accuracy": 0.9719886875541593,
+          "validation_macro_f1": 0.9725501045373096,
+          "inverse_normalized_ordinal_mae": 0.9830508474576272,
+          "mean_dependency_nmi": 0.5821837934888429,
+          "priority": 0.9548792999265321,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9731638418079096,
+            "macro_f1": 0.9725501045373096,
+            "balanced_accuracy": 0.9719886875541593,
+            "ordinal_mae": 0.01694915254237288
+          }
+        }
+      }
+    },
+    "126": {
+      "split_index": 126,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "walking",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "vacuum cleaning",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "running",
+        "descending stairs",
+        "ironing"
+      ],
+      "training_sample_count": 1502,
+      "validation_sample_count": 644,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_126/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "71f9e884e83ac44f8ac6df592372f453ec52137fffd882346ea4ab486992e9f4",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_load_direction",
+        "spatial_variability",
+        "flight_phase_presence",
+        "arm_dominant_repetition"
+      ],
+      "forward": [
+        "posture_variability",
+        "cadence",
+        "motion_type",
+        "motion_intensity",
+        "smoothness",
+        "impulsiveness",
+        "body_coordination",
+        "vertical_load_direction",
+        "spatial_variability",
+        "flight_phase_presence",
+        "arm_dominant_repetition",
+        "posture_inclination"
+      ],
+      "reverse": [
+        "posture_inclination",
+        "arm_dominant_repetition",
+        "flight_phase_presence",
+        "spatial_variability",
+        "vertical_load_direction",
+        "body_coordination",
+        "impulsiveness",
+        "smoothness",
+        "motion_intensity",
+        "motion_type",
+        "cadence",
+        "posture_variability"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9797882645178161,
+          "validation_macro_f1": 0.9724234647699744,
+          "inverse_normalized_ordinal_mae": 0.9875776397515528,
+          "mean_dependency_nmi": 0.4948902810453672,
+          "priority": 0.9548918004665886,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9782608695652174,
+            "macro_f1": 0.9724234647699744,
+            "balanced_accuracy": 0.9797882645178161,
+            "ordinal_mae": 0.012422360248447204
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9786349551914313,
+          "validation_macro_f1": 0.9779182559981928,
+          "inverse_normalized_ordinal_mae": 0.985248447204969,
+          "mean_dependency_nmi": 0.49889577545410185,
+          "priority": 0.9557556848493008,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9798136645962733,
+            "macro_f1": 0.9779182559981928,
+            "balanced_accuracy": 0.9786349551914313,
+            "ordinal_mae": 0.014751552795031056
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9729425966045057,
+          "validation_macro_f1": 0.9791280026035024,
+          "inverse_normalized_ordinal_mae": 0.9891304347826086,
+          "mean_dependency_nmi": 0.4651743558878479,
+          "priority": 0.9526473740039924,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9798136645962733,
+            "macro_f1": 0.9791280026035024,
+            "balanced_accuracy": 0.9729425966045057,
+            "ordinal_mae": 0.010869565217391304
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9729425966045057,
+          "validation_macro_f1": 0.9791280026035024,
+          "inverse_normalized_ordinal_mae": 0.9891304347826086,
+          "mean_dependency_nmi": 0.4651743558878479,
+          "priority": 0.9526473740039924,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9798136645962733,
+            "macro_f1": 0.9791280026035024,
+            "balanced_accuracy": 0.9729425966045057,
+            "ordinal_mae": 0.010869565217391304
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.965301724137931,
+          "validation_macro_f1": 0.965301724137931,
+          "inverse_normalized_ordinal_mae": 0.9860248447204969,
+          "mean_dependency_nmi": 0.14602758943687066,
+          "priority": 0.9284826415193912,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9720496894409938,
+            "macro_f1": 0.965301724137931,
+            "balanced_accuracy": 0.965301724137931,
+            "ordinal_mae": 0.013975155279503106
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9748032515273893,
+          "validation_macro_f1": 0.9817196161420915,
+          "inverse_normalized_ordinal_mae": 0.9922360248447205,
+          "mean_dependency_nmi": 0.5247867005417142,
+          "priority": 0.9578638880259824,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9860248447204969,
+            "macro_f1": 0.9817196161420915,
+            "balanced_accuracy": 0.9748032515273893,
+            "ordinal_mae": 0.007763975155279503
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9739866620158408,
+          "validation_macro_f1": 0.9711753466480942,
+          "inverse_normalized_ordinal_mae": 0.9860248447204969,
+          "mean_dependency_nmi": 0.4886300692637033,
+          "priority": 0.9512830743088411,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9798136645962733,
+            "macro_f1": 0.9711753466480942,
+            "balanced_accuracy": 0.9739866620158408,
+            "ordinal_mae": 0.013975155279503106
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9786349551914313,
+          "validation_macro_f1": 0.9779182559981928,
+          "inverse_normalized_ordinal_mae": 0.985248447204969,
+          "mean_dependency_nmi": 0.49889577545410185,
+          "priority": 0.9557556848493008,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9798136645962733,
+            "macro_f1": 0.9779182559981928,
+            "balanced_accuracy": 0.9786349551914313,
+            "ordinal_mae": 0.014751552795031056
+          }
+        },
+        "vertical_load_direction": {
+          "validation_balanced_accuracy": 0.9795677136102668,
+          "validation_macro_f1": 0.986069680873499,
+          "inverse_normalized_ordinal_mae": 0.9976708074534162,
+          "mean_dependency_nmi": 0.25329933092380447,
+          "priority": 0.9488255034235432,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9953416149068323,
+            "macro_f1": 0.986069680873499,
+            "balanced_accuracy": 0.9795677136102668,
+            "ordinal_mae": 0.002329192546583851
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9718729324137209,
+          "validation_macro_f1": 0.9721986574621752,
+          "inverse_normalized_ordinal_mae": 0.9836956521739131,
+          "mean_dependency_nmi": 0.439744713439949,
+          "priority": 0.947728782931607,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9720496894409938,
+            "macro_f1": 0.9721986574621752,
+            "balanced_accuracy": 0.9718729324137209,
+            "ordinal_mae": 0.016304347826086956
+          }
+        },
+        "flight_phase_presence": {
+          "validation_balanced_accuracy": 0.9791666666666667,
+          "validation_macro_f1": 0.9889588012412776,
+          "inverse_normalized_ordinal_mae": 0.9984472049689441,
+          "mean_dependency_nmi": 0.17542252606329922,
+          "priority": 0.9457732076693371,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9984472049689441,
+            "macro_f1": 0.9889588012412776,
+            "balanced_accuracy": 0.9791666666666667,
+            "ordinal_mae": 0.0015527950310559005
+          }
+        },
+        "arm_dominant_repetition": {
+          "validation_balanced_accuracy": 0.973352556016099,
+          "validation_macro_f1": 0.9766268645882481,
+          "inverse_normalized_ordinal_mae": 0.9906832298136646,
+          "mean_dependency_nmi": 0.1851906566509667,
+          "priority": 0.9383928883790003,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9813664596273292,
+            "macro_f1": 0.9766268645882481,
+            "balanced_accuracy": 0.973352556016099,
+            "ordinal_mae": 0.009316770186335404
+          }
+        }
+      }
+    },
+    "141": {
+      "split_index": 141,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "walking",
+        "running",
+        "Nordic walking",
+        "ascending stairs",
+        "vacuum cleaning",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "lying",
+        "cycling",
+        "descending stairs",
+        "ironing"
+      ],
+      "training_sample_count": 1426,
+      "validation_sample_count": 612,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_141/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "5fe20ded6c864a596b3fe767c7021cf0c3028d5ec730e934fd5326b6a391659d",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "spatial_variability",
+        "vertical_translation_magnitude",
+        "vertical_impact_intensity",
+        "lower_body_dominance",
+        "upper_limb_repetitiveness"
+      ],
+      "forward": [
+        "cadence",
+        "body_coordination",
+        "posture_variability",
+        "lower_body_dominance",
+        "motion_intensity",
+        "vertical_impact_intensity",
+        "posture_inclination",
+        "vertical_translation_magnitude",
+        "smoothness",
+        "spatial_variability",
+        "motion_type",
+        "upper_limb_repetitiveness"
+      ],
+      "reverse": [
+        "upper_limb_repetitiveness",
+        "motion_type",
+        "spatial_variability",
+        "smoothness",
+        "vertical_translation_magnitude",
+        "posture_inclination",
+        "vertical_impact_intensity",
+        "motion_intensity",
+        "lower_body_dominance",
+        "posture_variability",
+        "body_coordination",
+        "cadence"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9697068381007822,
+          "validation_macro_f1": 0.9674964962525774,
+          "inverse_normalized_ordinal_mae": 0.9803921568627451,
+          "mean_dependency_nmi": 0.49291186840357154,
+          "priority": 0.9473410508138527,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9705882352941176,
+            "macro_f1": 0.9674964962525774,
+            "balanced_accuracy": 0.9697068381007822,
+            "ordinal_mae": 0.0196078431372549
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.979846804452956,
+          "validation_macro_f1": 0.9770900569724414,
+          "inverse_normalized_ordinal_mae": 0.9820261437908496,
+          "mean_dependency_nmi": 0.6074789229397924,
+          "priority": 0.9608372540007222,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9787581699346405,
+            "macro_f1": 0.9770900569724414,
+            "balanced_accuracy": 0.979846804452956,
+            "ordinal_mae": 0.017973856209150325
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9671858022455633,
+          "validation_macro_f1": 0.9773480151753493,
+          "inverse_normalized_ordinal_mae": 0.9934640522875817,
+          "mean_dependency_nmi": 0.27232683998917867,
+          "priority": 0.9407471680200835,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9869281045751634,
+            "macro_f1": 0.9773480151753493,
+            "balanced_accuracy": 0.9671858022455633,
+            "ordinal_mae": 0.006535947712418301
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9749670619235836,
+          "validation_macro_f1": 0.977482339089482,
+          "inverse_normalized_ordinal_mae": 0.9901960784313726,
+          "mean_dependency_nmi": 0.33648584618892907,
+          "priority": 0.9468433875881782,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9803921568627451,
+            "macro_f1": 0.977482339089482,
+            "balanced_accuracy": 0.9749670619235836,
+            "ordinal_mae": 0.00980392156862745
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9688751269192909,
+          "validation_macro_f1": 0.9707101428842483,
+          "inverse_normalized_ordinal_mae": 0.9828431372549019,
+          "mean_dependency_nmi": 0.6122642733381699,
+          "priority": 0.9543886910968443,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9754901960784313,
+            "macro_f1": 0.9707101428842483,
+            "balanced_accuracy": 0.9688751269192909,
+            "ordinal_mae": 0.01715686274509804
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.979846804452956,
+          "validation_macro_f1": 0.9770900569724414,
+          "inverse_normalized_ordinal_mae": 0.9820261437908496,
+          "mean_dependency_nmi": 0.6074789229397924,
+          "priority": 0.9608372540007222,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9787581699346405,
+            "macro_f1": 0.9770900569724414,
+            "balanced_accuracy": 0.979846804452956,
+            "ordinal_mae": 0.017973856209150325
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9242464072905713,
+          "validation_macro_f1": 0.9515628597467115,
+          "inverse_normalized_ordinal_mae": 0.9861111111111112,
+          "mean_dependency_nmi": 0.554612688956082,
+          "priority": 0.9263325978747969,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9820261437908496,
+            "macro_f1": 0.9515628597467115,
+            "balanced_accuracy": 0.9242464072905713,
+            "ordinal_mae": 0.013888888888888888
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9571468843802219,
+          "validation_macro_f1": 0.9687299667498667,
+          "inverse_normalized_ordinal_mae": 0.9869281045751634,
+          "mean_dependency_nmi": 0.43568234563357033,
+          "priority": 0.940504826192771,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9787581699346405,
+            "macro_f1": 0.9687299667498667,
+            "balanced_accuracy": 0.9571468843802219,
+            "ordinal_mae": 0.013071895424836602
+          }
+        },
+        "vertical_translation_magnitude": {
+          "validation_balanced_accuracy": 0.9749155156381121,
+          "validation_macro_f1": 0.9732101536266681,
+          "inverse_normalized_ordinal_mae": 0.9901960784313726,
+          "mean_dependency_nmi": 0.3376586677057508,
+          "priority": 0.9455971771967129,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9803921568627451,
+            "macro_f1": 0.9732101536266681,
+            "balanced_accuracy": 0.9749155156381121,
+            "ordinal_mae": 0.00980392156862745
+          }
+        },
+        "vertical_impact_intensity": {
+          "validation_balanced_accuracy": 0.9597389763511212,
+          "validation_macro_f1": 0.972116417606904,
+          "inverse_normalized_ordinal_mae": 0.9861111111111112,
+          "mean_dependency_nmi": 0.5252027613096323,
+          "priority": 0.9469998249277796,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9820261437908496,
+            "macro_f1": 0.972116417606904,
+            "balanced_accuracy": 0.9597389763511212,
+            "ordinal_mae": 0.013888888888888888
+          }
+        },
+        "lower_body_dominance": {
+          "validation_balanced_accuracy": 0.9709058553946662,
+          "validation_macro_f1": 0.9737966836077224,
+          "inverse_normalized_ordinal_mae": 0.9836601307189542,
+          "mean_dependency_nmi": 0.5185092091343486,
+          "priority": 0.9517041266104247,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9771241830065359,
+            "macro_f1": 0.9737966836077224,
+            "balanced_accuracy": 0.9709058553946662,
+            "ordinal_mae": 0.016339869281045753
+          }
+        },
+        "upper_limb_repetitiveness": {
+          "validation_balanced_accuracy": 0.9305940667689585,
+          "validation_macro_f1": 0.9572902942468161,
+          "inverse_normalized_ordinal_mae": 0.9869281045751634,
+          "mean_dependency_nmi": 0.2637743258673592,
+          "priority": 0.9165287555284767,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9803921568627451,
+            "macro_f1": 0.9572902942468161,
+            "balanced_accuracy": 0.9305940667689585,
+            "ordinal_mae": 0.013071895424836602
+          }
+        }
+      }
+    },
+    "217": {
+      "split_index": 217,
+      "seen_activities": [
+        "lying",
+        "standing",
+        "running",
+        "cycling",
+        "ascending stairs",
+        "descending stairs",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "walking",
+        "Nordic walking",
+        "vacuum cleaning"
+      ],
+      "training_sample_count": 1322,
+      "validation_sample_count": 567,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_217/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "45c70ac3cf32209a1b21254d62e4e217f413ccc7e3e0818c6a3eb413e0ac967c",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "trunk_orientation_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "limb_rhythmicity_and_coordination",
+        "manipulative_upper_body_motion",
+        "dynamic_stability_demand",
+        "cyclic_impact_characteristics"
+      ],
+      "forward": [
+        "body_coordination",
+        "limb_rhythmicity_and_coordination",
+        "impulsiveness",
+        "cyclic_impact_characteristics",
+        "motion_type",
+        "dynamic_stability_demand",
+        "cadence",
+        "spatial_variability",
+        "vertical_motion",
+        "posture_inclination",
+        "motion_intensity",
+        "smoothness",
+        "trunk_orientation_variability",
+        "manipulative_upper_body_motion"
+      ],
+      "reverse": [
+        "manipulative_upper_body_motion",
+        "trunk_orientation_variability",
+        "smoothness",
+        "motion_intensity",
+        "posture_inclination",
+        "vertical_motion",
+        "spatial_variability",
+        "cadence",
+        "dynamic_stability_demand",
+        "motion_type",
+        "cyclic_impact_characteristics",
+        "impulsiveness",
+        "limb_rhythmicity_and_coordination",
+        "body_coordination"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9619338329271706,
+          "validation_macro_f1": 0.9658059338507073,
+          "inverse_normalized_ordinal_mae": 0.9814814814814815,
+          "mean_dependency_nmi": 0.44012305292870213,
+          "priority": 0.9409144539151704,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9629629629629629,
+            "macro_f1": 0.9658059338507073,
+            "balanced_accuracy": 0.9619338329271706,
+            "ordinal_mae": 0.018518518518518517
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9763029375614581,
+          "validation_macro_f1": 0.9824166095620752,
+          "inverse_normalized_ordinal_mae": 0.9902998236331569,
+          "mean_dependency_nmi": 0.5484054062803922,
+          "priority": 0.9595415398119298,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9841269841269841,
+            "macro_f1": 0.9824166095620752,
+            "balanced_accuracy": 0.9763029375614581,
+            "ordinal_mae": 0.009700176366843033
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9718061309030654,
+          "validation_macro_f1": 0.9674202127659575,
+          "inverse_normalized_ordinal_mae": 0.9876543209876543,
+          "mean_dependency_nmi": 0.1976992611526063,
+          "priority": 0.9349546499913278,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9753086419753086,
+            "macro_f1": 0.9674202127659575,
+            "balanced_accuracy": 0.9718061309030654,
+            "ordinal_mae": 0.012345679012345678
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9791529551577035,
+          "validation_macro_f1": 0.9845781897517311,
+          "inverse_normalized_ordinal_mae": 0.9929453262786596,
+          "mean_dependency_nmi": 0.5549752125750387,
+          "priority": 0.9623301126309698,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9894179894179894,
+            "macro_f1": 0.9845781897517311,
+            "balanced_accuracy": 0.9791529551577035,
+            "ordinal_mae": 0.007054673721340388
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.971330465062282,
+          "validation_macro_f1": 0.9736670271537444,
+          "inverse_normalized_ordinal_mae": 0.9850088183421517,
+          "mean_dependency_nmi": 0.36439621051551047,
+          "priority": 0.944420391618356,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9717813051146384,
+            "macro_f1": 0.9736670271537444,
+            "balanced_accuracy": 0.971330465062282,
+            "ordinal_mae": 0.014991181657848324
+          }
+        },
+        "trunk_orientation_variability": {
+          "validation_balanced_accuracy": 0.9573802440131768,
+          "validation_macro_f1": 0.9629295883293828,
+          "inverse_normalized_ordinal_mae": 0.9797178130511464,
+          "mean_dependency_nmi": 0.3690417321728698,
+          "priority": 0.9340956355236172,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9594356261022927,
+            "macro_f1": 0.9629295883293828,
+            "balanced_accuracy": 0.9573802440131768,
+            "ordinal_mae": 0.020282186948853614
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9832349814233323,
+          "validation_macro_f1": 0.9873689769202182,
+          "inverse_normalized_ordinal_mae": 0.9894179894179894,
+          "mean_dependency_nmi": 0.6009398868889853,
+          "priority": 0.9665970269446121,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9876543209876543,
+            "macro_f1": 0.9873689769202182,
+            "balanced_accuracy": 0.9832349814233323,
+            "ordinal_mae": 0.010582010582010581
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9786784217382095,
+          "validation_macro_f1": 0.9827609005811323,
+          "inverse_normalized_ordinal_mae": 0.9876543209876543,
+          "mean_dependency_nmi": 0.5453786923755269,
+          "priority": 0.9600333587728411,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9841269841269841,
+            "macro_f1": 0.9827609005811323,
+            "balanced_accuracy": 0.9786784217382095,
+            "ordinal_mae": 0.012345679012345678
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.9727454185480696,
+          "validation_macro_f1": 0.9796950942792647,
+          "inverse_normalized_ordinal_mae": 0.9902998236331569,
+          "mean_dependency_nmi": 0.5392986280998865,
+          "priority": 0.9566688627620364,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9876543209876543,
+            "macro_f1": 0.9796950942792647,
+            "balanced_accuracy": 0.9727454185480696,
+            "ordinal_mae": 0.009700176366843033
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9742503296763075,
+          "validation_macro_f1": 0.9810303930768428,
+          "inverse_normalized_ordinal_mae": 0.9902998236331569,
+          "mean_dependency_nmi": 0.5247010452081804,
+          "priority": 0.9570167832644317,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.982363315696649,
+            "macro_f1": 0.9810303930768428,
+            "balanced_accuracy": 0.9742503296763075,
+            "ordinal_mae": 0.009700176366843033
+          }
+        },
+        "limb_rhythmicity_and_coordination": {
+          "validation_balanced_accuracy": 0.9832349814233323,
+          "validation_macro_f1": 0.9873689769202182,
+          "inverse_normalized_ordinal_mae": 0.9894179894179894,
+          "mean_dependency_nmi": 0.6009398868889851,
+          "priority": 0.9665970269446121,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9876543209876543,
+            "macro_f1": 0.9873689769202182,
+            "balanced_accuracy": 0.9832349814233323,
+            "ordinal_mae": 0.010582010582010581
+          }
+        },
+        "manipulative_upper_body_motion": {
+          "validation_balanced_accuracy": 0.9522953362135814,
+          "validation_macro_f1": 0.9466193603418938,
+          "inverse_normalized_ordinal_mae": 0.9735449735449735,
+          "mean_dependency_nmi": 0.3075144187577255,
+          "priority": 0.9226034250455608,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9700176366843033,
+            "macro_f1": 0.9466193603418938,
+            "balanced_accuracy": 0.9522953362135814,
+            "ordinal_mae": 0.026455026455026454
+          }
+        },
+        "dynamic_stability_demand": {
+          "validation_balanced_accuracy": 0.9797495817833141,
+          "validation_macro_f1": 0.9839582867570428,
+          "inverse_normalized_ordinal_mae": 0.9920634920634921,
+          "mean_dependency_nmi": 0.5071106817870067,
+          "priority": 0.959843030331653,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9841269841269841,
+            "macro_f1": 0.9839582867570428,
+            "balanced_accuracy": 0.9797495817833141,
+            "ordinal_mae": 0.007936507936507936
+          }
+        },
+        "cyclic_impact_characteristics": {
+          "validation_balanced_accuracy": 0.9791529551577035,
+          "validation_macro_f1": 0.9845781897517311,
+          "inverse_normalized_ordinal_mae": 0.9929453262786596,
+          "mean_dependency_nmi": 0.5549752125750387,
+          "priority": 0.9623301126309698,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9894179894179894,
+            "macro_f1": 0.9845781897517311,
+            "balanced_accuracy": 0.9791529551577035,
+            "ordinal_mae": 0.007054673721340388
+          }
+        }
+      }
+    },
+    "280": {
+      "split_index": 280,
+      "seen_activities": [
+        "lying",
+        "standing",
+        "walking",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "descending stairs",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "ascending stairs",
+        "vacuum cleaning",
+        "rope jumping"
+      ],
+      "training_sample_count": 1628,
+      "validation_sample_count": 698,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_280/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "49eef38d4caf5461a020370bd801b8f87ae733c3778856a78bff4a36f9ff372b",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "spatial_variability",
+        "horizontal_locomotion_dominance",
+        "upward_propulsive_effort",
+        "upper_body_manipulation",
+        "impact_frequency",
+        "localized_repetitive_motion"
+      ],
+      "forward": [
+        "horizontal_locomotion_dominance",
+        "upward_propulsive_effort",
+        "impact_frequency",
+        "body_coordination",
+        "spatial_variability",
+        "impulsiveness",
+        "motion_intensity",
+        "cadence",
+        "posture_inclination",
+        "upper_body_manipulation",
+        "localized_repetitive_motion",
+        "posture_variability",
+        "smoothness"
+      ],
+      "reverse": [
+        "smoothness",
+        "posture_variability",
+        "localized_repetitive_motion",
+        "upper_body_manipulation",
+        "posture_inclination",
+        "cadence",
+        "motion_intensity",
+        "impulsiveness",
+        "spatial_variability",
+        "body_coordination",
+        "impact_frequency",
+        "upward_propulsive_effort",
+        "horizontal_locomotion_dominance"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9743298607687843,
+          "validation_macro_f1": 0.9758807017258414,
+          "inverse_normalized_ordinal_mae": 0.9871060171919771,
+          "mean_dependency_nmi": 0.43462336177029304,
+          "priority": 0.9503650193906154,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9756446991404012,
+            "macro_f1": 0.9758807017258414,
+            "balanced_accuracy": 0.9743298607687843,
+            "ordinal_mae": 0.012893982808022923
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9687683768672586,
+          "validation_macro_f1": 0.9729542233412908,
+          "inverse_normalized_ordinal_mae": 0.9835243553008596,
+          "mean_dependency_nmi": 0.45786743678283265,
+          "priority": 0.9474302794919672,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9727793696275072,
+            "macro_f1": 0.9729542233412908,
+            "balanced_accuracy": 0.9687683768672586,
+            "ordinal_mae": 0.0164756446991404
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9587765531027942,
+          "validation_macro_f1": 0.9606751098734102,
+          "inverse_normalized_ordinal_mae": 0.9792263610315186,
+          "mean_dependency_nmi": 0.38461095084931357,
+          "priority": 0.9347278016070499,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9641833810888252,
+            "macro_f1": 0.9606751098734102,
+            "balanced_accuracy": 0.9587765531027942,
+            "ordinal_mae": 0.020773638968481375
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9719680971207819,
+          "validation_macro_f1": 0.9764848246991104,
+          "inverse_normalized_ordinal_mae": 0.9856733524355301,
+          "mean_dependency_nmi": 0.500550504832849,
+          "priority": 0.9524932868428334,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9813753581661891,
+            "macro_f1": 0.9764848246991104,
+            "balanced_accuracy": 0.9719680971207819,
+            "ordinal_mae": 0.014326647564469915
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.974659480164792,
+          "validation_macro_f1": 0.9788339139300155,
+          "inverse_normalized_ordinal_mae": 0.9878223495702005,
+          "mean_dependency_nmi": 0.2750564566790839,
+          "priority": 0.9435642330011553,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9785100286532952,
+            "macro_f1": 0.9788339139300155,
+            "balanced_accuracy": 0.974659480164792,
+            "ordinal_mae": 0.012177650429799427
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9628084568797487,
+          "validation_macro_f1": 0.9606282424050007,
+          "inverse_normalized_ordinal_mae": 0.9706303724928367,
+          "mean_dependency_nmi": 0.4568734731935049,
+          "priority": 0.9384220264756297,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9627507163323782,
+            "macro_f1": 0.9606282424050007,
+            "balanced_accuracy": 0.9628084568797487,
+            "ordinal_mae": 0.029369627507163324
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9727548839395478,
+          "validation_macro_f1": 0.9786370766219882,
+          "inverse_normalized_ordinal_mae": 0.9828080229226361,
+          "mean_dependency_nmi": 0.571518166153895,
+          "priority": 0.9564683336516149,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9799426934097422,
+            "macro_f1": 0.9786370766219882,
+            "balanced_accuracy": 0.9727548839395478,
+            "ordinal_mae": 0.017191977077363897
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9713297099367235,
+          "validation_macro_f1": 0.9703269000463016,
+          "inverse_normalized_ordinal_mae": 0.9835243553008596,
+          "mean_dependency_nmi": 0.5641986357241802,
+          "priority": 0.9531112423317971,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9727793696275072,
+            "macro_f1": 0.9703269000463016,
+            "balanced_accuracy": 0.9713297099367235,
+            "ordinal_mae": 0.0164756446991404
+          }
+        },
+        "horizontal_locomotion_dominance": {
+          "validation_balanced_accuracy": 0.986512491981639,
+          "validation_macro_f1": 0.9854921849018956,
+          "inverse_normalized_ordinal_mae": 0.9856733524355301,
+          "mean_dependency_nmi": 0.48425158418834974,
+          "priority": 0.9609255265588297,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9856733524355301,
+            "macro_f1": 0.9854921849018956,
+            "balanced_accuracy": 0.986512491981639,
+            "ordinal_mae": 0.014326647564469915
+          }
+        },
+        "upward_propulsive_effort": {
+          "validation_balanced_accuracy": 0.9808208783375103,
+          "validation_macro_f1": 0.9843705004184118,
+          "inverse_normalized_ordinal_mae": 0.9906876790830945,
+          "mean_dependency_nmi": 0.5143455505527222,
+          "priority": 0.9605353587216582,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9828080229226361,
+            "macro_f1": 0.9843705004184118,
+            "balanced_accuracy": 0.9808208783375103,
+            "ordinal_mae": 0.009312320916905445
+          }
+        },
+        "upper_body_manipulation": {
+          "validation_balanced_accuracy": 0.9703644949115434,
+          "validation_macro_f1": 0.969443738283251,
+          "inverse_normalized_ordinal_mae": 0.9806590257879656,
+          "mean_dependency_nmi": 0.3421442849917146,
+          "priority": 0.9407361636023487,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9756446991404012,
+            "macro_f1": 0.969443738283251,
+            "balanced_accuracy": 0.9703644949115434,
+            "ordinal_mae": 0.019340974212034383
+          }
+        },
+        "impact_frequency": {
+          "validation_balanced_accuracy": 0.9808208783375103,
+          "validation_macro_f1": 0.9843705004184118,
+          "inverse_normalized_ordinal_mae": 0.9906876790830945,
+          "mean_dependency_nmi": 0.5143455505527222,
+          "priority": 0.9605353587216582,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9828080229226361,
+            "macro_f1": 0.9843705004184118,
+            "balanced_accuracy": 0.9808208783375103,
+            "ordinal_mae": 0.009312320916905445
+          }
+        },
+        "localized_repetitive_motion": {
+          "validation_balanced_accuracy": 0.975292226767972,
+          "validation_macro_f1": 0.9674013400154479,
+          "inverse_normalized_ordinal_mae": 0.9906876790830945,
+          "mean_dependency_nmi": 0.25138004448759205,
+          "priority": 0.9398084420912203,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9813753581661891,
+            "macro_f1": 0.9674013400154479,
+            "balanced_accuracy": 0.975292226767972,
+            "ordinal_mae": 0.009312320916905445
+          }
+        }
+      }
+    },
+    "303": {
+      "split_index": 303,
+      "seen_activities": [
+        "lying",
+        "sitting",
+        "running",
+        "cycling",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "standing",
+        "walking",
+        "Nordic walking",
+        "rope jumping"
+      ],
+      "training_sample_count": 1463,
+      "validation_sample_count": 628,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_303/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "578fb6aa2aac169487437c0335bc5f16acd0551403e5330e29f4b403fe830e52",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "vertical_periodicity",
+        "upper_body_engagement"
+      ],
+      "forward": [
+        "vertical_periodicity",
+        "impulsiveness",
+        "cadence",
+        "smoothness",
+        "upper_body_engagement",
+        "motion_intensity",
+        "vertical_motion",
+        "spatial_variability",
+        "posture_inclination",
+        "body_coordination",
+        "motion_type",
+        "posture_variability"
+      ],
+      "reverse": [
+        "posture_variability",
+        "motion_type",
+        "body_coordination",
+        "posture_inclination",
+        "spatial_variability",
+        "vertical_motion",
+        "motion_intensity",
+        "upper_body_engagement",
+        "smoothness",
+        "cadence",
+        "impulsiveness",
+        "vertical_periodicity"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9641476980884492,
+          "validation_macro_f1": 0.9671845526288309,
+          "inverse_normalized_ordinal_mae": 0.9856687898089171,
+          "mean_dependency_nmi": 0.4925492377479598,
+          "priority": 0.9457830497776328,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9745222929936306,
+            "macro_f1": 0.9671845526288309,
+            "balanced_accuracy": 0.9641476980884492,
+            "ordinal_mae": 0.014331210191082803
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9670185842713606,
+          "validation_macro_f1": 0.9706779349865213,
+          "inverse_normalized_ordinal_mae": 0.981687898089172,
+          "mean_dependency_nmi": 0.5951782507461175,
+          "priority": 0.952458235573209,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9713375796178344,
+            "macro_f1": 0.9706779349865213,
+            "balanced_accuracy": 0.9670185842713606,
+            "ordinal_mae": 0.018312101910828025
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9698779900654086,
+          "validation_macro_f1": 0.9700528442589996,
+          "inverse_normalized_ordinal_mae": 0.9792993630573248,
+          "mean_dependency_nmi": 0.5653743876048588,
+          "priority": 0.9515895407988416,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9713375796178344,
+            "macro_f1": 0.9700528442589996,
+            "balanced_accuracy": 0.9698779900654086,
+            "ordinal_mae": 0.020700636942675158
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9666384688590463,
+          "validation_macro_f1": 0.976074123935966,
+          "inverse_normalized_ordinal_mae": 0.9888535031847133,
+          "mean_dependency_nmi": 0.5456254612663582,
+          "priority": 0.9528615218676213,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9808917197452229,
+            "macro_f1": 0.976074123935966,
+            "balanced_accuracy": 0.9666384688590463,
+            "ordinal_mae": 0.011146496815286623
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9697745890094537,
+          "validation_macro_f1": 0.9738814133278281,
+          "inverse_normalized_ordinal_mae": 0.9872611464968153,
+          "mean_dependency_nmi": 0.3462804142337953,
+          "priority": 0.9433292390636554,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9761146496815286,
+            "macro_f1": 0.9738814133278281,
+            "balanced_accuracy": 0.9697745890094537,
+            "ordinal_mae": 0.012738853503184714
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9394606150201433,
+          "validation_macro_f1": 0.947806268539734,
+          "inverse_normalized_ordinal_mae": 0.9792993630573248,
+          "mean_dependency_nmi": 0.44831565282803965,
+          "priority": 0.9253748125738517,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9633757961783439,
+            "macro_f1": 0.947806268539734,
+            "balanced_accuracy": 0.9394606150201433,
+            "ordinal_mae": 0.020700636942675158
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9411768275351071,
+          "validation_macro_f1": 0.9506063769746218,
+          "inverse_normalized_ordinal_mae": 0.9777070063694268,
+          "mean_dependency_nmi": 0.5812583078860725,
+          "priority": 0.9333158021513737,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.964968152866242,
+            "macro_f1": 0.9506063769746218,
+            "balanced_accuracy": 0.9411768275351071,
+            "ordinal_mae": 0.022292993630573247
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9411768275351071,
+          "validation_macro_f1": 0.9506063769746218,
+          "inverse_normalized_ordinal_mae": 0.9777070063694268,
+          "mean_dependency_nmi": 0.5812583078860725,
+          "priority": 0.9333158021513737,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.964968152866242,
+            "macro_f1": 0.9506063769746218,
+            "balanced_accuracy": 0.9411768275351071,
+            "ordinal_mae": 0.022292993630573247
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.9560824280831698,
+          "validation_macro_f1": 0.9618673968482647,
+          "inverse_normalized_ordinal_mae": 0.9840764331210191,
+          "mean_dependency_nmi": 0.5828980032382255,
+          "priority": 0.9447574984780209,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9713375796178344,
+            "macro_f1": 0.9618673968482647,
+            "balanced_accuracy": 0.9560824280831698,
+            "ordinal_mae": 0.01592356687898089
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9560824280831698,
+          "validation_macro_f1": 0.9618673968482647,
+          "inverse_normalized_ordinal_mae": 0.9777070063694268,
+          "mean_dependency_nmi": 0.5828980032382255,
+          "priority": 0.9434836131277025,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9713375796178344,
+            "macro_f1": 0.9618673968482647,
+            "balanced_accuracy": 0.9560824280831698,
+            "ordinal_mae": 0.022292993630573247
+          }
+        },
+        "vertical_periodicity": {
+          "validation_balanced_accuracy": 0.9785855554797791,
+          "validation_macro_f1": 0.9785855554797791,
+          "inverse_normalized_ordinal_mae": 0.9920382165605095,
+          "mean_dependency_nmi": 0.4828804059313105,
+          "priority": 0.9564908302185017,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9840764331210191,
+            "macro_f1": 0.9785855554797791,
+            "balanced_accuracy": 0.9785855554797791,
+            "ordinal_mae": 0.007961783439490446
+          }
+        },
+        "upper_body_engagement": {
+          "validation_balanced_accuracy": 0.9698779900654086,
+          "validation_macro_f1": 0.9700528442589996,
+          "inverse_normalized_ordinal_mae": 0.9792993630573248,
+          "mean_dependency_nmi": 0.5653743876048588,
+          "priority": 0.9515895407988416,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9713375796178344,
+            "macro_f1": 0.9700528442589996,
+            "balanced_accuracy": 0.9698779900654086,
+            "ordinal_mae": 0.020700636942675158
+          }
+        }
+      }
+    },
+    "328": {
+      "split_index": 328,
+      "seen_activities": [
+        "lying",
+        "sitting",
+        "walking",
+        "cycling",
+        "Nordic walking",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing"
+      ],
+      "unseen_activities": [
+        "standing",
+        "running",
+        "ascending stairs",
+        "rope jumping"
+      ],
+      "training_sample_count": 1711,
+      "validation_sample_count": 734,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_328/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "0d1718a4a8b206a60e6c6c3548d17037170b3582ba7df65c10c16f94f4d1f810",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "ballistic_motion_presence",
+        "anti_gravity_effort"
+      ],
+      "forward": [
+        "anti_gravity_effort",
+        "cadence",
+        "motion_intensity",
+        "spatial_variability",
+        "body_coordination",
+        "motion_type",
+        "smoothness",
+        "vertical_motion",
+        "impulsiveness",
+        "posture_variability",
+        "posture_inclination",
+        "ballistic_motion_presence"
+      ],
+      "reverse": [
+        "ballistic_motion_presence",
+        "posture_inclination",
+        "posture_variability",
+        "impulsiveness",
+        "vertical_motion",
+        "smoothness",
+        "motion_type",
+        "body_coordination",
+        "spatial_variability",
+        "motion_intensity",
+        "cadence",
+        "anti_gravity_effort"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.963109507860962,
+          "validation_macro_f1": 0.9702249271442143,
+          "inverse_normalized_ordinal_mae": 0.9836512261580381,
+          "mean_dependency_nmi": 0.4839570552163537,
+          "priority": 0.9453948546731226,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9713896457765667,
+            "macro_f1": 0.9702249271442143,
+            "balanced_accuracy": 0.963109507860962,
+            "ordinal_mae": 0.01634877384196185
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9701851417950382,
+          "validation_macro_f1": 0.9757656562562995,
+          "inverse_normalized_ordinal_mae": 0.9836512261580381,
+          "mean_dependency_nmi": 0.44667873455682783,
+          "priority": 0.948377192644106,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9782016348773842,
+            "macro_f1": 0.9757656562562995,
+            "balanced_accuracy": 0.9701851417950382,
+            "ordinal_mae": 0.01634877384196185
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9668567058436301,
+          "validation_macro_f1": 0.9665423466723945,
+          "inverse_normalized_ordinal_mae": 0.9741144414168937,
+          "mean_dependency_nmi": 0.43429545178548373,
+          "priority": 0.9415858825040049,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9673024523160763,
+            "macro_f1": 0.9665423466723945,
+            "balanced_accuracy": 0.9668567058436301,
+            "ordinal_mae": 0.025885558583106268
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9544741570168421,
+          "validation_macro_f1": 0.9530865166505115,
+          "inverse_normalized_ordinal_mae": 0.9809264305177112,
+          "mean_dependency_nmi": 0.4710708661242364,
+          "priority": 0.9351781550624865,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9700272479564033,
+            "macro_f1": 0.9530865166505115,
+            "balanced_accuracy": 0.9544741570168421,
+            "ordinal_mae": 0.01907356948228883
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9586943546776565,
+          "validation_macro_f1": 0.9636994309250406,
+          "inverse_normalized_ordinal_mae": 0.9816076294277929,
+          "mean_dependency_nmi": 0.23957900510484417,
+          "priority": 0.9288227650232584,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9645776566757494,
+            "macro_f1": 0.9636994309250406,
+            "balanced_accuracy": 0.9586943546776565,
+            "ordinal_mae": 0.018392370572207085
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9556134262573978,
+          "validation_macro_f1": 0.9563594695988127,
+          "inverse_normalized_ordinal_mae": 0.9741144414168937,
+          "mean_dependency_nmi": 0.37678234376434966,
+          "priority": 0.9305958881670691,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9564032697547684,
+            "macro_f1": 0.9563594695988127,
+            "balanced_accuracy": 0.9556134262573978,
+            "ordinal_mae": 0.025885558583106268
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9597389764685352,
+          "validation_macro_f1": 0.9566181188709182,
+          "inverse_normalized_ordinal_mae": 0.9782016348773842,
+          "mean_dependency_nmi": 0.5587944585811814,
+          "priority": 0.9424480249766523,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9686648501362398,
+            "macro_f1": 0.9566181188709182,
+            "balanced_accuracy": 0.9597389764685352,
+            "ordinal_mae": 0.021798365122615803
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9597389764685352,
+          "validation_macro_f1": 0.9566181188709182,
+          "inverse_normalized_ordinal_mae": 0.9782016348773842,
+          "mean_dependency_nmi": 0.5587944585811814,
+          "priority": 0.9424480249766523,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9686648501362398,
+            "macro_f1": 0.9566181188709182,
+            "balanced_accuracy": 0.9597389764685352,
+            "ordinal_mae": 0.021798365122615803
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.9609900735769559,
+          "validation_macro_f1": 0.9669073021357137,
+          "inverse_normalized_ordinal_mae": 0.978882833787466,
+          "mean_dependency_nmi": 0.44521782592950215,
+          "priority": 0.9405551818043125,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9700272479564033,
+            "macro_f1": 0.9669073021357137,
+            "balanced_accuracy": 0.9609900735769559,
+            "ordinal_mae": 0.02111716621253406
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9614514663919614,
+          "validation_macro_f1": 0.9575676613633428,
+          "inverse_normalized_ordinal_mae": 0.978882833787466,
+          "mean_dependency_nmi": 0.5518835864481747,
+          "priority": 0.9432942043652874,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9645776566757494,
+            "macro_f1": 0.9575676613633428,
+            "balanced_accuracy": 0.9614514663919614,
+            "ordinal_mae": 0.02111716621253406
+          }
+        },
+        "ballistic_motion_presence": {
+          "validation_balanced_accuracy": 0.9492690058479532,
+          "validation_macro_f1": 0.9665634110787171,
+          "inverse_normalized_ordinal_mae": 0.9959128065395095,
+          "mean_dependency_nmi": 0.1582926416534673,
+          "priority": 0.9242372693457693,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9918256130790191,
+            "macro_f1": 0.9665634110787171,
+            "balanced_accuracy": 0.9492690058479532,
+            "ordinal_mae": 0.004087193460490463
+          }
+        },
+        "anti_gravity_effort": {
+          "validation_balanced_accuracy": 0.9812286689419796,
+          "validation_macro_f1": 0.9842757680510249,
+          "inverse_normalized_ordinal_mae": 0.9925068119891008,
+          "mean_dependency_nmi": 0.3642770890169962,
+          "priority": 0.9535508482878682,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9850136239782016,
+            "macro_f1": 0.9842757680510249,
+            "balanced_accuracy": 0.9812286689419796,
+            "ordinal_mae": 0.007493188010899182
+          }
+        }
+      }
+    },
+    "378": {
+      "split_index": 378,
+      "seen_activities": [
+        "lying",
+        "sitting",
+        "standing",
+        "cycling",
+        "ascending stairs",
+        "descending stairs",
+        "ironing",
+        "rope jumping"
+      ],
+      "unseen_activities": [
+        "walking",
+        "running",
+        "Nordic walking",
+        "vacuum cleaning"
+      ],
+      "training_sample_count": 1422,
+      "validation_sample_count": 610,
+      "attribute_vectors": "/home/wanzhen/LLMbasedZeroshotHARAgent/pamap2_pipeline_runs/pamap2_random20_unseen4_eval50_no_rerank_keep_models_seed42/split_378/activity_attribute_vectors_a2.json",
+      "attribute_vectors_sha256": "a36d31d1213e27719bbc9db3166fbdd21de5542af0a30164eaa9b7cf4705d7c5",
+      "attribute_schema": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "body_coordination",
+        "motion_type",
+        "vertical_motion",
+        "spatial_variability",
+        "upper_lower_body_coupling",
+        "arm_motion_prominence",
+        "locomotion_impact_severity",
+        "cyclical_locomotion_pattern"
+      ],
+      "forward": [
+        "body_coordination",
+        "cyclical_locomotion_pattern",
+        "cadence",
+        "motion_type",
+        "spatial_variability",
+        "impulsiveness",
+        "locomotion_impact_severity",
+        "motion_intensity",
+        "vertical_motion",
+        "upper_lower_body_coupling",
+        "posture_inclination",
+        "posture_variability",
+        "smoothness",
+        "arm_motion_prominence"
+      ],
+      "reverse": [
+        "arm_motion_prominence",
+        "smoothness",
+        "posture_variability",
+        "posture_inclination",
+        "upper_lower_body_coupling",
+        "vertical_motion",
+        "motion_intensity",
+        "locomotion_impact_severity",
+        "impulsiveness",
+        "spatial_variability",
+        "motion_type",
+        "cadence",
+        "cyclical_locomotion_pattern",
+        "body_coordination"
+      ],
+      "scores": {
+        "motion_intensity": {
+          "validation_balanced_accuracy": 0.9666917851285741,
+          "validation_macro_f1": 0.9730028697488021,
+          "inverse_normalized_ordinal_mae": 0.9852459016393442,
+          "mean_dependency_nmi": 0.5348618884873627,
+          "priority": 0.950704438984736,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9704918032786886,
+            "macro_f1": 0.9730028697488021,
+            "balanced_accuracy": 0.9666917851285741,
+            "ordinal_mae": 0.014754098360655738
+          }
+        },
+        "cadence": {
+          "validation_balanced_accuracy": 0.9680933558860841,
+          "validation_macro_f1": 0.9648500628563715,
+          "inverse_normalized_ordinal_mae": 0.9836065573770492,
+          "mean_dependency_nmi": 0.643620446384822,
+          "priority": 0.9539993628003003,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9704918032786886,
+            "macro_f1": 0.9648500628563715,
+            "balanced_accuracy": 0.9680933558860841,
+            "ordinal_mae": 0.01639344262295082
+          }
+        },
+        "smoothness": {
+          "validation_balanced_accuracy": 0.9537320222748399,
+          "validation_macro_f1": 0.9637454481393627,
+          "inverse_normalized_ordinal_mae": 0.9844262295081967,
+          "mean_dependency_nmi": 0.4591173934683226,
+          "priority": 0.9381441600405422,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9688524590163935,
+            "macro_f1": 0.9637454481393627,
+            "balanced_accuracy": 0.9537320222748399,
+            "ordinal_mae": 0.01557377049180328
+          }
+        },
+        "impulsiveness": {
+          "validation_balanced_accuracy": 0.9659329140461216,
+          "validation_macro_f1": 0.9797294882847513,
+          "inverse_normalized_ordinal_mae": 0.9959016393442623,
+          "mean_dependency_nmi": 0.5131301030540203,
+          "priority": 0.9534254908277336,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9934426229508196,
+            "macro_f1": 0.9797294882847513,
+            "balanced_accuracy": 0.9659329140461216,
+            "ordinal_mae": 0.004098360655737705
+          }
+        },
+        "posture_inclination": {
+          "validation_balanced_accuracy": 0.9738630205394173,
+          "validation_macro_f1": 0.9738467083119898,
+          "inverse_normalized_ordinal_mae": 0.9827868852459016,
+          "mean_dependency_nmi": 0.4063777702881369,
+          "priority": 0.947268637299922,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9737704918032787,
+            "macro_f1": 0.9738467083119898,
+            "balanced_accuracy": 0.9738630205394173,
+            "ordinal_mae": 0.01721311475409836
+          }
+        },
+        "posture_variability": {
+          "validation_balanced_accuracy": 0.9680403505487059,
+          "validation_macro_f1": 0.9619643152455174,
+          "inverse_normalized_ordinal_mae": 0.9713114754098361,
+          "mean_dependency_nmi": 0.5659967736944295,
+          "priority": 0.9467695860872616,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9672131147540983,
+            "macro_f1": 0.9619643152455174,
+            "balanced_accuracy": 0.9680403505487059,
+            "ordinal_mae": 0.028688524590163935
+          }
+        },
+        "body_coordination": {
+          "validation_balanced_accuracy": 0.9710924822121374,
+          "validation_macro_f1": 0.9724876941322513,
+          "inverse_normalized_ordinal_mae": 0.9844262295081967,
+          "mean_dependency_nmi": 0.6350999776769067,
+          "priority": 0.957378170020622,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9704918032786886,
+            "macro_f1": 0.9724876941322513,
+            "balanced_accuracy": 0.9710924822121374,
+            "ordinal_mae": 0.01557377049180328
+          }
+        },
+        "motion_type": {
+          "validation_balanced_accuracy": 0.9680933558860841,
+          "validation_macro_f1": 0.9648500628563715,
+          "inverse_normalized_ordinal_mae": 0.9836065573770492,
+          "mean_dependency_nmi": 0.643620446384822,
+          "priority": 0.9539993628003003,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9704918032786886,
+            "macro_f1": 0.9648500628563715,
+            "balanced_accuracy": 0.9680933558860841,
+            "ordinal_mae": 0.01639344262295082
+          }
+        },
+        "vertical_motion": {
+          "validation_balanced_accuracy": 0.9674999999999999,
+          "validation_macro_f1": 0.9748739559304589,
+          "inverse_normalized_ordinal_mae": 0.9934426229508196,
+          "mean_dependency_nmi": 0.46956043634942535,
+          "priority": 0.9500037331867728,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9901639344262295,
+            "macro_f1": 0.9748739559304589,
+            "balanced_accuracy": 0.9674999999999999,
+            "ordinal_mae": 0.006557377049180328
+          }
+        },
+        "spatial_variability": {
+          "validation_balanced_accuracy": 0.9680933558860841,
+          "validation_macro_f1": 0.9648500628563715,
+          "inverse_normalized_ordinal_mae": 0.9836065573770492,
+          "mean_dependency_nmi": 0.643620446384822,
+          "priority": 0.9539993628003003,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9704918032786886,
+            "macro_f1": 0.9648500628563715,
+            "balanced_accuracy": 0.9680933558860841,
+            "ordinal_mae": 0.01639344262295082
+          }
+        },
+        "upper_lower_body_coupling": {
+          "validation_balanced_accuracy": 0.9645992366412214,
+          "validation_macro_f1": 0.9694853360721214,
+          "inverse_normalized_ordinal_mae": 0.9885245901639345,
+          "mean_dependency_nmi": 0.5065548096027849,
+          "priority": 0.9479479158231121,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.980327868852459,
+            "macro_f1": 0.9694853360721214,
+            "balanced_accuracy": 0.9645992366412214,
+            "ordinal_mae": 0.011475409836065573
+          }
+        },
+        "arm_motion_prominence": {
+          "validation_balanced_accuracy": 0.9545125307837172,
+          "validation_macro_f1": 0.9612163467445152,
+          "inverse_normalized_ordinal_mae": 0.9770491803278688,
+          "mean_dependency_nmi": 0.42139356123329974,
+          "priority": 0.9343750570032661,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9754098360655737,
+            "macro_f1": 0.9612163467445152,
+            "balanced_accuracy": 0.9545125307837172,
+            "ordinal_mae": 0.022950819672131147
+          }
+        },
+        "locomotion_impact_severity": {
+          "validation_balanced_accuracy": 0.9659329140461216,
+          "validation_macro_f1": 0.9797294882847513,
+          "inverse_normalized_ordinal_mae": 0.9959016393442623,
+          "mean_dependency_nmi": 0.5131301030540203,
+          "priority": 0.9534254908277336,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9934426229508196,
+            "macro_f1": 0.9797294882847513,
+            "balanced_accuracy": 0.9659329140461216,
+            "ordinal_mae": 0.004098360655737705
+          }
+        },
+        "cyclical_locomotion_pattern": {
+          "validation_balanced_accuracy": 0.9774198529499103,
+          "validation_macro_f1": 0.9817192313686003,
+          "inverse_normalized_ordinal_mae": 0.9836065573770492,
+          "mean_dependency_nmi": 0.4824922276598145,
+          "priority": 0.9552006260964403,
+          "constant": false,
+          "validation_metrics": {
+            "accuracy": 0.9836065573770492,
+            "macro_f1": 0.9817192313686003,
+            "balanced_accuracy": 0.9774198529499103,
+            "ordinal_mae": 0.01639344262295082
+          }
+        }
+      }
+    }
+  }
+}

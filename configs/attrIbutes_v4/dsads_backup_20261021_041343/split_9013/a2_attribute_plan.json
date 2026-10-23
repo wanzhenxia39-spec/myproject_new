@@ -1,0 +1,393 @@
+{
+  "schema_version": "2.0",
+  "dataset": "dsads",
+  "split_index": 9013,
+  "refinement_needed": true,
+  "decision_reason": "A1 distinguishes standing from sitting only through global inclination and distinguishes the two lying postures only through an unsupported class-level smoothness difference. Add leg inclination and lateral torso inclination as independent, gravity-relative posture distinctions. The latter addresses the lowest-U_NN pair, but its high state lacks an explicit seen-class anchor. Preserve the dynamic attributes: the supplied semantics do not establish a sufficiently reliable additional distinction between cross-trainer and stepper exercise. Basketball's weak seen coverage warrants compositional use of existing intensity, impact, rotation and irregularity concepts, not an activity-specific attribute. No class-level attribute vectors or recognition-performance claims are inferred.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "leg_inclination",
+      "definition": "Average departure of the anatomical longitudinal directions of the instrumented legs from vertical, irrespective of whether they point upward or downward.",
+      "levels": {
+        "Low": "Leg directions remain predominantly near vertical.",
+        "Medium": "Leg directions are predominantly oblique or alternate substantially between vertical and horizontal.",
+        "High": "Leg directions remain predominantly near horizontal."
+      }
+    },
+    {
+      "name": "lateral_torso_inclination",
+      "definition": "Magnitude of the gravity component along the anatomical left-right torso direction, representing lateral torso inclination rather than forward or backward inclination.",
+      "levels": {
+        "Low": "Gravity has little component along the left-right torso direction.",
+        "Medium": "Gravity has an intermediate component along the left-right torso direction.",
+        "High": "Gravity is predominantly aligned with the left-right torso direction."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "motion_intensity: G3 supports overall accelerative and rotational energy. Retains a transferable exertion contrast between static, locomotor and vigorous activities, including the close stepper/cross-trainer pair. Effort, technique and execution speed can overlap; the supplied class-level difference is not evidence of reliable separation.",
+      "target_unseen": [
+        "exercising on a cross trainer",
+        "jumping",
+        "playing basketball"
+      ],
+      "contrast_unseen": [
+        "standing"
+      ],
+      "seen_anchors": [
+        "exercising on a stepper",
+        "running on a treadmill with a speed of 8 km/h"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "cadence: G6 supports recurring leg and body motion rates, transferring repetitive exercise semantics from seen locomotion and cycling. Multiple limb rhythms and intermittent motion can obscure the meaningful repetition unit; no clear repetition and slow repetition intentionally share Low.",
+      "target_unseen": [
+        "exercising on a cross trainer",
+        "jumping"
+      ],
+      "contrast_unseen": [
+        "playing basketball"
+      ],
+      "seen_anchors": [
+        "exercising on a stepper",
+        "cycling on an exercise bike in vertical positions"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "smoothness: G9 supports sustained rapid changes versus continuous motion. Preserves the contrast between constrained cyclic exercise and impact-rich activity. Sensor movement and execution style can affect apparent smoothness; lying on right side is not inherently less smooth than lying on back, so A1's one-level difference is not a defensible posture discriminator.",
+      "target_unseen": [
+        "exercising on a cross trainer",
+        "jumping",
+        "playing basketball"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "exercising on a stepper",
+        "descending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "impulsiveness: G10 supports short abrupt acceleration changes expected around impacts, transferring from stair descent and running to jumping and basketball. Landing technique and sensor attachment can alter peak prominence; impacts alone do not identify the activity.",
+      "target_unseen": [
+        "jumping",
+        "playing basketball"
+      ],
+      "contrast_unseen": [
+        "exercising on a cross trainer"
+      ],
+      "seen_anchors": [
+        "descending stairs",
+        "running on a treadmill with a speed of 8 km/h"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "posture_inclination: G1 supports distributed gravity-relative posture evidence. Preserves global upright-to-recumbent transfer from sitting and cycling postures to standing and lying. Seated configurations are articulated rather than uniformly inclined, so this global concept cannot alone resolve sitting versus standing or distinguish lying directions.",
+      "target_unseen": [
+        "standing",
+        "lying on back",
+        "lying on right side"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "sitting",
+        "standing in an elevator still",
+        "cycling on an exercise bike in horizontal positions"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "posture_variability: G12 supports changes of global gravity-relative configuration. Retains a compositional bridge from rowing and unconstrained elevator movement to variable basketball posture. Local limb cycling must not be mistaken for whole-body posture change; brief windows may omit larger transitions.",
+      "target_unseen": [
+        "playing basketball",
+        "jumping"
+      ],
+      "contrast_unseen": [
+        "standing"
+      ],
+      "seen_anchors": [
+        "rowing",
+        "moving around in an elevator"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "rotational_motion: G2 supports angular motion at torso and limb sensors. Retains transferable cyclic-limb rotation for cross-trainer exercise and broader rotational involvement for basketball. Similar overall rotation can arise from different joints, so no unsupported arm-handle or turning distinction is introduced.",
+      "target_unseen": [
+        "exercising on a cross trainer",
+        "playing basketball"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "exercising on a stepper",
+        "cycling on an exercise bike in vertical positions",
+        "rowing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "translational_motion: G13 supports short-window evidence of linear progression, retaining a distinction between predominantly stationary exercise and locomotor activity. Walking supplies a seen anchor for basketball movement. Constant-velocity transport, treadmill motion and integration uncertainty limit observability; this is not reliable absolute displacement or elevator-motion identification.",
+      "target_unseen": [
+        "playing basketball",
+        "exercising on a cross trainer",
+        "jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "walking in a parking lot",
+        "exercising on a stepper",
+        "standing in an elevator still"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "motion_regularity: G11 and G6 support recurrence and temporal predictability independently of repetition rate. Preserves irregular movement as a transferable component for weakly covered basketball, anchored by moving around in an elevator. Short segments of basketball can be regular, and stationary predictability is not periodic motion.",
+      "target_unseen": [
+        "playing basketball",
+        "exercising on a cross trainer",
+        "jumping"
+      ],
+      "contrast_unseen": [],
+      "seen_anchors": [
+        "moving around in an elevator",
+        "exercising on a stepper",
+        "descending stairs"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "leg_inclination"
+      ],
+      "reason": "leg_inclination: G1 supports gravity-relative orientation at the available leg sensors. Adds a segment-level contrast beyond global posture: sitting commonly inclines the legs more than standing, while recumbency can preserve horizontal legs even when torso orientations differ. Sitting, standing in an elevator still and cycling provide transferable orientation anchors. Exact leg mounting and seated leg configuration are unspecified, so sitting-versus-standing separation is conditional rather than guaranteed; dynamic acceleration also complicates gravity estimation.",
+      "target_unseen": [
+        "standing",
+        "lying on back",
+        "lying on right side"
+      ],
+      "contrast_unseen": [
+        "standing"
+      ],
+      "seen_anchors": [
+        "sitting",
+        "standing in an elevator still",
+        "cycling on an exercise bike in horizontal positions"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "lateral_torso_inclination"
+      ],
+      "reason": "lateral_torso_inclination: G1 supports the gravity direction at the torso. Adds a static, independent distinction for the lowest-U_NN pair: side lying aligns gravity with the torso's left-right direction, whereas supine lying does not. This avoids relying on A1's unjustified smoothness difference. Upright seen postures anchor Low, but no supplied seen class explicitly anchors sustained High; consistent anatomical sensor alignment is necessary, and transfer to High remains weakly supervised. The attribute distinguishes lateral from nonlateral lying, not right from left.",
+      "target_unseen": [
+        "lying on right side"
+      ],
+      "contrast_unseen": [
+        "lying on back"
+      ],
+      "seen_anchors": [
+        "sitting",
+        "standing in an elevator still"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The 11 attributes retain all nine A1 concepts and add only two posture distinctions. Global posture inclination describes the load-bearing configuration; leg inclination describes segment orientation; lateral torso inclination describes the direction of inclination rather than its overall magnitude. These can vary independently despite correlations in particular classes. Posture variability is temporal, unlike the three mean-orientation concepts. Smoothness concerns sustained rapid fluctuations, impulsiveness concerns isolated peaks, cadence concerns repetition rate, and regularity concerns predictability. Intensity, rotation and translation remain distinct physical aspects rather than substitutes for activity identity. No arm-engagement, flight, elevation-direction or sport-specific attribute is added because the supplied semantics and capabilities do not establish sufficiently stable additional ordinal distinctions.",
+  "_meta": {
+    "dataset": "dsads",
+    "split_index": 9013,
+    "seen": [
+      "sitting",
+      "ascending stairs",
+      "descending stairs",
+      "standing in an elevator still",
+      "moving around in an elevator",
+      "walking in a parking lot",
+      "walking on a treadmill with a speed of 4 km/h (in flat)",
+      "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+      "running on a treadmill with a speed of 8 km/h",
+      "exercising on a stepper",
+      "cycling on an exercise bike in horizontal positions",
+      "cycling on an exercise bike in vertical positions",
+      "rowing"
+    ],
+    "unseen": [
+      "standing",
+      "lying on back",
+      "lying on right side",
+      "exercising on a cross trainer",
+      "jumping",
+      "playing basketball"
+    ],
+    "refinement_strategy": "full_a1_semantic_refinement_v3",
+    "planning_stages": 1,
+    "min_attributes": 9,
+    "max_attributes": 15,
+    "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_dsads_v1_5.json",
+    "a1_sha256": "032689e410b1d31c709f75afbbea7434d228100dd94f4e072843ce91a803c5f3",
+    "a1_ontology_json": "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json",
+    "a1_ontology_sha256": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "split_csv_sha256": "67ca3064b4b3295e57ffb377c8dc3285228673e1a4505ccf1e8919a04ca513f9",
+    "gap_diagnostics_source": "reused_from_gap_csv",
+    "refinement_evidence": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/dsads/split_9013/a2_attribute_plan.refinement_evidence.json",
+    "refinement_evidence_sha256": "49978ec25118603d5bfb7b30a1c24f2c9cffb0a156fb4b68108663ac37fabcad",
+    "prompt_json": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/dsads/split_9013/a2_attribute_plan.prompt.json",
+    "prompt_json_sha256": "c2f0c60aa50eddf035fa586f7e04b7eddbac8a0b1b72d08cae61e8a44458b433",
+    "prompt_text": "/home/wanzhen/myproject_new/configs/attrIbutes_v4/dsads/split_9013/a2_attribute_plan.prompt.txt",
+    "prompt_text_sha256": "99c7f02b42206c8cd8ad1ca256da823e1eba492db68eb4c4bea3c53464fd0039",
+    "gap_a1_hash_verified": true,
+    "feature_source": "/home/wanzhen/windows/dsads_windows/all_features_name_20_120.npy",
+    "feature_names_sha256": "4db4049a4d53ccb2d56d6588c9b22ed765fcf72c89fd502122a10e568d1c0bf5",
+    "groups_sha256": "baf73e9cd119edfed55f10f9dc5b2404df597874ab5cf7f709646ecbb513213c",
+    "model": "gpt-6.1-sol",
+    "api_format": "openai",
+    "base_url": "https://xxapi.info/v1",
+    "stream": false,
+    "response_source": "live",
+    "validation_decision": "validated_semantic_a2",
+    "validation": "Semantic schema and complete A1-to-A2 lineage validated; no feature binding performed.",
+    "activity_role_repairs": []
+  }
+}

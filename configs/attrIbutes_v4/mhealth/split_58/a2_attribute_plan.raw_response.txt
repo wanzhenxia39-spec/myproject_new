@@ -1,0 +1,183 @@
+{
+  "schema_version": "2.0",
+  "dataset": "mhealth",
+  "split_index": 58,
+  "refinement_needed": true,
+  "decision_reason": "A1 distinguishes walking from jogging only by motion_intensity, waist bends forward from knees bending (crouching) only by smoothness, and the three static activities only by posture_inclination. Add a coarse unloading concept to provide a physically independent contrast between walking or climbing stairs and flight-containing jogging, with running and jump front & back as seen anchors. Remove motion_regularity because its supplied level is identical across all classes. Preserve the remaining concepts: the available sensors do not justify manufacturing another reliable static-posture distinction or directly measuring knee flexion. The relatively weak coverage of lying down and climbing stairs does not itself establish that additional attributes would be predictable.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "ballistic_unloading",
+      "definition": "Prominence of recurring intervals of reduced apparent gravitational loading of the trunk, consistent with ballistic motion, rather than the strength of subsequent landing impacts.",
+      "levels": {
+        "Low": "No clear recurring ballistic unloading intervals.",
+        "Medium": "Recurring but modest or brief ballistic unloading intervals.",
+        "High": "Pronounced recurring ballistic unloading intervals approaching free-fall conditions."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": ["motion_intensity"],
+      "outputs": ["motion_intensity"],
+      "reason": "motion_intensity: G3 supports overall acceleration and angular-motion magnitude from the listed sensors. It preserves the supplied walking–jogging distinction and transfer through walking and running. Execution effort and local arm motion can change apparent intensity, so intensity alone should not define gait identity.",
+      "target_unseen": ["jogging", "climbing stairs"],
+      "contrast_unseen": [],
+      "seen_anchors": ["walking", "running"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["cadence"],
+      "outputs": ["cadence"],
+      "reason": "cadence: G6 supports repetition rate in ankle and lower-arm motion. Walking, running and cycling provide seen examples spanning repetition rates relevant to jogging and climbing stairs. Step-versus-stride harmonics and self-selected pace can blur ordinal boundaries; no fixed class-specific rate is assumed.",
+      "target_unseen": ["jogging", "climbing stairs"],
+      "contrast_unseen": [],
+      "seen_anchors": ["walking", "running", "cycling"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["smoothness"],
+      "outputs": ["smoothness"],
+      "reason": "smoothness: G9 supports sustained rapid changes in acceleration and angular motion, distinct from isolated impacts. It retains the existing waist bends forward–knees bending (crouching) distinction and graded gait descriptions. Pace, attachment motion and transition windows can obscure this distinction, so it is preserved rather than strengthened without evidence.",
+      "target_unseen": ["jogging", "climbing stairs"],
+      "contrast_unseen": [],
+      "seen_anchors": ["walking", "running", "waist bends forward", "knees bending (crouching)"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["impulsiveness"],
+      "outputs": ["impulsiveness"],
+      "reason": "impulsiveness: G10 supports abrupt acceleration changes associated with impacts, particularly at the ankle and chest. Walking, running and jump front & back provide transferable contrasts for locomotor unseen classes. Footwear, surface and attachment affect peaks; impacts do not establish whether an airborne interval occurred.",
+      "target_unseen": ["jogging", "climbing stairs"],
+      "contrast_unseen": [],
+      "seen_anchors": ["walking", "running", "jump front & back"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_inclination"],
+      "outputs": ["posture_inclination"],
+      "reason": "posture_inclination: G1 supports gravity-relative chest and limb orientation. This remains the principal supplied distinction among standing still, sitting and relaxing, and lying down. Sitting and bending activities provide partial seen support, but sitting can have an upright trunk and no sensor directly measures thigh or pelvic posture; global configuration and the lying-down extreme therefore remain imperfectly covered.",
+      "target_unseen": ["standing still", "lying down", "climbing stairs"],
+      "contrast_unseen": ["standing still", "lying down"],
+      "seen_anchors": ["sitting and relaxing", "waist bends forward", "cycling"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_variability"],
+      "outputs": ["posture_variability"],
+      "reason": "posture_variability: G12 supports changing gravity-relative orientation, with chest evidence helping separate global postural change from arm elevation. It preserves the supplied climbing stairs–jogging distinction and transfers from bending and crouching. Dynamic acceleration can confound gravity estimation, and upright crouching need not produce large trunk tilt.",
+      "target_unseen": ["climbing stairs", "jogging"],
+      "contrast_unseen": ["climbing stairs", "jogging"],
+      "seen_anchors": ["waist bends forward", "knees bending (crouching)", "walking"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["rotational_motion"],
+      "outputs": ["rotational_motion"],
+      "reason": "rotational_motion: G2 supports angular motion at the lower arm and ankle. It retains useful contrasts between static activities, locomotion and deliberate limb rotations, with frontal elevation of arms providing an upright rotating-motion anchor. Local limb rotation does not imply whole-body rotation, and the chest has no gyroscope.",
+      "target_unseen": ["standing still", "lying down", "jogging"],
+      "contrast_unseen": [],
+      "seen_anchors": ["sitting and relaxing", "frontal elevation of arms", "walking"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["translational_motion"],
+      "outputs": ["translational_motion"],
+      "reason": "translational_motion: G13 supports short-window translation proxies, while G14 supports distinguishing coordinated locomotor motion from isolated rotations. Walking and running anchor locomotion for climbing stairs and jogging. Constant velocity is not directly observable from acceleration, cyclic motion can mimic progression, and cycling may occur without travel; retain this as a coarse semantic concept rather than measured displacement.",
+      "target_unseen": ["climbing stairs", "jogging"],
+      "contrast_unseen": [],
+      "seen_anchors": ["walking", "running", "jump front & back"]
+    },
+    {
+      "action": "drop",
+      "inputs": ["motion_regularity"],
+      "outputs": [],
+      "reason": "G6 and G11 make regularity physically plausible, but every supplied class has High motion_regularity. It contributes no contrast for this split, including the weakly covered unseen classes, so removing it improves compactness without inventing alternative class semantics.",
+      "target_unseen": [],
+      "contrast_unseen": [],
+      "seen_anchors": []
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": ["ballistic_unloading"],
+      "reason": "ballistic_unloading: G3, G4 and G14 support the magnitude, temporal variation and multiaxial structure of chest acceleration during reduced apparent loading. Unlike impact peaks, reduced trunk loading is expected during flight-containing jogging, running and jumping but not ordinary walking or stair ascent. This supplies a candidate independent walking–jogging and climbing stairs–jogging contrast, with walking, running and jump front & back as seen anchors. Evidence is indirect: brief flight, soft jogging, trunk rotation, attachment motion and non-ballistic downward acceleration can blur levels. It must not be interpreted as a direct foot-contact measurement or a guaranteed jogging–running separator.",
+      "target_unseen": ["jogging", "climbing stairs"],
+      "contrast_unseen": ["climbing stairs", "jogging"],
+      "seen_anchors": ["walking", "running", "jump front & back"]
+    }
+  ],
+  "semantic_redundancy_review": "The nine retained or added concepts describe overall magnitude, repetition rate, sustained abruptness, isolated impacts, mean posture, posture change, rotation, progression and ballistic unloading. Ballistic unloading concerns reduced loading between support events, not impact strength or total energy, although these may covary. Smoothness and impulsiveness distinguish sustained fluctuations from short peaks; posture inclination and variability distinguish mean configuration from change. Rotation and translation remain different motion modes. Constant A1 regularity is removed. No extra static-posture or knee-flexion attribute is introduced because the supplied sensors do not guarantee an independent, reliably observable contrast. No class vectors, empirical separability or recognition improvement are asserted."
+}

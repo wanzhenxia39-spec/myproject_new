@@ -1,0 +1,66 @@
+{
+  "dataset_name": "DSADS",
+  "full_name": "Daily and Sports Activities Data Set",
+  "sampling_rate_hz": 25,
+  "preprocessed_sampling_rate_hz": 20,
+  "sensor_units": [
+    {
+      "body_position": "torso",
+      "sensor_types": ["accelerometer", "gyroscope"],
+      "axes": ["x", "y", "z"]
+    },
+    {
+      "body_position": "right_arm",
+      "sensor_types": ["accelerometer", "gyroscope"],
+      "axes": ["x", "y", "z"]
+    },
+    {
+      "body_position": "left_arm",
+      "sensor_types": ["accelerometer", "gyroscope"],
+      "axes": ["x", "y", "z"]
+    },
+    {
+      "body_position": "right_leg",
+      "sensor_types": ["accelerometer", "gyroscope"],
+      "axes": ["x", "y", "z"]
+    },
+    {
+      "body_position": "left_leg",
+      "sensor_types": ["accelerometer", "gyroscope"],
+      "axes": ["x", "y", "z"]
+    }
+  ],
+  "preprocessing_note": "Raw DSADS files contain accelerometer, gyroscope, and magnetometer for five body positions. The current project drops magnetometer channels and keeps acc+gyro only, producing 30 channels per window.",
+  "available_feature_prefixes": ["torso", "right_arm", "left_arm", "right_leg", "left_leg"],
+  "available_feature_types": [
+    "time-domain statistics",
+    "derivative and dynamic-change features",
+    "frequency/energy features",
+    "periodicity/autocorrelation features",
+    "gravity-angle and orientation-related features",
+    "cross-body-position coordination features",
+    "physical HAR features including AI, VI, SMA_phys, EVA, CAGH, AVG, AVH, ARATG, DF, ENERGY_phys, AAE, and ARE"
+  ],
+  "activity_label_order": [
+    "sitting",
+    "standing",
+    "lying on back",
+    "lying on right side",
+    "ascending stairs",
+    "descending stairs",
+    "standing in an elevator still",
+    "moving around in an elevator",
+    "walking in a parking lot",
+    "walking on a treadmill with a speed of 4 km/h (in flat)",
+    "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+    "running on a treadmill with a speed of 8 km/h",
+    "exercising on a stepper",
+    "exercising on a cross trainer",
+    "cycling on an exercise bike in horizontal positions",
+    "cycling on an exercise bike in vertical positions",
+    "rowing",
+    "jumping",
+    "playing basketball"
+  ],
+  "note": "Use only the five body-worn IMU positions and acc/gyro observability. Do not assume video, GPS, magnetometer features, object identity, room context, or subject identity."
+}

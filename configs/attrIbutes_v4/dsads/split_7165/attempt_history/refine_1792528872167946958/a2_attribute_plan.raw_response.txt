@@ -1,0 +1,322 @@
+{
+  "schema_version": "2.0",
+  "dataset": "dsads",
+  "split_index": 7165,
+  "refinement_needed": true,
+  "decision_reason": "A1 provides useful posture, locomotion, impact, periodicity, and regularity contrasts, but exercising on a cross trainer and exercising on a stepper differ mainly by motion_intensity despite their distinct multisegment movement patterns. The high D_kNN values for running on a treadmill with a speed of 8 km/h and jumping also motivate retaining impact, cadence, translation, and regularity contrasts while adding a transferable coordination concept. The proposed addition is observable from multibody accelerometer and gyroscope signals, although exact exercise-machine mechanics may remain ambiguous.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "multisegment_coordination",
+      "definition": "Degree of temporally coupled and mechanically coordinated motion across multiple body segments during an activity.",
+      "levels": {
+        "Low": "Motion is localized or shows little consistent coupling across body segments.",
+        "Medium": "Several body segments participate with moderate temporal coupling.",
+        "High": "Upper- and lower-body or multiple-segment motions are strongly and consistently coupled."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_intensity"
+      ],
+      "outputs": [
+        "motion_intensity"
+      ],
+      "reason": "Preserves the supported contrast from near-static activities through walking and vigorous running, jumping, rowing, and basketball. Supporting groups: G3 and G4. Expected sensor evidence is overall acceleration and angular-motion magnitude with its temporal variation. Ambiguity remains because vigorous cyclic activities can overlap in magnitude, so this attribute should not be used alone for running on a treadmill with a speed of 8 km/h versus jumping. Transfer basis: seen walking, ascending stairs, rowing, and playing basketball anchor unseen locomotor and vigorous activities.",
+      "target_unseen": [
+        "running on a treadmill with a speed of 8 km/h",
+        "jumping"
+      ],
+      "contrast_unseen": [
+        "exercising on a cross trainer"
+      ],
+      "seen_anchors": [
+        "ascending stairs",
+        "rowing",
+        "playing basketball"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "cadence"
+      ],
+      "outputs": [
+        "cadence"
+      ],
+      "reason": "Retains repetition-rate information that separates fast running and cycling from slower or nonperiodic activities. Supporting group: G6. Expected sensor evidence is dominant periodic repetition in multisegment acceleration and angular motion. Ambiguity arises when activities share similar repetition rates, especially running on a treadmill with a speed of 8 km/h, ascending stairs, and jumping. Transfer basis: cycling and walking provide seen periodic anchors.",
+      "target_unseen": [
+        "running on a treadmill with a speed of 8 km/h",
+        "jumping"
+      ],
+      "contrast_unseen": [
+        "descending stairs"
+      ],
+      "seen_anchors": [
+        "cycling on an exercise bike in horizontal positions",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "ascending stairs"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "smoothness"
+      ],
+      "outputs": [
+        "smoothness"
+      ],
+      "reason": "Preserves the distinction between continuous exercise or treadmill motion and abrupt, impact-rich activities. Supporting group: G9. Expected sensor evidence is sustained rapid signal-change behavior across the instrumented body segments. Ambiguity is expected for smooth but forceful activities such as running on a treadmill with a speed of 8 km/h. Transfer basis: treadmill walking, cycling, and rowing anchor smooth periodic motion, while descending stairs and playing basketball anchor less smooth motion.",
+      "target_unseen": [
+        "running on a treadmill with a speed of 8 km/h",
+        "jumping"
+      ],
+      "contrast_unseen": [
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)"
+      ],
+      "seen_anchors": [
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "cycling on an exercise bike in vertical positions",
+        "playing basketball"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "impulsiveness"
+      ],
+      "outputs": [
+        "impulsiveness"
+      ],
+      "reason": "Retains short-duration peak and impact information needed to distinguish jumping and running from smoother cyclic exercise. Supporting group: G10. Expected sensor evidence is abrupt high-magnitude changes and impact-like peaks in acceleration and angular motion. Ambiguity can occur between jumping, descending stairs, and basketball because all can produce impacts. Transfer basis: descending stairs and playing basketball provide seen impact anchors.",
+      "target_unseen": [
+        "jumping",
+        "running on a treadmill with a speed of 8 km/h",
+        "descending stairs"
+      ],
+      "contrast_unseen": [
+        "exercising on a cross trainer"
+      ],
+      "seen_anchors": [
+        "descending stairs",
+        "playing basketball"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_inclination"
+      ],
+      "outputs": [
+        "posture_inclination"
+      ],
+      "reason": "Preserves the gravity-relative distinction among sitting, upright activities, inclined treadmill walking, and horizontal cycling or lying. Supporting group: G1. Expected sensor evidence is mean gravity-relative orientation, especially from torso and limb-mounted inertial signals. Ambiguity may arise because local limb movement can contaminate posture estimates, so the global load-bearing interpretation is retained. Transfer basis: standing, lying, and vertical or horizontal cycling anchor unseen sitting and inclined walking.",
+      "target_unseen": [
+        "sitting",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)"
+      ],
+      "contrast_unseen": [
+        "running on a treadmill with a speed of 8 km/h"
+      ],
+      "seen_anchors": [
+        "standing",
+        "lying on back",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "posture_variability"
+      ],
+      "outputs": [
+        "posture_variability"
+      ],
+      "reason": "Retains changes in global load-bearing configuration that distinguish stable seated or standing exercise from rowing, basketball, and other changing activities. Supporting group: G12. Expected sensor evidence is temporal variation in gravity-relative orientation across the torso and body segments. Ambiguity is possible when limb motion changes without a corresponding global posture change. Transfer basis: rowing and playing basketball anchor unseen activities with variable body configuration.",
+      "target_unseen": [
+        "jumping",
+        "descending stairs"
+      ],
+      "contrast_unseen": [
+        "sitting"
+      ],
+      "seen_anchors": [
+        "rowing",
+        "playing basketball",
+        "standing"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "rotational_motion"
+      ],
+      "outputs": [
+        "rotational_motion"
+      ],
+      "reason": "Preserves angular-motion prominence for cycling, rowing, cross-trainer-like exercise, and basketball. Supporting group: G2. Expected sensor evidence is sustained or directional gyroscope-derived rotational motion across body segments. Ambiguity remains because many vigorous activities combine rotation with translation. Transfer basis: stepper, cycling, rowing, and basketball provide seen rotational anchors for the unseen cross trainer and locomotor activities.",
+      "target_unseen": [
+        "exercising on a cross trainer",
+        "running on a treadmill with a speed of 8 km/h"
+      ],
+      "contrast_unseen": [
+        "jumping"
+      ],
+      "seen_anchors": [
+        "exercising on a stepper",
+        "rowing",
+        "playing basketball"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "translational_motion"
+      ],
+      "outputs": [
+        "translational_motion"
+      ],
+      "reason": "Retains sustained locomotor progression as a distinction from stationary exercise machines and in-place jumping. Supporting groups: G13 and G5. Expected sensor evidence is short-window translation or velocity-proxy behavior and sustained directional change. Ambiguity is expected because treadmill activity may have limited external displacement and jumping may include transient displacement. Transfer basis: seen walking and stair activities support unseen running and inclined treadmill walking.",
+      "target_unseen": [
+        "running on a treadmill with a speed of 8 km/h",
+        "jumping",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)"
+      ],
+      "contrast_unseen": [
+        "exercising on a cross trainer"
+      ],
+      "seen_anchors": [
+        "walking in a parking lot",
+        "ascending stairs",
+        "walking on a treadmill with a speed of 4 km/h (in flat)"
+      ]
+    },
+    {
+      "action": "keep",
+      "inputs": [
+        "motion_regularity"
+      ],
+      "outputs": [
+        "motion_regularity"
+      ],
+      "reason": "Preserves temporal predictability for treadmill, cycling, rowing, and other repeated exercise while retaining irregularity for basketball and elevator movement. Supporting group: G11. Expected sensor evidence is recurrence and consistency of the multichannel temporal pattern. Ambiguity can occur when irregular activities contain locally periodic segments. Transfer basis: regular seen exercise anchors unseen running, inclined treadmill walking, and cross-trainer exercise.",
+      "target_unseen": [
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a cross trainer"
+      ],
+      "contrast_unseen": [
+        "jumping"
+      ],
+      "seen_anchors": [
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "cycling on an exercise bike in vertical positions",
+        "rowing"
+      ]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": [
+        "multisegment_coordination"
+      ],
+      "reason": "Adds a physically distinct contrast between predominantly localized or lower-body stepper motion and strongly coupled upper- and lower-body cross-trainer motion, while remaining transferable to rowing, cycling, running, and basketball. Supporting groups: G14, G2, G6, and G11. Expected sensor evidence is consistent temporal coupling and coordinated multiaxial acceleration-rotation patterns across torso, arms, and legs. Prediction ambiguity is possible because sensor placement and individual technique can make stepper and cross-trainer coordination overlap; therefore the attribute is deliberately broad and not machine-specific. Transfer basis: rowing and basketball provide seen multisegment anchors, and exercising on a stepper is a close seen anchor for the unseen cross trainer.",
+      "target_unseen": [
+        "exercising on a cross trainer"
+      ],
+      "contrast_unseen": [
+        "exercising on a stepper",
+        "running on a treadmill with a speed of 8 km/h"
+      ],
+      "seen_anchors": [
+        "exercising on a stepper",
+        "rowing",
+        "playing basketball"
+      ]
+    }
+  ],
+  "semantic_redundancy_review": "The retained attributes represent different physical aspects: motion_intensity measures magnitude and energy; cadence measures repetition rate; smoothness measures continuity; impulsiveness measures abrupt peaks; posture_inclination measures mean gravity-relative configuration; posture_variability measures configuration change; rotational_motion measures angular prominence; translational_motion measures sustained locomotor progression; and motion_regularity measures temporal predictability. multisegment_coordination is distinct from rotational_motion because it concerns cross-segment temporal coupling rather than the amount of angular motion, and distinct from motion_regularity because it concerns spatial body-segment coordination rather than whole-window temporal predictability. Some correlations are expected, particularly among intensity, impulsiveness, translation, and coordination, but no attribute is a direct duplicate."
+}

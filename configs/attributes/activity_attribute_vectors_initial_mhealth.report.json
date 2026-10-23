@@ -1,0 +1,185 @@
+{
+  "policy": {
+    "filtering": false,
+    "description": "This report only checks distribution and duplicate full vectors. No attribute is removed in this script."
+  },
+  "num_activities": 12,
+  "num_attributes": 9,
+  "attribute_reports": {
+    "motion_intensity": {
+      "distribution_all_activities": {
+        "High": 4,
+        "Low": 3,
+        "Medium": 5
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "cadence": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 3,
+        "Medium": 7
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "smoothness": {
+      "distribution_all_activities": {
+        "High": 6,
+        "Low": 2,
+        "Medium": 4
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "impulsiveness": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 6,
+        "Medium": 4
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "posture_inclination": {
+      "distribution_all_activities": {
+        "High": 2,
+        "Low": 4,
+        "Medium": 6
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "posture_variability": {
+      "distribution_all_activities": {
+        "High": 3,
+        "Low": 3,
+        "Medium": 6
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "rotational_motion": {
+      "distribution_all_activities": {
+        "High": 3,
+        "Low": 3,
+        "Medium": 6
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "translational_motion": {
+      "distribution_all_activities": {
+        "High": 6,
+        "Low": 3,
+        "Medium": 3
+      },
+      "num_levels_used": 3,
+      "is_constant_all_activities": false
+    },
+    "motion_regularity": {
+      "distribution_all_activities": {
+        "High": 12,
+        "Low": 0,
+        "Medium": 0
+      },
+      "num_levels_used": 1,
+      "is_constant_all_activities": true
+    }
+  },
+  "duplicate_full_vectors": {},
+  "dataset": "mhealth",
+  "attribute_set": "A1",
+  "ontology_version": "1.2",
+  "ontology": {
+    "version": "1.2",
+    "attributes": [
+      {
+        "name": "motion_intensity",
+        "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+        "levels": {
+          "Low": "Weak or nearly static motion.",
+          "Medium": "Moderate motion magnitude and energy.",
+          "High": "Strong or vigorous motion."
+        }
+      },
+      {
+        "name": "cadence",
+        "definition": "Rate at which a meaningful periodic motion unit repeats over time.",
+        "levels": {
+          "Low": "No clear periodic repetition or a slow repetition rate.",
+          "Medium": "Moderate repetition rate.",
+          "High": "Fast repetition rate."
+        }
+      },
+      {
+        "name": "smoothness",
+        "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+        "levels": {
+          "Low": "Frequent or sustained abrupt fluctuations.",
+          "Medium": "Moderately smooth motion with some fluctuations.",
+          "High": "Continuous and smooth motion with little fluctuation."
+        }
+      },
+      {
+        "name": "impulsiveness",
+        "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+        "levels": {
+          "Low": "Few or no pronounced abrupt peaks.",
+          "Medium": "Moderate abrupt peaks or impacts.",
+          "High": "Strong short-duration peaks or impacts."
+        }
+      },
+      {
+        "name": "posture_inclination",
+        "definition": "Average gravity-relative inclination of the instrumented body segment within a window.",
+        "levels": {
+          "Low": "Nearly upright relative to gravity.",
+          "Medium": "Moderately inclined relative to gravity.",
+          "High": "Strongly inclined or nearly horizontal relative to gravity."
+        }
+      },
+      {
+        "name": "posture_variability",
+        "definition": "Extent to which gravity-relative posture changes within a window.",
+        "levels": {
+          "Low": "Posture remains nearly constant.",
+          "Medium": "Posture changes moderately.",
+          "High": "Posture changes substantially."
+        }
+      },
+      {
+        "name": "rotational_motion",
+        "definition": "Prominence of angular or rotational motion during the activity.",
+        "levels": {
+          "Low": "Little or no rotational motion.",
+          "Medium": "Moderate rotational motion.",
+          "High": "Prominent rotational motion."
+        }
+      },
+      {
+        "name": "translational_motion",
+        "definition": "Prominence of sustained linear or locomotor motion during the activity.",
+        "levels": {
+          "Low": "Little or no sustained translation.",
+          "Medium": "Moderate translational motion.",
+          "High": "Prominent sustained translational or locomotor motion."
+        }
+      },
+      {
+        "name": "motion_regularity",
+        "definition": "Temporal consistency and predictability of the motion pattern, independent of its repetition rate.",
+        "levels": {
+          "Low": "Irregular and poorly predictable motion pattern.",
+          "Medium": "Partly structured motion with moderate variability.",
+          "High": "Consistent and predictable motion pattern."
+        }
+      }
+    ]
+  },
+  "prompt_path": "runtime/a1_preview/kami_mhealth.prompt.json",
+  "readable_prompt_path": "runtime/a1_preview/kami_mhealth.prompt.txt",
+  "source": "llm",
+  "model": "gpt-5.5"
+}

@@ -1,0 +1,192 @@
+{
+  "schema_version": "2.0",
+  "dataset": "uschad",
+  "split_index": 72,
+  "refinement_needed": true,
+  "decision_reason": "Retain the nine A1 concepts and add motion_periodicity to distinguish recurring locomotor motion from quiet postures and noncyclic transport independently of repetition rate. This gives Walking Forward and Walking Right a shared, seen-supported locomotor distinction without preserving unsupported left/right asymmetries as new attributes. Sitting versus Standing is the closest unseen pair, but a single front-right hip IMU does not justify an additional reliable seated-posture discriminator beyond the existing inclination concept. Likewise, the class names do not establish whether left/right walking involves turning or lateral progression. No directional, support-contact, or elevator-travel-sign attribute is introduced. The supplied distances guide these priorities but do not establish sensor-level separability.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "rotational_motion",
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    {
+      "name": "motion_periodicity",
+      "definition": "Prominence of a recurring nonstatic motion cycle within a window, independent of its repetition rate and overall motion magnitude.",
+      "levels": {
+        "Low": "No clear recurring nonstatic motion cycle.",
+        "Medium": "A discernible but intermittent or weakly expressed recurring motion cycle.",
+        "High": "A clearly expressed recurring motion cycle through most of the window."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": ["motion_intensity"],
+      "outputs": ["motion_intensity"],
+      "reason": "motion_intensity: G3 supports expected acceleration and angular-motion magnitude differences between locomotion and quiet postures, transferring from walking/running and quiet seen anchors. Speed, individual movement style, and sensor attachment can blur ordinal boundaries; intensity does not reliably distinguish left from right or sitting from standing.",
+      "target_unseen": ["Walking Forward", "Walking Right", "Sitting", "Standing"],
+      "contrast_unseen": [],
+      "seen_anchors": ["Walking Left", "Running Forward", "Sleeping", "Elevator Up"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["cadence"],
+      "outputs": ["cadence"],
+      "reason": "cadence: G6 supports repetition-rate evidence from recurring hip motion, allowing walking-rate semantics to transfer from seen walking activities and faster running. Short windows, harmonics, and variable pace create ambiguity. Its Low level intentionally combines slow repetition with absent repetition, motivating a separate periodicity concept rather than redefining cadence.",
+      "target_unseen": ["Walking Forward", "Walking Right"],
+      "contrast_unseen": ["Sitting", "Standing"],
+      "seen_anchors": ["Walking Left", "Walking Upstairs", "Walking Downstairs", "Running Forward"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["smoothness"],
+      "outputs": ["smoothness"],
+      "reason": "smoothness: G9 supports sustained rapid-change evidence at the hip, distinguishing continuously quiet motion from fluctuating locomotion using seen posture and walking anchors. Pace, surface, and attachment can alter fluctuations; the supplied semantics do not justify a stable smoothness asymmetry between Walking Left and Walking Right.",
+      "target_unseen": ["Walking Forward", "Walking Right", "Sitting", "Standing"],
+      "contrast_unseen": [],
+      "seen_anchors": ["Walking Left", "Walking Downstairs", "Sleeping"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["impulsiveness"],
+      "outputs": ["impulsiveness"],
+      "reason": "impulsiveness: G10 supports brief high-magnitude changes transmitted to the hip, preserving an impact-related distinction transferable from running, jumping, and stair descent to unseen walking versus quiet postures. Footwear, surface, and attenuation at the hip introduce ambiguity; isolated impacts need not imply sustained roughness.",
+      "target_unseen": ["Walking Forward", "Walking Right"],
+      "contrast_unseen": ["Sitting", "Standing"],
+      "seen_anchors": ["Running Forward", "Jumping Up", "Walking Downstairs", "Sleeping"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_inclination"],
+      "outputs": ["posture_inclination"],
+      "reason": "posture_inclination: G1 supports gravity-relative hip orientation as an imperfect proxy for global inclination, preserving the existing closest-pair distinction for Sitting versus Standing and an inclined seen anchor in Sleeping. Upright sitting, pelvic tilt, and mounting orientation can make sitting and standing indistinguishable; a second posture attribute would not resolve this observability limitation.",
+      "target_unseen": ["Sitting", "Standing"],
+      "contrast_unseen": ["Standing", "Sitting"],
+      "seen_anchors": ["Sleeping", "Elevator Up", "Elevator Down"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_variability"],
+      "outputs": ["posture_variability"],
+      "reason": "posture_variability: G12 supports changes in gravity-relative hip orientation, retaining a dynamic-posture concept separate from mean inclination and general motion energy. Seen quiet postures and locomotion provide transfer anchors. Pelvic oscillation need not reflect substantial global posture change, and transitions are not guaranteed in a window; no new seated-transition distinction is assumed.",
+      "target_unseen": ["Walking Forward", "Walking Right", "Sitting", "Standing"],
+      "contrast_unseen": [],
+      "seen_anchors": ["Sleeping", "Walking Left", "Walking Upstairs", "Jumping Up"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["rotational_motion"],
+      "outputs": ["rotational_motion"],
+      "reason": "rotational_motion: G2 supports angular-motion evidence from the hip gyroscope, preserving rotational prominence independently of linear motion. Walking Left and Running Forward provide locomotor anchors. Pelvic oscillation and path turning can produce similar angular activity; left/right class names alone do not justify opposite turn-direction states.",
+      "target_unseen": ["Walking Forward", "Walking Right"],
+      "contrast_unseen": ["Sitting", "Standing"],
+      "seen_anchors": ["Walking Left", "Running Forward", "Sleeping"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["translational_motion"],
+      "outputs": ["translational_motion"],
+      "reason": "translational_motion: G13 supports short-window translational-motion evidence, retaining progression versus stationary-posture semantics and transferable walking anchors. Constant-velocity travel, especially an elevator's steady phase, may leave little inertial evidence; drift and window boundaries limit predictability. This concept does not establish absolute displacement or elevator direction.",
+      "target_unseen": ["Walking Forward", "Walking Right"],
+      "contrast_unseen": ["Sitting", "Standing"],
+      "seen_anchors": ["Walking Left", "Walking Upstairs", "Walking Downstairs", "Elevator Up", "Elevator Down"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["motion_regularity"],
+      "outputs": ["motion_regularity"],
+      "reason": "motion_regularity: G11 supports temporal recurrence and predictability, retaining structure that can transfer from seen locomotion and quiet activities. Predictable stillness can be highly regular without containing a movement cycle, so this is not equivalent to periodicity. Window length and transitions can change apparent regularity, and directional walking differences are not guaranteed.",
+      "target_unseen": ["Walking Forward", "Walking Right", "Sitting", "Standing"],
+      "contrast_unseen": [],
+      "seen_anchors": ["Walking Left", "Walking Upstairs", "Running Forward", "Sleeping"]
+    },
+    {
+      "action": "add",
+      "inputs": [],
+      "outputs": ["motion_periodicity"],
+      "reason": "motion_periodicity: G6 and G11 support repeated nonstatic acceleration/rotation patterns at the hip. The attribute separates the presence and prominence of locomotor cycles from cadence's repetition rate and from the predictability of stillness or smooth transport. It strengthens seen-supported structure for Walking Forward and Walking Right through walking and running anchors, and adds a contrast for otherwise similar quiet transport versus walking. Short windows, intermittent steps, weak motion, or recurring external vibration can obscure cycle prominence; repeated jumping may also be periodic, so periodicity is not treated as a gait-exclusive signature.",
+      "target_unseen": ["Walking Forward", "Walking Right"],
+      "contrast_unseen": ["Sitting", "Standing"],
+      "seen_anchors": ["Walking Left", "Walking Upstairs", "Walking Downstairs", "Running Forward", "Sleeping", "Elevator Up", "Elevator Down"]
+    }
+  ],
+  "semantic_redundancy_review": "The ten attributes retain distinct physical meanings: motion magnitude, cycle rate, sustained rapid change, isolated impacts, mean inclination, inclination change, angular prominence, linear progression, temporal predictability, and recurring-cycle prominence. Periodicity overlaps with cadence and regularity but resolves a specific ambiguity: an absent cycle and a slow cycle both satisfy Low cadence, while predictable stillness can have High regularity without periodic motion. Smoothness and impulsiveness distinguish sustained fluctuations from isolated peaks. Inclination and its variability distinguish mean posture from posture change. All activity pairs were reviewed conceptually; no additional stable contrast is justified for Sitting versus Standing, left versus right walking, or opposite elevator travel using only the supplied semantics and single hip IMU. No new attribute encodes those labels indirectly, and no class-level vectors or performance improvements are asserted."
+}

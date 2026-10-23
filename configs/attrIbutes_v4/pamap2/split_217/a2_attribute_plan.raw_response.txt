@@ -1,0 +1,183 @@
+{
+  "schema_version": "2.0",
+  "dataset": "pamap2",
+  "split_index": 217,
+  "refinement_needed": true,
+  "decision_reason": "Walking and Nordic walking differ in only two A1 coordinates, both broad motion-magnitude descriptors. Splitting rotational motion by hand and ankle adds an observable spatial distinction without assuming that pole use is directly identifiable. Running, stair activities, ironing and rope jumping provide seen examples of different upper- and lower-limb motion contributions. Vacuum cleaning has the weakest supplied seen coverage, so retaining its posture, translation and temporal distinctions from ironing is preferable to introducing a task-specific tool-use attribute. Sitting differs from lying and standing only in posture inclination; the available sensors do not justify an additional reliable seated-configuration attribute because neither thigh orientation nor hip flexion is directly observed.",
+  "attributes": [
+    {
+      "name": "motion_intensity",
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    {
+      "name": "cadence",
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    {
+      "name": "smoothness",
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    {
+      "name": "impulsiveness",
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    {
+      "name": "posture_inclination",
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    {
+      "name": "posture_variability",
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    {
+      "name": "hand_rotational_motion",
+      "definition": "Prominence of sustained angular motion of the instrumented hand within a window, distinct from ankle rotation and isolated brief impacts.",
+      "levels": {
+        "Low": "Little or no sustained hand rotation.",
+        "Medium": "Moderate sustained hand rotation.",
+        "High": "Prominent sustained hand rotation."
+      }
+    },
+    {
+      "name": "ankle_rotational_motion",
+      "definition": "Prominence of sustained angular motion of the instrumented ankle within a window, distinct from hand rotation and isolated brief impacts.",
+      "levels": {
+        "Low": "Little or no sustained ankle rotation.",
+        "Medium": "Moderate sustained ankle rotation.",
+        "High": "Prominent sustained ankle rotation."
+      }
+    },
+    {
+      "name": "translational_motion",
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    {
+      "name": "motion_regularity",
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    }
+  ],
+  "operations": [
+    {
+      "action": "keep",
+      "inputs": ["motion_intensity"],
+      "outputs": ["motion_intensity"],
+      "reason": "motion_intensity: G3 supports aggregate movement magnitude through acceleration and angular-motion evidence. It retains broad exertion-related contrasts transferable from running and stair activities to walking and Nordic walking. Speed, technique and movement distribution can overlap across classes; intensity alone is not a reliable pole-use distinction.",
+      "target_unseen": ["walking", "Nordic walking"],
+      "contrast_unseen": [],
+      "seen_anchors": ["running", "ascending stairs"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["cadence"],
+      "outputs": ["cadence"],
+      "reason": "cadence: G6 supports repetition rate in recurring limb motion. It transfers periodic locomotor and repetitive-task structure from running, stair activities and ironing to walking and vacuum cleaning. Irregular strokes, pauses and different meaningful repetition units make boundaries ambiguous; cadence is not assumed to separate walking from Nordic walking.",
+      "target_unseen": ["walking", "Nordic walking", "vacuum cleaning"],
+      "contrast_unseen": [],
+      "seen_anchors": ["running", "ascending stairs", "ironing"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["smoothness"],
+      "outputs": ["smoothness"],
+      "reason": "smoothness: G9 supports sustained rapid changes observable in the available IMUs. Retaining it preserves a continuous-versus-fluctuating motion contrast between vacuum cleaning and the ironing anchor, and between locomotor styles. Reversals, pace and contact fluctuations can affect it, so smoothness is not equated with either impact strength or task identity.",
+      "target_unseen": ["vacuum cleaning", "walking"],
+      "contrast_unseen": [],
+      "seen_anchors": ["ironing", "descending stairs"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["impulsiveness"],
+      "outputs": ["impulsiveness"],
+      "reason": "impulsiveness: G10 supports brief abrupt changes, with ankle evidence particularly relevant to locomotor contacts. Running, descending stairs and rope jumping provide transferable impact contrasts for walking and Nordic walking. Surface, footwear and tool contact can alter peaks; this attribute does not identify their cause.",
+      "target_unseen": ["walking", "Nordic walking"],
+      "contrast_unseen": [],
+      "seen_anchors": ["running", "descending stairs", "rope jumping"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_inclination"],
+      "outputs": ["posture_inclination"],
+      "reason": "posture_inclination: G1 supports gravity-relative mean orientation, with chest orientation providing evidence about global inclination. Lying and standing anchor the static-posture continuum relevant to sitting; inclination also preserves a vacuum-cleaning versus ironing contrast. Upright sitting can resemble standing at the chest, and ankle orientation does not uniquely determine seated posture, so the A1 sitting distinction remains uncertain rather than independently reinforced.",
+      "target_unseen": ["sitting", "vacuum cleaning"],
+      "contrast_unseen": [],
+      "seen_anchors": ["lying", "standing", "ironing"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["posture_variability"],
+      "outputs": ["posture_variability"],
+      "reason": "posture_variability: G12 supports changes in gravity-relative posture, with chest changes more relevant than isolated hand movement. It preserves a transferable distinction between variable working posture in vacuum cleaning and steadier posture in ironing, with stair activities offering additional seen variation. Technique, window duration and dynamic acceleration can obscure global posture changes.",
+      "target_unseen": ["vacuum cleaning"],
+      "contrast_unseen": [],
+      "seen_anchors": ["ironing", "ascending stairs", "descending stairs"]
+    },
+    {
+      "action": "split",
+      "inputs": ["rotational_motion"],
+      "outputs": ["hand_rotational_motion", "ankle_rotational_motion"],
+      "reason": "hand_rotational_motion: G2 supports sustained angular motion directly observable by the hand gyroscope. Separating hand rotation from lower-limb rotation exposes the additional upper-limb involvement of Nordic walking relative to walking and provides a hand-motion bridge from ironing and rope jumping to vacuum cleaning. Ordinary arm swing, pole technique and rigid tool grips can produce overlap; this is not a pole-use or tool-use detector, and a distinct ordinal label is not guaranteed. ankle_rotational_motion: G2 supports sustained angular motion directly observable by the ankle gyroscope. It preserves lower-limb locomotor structure shared by walking and Nordic walking, with running and stair activities as seen anchors, while preventing hand-intensive work from automatically implying strong ankle rotation. Pace, foot mechanics and intermittent stepping during vacuum cleaning can blur levels. Together the outputs separate the location of rotation rather than manufacturing a new global intensity contrast.",
+      "target_unseen": ["walking", "Nordic walking", "vacuum cleaning"],
+      "contrast_unseen": ["walking", "Nordic walking"],
+      "seen_anchors": ["running", "ascending stairs", "descending stairs", "ironing", "rope jumping"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["translational_motion"],
+      "outputs": ["translational_motion"],
+      "reason": "translational_motion: G13 supports short-window translational-motion proxies. Retaining it preserves the distinction between sustained locomotion in walking or Nordic walking and predominantly local task motion in vacuum cleaning, with running and ironing as contrasting seen anchors. IMUs do not directly establish long-term displacement or constant velocity; local strokes, turns and short windows create ambiguity.",
+      "target_unseen": ["walking", "Nordic walking"],
+      "contrast_unseen": ["vacuum cleaning"],
+      "seen_anchors": ["running", "ironing"]
+    },
+    {
+      "action": "keep",
+      "inputs": ["motion_regularity"],
+      "outputs": ["motion_regularity"],
+      "reason": "motion_regularity: G11 and G6 support recurrence and temporal predictability in movement. It retains the distinction between consistent gait and less uniform household-task motion, transferring from running, stair activities and ironing. Pauses and changing task phases can reduce regularity, while static activity can be highly predictable without periodic movement; regularity therefore remains distinct from cadence.",
+      "target_unseen": ["walking", "Nordic walking", "vacuum cleaning", "sitting"],
+      "contrast_unseen": [],
+      "seen_anchors": ["running", "ascending stairs", "ironing", "standing"]
+    }
+  ],
+  "semantic_redundancy_review": "The ten attributes retain separate physical meanings: overall magnitude, repetition rate, sustained rapid fluctuation, brief impacts, mean posture, posture change, hand rotation, ankle rotation, progression and temporal predictability. Smoothness and impulsiveness differ in temporal persistence; cadence and regularity distinguish rate from consistency. The rotational split replaces rather than duplicates global rotational motion. Hand and ankle rotation can correlate with overall intensity, but their spatial scope adds information about limb contributions. Walking and Nordic walking may still overlap at the sensor level, and sitting cannot be guaranteed distinct from standing using global inclination alone. No tool identity, pole-contact pattern, hip angle or long-term displacement attribute is introduced."
+}

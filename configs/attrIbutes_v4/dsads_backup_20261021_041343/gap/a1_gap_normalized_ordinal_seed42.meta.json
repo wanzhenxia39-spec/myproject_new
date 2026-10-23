@@ -1,0 +1,767 @@
+{
+  "dataset": "dsads",
+  "attribute_set": "A1",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity"
+  ],
+  "a1_json": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_dsads_v1_5.json",
+  "a1_sha256": "032689e410b1d31c709f75afbbea7434d228100dd94f4e072843ce91a803c5f3",
+  "activity_vectors": {
+    "sitting": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "standing": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "lying on back": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "High",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "lying on right side": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "Medium",
+      "impulsiveness": "Low",
+      "posture_inclination": "High",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "ascending stairs": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "descending stairs": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "standing in an elevator still": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Medium",
+      "motion_regularity": "Medium"
+    },
+    "moving around in an elevator": {
+      "motion_intensity": "Medium",
+      "cadence": "Low",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "Medium",
+      "motion_regularity": "Low"
+    },
+    "walking in a parking lot": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "Medium"
+    },
+    "walking on a treadmill with a speed of 4 km/h (in flat)": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Medium",
+      "motion_regularity": "High"
+    },
+    "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Medium",
+      "motion_regularity": "High"
+    },
+    "running on a treadmill with a speed of 8 km/h": {
+      "motion_intensity": "High",
+      "cadence": "High",
+      "smoothness": "Medium",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "High",
+      "translational_motion": "Medium",
+      "motion_regularity": "High"
+    },
+    "exercising on a stepper": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "exercising on a cross trainer": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "cycling on an exercise bike in horizontal positions": {
+      "motion_intensity": "Medium",
+      "cadence": "High",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "High",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "cycling on an exercise bike in vertical positions": {
+      "motion_intensity": "Medium",
+      "cadence": "High",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "rowing": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "High",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "jumping": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "playing basketball": {
+      "motion_intensity": "High",
+      "cadence": "Low",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "High",
+      "rotational_motion": "High",
+      "translational_motion": "High",
+      "motion_regularity": "Low"
+    }
+  },
+  "split_manifest": "/home/wanzhen/myproject_new/split/zero_shot_split/dsads_unseen6_random20_splits_seed42.json",
+  "split_source": "manifest",
+  "splits": [
+    {
+      "split_index": 820,
+      "seen_activities": [
+        "lying on back",
+        "ascending stairs",
+        "descending stairs",
+        "standing in an elevator still",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "jumping",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "standing",
+        "lying on right side",
+        "moving around in an elevator",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "rowing"
+      ]
+    },
+    {
+      "split_index": 977,
+      "seen_activities": [
+        "lying on back",
+        "ascending stairs",
+        "descending stairs",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "exercising on a stepper",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in horizontal positions",
+        "rowing",
+        "jumping"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "standing",
+        "lying on right side",
+        "running on a treadmill with a speed of 8 km/h",
+        "cycling on an exercise bike in vertical positions",
+        "playing basketball"
+      ]
+    },
+    {
+      "split_index": 1042,
+      "seen_activities": [
+        "lying on back",
+        "lying on right side",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "rowing",
+        "jumping",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "standing",
+        "ascending stairs",
+        "descending stairs",
+        "walking in a parking lot",
+        "exercising on a stepper"
+      ]
+    },
+    {
+      "split_index": 2849,
+      "seen_activities": [
+        "standing",
+        "lying on right side",
+        "standing in an elevator still",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "rowing",
+        "jumping",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "lying on back",
+        "ascending stairs",
+        "descending stairs",
+        "moving around in an elevator",
+        "walking on a treadmill with a speed of 4 km/h (in flat)"
+      ]
+    },
+    {
+      "split_index": 3071,
+      "seen_activities": [
+        "standing",
+        "lying on right side",
+        "descending stairs",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in vertical positions",
+        "jumping",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "lying on back",
+        "ascending stairs",
+        "walking in a parking lot",
+        "cycling on an exercise bike in horizontal positions",
+        "rowing"
+      ]
+    },
+    {
+      "split_index": 3359,
+      "seen_activities": [
+        "standing",
+        "lying on right side",
+        "ascending stairs",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in vertical positions",
+        "rowing",
+        "jumping"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "lying on back",
+        "descending stairs",
+        "walking in a parking lot",
+        "cycling on an exercise bike in horizontal positions",
+        "playing basketball"
+      ]
+    },
+    {
+      "split_index": 3649,
+      "seen_activities": [
+        "standing",
+        "lying on right side",
+        "ascending stairs",
+        "descending stairs",
+        "moving around in an elevator",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "rowing"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "lying on back",
+        "standing in an elevator still",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "jumping",
+        "playing basketball"
+      ]
+    },
+    {
+      "split_index": 4573,
+      "seen_activities": [
+        "standing",
+        "lying on back",
+        "ascending stairs",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "jumping",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "lying on right side",
+        "descending stairs",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "rowing"
+      ]
+    },
+    {
+      "split_index": 7165,
+      "seen_activities": [
+        "standing",
+        "lying on back",
+        "lying on right side",
+        "ascending stairs",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "exercising on a stepper",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "rowing",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "descending stairs",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a cross trainer",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 7315,
+      "seen_activities": [
+        "standing",
+        "lying on back",
+        "lying on right side",
+        "ascending stairs",
+        "descending stairs",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "rowing",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "walking in a parking lot",
+        "exercising on a cross trainer",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 8025,
+      "seen_activities": [
+        "standing",
+        "lying on back",
+        "lying on right side",
+        "ascending stairs",
+        "descending stairs",
+        "standing in an elevator still",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "jumping"
+      ],
+      "unseen_activities": [
+        "sitting",
+        "moving around in an elevator",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "exercising on a cross trainer",
+        "rowing",
+        "playing basketball"
+      ]
+    },
+    {
+      "split_index": 9013,
+      "seen_activities": [
+        "sitting",
+        "ascending stairs",
+        "descending stairs",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "rowing"
+      ],
+      "unseen_activities": [
+        "standing",
+        "lying on back",
+        "lying on right side",
+        "exercising on a cross trainer",
+        "jumping",
+        "playing basketball"
+      ]
+    },
+    {
+      "split_index": 13826,
+      "seen_activities": [
+        "sitting",
+        "lying on back",
+        "lying on right side",
+        "ascending stairs",
+        "descending stairs",
+        "moving around in an elevator",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "standing",
+        "standing in an elevator still",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "exercising on a cross trainer",
+        "rowing",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 17871,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying on right side",
+        "ascending stairs",
+        "descending stairs",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "rowing",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "lying on back",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "walking in a parking lot",
+        "exercising on a cross trainer",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 19350,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying on back",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in horizontal positions",
+        "rowing",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "lying on right side",
+        "ascending stairs",
+        "descending stairs",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "cycling on an exercise bike in vertical positions",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 20953,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying on back",
+        "ascending stairs",
+        "descending stairs",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "jumping",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "lying on right side",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "rowing"
+      ]
+    },
+    {
+      "split_index": 22175,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying on back",
+        "lying on right side",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in vertical positions",
+        "rowing",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "ascending stairs",
+        "descending stairs",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "cycling on an exercise bike in horizontal positions",
+        "jumping"
+      ]
+    },
+    {
+      "split_index": 24133,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying on back",
+        "lying on right side",
+        "ascending stairs",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "rowing",
+        "jumping",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "descending stairs",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "exercising on a cross trainer"
+      ]
+    },
+    {
+      "split_index": 24271,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying on back",
+        "lying on right side",
+        "ascending stairs",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in horizontal positions",
+        "rowing",
+        "jumping"
+      ],
+      "unseen_activities": [
+        "descending stairs",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "exercising on a stepper",
+        "cycling on an exercise bike in vertical positions",
+        "playing basketball"
+      ]
+    },
+    {
+      "split_index": 24300,
+      "seen_activities": [
+        "sitting",
+        "standing",
+        "lying on back",
+        "lying on right side",
+        "ascending stairs",
+        "moving around in an elevator",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "jumping",
+        "playing basketball"
+      ],
+      "unseen_activities": [
+        "descending stairs",
+        "standing in an elevator still",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "rowing"
+      ]
+    }
+  ],
+  "seed": 42,
+  "top_k": 2,
+  "distance_metric": "normalized_ordinal",
+  "attribute_weighting": "uniform",
+  "distance_formula": "(1/K_A) * sum_k(abs(a_i,k - a_j,k) / 2)",
+  "formula_ordinal_values": {
+    "Low": 0,
+    "Medium": 1,
+    "High": 2
+  },
+  "ordinal_values": {
+    "Low": 0.0,
+    "Medium": 0.5,
+    "High": 1.0
+  }
+}

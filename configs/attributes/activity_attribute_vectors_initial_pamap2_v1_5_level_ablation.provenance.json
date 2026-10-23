@@ -1,0 +1,43 @@
+{
+  "dataset": "pamap2",
+  "attribute_set": "initial_A1_v1_5_9d_pre_refinement",
+  "purpose": "2-level versus 5-level ordinal-granularity ablation",
+  "attribute_definitions": "/home/wanzhen/myproject_new/configs/attributes/initial_attributes.json",
+  "five_level_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5_5level.json",
+  "five_level_order": [
+    "Very Low",
+    "Low",
+    "Medium",
+    "High",
+    "Very High"
+  ],
+  "five_level_normalized_values": {
+    "Very Low": 0.0,
+    "Low": 0.25,
+    "Medium": 0.5,
+    "High": 0.75,
+    "Very High": 1.0
+  },
+  "two_level_vectors": "/home/wanzhen/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5_2level.json",
+  "two_level_order": [
+    "Low",
+    "High"
+  ],
+  "two_level_normalized_values": {
+    "Low": 0.0,
+    "High": 1.0
+  },
+  "two_level_collapse_from_five_level": {
+    "Very Low": "Low",
+    "Low": "Low",
+    "Medium": "High",
+    "High": "High",
+    "Very High": "High"
+  },
+  "notes": [
+    "The nine A1 v1.5 attribute names and physical definitions are unchanged.",
+    "The five-level activity prototypes are a fixed semantic re-discretization for this ablation.",
+    "The two-level file is deterministically derived from the five-level file by the recorded collapse map.",
+    "These files are global pre-refinement A1 prototypes, not split-specific refined A2 vectors."
+  ]
+}
