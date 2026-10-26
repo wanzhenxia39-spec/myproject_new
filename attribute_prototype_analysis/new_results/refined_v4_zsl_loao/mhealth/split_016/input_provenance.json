@@ -1,0 +1,108 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/mhealth/split_16/activity_attribute_vectors_a2.json",
+  "sha256": "cf150895b6df8cffa2a2256be65a450ff169d03d5290f48d14448c491562eb4d",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "lower_limb_rotational_motion"
+  ],
+  "plan_sha256": "1d5cfcff24938bcd637e8705176df4806ae6ab99997f14f2f1af589f1f28e156",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "lower_limb_rotational_motion": {
+      "definition": "Prominence of lower-leg angular motion during the activity, as observable at the ankle, rather than rotation confined to the trunk or arms.",
+      "levels": {
+        "Low": "Little or no lower-leg angular motion.",
+        "Medium": "Moderate lower-leg angular motion.",
+        "High": "Prominent lower-leg angular motion."
+      }
+    }
+  },
+  "model_manifest_sha256": "2f82cfcf647a6f5c8a739b9cb5b1034331d6df0072d8ef7e2ad208d8827fb337",
+  "weights": {
+    "motion_intensity": 1.0,
+    "cadence": 0.9952830188679245,
+    "smoothness": 1.0,
+    "impulsiveness": 1.0,
+    "posture_inclination": 1.0,
+    "posture_variability": 1.0,
+    "rotational_motion": 1.0,
+    "translational_motion": 1.0,
+    "lower_limb_rotational_motion": 1.0
+  },
+  "candidates": [
+    "standing still",
+    "sitting and relaxing",
+    "walking",
+    "running"
+  ]
+}

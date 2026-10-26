@@ -1,0 +1,181 @@
+{
+  "candidate_order": [
+    "lying",
+    "sitting",
+    "standing",
+    "cycling"
+  ],
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity"
+  ],
+  "raw_seen_validation_weights": {
+    "motion_intensity": 0.9781512605042016,
+    "cadence": 0.9764705882352941,
+    "smoothness": 0.9714285714285714,
+    "impulsiveness": 0.9697478991596639,
+    "posture_inclination": 0.9831932773109243,
+    "posture_variability": 0.9747899159663865,
+    "rotational_motion": 0.973109243697479,
+    "translational_motion": 0.9781512605042016,
+    "motion_regularity": 0.9714285714285714
+  },
+  "renormalized_weights": {
+    "full9": {
+      "motion_intensity": 0.11145155112983532,
+      "cadence": 0.11126005361930295,
+      "smoothness": 0.11068556108770587,
+      "impulsiveness": 0.1104940635771735,
+      "posture_inclination": 0.11202604366143241,
+      "posture_variability": 0.1110685561087706,
+      "rotational_motion": 0.11087705859823824,
+      "translational_motion": 0.11145155112983532,
+      "motion_regularity": 0.11068556108770587
+    },
+    "motion_intensity": {
+      "cadence": 0.1252155172413793,
+      "smoothness": 0.12456896551724138,
+      "impulsiveness": 0.12435344827586207,
+      "posture_inclination": 0.12607758620689655,
+      "posture_variability": 0.125,
+      "rotational_motion": 0.1247844827586207,
+      "translational_motion": 0.1254310344827586,
+      "motion_regularity": 0.12456896551724138
+    },
+    "cadence": {
+      "motion_intensity": 0.12540400775694893,
+      "smoothness": 0.12454212454212454,
+      "impulsiveness": 0.12432665373841845,
+      "posture_inclination": 0.12605042016806722,
+      "posture_variability": 0.12497306614953674,
+      "rotational_motion": 0.12475759534583064,
+      "translational_motion": 0.12540400775694893,
+      "motion_regularity": 0.12454212454212454
+    },
+    "smoothness": {
+      "motion_intensity": 0.12532299741602068,
+      "cadence": 0.12510766580534022,
+      "impulsiveness": 0.12424633936261843,
+      "posture_inclination": 0.12596899224806202,
+      "posture_variability": 0.12489233419465978,
+      "rotational_motion": 0.12467700258397933,
+      "translational_motion": 0.12532299741602068,
+      "motion_regularity": 0.12446167097329888
+    },
+    "impulsiveness": {
+      "motion_intensity": 0.12529601722282024,
+      "cadence": 0.12508073196986005,
+      "smoothness": 0.12443487621097955,
+      "posture_inclination": 0.12594187298170076,
+      "posture_variability": 0.12486544671689989,
+      "rotational_motion": 0.12465016146393972,
+      "translational_motion": 0.12529601722282024,
+      "motion_regularity": 0.12443487621097955
+    },
+    "posture_inclination": {
+      "motion_intensity": 0.12551218460211344,
+      "cadence": 0.12529652792753937,
+      "smoothness": 0.12464955790381713,
+      "impulsiveness": 0.12443390122924304,
+      "posture_variability": 0.12508087125296527,
+      "rotational_motion": 0.1248652145783912,
+      "translational_motion": 0.12551218460211344,
+      "motion_regularity": 0.12464955790381713
+    },
+    "posture_variability": {
+      "motion_intensity": 0.12537699267557087,
+      "cadence": 0.12516156828953037,
+      "smoothness": 0.12451529513140888,
+      "impulsiveness": 0.12429987074536838,
+      "posture_inclination": 0.12602326583369236,
+      "rotational_motion": 0.12473071951744938,
+      "translational_motion": 0.12537699267557087,
+      "motion_regularity": 0.12451529513140888
+    },
+    "rotational_motion": {
+      "motion_intensity": 0.12534998923110058,
+      "cadence": 0.12513461124273098,
+      "smoothness": 0.12448847727762223,
+      "impulsiveness": 0.12427309928925265,
+      "posture_inclination": 0.12599612319620934,
+      "posture_variability": 0.12491923325436141,
+      "translational_motion": 0.12534998923110058,
+      "motion_regularity": 0.12448847727762223
+    },
+    "translational_motion": {
+      "motion_intensity": 0.1254310344827586,
+      "cadence": 0.1252155172413793,
+      "smoothness": 0.12456896551724138,
+      "impulsiveness": 0.12435344827586207,
+      "posture_inclination": 0.12607758620689655,
+      "posture_variability": 0.125,
+      "rotational_motion": 0.1247844827586207,
+      "motion_regularity": 0.12456896551724138
+    },
+    "motion_regularity": {
+      "motion_intensity": 0.12532299741602068,
+      "cadence": 0.12510766580534022,
+      "smoothness": 0.12446167097329888,
+      "impulsiveness": 0.12424633936261843,
+      "posture_inclination": 0.12596899224806202,
+      "posture_variability": 0.12489233419465978,
+      "rotational_motion": 0.12467700258397933,
+      "translational_motion": 0.12532299741602068
+    }
+  },
+  "candidate_prototypes": {
+    "lying": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "High",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "sitting": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "standing": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "cycling": {
+      "motion_intensity": "Medium",
+      "cadence": "High",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    }
+  },
+  "reference_score_max_abs_error": 0.0,
+  "full9_historical_prediction_matches": 200
+}

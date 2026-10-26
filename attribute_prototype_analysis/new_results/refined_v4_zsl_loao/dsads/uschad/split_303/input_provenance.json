@@ -1,0 +1,118 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/uschad/split_303/activity_attribute_vectors_a2.json",
+  "sha256": "65cf8d7688a7d0e2833227c968ab825f37916290faca7768b252681a6b5aaea4",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity",
+    "vertical_motion_dominance"
+  ],
+  "plan_sha256": "42926d1a6a5c06b090f00cf62b6018e37fab6ca992017c0701213dbb192f7165",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    "vertical_motion_dominance": {
+      "definition": "Relative prominence of gravity-parallel translational movement compared with horizontal translational movement within a window, independent of upward or downward direction. When translational movement is negligible, dominance is Low.",
+      "levels": {
+        "Low": "Translational movement is negligible or predominantly horizontal.",
+        "Medium": "Vertical movement makes a substantial contribution alongside horizontal movement.",
+        "High": "Translational movement is predominantly vertical."
+      }
+    }
+  },
+  "model_manifest_sha256": "3ac644058662dee00b8466af49d693a5f0db6950fb2fc319029cd43d2916f883",
+  "weights": {
+    "motion_intensity": 0.998960498960499,
+    "cadence": 0.998960498960499,
+    "smoothness": 0.9968814968814969,
+    "impulsiveness": 0.9968814968814969,
+    "posture_inclination": 0.9948024948024948,
+    "posture_variability": 0.997920997920998,
+    "rotational_motion": 0.998960498960499,
+    "translational_motion": 0.9864864864864865,
+    "motion_regularity": 1.0,
+    "vertical_motion_dominance": 0.9708939708939709
+  },
+  "candidates": [
+    "Walking Right",
+    "Walking Upstairs",
+    "Jumping Up",
+    "Elevator Down"
+  ]
+}

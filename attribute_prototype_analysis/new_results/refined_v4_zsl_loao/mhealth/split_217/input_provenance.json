@@ -1,0 +1,128 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/mhealth/split_217/activity_attribute_vectors_a2.json",
+  "sha256": "ccd8d45e955ea628fc48cab57d99ace2139604d170e02ee607bec53d0ac2950e",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity",
+    "arm_motion_dominance",
+    "vertical_body_oscillation"
+  ],
+  "plan_sha256": "fa67f9605617fc06c59f4c00c4d5edee611dc920ed4a70b77b407a13a33c8034",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    "arm_motion_dominance": {
+      "definition": "Degree to which dynamic motion is concentrated in the lower arm rather than distributed through the trunk and lower limb. Near-static activity does not constitute arm dominance.",
+      "levels": {
+        "Low": "Little dynamic motion, or motion predominantly involving the trunk or lower limb.",
+        "Medium": "Arm motion is substantial but accompanies substantial trunk or lower-limb motion.",
+        "High": "Arm motion predominates while trunk and lower-limb motion remain limited."
+      }
+    },
+    "vertical_body_oscillation": {
+      "definition": "Magnitude of repeated gravity-aligned up-and-down motion of the trunk, distinct from sustained vertical progression, isolated limb motion, and isolated impact peaks.",
+      "levels": {
+        "Low": "Little or no repeated vertical trunk motion.",
+        "Medium": "Moderate repeated vertical trunk motion.",
+        "High": "Pronounced repeated vertical trunk motion."
+      }
+    }
+  },
+  "model_manifest_sha256": "adb19d785691e4ecb3c157d0740633d6b8442bfbeee305ff63ea880b9d1ffece",
+  "weights": {
+    "motion_intensity": 0.9953051643192489,
+    "cadence": 1.0,
+    "smoothness": 1.0,
+    "impulsiveness": 1.0,
+    "posture_inclination": 1.0,
+    "posture_variability": 1.0,
+    "rotational_motion": 1.0,
+    "translational_motion": 1.0,
+    "motion_regularity": 1.0,
+    "arm_motion_dominance": 1.0,
+    "vertical_body_oscillation": 1.0
+  },
+  "candidates": [
+    "sitting and relaxing",
+    "walking",
+    "frontal elevation of arms",
+    "jogging"
+  ]
+}

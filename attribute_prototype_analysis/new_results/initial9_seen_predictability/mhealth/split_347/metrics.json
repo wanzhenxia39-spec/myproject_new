@@ -1,0 +1,274 @@
+{
+  "provenance": {
+    "dataset": "mhealth",
+    "split_index": 347,
+    "model_directory": "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/mhealth/mhealth_zsl_autogluon_default_ensemble_initial_a1_v1_5_independent_t300_random20_eval30_seed42_gpu1_rerun/split_347/models",
+    "manager_sha256": "b06fed8b8459f02fa2219c9d46d3fc210ebd2a29685473d48dc5984f0d5534bd",
+    "attribute_vectors_sha256": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+    "train_window_indices_sha256": "2833eb6feb6f56b6dcf5f04f9dbc7ac1a9311f02d85a69a00af959f1654e61ac",
+    "validation_window_indices_sha256": "f8fb38f337e6f64d113d25d95f5e219630c6e1efc331a7ff446bbce0d02b3cfb"
+  },
+  "rows": [
+    {
+      "dataset": "mhealth",
+      "split_index": 347,
+      "attribute": "motion_intensity",
+      "n_train": 499,
+      "n_validation": 214,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 1.0,
+      "macro_f1": 1.0,
+      "macro_f1_all_levels": 1.0,
+      "eod": 0.0178348910265872,
+      "accuracy": 1.0,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 60,
+        "Medium": 116,
+        "High": 38
+      },
+      "per_state_f1": {
+        "Low": 1.0,
+        "Medium": 1.0,
+        "High": 1.0
+      },
+      "majority_macro_f1": 0.23434343434343433,
+      "training_prior_eod": 0.34745191317213864,
+      "macro_f1_gain_over_majority": 0.7656565656565657,
+      "eod_reduction_from_prior": 0.32961702214555144
+    },
+    {
+      "dataset": "mhealth",
+      "split_index": 347,
+      "attribute": "cadence",
+      "n_train": 499,
+      "n_validation": 214,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 1.0,
+      "macro_f1": 1.0,
+      "macro_f1_all_levels": 1.0,
+      "eod": 0.008528037425391724,
+      "accuracy": 1.0,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 60,
+        "Medium": 124,
+        "High": 30
+      },
+      "per_state_f1": {
+        "Low": 1.0,
+        "Medium": 1.0,
+        "High": 1.0
+      },
+      "majority_macro_f1": 0.2445759368836292,
+      "training_prior_eod": 0.32237371940141957,
+      "macro_f1_gain_over_majority": 0.7554240631163708,
+      "eod_reduction_from_prior": 0.31384568197602786
+    },
+    {
+      "dataset": "mhealth",
+      "split_index": 347,
+      "attribute": "smoothness",
+      "n_train": 499,
+      "n_validation": 214,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 1.0,
+      "macro_f1": 1.0,
+      "macro_f1_all_levels": 1.0,
+      "eod": 0.008785046859008966,
+      "accuracy": 1.0,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 9,
+        "Medium": 87,
+        "High": 118
+      },
+      "per_state_f1": {
+        "Low": 1.0,
+        "Medium": 1.0,
+        "High": 1.0
+      },
+      "majority_macro_f1": 0.2369477911646586,
+      "training_prior_eod": 0.2875704680388815,
+      "macro_f1_gain_over_majority": 0.7630522088353414,
+      "eod_reduction_from_prior": 0.2787854211798725
+    },
+    {
+      "dataset": "mhealth",
+      "split_index": 347,
+      "attribute": "impulsiveness",
+      "n_train": 499,
+      "n_validation": 214,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 0.9487923155610366,
+      "macro_f1": 0.9487923155610366,
+      "macro_f1_all_levels": 0.9487923155610366,
+      "eod": 0.41985091337255226,
+      "accuracy": 0.985981308411215,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 146,
+        "Medium": 59,
+        "High": 9
+      },
+      "per_state_f1": {
+        "Low": 0.9965870307167235,
+        "Medium": 0.9747899159663865,
+        "High": 0.875
+      },
+      "majority_macro_f1": 0.27037037037037037,
+      "training_prior_eod": 0.25688292472796065,
+      "macro_f1_gain_over_majority": 0.6784219451906662,
+      "eod_reduction_from_prior": -0.1629679886445916
+    },
+    {
+      "dataset": "mhealth",
+      "split_index": 347,
+      "attribute": "posture_inclination",
+      "n_train": 499,
+      "n_validation": 214,
+      "training_state_count": 2,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 1.0,
+      "macro_f1": 1.0,
+      "macro_f1_all_levels": 0.6666666666666666,
+      "eod": 0.12001166715521679,
+      "accuracy": 1.0,
+      "validation_state_count": 2,
+      "validation_state_support": {
+        "Low": 97,
+        "Medium": 117,
+        "High": 0
+      },
+      "per_state_f1": {
+        "Low": 1.0,
+        "Medium": 1.0,
+        "High": 0.0
+      },
+      "majority_macro_f1": 0.35347432024169184,
+      "training_prior_eod": 0.24789298222613454,
+      "macro_f1_gain_over_majority": 0.6465256797583081,
+      "eod_reduction_from_prior": 0.12788131507091777
+    },
+    {
+      "dataset": "mhealth",
+      "split_index": 347,
+      "attribute": "posture_variability",
+      "n_train": 499,
+      "n_validation": 214,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 1.0,
+      "macro_f1": 1.0,
+      "macro_f1_all_levels": 1.0,
+      "eod": 0.021386292977389122,
+      "accuracy": 1.0,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 148,
+        "Medium": 38,
+        "High": 28
+      },
+      "per_state_f1": {
+        "Low": 1.0,
+        "Medium": 1.0,
+        "High": 1.0
+      },
+      "majority_macro_f1": 0.27255985267034993,
+      "training_prior_eod": 0.3264566516209989,
+      "macro_f1_gain_over_majority": 0.7274401473296501,
+      "eod_reduction_from_prior": 0.30507035864360976
+    },
+    {
+      "dataset": "mhealth",
+      "split_index": 347,
+      "attribute": "rotational_motion",
+      "n_train": 499,
+      "n_validation": 214,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 1.0,
+      "macro_f1": 1.0,
+      "macro_f1_all_levels": 1.0,
+      "eod": 0.012375389497779379,
+      "accuracy": 1.0,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 60,
+        "Medium": 68,
+        "High": 86
+      },
+      "per_state_f1": {
+        "Low": 1.0,
+        "Medium": 1.0,
+        "High": 1.0
+      },
+      "majority_macro_f1": 0.19111111111111112,
+      "training_prior_eod": 0.44226771299608564,
+      "macro_f1_gain_over_majority": 0.8088888888888889,
+      "eod_reduction_from_prior": 0.42989232349830625
+    },
+    {
+      "dataset": "mhealth",
+      "split_index": 347,
+      "attribute": "translational_motion",
+      "n_train": 499,
+      "n_validation": 214,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 1.0,
+      "macro_f1": 1.0,
+      "macro_f1_all_levels": 1.0,
+      "eod": 0.01505451724281378,
+      "accuracy": 1.0,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 116,
+        "Medium": 9,
+        "High": 89
+      },
+      "per_state_f1": {
+        "Low": 1.0,
+        "Medium": 1.0,
+        "High": 1.0
+      },
+      "majority_macro_f1": 0.23434343434343433,
+      "training_prior_eod": 0.4910241042833331,
+      "macro_f1_gain_over_majority": 0.7656565656565657,
+      "eod_reduction_from_prior": 0.47596958704051934
+    },
+    {
+      "dataset": "mhealth",
+      "split_index": 347,
+      "attribute": "motion_regularity",
+      "n_train": 499,
+      "n_validation": 214,
+      "training_state_count": 1,
+      "model_best": "constant",
+      "saved_validation_macro_f1": 1.0,
+      "macro_f1": 1.0,
+      "macro_f1_all_levels": 0.3333333333333333,
+      "eod": 0.0,
+      "accuracy": 1.0,
+      "validation_state_count": 1,
+      "validation_state_support": {
+        "Low": 0,
+        "Medium": 0,
+        "High": 214
+      },
+      "per_state_f1": {
+        "Low": 0.0,
+        "Medium": 0.0,
+        "High": 1.0
+      },
+      "majority_macro_f1": 1.0,
+      "training_prior_eod": 0.0,
+      "macro_f1_gain_over_majority": 0.0,
+      "eod_reduction_from_prior": 0.0
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/dsads/split_24300/activity_attribute_vectors_a2.json",
+  "sha256": "8bcecd9f138993182723e64c9a032e4778b6e94e71e1f84e6097cfcb16367672",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity",
+    "upper_limb_motion_intensity"
+  ],
+  "plan_sha256": "25ef38aa27745194814cea681954061dbde490c2166a636592770cddf06ac56f",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    "upper_limb_motion_intensity": {
+      "definition": "Magnitude and energy of motion expressed at the arms within a window, assessed separately from whole-body motion intensity and without interpreting it as muscular effort.",
+      "levels": {
+        "Low": "Weak or nearly static arm motion.",
+        "Medium": "Moderate arm motion magnitude and energy.",
+        "High": "Strong or vigorous arm motion."
+      }
+    }
+  },
+  "model_manifest_sha256": "03550995a276bbf276be9c8eb101cf96ad6c01c3199acb9dafce115f83e76e99",
+  "weights": {
+    "motion_intensity": 0.9942307692307693,
+    "cadence": 0.9993589743589744,
+    "smoothness": 0.9980769230769231,
+    "impulsiveness": 0.9955128205128205,
+    "posture_inclination": 1.0,
+    "posture_variability": 0.9967948717948718,
+    "rotational_motion": 0.9967948717948718,
+    "translational_motion": 0.9942307692307693,
+    "motion_regularity": 0.9961538461538462,
+    "upper_limb_motion_intensity": 0.9948717948717949
+  },
+  "candidates": [
+    "descending stairs",
+    "standing in an elevator still",
+    "walking in a parking lot",
+    "walking on a treadmill with a speed of 4 km/h (in flat)",
+    "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+    "rowing"
+  ]
+}

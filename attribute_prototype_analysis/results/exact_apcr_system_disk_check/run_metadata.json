@@ -1,0 +1,205 @@
+{
+  "created_utc": "2026-10-23T03:58:13.384976+00:00",
+  "inputs": [
+    {
+      "method": "initial_a1_v1_5",
+      "dataset": "pamap2",
+      "path": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5.json",
+      "sha256": "d9c7469bf376db9661ad8a93f4a233b3d31bd9c19751d6da4ea9af1934fae887",
+      "level_map": {
+        "Low": 0,
+        "Medium": 1,
+        "High": 2
+      },
+      "activities": [
+        "lying",
+        "sitting",
+        "standing",
+        "walking",
+        "running",
+        "cycling",
+        "Nordic walking",
+        "ascending stairs",
+        "descending stairs",
+        "vacuum cleaning",
+        "ironing",
+        "rope jumping"
+      ],
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "method": "initial_a1_v1_5",
+      "dataset": "mhealth",
+      "path": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json",
+      "sha256": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+      "level_map": {
+        "Low": 0,
+        "Medium": 1,
+        "High": 2
+      },
+      "activities": [
+        "standing still",
+        "sitting and relaxing",
+        "lying down",
+        "walking",
+        "climbing stairs",
+        "waist bends forward",
+        "frontal elevation of arms",
+        "knees bending (crouching)",
+        "cycling",
+        "jogging",
+        "running",
+        "jump front & back"
+      ],
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "method": "initial_a1_v1_5",
+      "dataset": "uschad",
+      "path": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_uschad_v1_5.json",
+      "sha256": "a9c06ea5c4bb8e8256ae33dbb105b0047774375ec1f1393a13cfd6c9f0da4934",
+      "level_map": {
+        "Low": 0,
+        "Medium": 1,
+        "High": 2
+      },
+      "activities": [
+        "Walking Forward",
+        "Walking Left",
+        "Walking Right",
+        "Walking Upstairs",
+        "Walking Downstairs",
+        "Running Forward",
+        "Jumping Up",
+        "Sitting",
+        "Standing",
+        "Sleeping",
+        "Elevator Up",
+        "Elevator Down"
+      ],
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "method": "initial_a1_v1_5",
+      "dataset": "wisdm",
+      "path": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "level_map": {
+        "Low": 0,
+        "Medium": 1,
+        "High": 2
+      },
+      "activities": [
+        "walking",
+        "jogging",
+        "stairs",
+        "sitting",
+        "standing",
+        "typing",
+        "brushing teeth",
+        "eating soup",
+        "eating chips",
+        "eating pasta",
+        "drinking from cup",
+        "eating sandwich",
+        "kicking (soccer ball)",
+        "playing catch w/tennis ball",
+        "dribbling (basketball)",
+        "writing",
+        "clapping",
+        "folding clothes"
+      ],
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    },
+    {
+      "method": "initial_a1_v1_5",
+      "dataset": "dsads",
+      "path": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_dsads_v1_5.json",
+      "sha256": "032689e410b1d31c709f75afbbea7434d228100dd94f4e072843ce91a803c5f3",
+      "level_map": {
+        "Low": 0,
+        "Medium": 1,
+        "High": 2
+      },
+      "activities": [
+        "sitting",
+        "standing",
+        "lying on back",
+        "lying on right side",
+        "ascending stairs",
+        "descending stairs",
+        "standing in an elevator still",
+        "moving around in an elevator",
+        "walking in a parking lot",
+        "walking on a treadmill with a speed of 4 km/h (in flat)",
+        "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+        "running on a treadmill with a speed of 8 km/h",
+        "exercising on a stepper",
+        "exercising on a cross trainer",
+        "cycling on an exercise bike in horizontal positions",
+        "cycling on an exercise bike in vertical positions",
+        "rowing",
+        "jumping",
+        "playing basketball"
+      ],
+      "attributes": [
+        "motion_intensity",
+        "cadence",
+        "smoothness",
+        "impulsiveness",
+        "posture_inclination",
+        "posture_variability",
+        "rotational_motion",
+        "translational_motion",
+        "motion_regularity"
+      ]
+    }
+  ],
+  "output_dir": "/home/wanzhen/attribute_prototype_analysis/results/exact_apcr_system_disk_check",
+  "formula": "count(i<j: all_k(p_ik == p_jk)) / binom(C,2)",
+  "default_average": "unweighted macro mean across datasets",
+  "tolerance": null,
+  "code_path": "/home/wanzhen/attribute_prototype_analysis/exact_apcr.py",
+  "code_sha256": "c82f560233e77098ad9e3e5f7457e8c5145df4b82eb0716ffaa0a4eaac62e934",
+  "python_version": "3.10.19"
+}

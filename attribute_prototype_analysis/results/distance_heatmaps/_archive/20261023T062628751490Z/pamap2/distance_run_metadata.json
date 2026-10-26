@@ -1,0 +1,68 @@
+{
+  "created_utc": "2026-10-23T06:20:12.489198+00:00",
+  "dataset": "pamap2",
+  "input_path": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5.json",
+  "input_sha256": "d9c7469bf376db9661ad8a93f4a233b3d31bd9c19751d6da4ea9af1934fae887",
+  "output_dir": "/home/wanzhen/attribute_prototype_analysis/results/distance_heatmaps/pamap2",
+  "class_scope": "all input activities, no split",
+  "class_count": 12,
+  "attribute_count": 9,
+  "total_pairs": 66,
+  "activities": [
+    "lying",
+    "sitting",
+    "standing",
+    "walking",
+    "running",
+    "cycling",
+    "Nordic walking",
+    "ascending stairs",
+    "descending stairs",
+    "vacuum cleaning",
+    "ironing",
+    "rope jumping"
+  ],
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity"
+  ],
+  "formula": "mean_k(abs(raw_ik-raw_jk)/(declared_max-declared_min))",
+  "level_map": {
+    "Low": 0.0,
+    "Medium": 1.0,
+    "High": 2.0
+  },
+  "value_range": [
+    0,
+    2
+  ],
+  "colormap": "Blues",
+  "color_limits": [
+    0,
+    1
+  ],
+  "formats": [
+    "pdf",
+    "svg",
+    "png"
+  ],
+  "dpi": 600,
+  "mean_pairwise_distance": 0.3964646464646464,
+  "minimum_off_diagonal_distance": 0.05555555555555555,
+  "maximum_off_diagonal_distance": 0.7777777777777778,
+  "code_path": "/home/wanzhen/attribute_prototype_analysis/prototype_distance_heatmap.py",
+  "code_sha256": "96a2498def1d43877e3dd9c3b7f8cd69c3da1f0766715b16509ce05aba7aad10",
+  "versions": {
+    "python": "3.10.19",
+    "numpy": "1.25.2",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.7"
+  }
+}

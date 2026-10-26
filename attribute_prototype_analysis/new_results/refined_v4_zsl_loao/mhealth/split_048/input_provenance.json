@@ -1,0 +1,108 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/mhealth/split_48/activity_attribute_vectors_a2.json",
+  "sha256": "f0a8ba42a4b371a0df57486a4acff029b54a0a2c9d814ef9164157ac2e12954c",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "limb_motion_balance"
+  ],
+  "plan_sha256": "7ad50f2dc8f0c1fe5c23895a7b13c8e4b134b7a43da040e3e73bf242fcbb5e78",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "limb_motion_balance": {
+      "definition": "Relative prominence of dynamic motion at the right lower arm compared with the left ankle, ordered from lower-limb dominance to upper-limb dominance; jointly negligible motion is treated as no regional dominance.",
+      "levels": {
+        "Low": "Dynamic motion is predominantly expressed at the ankle rather than the lower arm.",
+        "Medium": "Neither region clearly dominates, including when both regions have negligible dynamic motion.",
+        "High": "Dynamic motion is predominantly expressed at the lower arm rather than the ankle."
+      }
+    }
+  },
+  "model_manifest_sha256": "87e42e2138a812d09f5b34c0db2495e625b64fc2c65954632b761b3e864e84e8",
+  "weights": {
+    "motion_intensity": 1.0,
+    "cadence": 1.0,
+    "smoothness": 1.0,
+    "impulsiveness": 0.9953051643192489,
+    "posture_inclination": 0.9906103286384976,
+    "posture_variability": 1.0,
+    "rotational_motion": 1.0,
+    "translational_motion": 1.0,
+    "limb_motion_balance": 1.0
+  },
+  "candidates": [
+    "standing still",
+    "lying down",
+    "walking",
+    "frontal elevation of arms"
+  ]
+}

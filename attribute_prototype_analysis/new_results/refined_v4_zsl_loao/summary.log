@@ -1,0 +1,21 @@
+AUDIT: 100 latest A2 v4 prototypes match model runs and generation provenance
+{
+  "complete": true,
+  "splits": 100,
+  "configurations": 1105,
+  "expected_configurations": 1105,
+  "fresh_model_load_calls": 10145,
+  "expected_fresh_calls": 10145,
+  "fresh_predict_proba_calls": 10145,
+  "autogluon_calls": 9901,
+  "constant_calls": 244,
+  "historical_full_baselines_exactly_reproduced": 100,
+  "common_attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness"
+  ],
+  "drop_configurations_identical_probabilities_to_fresh_full": 1005,
+  "drop_configurations": 1005
+}

@@ -1,0 +1,89 @@
+{
+  "created_utc": "2026-10-23T06:31:14.365031+00:00",
+  "dataset": "mhealth",
+  "input_path": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json",
+  "input_sha256": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+  "output_dir": "/home/wanzhen/attribute_prototype_analysis/results/distance_heatmaps/mhealth",
+  "class_scope": "all input activities, no split",
+  "class_count": 12,
+  "attribute_count": 9,
+  "total_pairs": 66,
+  "activities": [
+    "standing still",
+    "sitting and relaxing",
+    "lying down",
+    "walking",
+    "climbing stairs",
+    "waist bends forward",
+    "frontal elevation of arms",
+    "knees bending (crouching)",
+    "cycling",
+    "jogging",
+    "running",
+    "jump front & back"
+  ],
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity"
+  ],
+  "metric": "ordinal_probability",
+  "formula": "sum_k(w_k * sum_l(delta(p_ik,l)*abs(z_l-z_jk))) / sum_k(w_k)",
+  "prototype_distribution": "point_mass; no sample predictions or empirical probabilities used",
+  "weighting": {
+    "policy": "uniform",
+    "source": null
+  },
+  "normalized_attribute_weights": {
+    "motion_intensity": 0.1111111111111111,
+    "cadence": 0.1111111111111111,
+    "smoothness": 0.1111111111111111,
+    "impulsiveness": 0.1111111111111111,
+    "posture_inclination": 0.1111111111111111,
+    "posture_variability": 0.1111111111111111,
+    "rotational_motion": 0.1111111111111111,
+    "translational_motion": 0.1111111111111111,
+    "motion_regularity": 0.1111111111111111
+  },
+  "ordinal_probability_equivalence": "For point-mass prototypes, ordinal_probability equals weighted ordinal L1",
+  "matching_scope": "prototype-to-prototype geometry; not sample-to-prototype classifier scores",
+  "cosine_zero_vector_convention": null,
+  "normalized_encoding": "z=(raw-declared_min)/(declared_max-declared_min), fixed across datasets",
+  "level_map": {
+    "Low": 0.0,
+    "Medium": 1.0,
+    "High": 2.0
+  },
+  "value_range": [
+    0,
+    2
+  ],
+  "colormap": "Blues",
+  "color_limits": [
+    0,
+    1
+  ],
+  "formats": [
+    "pdf",
+    "svg",
+    "png"
+  ],
+  "dpi": 600,
+  "mean_pairwise_distance": 0.3754208754208754,
+  "minimum_off_diagonal_distance": 0.05555555555555555,
+  "maximum_off_diagonal_distance": 0.7222222222222222,
+  "code_path": "/home/wanzhen/attribute_prototype_analysis/prototype_distance_heatmap.py",
+  "code_sha256": "5460a322c3c13151ad923c528646a830657464e9b2927a4c3273b9d789106c94",
+  "versions": {
+    "python": "3.10.19",
+    "numpy": "1.25.2",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.7"
+  }
+}

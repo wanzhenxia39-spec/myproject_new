@@ -1,0 +1,274 @@
+{
+  "provenance": {
+    "dataset": "dsads",
+    "split_index": 1042,
+    "model_directory": "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/dsads/dsads_zsl_autogluon_default_ensemble_initial9_independent_t300_random20_eval30_seed42_rerun_20261021/split_1042/models",
+    "manager_sha256": "62edda4b0063ba5d9e397e404ee4bd7c8488af89482afe65ce803da19d9b134d",
+    "attribute_vectors_sha256": "032689e410b1d31c709f75afbbea7434d228100dd94f4e072843ce91a803c5f3",
+    "train_window_indices_sha256": "a5c78500eb26059d0b080ce7f3518c06e6d49965e655e00d0a16382873e56b05",
+    "validation_window_indices_sha256": "dda65669a74b36a59193fc8130ab0def129a48071c504ab906b9d3a3bfd4ecc1"
+  },
+  "rows": [
+    {
+      "dataset": "dsads",
+      "split_index": 1042,
+      "attribute": "motion_intensity",
+      "n_train": 3640,
+      "n_validation": 1560,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 0.9873956446170936,
+      "macro_f1": 0.9873956446170936,
+      "macro_f1_all_levels": 0.9873956446170936,
+      "eod": 0.006221941091779753,
+      "accuracy": 0.9891025641025641,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 360,
+        "Medium": 480,
+        "High": 720
+      },
+      "per_state_f1": {
+        "Low": 0.9834254143646409,
+        "Medium": 0.9822361546499477,
+        "High": 0.9965253648366922
+      },
+      "majority_macro_f1": 0.21052631578947367,
+      "training_prior_eod": 0.42603550295857995,
+      "macro_f1_gain_over_majority": 0.7768693288276199,
+      "eod_reduction_from_prior": 0.4198135618668002
+    },
+    {
+      "dataset": "dsads",
+      "split_index": 1042,
+      "attribute": "cadence",
+      "n_train": 3640,
+      "n_validation": 1560,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 0.9994444440586417,
+      "macro_f1": 0.9994444440586417,
+      "macro_f1_all_levels": 0.9994444440586417,
+      "eod": 0.0006372395054691439,
+      "accuracy": 0.9993589743589744,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 600,
+        "Medium": 600,
+        "High": 360
+      },
+      "per_state_f1": {
+        "Low": 0.9991659716430359,
+        "Medium": 0.9991673605328892,
+        "High": 1.0
+      },
+      "majority_macro_f1": 0.1851851851851852,
+      "training_prior_eod": 0.41420118343195267,
+      "macro_f1_gain_over_majority": 0.8142592588734565,
+      "eod_reduction_from_prior": 0.41356394392648355
+    },
+    {
+      "dataset": "dsads",
+      "split_index": 1042,
+      "attribute": "smoothness",
+      "n_train": 3640,
+      "n_validation": 1560,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 0.9881620629183602,
+      "macro_f1": 0.9881620629183602,
+      "macro_f1_all_levels": 0.9881620629183602,
+      "eod": 0.006940438734454801,
+      "accuracy": 0.9891025641025641,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 240,
+        "Medium": 360,
+        "High": 960
+      },
+      "per_state_f1": {
+        "Low": 0.99581589958159,
+        "Medium": 0.9764868603042877,
+        "High": 0.9921834288692027
+      },
+      "majority_macro_f1": 0.25396825396825395,
+      "training_prior_eod": 0.36686390532544383,
+      "macro_f1_gain_over_majority": 0.7341938089501062,
+      "eod_reduction_from_prior": 0.359923466590989
+    },
+    {
+      "dataset": "dsads",
+      "split_index": 1042,
+      "attribute": "impulsiveness",
+      "n_train": 3640,
+      "n_validation": 1560,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 0.9977760773712628,
+      "macro_f1": 0.9977760773712628,
+      "macro_f1_all_levels": 0.9977760773712628,
+      "eod": 0.002506854221145661,
+      "accuracy": 0.9980769230769231,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 600,
+        "Medium": 600,
+        "High": 360
+      },
+      "per_state_f1": {
+        "Low": 0.9991673605328892,
+        "Medium": 0.9983333333333333,
+        "High": 0.9958275382475661
+      },
+      "majority_macro_f1": 0.1851851851851852,
+      "training_prior_eod": 0.41420118343195267,
+      "macro_f1_gain_over_majority": 0.8125908921860776,
+      "eod_reduction_from_prior": 0.411694329210807
+    },
+    {
+      "dataset": "dsads",
+      "split_index": 1042,
+      "attribute": "posture_inclination",
+      "n_train": 3640,
+      "n_validation": 1560,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 0.9991305850401941,
+      "macro_f1": 0.9991305850401941,
+      "macro_f1_all_levels": 0.9991305850401941,
+      "eod": 0.07097648562182887,
+      "accuracy": 0.9993589743589744,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 960,
+        "Medium": 240,
+        "High": 360
+      },
+      "per_state_f1": {
+        "Low": 0.9994794377928162,
+        "Medium": 0.9979123173277662,
+        "High": 1.0
+      },
+      "majority_macro_f1": 0.25396825396825395,
+      "training_prior_eod": 0.41420118343195267,
+      "macro_f1_gain_over_majority": 0.7451623310719402,
+      "eod_reduction_from_prior": 0.34322469781012377
+    },
+    {
+      "dataset": "dsads",
+      "split_index": 1042,
+      "attribute": "posture_variability",
+      "n_train": 3640,
+      "n_validation": 1560,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 0.983861633442639,
+      "macro_f1": 0.983861633442639,
+      "macro_f1_all_levels": 0.983861633442639,
+      "eod": 0.009165704002674456,
+      "accuracy": 0.985897435897436,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 960,
+        "Medium": 360,
+        "High": 240
+      },
+      "per_state_f1": {
+        "Low": 0.9906444906444907,
+        "Medium": 0.9692737430167597,
+        "High": 0.9916666666666667
+      },
+      "majority_macro_f1": 0.25396825396825395,
+      "training_prior_eod": 0.36686390532544383,
+      "macro_f1_gain_over_majority": 0.729893379474385,
+      "eod_reduction_from_prior": 0.35769820132276936
+    },
+    {
+      "dataset": "dsads",
+      "split_index": 1042,
+      "attribute": "rotational_motion",
+      "n_train": 3640,
+      "n_validation": 1560,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 0.9849587238701553,
+      "macro_f1": 0.9849587238701553,
+      "macro_f1_all_levels": 0.9849587238701555,
+      "eod": 0.006384506590117783,
+      "accuracy": 0.9871794871794872,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 360,
+        "Medium": 480,
+        "High": 720
+      },
+      "per_state_f1": {
+        "Low": 0.9793103448275862,
+        "Medium": 0.9790356394129979,
+        "High": 0.9965301873698821
+      },
+      "majority_macro_f1": 0.21052631578947367,
+      "training_prior_eod": 0.42603550295857995,
+      "macro_f1_gain_over_majority": 0.7744324080806816,
+      "eod_reduction_from_prior": 0.41965099636846215
+    },
+    {
+      "dataset": "dsads",
+      "split_index": 1042,
+      "attribute": "translational_motion",
+      "n_train": 3640,
+      "n_validation": 1560,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 0.9949493355219546,
+      "macro_f1": 0.9949493355219546,
+      "macro_f1_all_levels": 0.9949493355219546,
+      "eod": 0.018384615513675203,
+      "accuracy": 0.9980769230769231,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 840,
+        "Medium": 600,
+        "High": 120
+      },
+      "per_state_f1": {
+        "Low": 1.0,
+        "Medium": 0.9975062344139651,
+        "High": 0.9873417721518988
+      },
+      "majority_macro_f1": 0.2333333333333333,
+      "training_prior_eod": 0.31952662721893493,
+      "macro_f1_gain_over_majority": 0.7616160021886214,
+      "eod_reduction_from_prior": 0.3011420117052597
+    },
+    {
+      "dataset": "dsads",
+      "split_index": 1042,
+      "attribute": "motion_regularity",
+      "n_train": 3640,
+      "n_validation": 1560,
+      "training_state_count": 3,
+      "model_best": "WeightedEnsemble_L2",
+      "saved_validation_macro_f1": 0.9661233253867157,
+      "macro_f1": 0.9661233253867157,
+      "macro_f1_all_levels": 0.9661233253867157,
+      "eod": 0.00573222864407322,
+      "accuracy": 0.9891025641025641,
+      "validation_state_count": 3,
+      "validation_state_support": {
+        "Low": 240,
+        "Medium": 120,
+        "High": 1200
+      },
+      "per_state_f1": {
+        "Low": 0.9643605870020965,
+        "Medium": 0.9344262295081968,
+        "High": 0.9995831596498541
+      },
+      "majority_macro_f1": 0.2898550724637681,
+      "training_prior_eod": 0.30769230769230776,
+      "macro_f1_gain_over_majority": 0.6762682529229476,
+      "eod_reduction_from_prior": 0.3019600790482345
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/uschad/split_378/activity_attribute_vectors_a2.json",
+  "sha256": "519e1330aa4eb7d402692ba879caea454d916779fa1b0f09d7f0c1a25504e5b8",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity",
+    "motion_intensity_variability"
+  ],
+  "plan_sha256": "850b9f63c1c06c3a0869d1e0b714c1b583aade08009f7d2dcf00245cf1bb8f51",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    "motion_intensity_variability": {
+      "definition": "Extent of temporal variation in motion magnitude and energy within a window, independent of the average intensity and repetition rate.",
+      "levels": {
+        "Low": "Motion intensity remains nearly constant.",
+        "Medium": "Motion intensity varies moderately around its prevailing level.",
+        "High": "Motion intensity varies strongly between quieter and more energetic phases."
+      }
+    }
+  },
+  "model_manifest_sha256": "bb6d1e7cc20a1e86b8c1c2903bc84c10109f6ab50ec2a414c81b9b06e599c907",
+  "weights": {
+    "motion_intensity": 1.0,
+    "cadence": 1.0,
+    "smoothness": 1.0,
+    "impulsiveness": 1.0,
+    "posture_inclination": 1.0,
+    "posture_variability": 1.0,
+    "rotational_motion": 1.0,
+    "translational_motion": 0.9876819708846585,
+    "motion_regularity": 1.0,
+    "motion_intensity_variability": 0.9899216125419933
+  },
+  "candidates": [
+    "Walking Upstairs",
+    "Walking Downstairs",
+    "Jumping Up",
+    "Sleeping"
+  ]
+}

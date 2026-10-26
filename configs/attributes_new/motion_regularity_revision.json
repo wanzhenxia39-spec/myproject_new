@@ -1,0 +1,133 @@
+{
+  "revision": "initial9_mhealth_motion_regularity_semantic_review_v1",
+  "dataset": "mhealth",
+  "modified_attribute": "motion_regularity",
+  "source_files_sha256": {
+    "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5.json": "d9c7469bf376db9661ad8a93f4a233b3d31bd9c19751d6da4ea9af1934fae887",
+    "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+    "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_uschad_v1_5.json": "a9c06ea5c4bb8e8256ae33dbb105b0047774375ec1f1393a13cfd6c9f0da4934",
+    "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+    "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_dsads_v1_5.json": "032689e410b1d31c709f75afbbea7434d228100dd94f4e072843ce91a803c5f3",
+    "/data/wanzhen/projects/myproject_new/configs/attributes/initial_attributes.json": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130"
+  },
+  "original_definition": {
+    "name": "motion_regularity",
+    "definition": "Temporal consistency and predictability of the motion pattern.",
+    "levels": {
+      "Low": "Irregular and poorly predictable motion pattern.",
+      "Medium": "Partly structured motion with moderate variability.",
+      "High": "Consistent and predictable motion pattern."
+    }
+  },
+  "method": "explicit_manual_semantic_reannotation; no LLM API call, no IMU inspection, no model/test-score optimization",
+  "source_reference": "https://archive.ics.uci.edu/dataset/319/mhealth+dataset",
+  "source_supported_facts": "UCI lists waist bends, frontal arm elevation, knees bending and front/back jumps as 20-repetition activities; the other eight use duration-based recording.",
+  "inference_limit": "Repetition count does not establish temporal regularity. Medium labels are a reviewed semantic prior, not measured rhythm, observed pauses, or ground truth verified from IMU.",
+  "operational_rule": "High: stable postures or sustained relatively uniform cycles. Medium: structured discrete return movements permitting moderate timing/phase variation. Low is reserved for poorly predictable patterns and is not forced into these scripted activities.",
+  "level_histogram_before": {
+    "High": 12
+  },
+  "level_histogram_after": {
+    "High": 8,
+    "Medium": 4
+  },
+  "activity_annotations": [
+    {
+      "activity": "standing still",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "High",
+      "changed": false,
+      "rationale": "静止姿态的时间模式稳定、可预测；规律性不等同于存在周期运动。"
+    },
+    {
+      "activity": "sitting and relaxing",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "High",
+      "changed": false,
+      "rationale": "保持坐姿的时间模式总体稳定；不因运动强度低而降低规律性。"
+    },
+    {
+      "activity": "lying down",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "High",
+      "changed": false,
+      "rationale": "保持卧姿的时间模式稳定、可预测。"
+    },
+    {
+      "activity": "walking",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "High",
+      "changed": false,
+      "rationale": "持续交替步态采用较稳定的重复时间模式。"
+    },
+    {
+      "activity": "climbing stairs",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "High",
+      "changed": false,
+      "rationale": "连续上楼的重复步态采用较稳定的时间模式，不预设停顿或转向。"
+    },
+    {
+      "activity": "waist bends forward",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "Medium",
+      "changed": true,
+      "rationale": "分次弯腰—恢复的往返动作有明确结构，但各次节拍及端点转换允许中等变化。此为语义标注假设。"
+    },
+    {
+      "activity": "frontal elevation of arms",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "Medium",
+      "changed": true,
+      "rationale": "分次抬臂—放下的往返动作有结构，但启动、回落和各次间隔允许中等变化。此为语义标注假设。"
+    },
+    {
+      "activity": "knees bending (crouching)",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "Medium",
+      "changed": true,
+      "rationale": "分次屈膝—起身动作有结构，但下降、转折、上升及各次间隔允许中等变化。此为语义标注假设。"
+    },
+    {
+      "activity": "cycling",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "High",
+      "changed": false,
+      "rationale": "持续踩踏采用重复且较稳定的周期时间模式。"
+    },
+    {
+      "activity": "jogging",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "High",
+      "changed": false,
+      "rationale": "持续慢跑采用较稳定的重复步态时间模式。"
+    },
+    {
+      "activity": "running",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "High",
+      "changed": false,
+      "rationale": "持续跑步采用重复步态；强冲击本身不等同于不规律。"
+    },
+    {
+      "activity": "jump front & back",
+      "attribute": "motion_regularity",
+      "old_value": "High",
+      "new_value": "Medium",
+      "changed": true,
+      "rationale": "前后交替跳有结构，但方向转换、落地与再次起跳节拍允许中等变化。此为语义标注假设。"
+    }
+  ],
+  "note": "Original inputs and runtime dataset configurations are not modified; prior predictors are not retrained or re-evaluated."
+}

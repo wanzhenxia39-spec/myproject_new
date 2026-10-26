@@ -1,0 +1,37 @@
+{
+  "source": "/data/wanzhen/projects/myproject_new",
+  "destination": "/home/wanzhen/attribute_prototype_analysis",
+  "files": [
+    {
+      "old": "/data/wanzhen/projects/myproject_new/scripts/analyze_attribute_prototypes.py",
+      "new": "/home/wanzhen/attribute_prototype_analysis/analyze_attribute_prototypes.py"
+    },
+    {
+      "old": "/data/wanzhen/projects/myproject_new/src/zshar/semantics/discriminability.py",
+      "new": "/home/wanzhen/attribute_prototype_analysis/discriminability.py"
+    },
+    {
+      "old": "/data/wanzhen/projects/myproject_new/tests/test_discriminability.py",
+      "new": "/home/wanzhen/attribute_prototype_analysis/tests/test_discriminability.py"
+    },
+    {
+      "old": "/data/wanzhen/projects/myproject_new/scripts/PROTOTYPE_DISCRIMINABILITY.md",
+      "new": "/home/wanzhen/attribute_prototype_analysis/README.md"
+    }
+  ],
+  "historical_results": "/data/wanzhen/experiments/prototype_discriminability/a1_v1_5_paper",
+  "results_sha256_before_validation": {
+    "/data/wanzhen/experiments/prototype_discriminability/a1_v1_5_paper/dataset_summary.csv": "59fa1042b7aa392cc4e0e1605dd1624b0b880d6fbe1434bb7a8501c5da42c9f3",
+    "/data/wanzhen/experiments/prototype_discriminability/a1_v1_5_paper/initial_a1_v1_5/attribute_coverage_matrix.csv": "c72cf38d0f35d736318e424089583d865723f2e8097b4ceeb956295ea1c40099",
+    "/data/wanzhen/experiments/prototype_discriminability/a1_v1_5_paper/initial_a1_v1_5/pamap2/distance_matrix.csv": "9ebe4960e5e0af8fa30257265d4f01daf65f68fa613aabd28bbced4ee5795d8a"
+  },
+  "validation": {
+    "tests_passed": 27,
+    "code_on_system_disk": true,
+    "outputs_on_data_disk": true,
+    "original_metrics_sha256_unchanged": true,
+    "standalone_and_combined_apcr_identical": true
+  },
+  "independent_apcr_code": "/home/wanzhen/attribute_prototype_analysis/exact_apcr.py",
+  "independent_apcr_results": "/data/wanzhen/experiments/prototype_discriminability/exact_apcr_a1_v1_5"
+}

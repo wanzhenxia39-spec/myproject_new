@@ -1,0 +1,108 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/mhealth/split_126/activity_attribute_vectors_a2.json",
+  "sha256": "0ff89acd5af02cd9cb721429a356494d3d9c089d9394fcfba201f64811859e41",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "lower_limb_motion_emphasis"
+  ],
+  "plan_sha256": "f14ad2d84a14e65e159a9652446b0ec3da3c714101d5de00363acd40abb7d11e",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "lower_limb_motion_emphasis": {
+      "definition": "Relative prominence of lower-limb motion compared with trunk and upper-limb motion, assessed from regional motion magnitude and rotation rather than from whole-body intensity. Nearly static activity has low emphasis.",
+      "levels": {
+        "Low": "Lower-limb motion is negligible or clearly subordinate to trunk or upper-limb motion.",
+        "Medium": "Lower-limb motion is substantial and broadly comparable to trunk or upper-limb motion.",
+        "High": "Lower-limb motion clearly predominates over trunk and upper-limb motion."
+      }
+    }
+  },
+  "model_manifest_sha256": "77e04dc7ef4018921a2b3cc954346af8c99f321ae7ac6627bdf9b09bf616c904",
+  "weights": {
+    "motion_intensity": 1.0,
+    "cadence": 0.9953051643192489,
+    "smoothness": 1.0,
+    "impulsiveness": 1.0,
+    "posture_inclination": 1.0,
+    "posture_variability": 1.0,
+    "rotational_motion": 1.0,
+    "translational_motion": 1.0,
+    "lower_limb_motion_emphasis": 1.0
+  },
+  "candidates": [
+    "standing still",
+    "climbing stairs",
+    "cycling",
+    "running"
+  ]
+}

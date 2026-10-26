@@ -1,0 +1,118 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/mhealth/split_303/activity_attribute_vectors_a2.json",
+  "sha256": "5e91140993028590b62897381d18799b61a9781173d2b3e719d8d347b95a838e",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "ankle_rotational_motion",
+    "vertical_chest_excursion"
+  ],
+  "plan_sha256": "ea84562ad9fd8667dfdf6e483b78fa631a595b9621897fd9c4f865aa680e3df0",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "ankle_rotational_motion": {
+      "definition": "Prominence of angular motion of the ankle-worn segment, independently of rotation at the upper limb or trunk.",
+      "levels": {
+        "Low": "Little or no angular motion of the ankle-worn segment.",
+        "Medium": "Moderate angular motion of the ankle-worn segment.",
+        "High": "Prominent angular motion of the ankle-worn segment."
+      }
+    },
+    "vertical_chest_excursion": {
+      "definition": "Extent of upward and downward translation of the chest relative to gravity during a movement unit, including motion that returns to its starting height rather than producing sustained progression.",
+      "levels": {
+        "Low": "Little or no upward and downward chest translation.",
+        "Medium": "Moderate upward and downward chest translation.",
+        "High": "Large upward and downward chest translation."
+      }
+    }
+  },
+  "model_manifest_sha256": "449412d6879d349adcc905f67cb890fc968553e9d13b7991bf879a9c78daf7c1",
+  "weights": {
+    "motion_intensity": 1.0,
+    "cadence": 1.0,
+    "smoothness": 0.9871794871794872,
+    "impulsiveness": 1.0,
+    "posture_inclination": 1.0,
+    "posture_variability": 1.0,
+    "rotational_motion": 0.9957264957264957,
+    "translational_motion": 1.0,
+    "ankle_rotational_motion": 1.0,
+    "vertical_chest_excursion": 1.0
+  },
+  "candidates": [
+    "lying down",
+    "walking",
+    "frontal elevation of arms",
+    "jump front & back"
+  ]
+}

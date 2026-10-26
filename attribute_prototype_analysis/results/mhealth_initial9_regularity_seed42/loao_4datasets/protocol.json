@@ -1,0 +1,434 @@
+{
+  "experiment": "MHEALTH reviewed initial9 ZSL and four-dataset LOAO",
+  "physical_gpu": 0,
+  "seed": 42,
+  "datasets_in_plot": [
+    "pamap2",
+    "mhealth",
+    "uschad",
+    "dsads"
+  ],
+  "mhealth_config": {
+    "dataset": "mhealth",
+    "scenario": "zsl",
+    "backend": "autogluon",
+    "backend_config": {
+      "time_limit": 300,
+      "presets": "medium_quality",
+      "num_gpus": 1,
+      "num_cpus": 8,
+      "num_bag_folds": 0,
+      "num_stack_levels": 0,
+      "fit_weighted_ensemble": true,
+      "model_suite": "default",
+      "lightgbm_device": "cuda",
+      "gpu_model_types": [
+        "NN_TORCH",
+        "FASTAI",
+        "CAT",
+        "XGB"
+      ],
+      "verbosity": 2
+    },
+    "seed": 42,
+    "split_manifest": "/data/wanzhen/projects/myproject_new/split/zero_shot_split/mhealth_unseen4_random20_splits_seed42.json",
+    "sample_manifest": "/data/wanzhen/projects/myproject_new/split/zero_shot_split/mhealth_unseen4_random20_eval30_samples_seed42.json",
+    "attribute_vectors_root": null,
+    "attribute_order_config": null,
+    "attribute_order_variant": "forward",
+    "attribute_feature_bindings": null,
+    "attribute_feature_include_auxiliary": true,
+    "subject_manifest": null,
+    "split_indices": [
+      13,
+      16,
+      17,
+      45,
+      48,
+      53,
+      58,
+      72,
+      112,
+      115,
+      126,
+      141,
+      217,
+      280,
+      303,
+      328,
+      347,
+      378,
+      380,
+      457
+    ],
+    "max_splits": null,
+    "samples_per_activity": 30,
+    "prototype_metric": "ordinal_probability",
+    "attribute_weighting": "validation_accuracy",
+    "gamma": 0.0,
+    "temperature": 1.0,
+    "gzsl_bias_correction": "temperature_seen_penalty",
+    "gamma_grid": null,
+    "calibration_mode": "fixed",
+    "calibration_class_folds": 3,
+    "calibration_pseudo_unseen_count": null,
+    "calibration_samples_per_activity": 20,
+    "calibration_temperature_grid": [
+      0.01,
+      0.03,
+      0.1,
+      0.3,
+      1.0,
+      3.0,
+      10.0
+    ],
+    "calibration_tpe_trials": 50,
+    "calibration_tau_min": 0.01,
+    "calibration_tau_max": 10.0,
+    "calibration_gamma_min": -1.0,
+    "calibration_gamma_max": 1.0,
+    "calibration_gamma_coarse_step": 0.05,
+    "calibration_gamma_fine_step": 0.001,
+    "calibration_min_seen_retention": 0.5,
+    "calibration_min_validation_ausuc": 0.0,
+    "calibration_one_standard_error_rule": true,
+    "run_root": "/data/wanzhen/experiments/mhealth_initial9_regularity_seed42/runs",
+    "run_name": "mhealth_zsl_autogluon_default_ensemble_initial9_regularity_v1_t300_random20_eval30_seed42_gpu0",
+    "reuse_models": true,
+    "evaluate_only": false,
+    "dry_run": false
+  },
+  "revised_vectors": "/data/wanzhen/projects/myproject_new/configs/attributes_new/activity_attribute_vectors_initial_mhealth_v1_5.json",
+  "revised_vectors_sha256": "dd0520ca114ccf1d9158c4ab835644841bbc58b8ac522375e85d78ed14beaab3",
+  "input_hashes": {
+    "/data/wanzhen/projects/myproject_new/configs/attributes_new/activity_attribute_vectors_initial_mhealth_v1_5.json": "dd0520ca114ccf1d9158c4ab835644841bbc58b8ac522375e85d78ed14beaab3",
+    "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+    "/data/wanzhen/projects/myproject_new/configs/attributes/initial_attributes.json": "d2893ff3097f89dd187ab9f84e927cb2abc3760ec4d0b48d83f64f0907c8e130",
+    "/data/wanzhen/projects/myproject_new/split/zero_shot_split/mhealth_unseen4_random20_splits_seed42.json": "d975ed8ed9f6dfcea5b606b640bd55c1b87287afc50ea6368710662bd72dd8d2",
+    "/data/wanzhen/projects/myproject_new/split/zero_shot_split/mhealth_unseen4_random20_eval30_samples_seed42.json": "d0dd321e83825676a33fe400628fc6e94f7b0b867d24d0dd88b2b7f72df50a98",
+    "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/mhealth/mhealth_zsl_autogluon_default_ensemble_initial_a1_v1_5_independent_t300_random20_eval30_seed42_gpu1_rerun/config.json": "2967c2623765e2613ce5661bbfd398696980d3afb8eb358a5ae52e90bac58e42"
+  },
+  "feature_files": {
+    "/data/wanzhen/projects/windows/mhealth_windows/all_features_20_120.npy": {
+      "size": 1916672,
+      "mtime_ns": 1789179917295063746
+    },
+    "/data/wanzhen/projects/windows/mhealth_windows/all_features_name_20_120.npy": {
+      "size": 13262,
+      "mtime_ns": 1789179917373290335
+    },
+    "/data/wanzhen/projects/windows/mhealth_windows/label_20_120.npy": {
+      "size": 2119808,
+      "mtime_ns": 1784687581000000000
+    }
+  },
+  "split_audits": [
+    {
+      "split_index": 13,
+      "seen_fit_samples": 497,
+      "seen_validation_samples": 214,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 347,
+        "Medium": 150
+      },
+      "fit_window_ids_sha256": "87feb79647f2038ac7eb95ecc31fca581ac196b43b92ab92468eccb8782ad803",
+      "validation_window_ids_sha256": "d11042445c7128fd3cba7697105b2d72134c2a549054ccc30f0939dde84821ad"
+    },
+    {
+      "split_index": 16,
+      "seen_fit_samples": 492,
+      "seen_validation_samples": 212,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 277,
+        "Medium": 215
+      },
+      "fit_window_ids_sha256": "cf98efe0ff1d769caea98fee0e17dbe06092e8aed1d6d10ea335145ed734763d",
+      "validation_window_ids_sha256": "adafcea2427588e1eb909988a2d327dc0122e8abb833886263b707dac3f863eb"
+    },
+    {
+      "split_index": 17,
+      "seen_fit_samples": 541,
+      "seen_validation_samples": 233,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 347,
+        "Medium": 194
+      },
+      "fit_window_ids_sha256": "9f43e1ed3c83647aed85c0d249d37990dbabdde2a606c13cadde697896e00c73",
+      "validation_window_ids_sha256": "d041657f76d72f1dbbd2f062240a26a5ea42472438c3978d3e106bd63de51649"
+    },
+    {
+      "split_index": 45,
+      "seen_fit_samples": 541,
+      "seen_validation_samples": 233,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 347,
+        "Medium": 194
+      },
+      "fit_window_ids_sha256": "0980fbcce8a200d0e1d3264604ec22b81bdb0fb5d957f06d3fa6afdeb17e4e31",
+      "validation_window_ids_sha256": "cba28228d468cf6f535dead61cf0e5439deb8ba3b62183327afb0f36cdd9cfb5"
+    },
+    {
+      "split_index": 48,
+      "seen_fit_samples": 497,
+      "seen_validation_samples": 213,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 347,
+        "Medium": 150
+      },
+      "fit_window_ids_sha256": "7cb7109ef73aa8b0c37fe7dd8e6ae15e158eec250852f2c477f9892ab8c4d2d8",
+      "validation_window_ids_sha256": "e7ae0be41c6bf546b490a3fb38225146bb3ed5d9e3ba28495ab892ff7816bff7"
+    },
+    {
+      "split_index": 53,
+      "seen_fit_samples": 541,
+      "seen_validation_samples": 233,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 347,
+        "Medium": 194
+      },
+      "fit_window_ids_sha256": "7670c13ed8b74d727ff1f30d86b37be410158020a0f37104f9ebcd588878083f",
+      "validation_window_ids_sha256": "8730a062c10aa2eff11493368fc281a7f25777a96e2ab9455e5cf7098d056735"
+    },
+    {
+      "split_index": 58,
+      "seen_fit_samples": 495,
+      "seen_validation_samples": 213,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 280,
+        "Medium": 215
+      },
+      "fit_window_ids_sha256": "bb08e6e79a954d3d1becd70bc9702d20a57586b97afff749447128f4c144a467",
+      "validation_window_ids_sha256": "d9894262edd910f71cc495751e4a231c0bc9342003f0f8e0ccfb06fd35beab9b"
+    },
+    {
+      "split_index": 72,
+      "seen_fit_samples": 497,
+      "seen_validation_samples": 214,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 347,
+        "Medium": 150
+      },
+      "fit_window_ids_sha256": "3ea62dade01bcf7d153fc57a30ea408600ac0ed27dcb24282cd41e26a854c133",
+      "validation_window_ids_sha256": "601b95ba8280dda76eabdcc654a5bdf09deee927860e6dea8cfcb29d273c9d3a"
+    },
+    {
+      "split_index": 112,
+      "seen_fit_samples": 501,
+      "seen_validation_samples": 216,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 350,
+        "Medium": 151
+      },
+      "fit_window_ids_sha256": "c6ea5fdd72e4c76b39f8150318ed1bdb691bde03b68d63c094df6d4980c2c91a",
+      "validation_window_ids_sha256": "06f248f45e9407f074891bb6891fb6703558d7daa4c78851a15e640b59815b78"
+    },
+    {
+      "split_index": 115,
+      "seen_fit_samples": 550,
+      "seen_validation_samples": 237,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 420,
+        "Medium": 130
+      },
+      "fit_window_ids_sha256": "a96d4e5b337dac474b6b44a19cfd5a651dc26a1c1cef72ecc19fb2f7afb0f0f7",
+      "validation_window_ids_sha256": "23f2af87f38dabf423f8f7e33fdd46ea458eed72e9ef3ac34b25c4ec13cc9b01"
+    },
+    {
+      "split_index": 126,
+      "seen_fit_samples": 495,
+      "seen_validation_samples": 213,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 280,
+        "Medium": 215
+      },
+      "fit_window_ids_sha256": "f98489c2dd34a58ebc6fa5121cb1028a3eb635b3c73c03c8b7e7dda950835cd5",
+      "validation_window_ids_sha256": "bdf385d83681cb4d12776c019b9653ef6506bf931d44664f7e4dd4ff2a3a2977"
+    },
+    {
+      "split_index": 141,
+      "seen_fit_samples": 499,
+      "seen_validation_samples": 214,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 347,
+        "Medium": 152
+      },
+      "fit_window_ids_sha256": "d75a1fe73e8bd0b66e0a64e5302f4545b7e5fc21e2b42f075c17c8d43da2ee97",
+      "validation_window_ids_sha256": "4dcfb717351ea58469f79ed0280657603100de11b59f8e7cc32e3fbab728cbe2"
+    },
+    {
+      "split_index": 217,
+      "seen_fit_samples": 497,
+      "seen_validation_samples": 213,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 347,
+        "Medium": 150
+      },
+      "fit_window_ids_sha256": "95de372f1b1117b9003b41e5209d11ce9c62c231addcc12056fb88418b2872a9",
+      "validation_window_ids_sha256": "352d2bb91fa8a48ed99962693e74f3e25d2d1a59f13183e1d35b636bb6f7445e"
+    },
+    {
+      "split_index": 280,
+      "seen_fit_samples": 546,
+      "seen_validation_samples": 235,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 417,
+        "Medium": 129
+      },
+      "fit_window_ids_sha256": "76d32be6997e457ab246b997ed9703236806aa81b40d938da7fb1d17ef5562b3",
+      "validation_window_ids_sha256": "21ea140f027d33e03fbd0bd67ed2e289831f5fdf9a2e09257b788ec7936f3036"
+    },
+    {
+      "split_index": 303,
+      "seen_fit_samples": 546,
+      "seen_validation_samples": 234,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 417,
+        "Medium": 129
+      },
+      "fit_window_ids_sha256": "63aa4b942144830c20421b3fe87ed9e386a51a5286084e85312f79cf4d1ef42b",
+      "validation_window_ids_sha256": "120fa9257fb87376ae0289ce16b54c5f92fb26397d4a1d25c1839de75867ead6"
+    },
+    {
+      "split_index": 328,
+      "seen_fit_samples": 549,
+      "seen_validation_samples": 236,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 420,
+        "Medium": 129
+      },
+      "fit_window_ids_sha256": "1b39b7f57c6a439012fe8de6929c295f823ecc67719baba17eeaba7e4c75ad5f",
+      "validation_window_ids_sha256": "92cfd9987879dc3785655c788c8b755960d2fa31ef75bc1a1c1e5e8be7a6a678"
+    },
+    {
+      "split_index": 347,
+      "seen_fit_samples": 499,
+      "seen_validation_samples": 214,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 347,
+        "Medium": 152
+      },
+      "fit_window_ids_sha256": "2833eb6feb6f56b6dcf5f04f9dbc7ac1a9311f02d85a69a00af959f1654e61ac",
+      "validation_window_ids_sha256": "f8fb38f337e6f64d113d25d95f5e219630c6e1efc331a7ff446bbce0d02b3cfb"
+    },
+    {
+      "split_index": 378,
+      "seen_fit_samples": 499,
+      "seen_validation_samples": 215,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 350,
+        "Medium": 149
+      },
+      "fit_window_ids_sha256": "75cb5fffe68ea7a0079a99c59230ee6d612b1d6341e5666cc4c480d1a5022870",
+      "validation_window_ids_sha256": "a77f43ad9add5a3129db007d857ef4dc3358061fd54e2119fa6f0f50dd16024a"
+    },
+    {
+      "split_index": 380,
+      "seen_fit_samples": 548,
+      "seen_validation_samples": 236,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 420,
+        "Medium": 128
+      },
+      "fit_window_ids_sha256": "8827a74f76b2f4b2756e113ffcbd9812d43535cb7409ffbfb04f71352e410359",
+      "validation_window_ids_sha256": "22d44da6f3a1fec0f0853514be4cd8a426ff15a70ff9ba5ffb6f2210ab485dff"
+    },
+    {
+      "split_index": 457,
+      "seen_fit_samples": 495,
+      "seen_validation_samples": 213,
+      "test_samples": 120,
+      "regularity_fit_level_counts": {
+        "High": 280,
+        "Medium": 215
+      },
+      "fit_window_ids_sha256": "e445c2df36fd7edc0d9438ba64cbd7e3d22f6635398059a4be46eb95045aaddb",
+      "validation_window_ids_sha256": "5fe48a792b83dd05f42e55f4a043941bbb5fe24e67f7fc69cb29375cbc49a5ab"
+    }
+  ],
+  "loao": "Frozen full9 outputs; remove probability/prototype/weight coordinate; renormalize remaining weights",
+  "delta": "full9 minus removed8; percentage points; SD over 20 paired splits",
+  "test_selection": "none; classifiers/ensembles selected using Seen data only",
+  "new_run": "/data/wanzhen/experiments/mhealth_initial9_regularity_seed42/runs/mhealth/mhealth_zsl_autogluon_default_ensemble_initial9_regularity_v1_t300_random20_eval30_seed42_gpu0",
+  "loao_output": "/data/wanzhen/experiments/mhealth_initial9_regularity_seed42/loao_4datasets",
+  "historical_other_dataset_metric_files": {
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_001/metrics.json": "b4daa9cdd0bf8a997c651ee4eb3fa8907a6183b036e0a109f5fc0c2d8ebe84c2",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_002/metrics.json": "f9f5c4a6eb464f044c0603bc34a6d1c8090ef3e35c07cc781ed665edf4627025",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_003/metrics.json": "dbdeb5b5e5aadfc23219d8f993ed8cdfa2b559430927c52d78db7b539e205d94",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_013/metrics.json": "d63341543ce2b6026aaf559187b33543664f9fcd47bcbbf22f269970e5e096f3",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_016/metrics.json": "381ad3ef3e18e6976bf793c7a3367518e4883ebba8be82b579e59b6481fc1d88",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_017/metrics.json": "845df5cb80a77ecec3994d2932a4c1201ec858fb64ea9c62bebbf171d6e85fef",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_045/metrics.json": "41a3230f2c5b9b20645b761e7bdffb71b784067daa584e05ac21bfb287c66814",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_048/metrics.json": "5b29972079e3bef0010523c32efeba4cd2eb65b556cbd923235e6536fb22a3d1",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_053/metrics.json": "37d29471b90d9799766bba7af8a1d90e3a19d9080fb9d48f99e0c0adb4750c06",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_058/metrics.json": "d42ed509997b2cd9ecfe0b14b2de32f19d38d7a276467ed18b0e49988338a229",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_072/metrics.json": "e07cb1eeb6272bebb72305ae69ba7f7a48746fe763a68f6a835337954cca8f72",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_112/metrics.json": "d09b6fad5f813f756819b2ca30c2ff410954ad1a1b562d9d5e7b2b460b8fb94c",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_115/metrics.json": "0fedd8b961f7ab2af2518e0197a0a38033d8a7cba8710016ba4d48b522172efe",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_126/metrics.json": "aaf86d557b4602ba3a7cd4063b0be54b363ba1d36a34f4a7407d9a4b4e223049",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_141/metrics.json": "c0ffd916e1f4ccdee6d64c806f8f96a82d35ec15c72c47c7a2c9f2bb66539d72",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_217/metrics.json": "5362e23eebde665fb6d2a18bf62710e79834886e350349f87fbdbc0b13ec744c",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_280/metrics.json": "f262723a52ac02460d7ac4460cc479cab098971a2751d7a1da0d9c4a1efb9a84",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_303/metrics.json": "422a2c83720a884709bd11228b83ad060ebdb9423c5eb100549e40df0530c767",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_328/metrics.json": "3ba097426ba6ee7752a1e5d895f7aa10f50b22a282703522e7d37b341be5164c",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/pamap2/split_378/metrics.json": "db8d1bfd45fb0e789a242d00c7ef104711d3c22302cd01606139d9d67d16d17c",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_013/metrics.json": "ffa94e7de0fd6915dd1e08d19748e1c45c9904bc754c99a8181f11cb1da2c7e4",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_016/metrics.json": "3094f370d38417c7f2cf47d79bacc8f1353fbd87f4f9f2c520e3bcd72b66013f",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_017/metrics.json": "0984185ade325bf8775f55d57fe0f110bd6716653a8568fb225ecaa1b4cbe7e9",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_045/metrics.json": "f03b7d23db9d7e7a0353ef04b4631df4ae9dbf831580c341268e80de10afc2e2",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_048/metrics.json": "0fd0ff7de103c4ec3841110f035bcd01a5b28843155c55f372f1bfebe543c127",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_053/metrics.json": "8da264bd756e391a82f6824c230168e4c7ad87f9fe062ece6f117fcc56e31eaf",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_058/metrics.json": "0e7e90fe80c1d13f3e54585723970053dc3437bfaf08f7f22ec36862d10607fa",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_072/metrics.json": "1c4d5abc4b700e7f3bfbd9db420c43e8a6a0a8c4edd25704a8a188455a826c95",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_112/metrics.json": "63d0608aa8015a10dac49fd46f4d58ed814df0c93c3522bdcada2ee505590abf",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_115/metrics.json": "e681c56cce30353a53b8415c9b3a65f8048c14a3fef7d78d44997c03aa634438",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_126/metrics.json": "1d4094f6fe512efcfa13c41dbd23940c55aa59f644a31f431e8ecbf4fbacb9a7",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_141/metrics.json": "c69c3fc0fb479cda4069901ba90f77445c0bb47241ba01c3c76873b98b172a96",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_217/metrics.json": "435c938372cf2a50322f7de0e091e75d3db89270cc4b6d52e90e587f8519a80c",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_280/metrics.json": "e6ae9001d781640de1a371bc8956594f0cd488b0af0d4dad6361e9de7acb36d9",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_303/metrics.json": "f6e5fa9163db345d0df3e194aeb3a744ce5b7bf95b0ce774d12830391a2871e6",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_328/metrics.json": "37af196498ca939d89a41eafa8c00d715cad962832b0c4187c36ca2bd84e0a18",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_347/metrics.json": "ac4495571d968ffc46414d600855887ee2bca479daddc6a9881f2c03aa0780e3",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_378/metrics.json": "1d8930cb8b6672f2eba57280c7aa9803522573be0db298df6a69d1a534b0ae5e",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_380/metrics.json": "9bfae41fe00e873810bb5fe4263d6dff0025a4d9060cbb18d266df9dca72c1d9",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/uschad/split_457/metrics.json": "5db5c067dccc25ba7255d674508881476472423ade0dfd5ccc562e52e07b383a",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_1042/metrics.json": "e08a62a665e462c51eca0a869459a987cc4df6487ac1c582452b9c609fe49b62",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_13826/metrics.json": "5f3119e2373854da811c43ac9043230e113a9c0e7f4cf7491cc316ef8ddce776",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_17871/metrics.json": "fdc4d894a03e3df7dba2db4fd2af9a132156fdbb9811bde1b5b1be062070de2a",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_19350/metrics.json": "29b5e20961d57668ba9c57993228526406cf6808d64b69d624bb09463437359c",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_20953/metrics.json": "111e77c8b205e281bdf0d4be669b2318b3d6c1b29f246fa52a5f57eeda46c845",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_22175/metrics.json": "2fc16967c6580beb9e0e6b1a1dbae3ab3e9e810a34894bce595073e9538ee2b9",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_24133/metrics.json": "6c34f5c519cd661f1239bfa7b8a558cc567b4610e628665873195c0529bbceda",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_24271/metrics.json": "7abf2fc167108c85e090555a94c301608fca674228b1e6042c956f5b393ab2bc",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_24300/metrics.json": "8b97f81bef426b22d27c50c6c8e94e4986a68b7c04c635a28d95343c0071456d",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_2849/metrics.json": "b938159ce87da1ad67d0d44f9555ef1c95189f994e6fd6900b3d6ee3508e8d91",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_3071/metrics.json": "7c4510bb5cc3d5dd7fbd825bf9eb1abc461d249af189dcdf444ee6ce6e218c37",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_3359/metrics.json": "b2ba2f9bae68f5ed78c3400e317ce7155fb09b57ba129195d47785fd6e7eca9d",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_3649/metrics.json": "3fdeeb1f797acbec90ea3b1aab1d424bd6caddc73699b9607adc854dfea70120",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_4573/metrics.json": "7d29b75b69afad2035c6362a28786c6a8e7e3b6326f6ec0196f1159d6ddacd34",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_7165/metrics.json": "45812a019a52a0ccb8c7e2866956261e556493f08cbbe06d46f8621564a5e7bf",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_7315/metrics.json": "55bf9c73c37bbf9d6584e5cca1933febfb4d843bbc20d6cf6d466b0c92e5f833",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_8025/metrics.json": "4fdc110ff643fef9455e812f1b7f4de291ccfa4a7f1b0ceea28522323f8f4ba9",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_820/metrics.json": "02cc9bdc51f665f7c1cfc57f9571a64207f6cb09413bf5a34fabd257c1ec5f16",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_9013/metrics.json": "6857db46e4c5e9dfaece66cd5f3e532fc5e08b5f118f14889bfaeb6e32f8fc86",
+    "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao/dsads/split_977/metrics.json": "2f4b0ff6569b59b378130262ac09750df47f904b26ed7b0deec5dc4a4748a338"
+  }
+}

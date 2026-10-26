@@ -1,0 +1,52 @@
+{
+  "experiment": "initial9_v1.5_frozen_output_ZSL_leave_one_attribute_out",
+  "seed": 42,
+  "delta": "full9 - removed_attribute",
+  "error_bars": "sample SD of 20 paired class-split differences (ddof=1)",
+  "metric": "ordinal_probability",
+  "weighting": "original Seen validation accuracy; renormalize remaining weights",
+  "no_training_or_model_selection": true,
+  "unseen_test_used_only_for_evaluation": true,
+  "datasets": {
+    "pamap2": {
+      "run": "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/pamap2/pamap2_zsl_autogluon_default_ensemble_initial_a1_v1_5_independent_t300_random20_eval50_seed42_gpu1_rerun",
+      "vectors": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5.json",
+      "vectors_sha256": "d9c7469bf376db9661ad8a93f4a233b3d31bd9c19751d6da4ea9af1934fae887",
+      "samples_sha256": "7df2c67233c6db91cef333e792e92cf2cdcf6be608a944b41821139447ffc071",
+      "splits_sha256": "d6bc1f30b551c99c7c5b7a3972c606de6eff490e5589079f10579fb8d0180f13",
+      "splits": 20
+    },
+    "mhealth": {
+      "run": "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/mhealth/mhealth_zsl_autogluon_default_ensemble_initial_a1_v1_5_independent_t300_random20_eval30_seed42_gpu1_rerun",
+      "vectors": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json",
+      "vectors_sha256": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+      "samples_sha256": "d0dd321e83825676a33fe400628fc6e94f7b0b867d24d0dd88b2b7f72df50a98",
+      "splits_sha256": "d975ed8ed9f6dfcea5b606b640bd55c1b87287afc50ea6368710662bd72dd8d2",
+      "splits": 20
+    },
+    "uschad": {
+      "run": "/data/wanzhen/LLMbasedZeroshotHARAgent/zshar_runs/uschad/uschad_zsl_autogluon_default_ensemble_initial9_independent_t300_random20_eval30_seed42",
+      "vectors": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_uschad_v1_5.json",
+      "vectors_sha256": "a9c06ea5c4bb8e8256ae33dbb105b0047774375ec1f1393a13cfd6c9f0da4934",
+      "samples_sha256": "437fc590e0c44b3a59c5a8b87f8dfa7f229ab2fffad42ce8e8750ce98d1f3437",
+      "splits_sha256": "6e4d0e6c02225e466cab7fd205992ed8b5fbedf63357e7df7c0f63ea33cbdd63",
+      "splits": 20
+    },
+    "wisdm": {
+      "run": "/data/wanzhen/LLMbasedZeroshotHARAgent/zshar_runs/wisdm/wisdm_zsl_autogluon_default_ensemble_initial9_independent_t300_random20_eval30_seed42",
+      "vectors": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "samples_sha256": "d59720e14bab7722d882cece5300cbc1888c98975c6cad4a72fffb9d05ee9255",
+      "splits_sha256": "d5e7d4613f304ea0a317b45fe087732c983cc6d6b8b600cf65474f1a804808dd",
+      "splits": 20
+    },
+    "dsads": {
+      "run": "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/dsads/dsads_zsl_autogluon_default_ensemble_initial9_independent_t300_random20_eval30_seed42_rerun_20261021",
+      "vectors": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_dsads_v1_5.json",
+      "vectors_sha256": "032689e410b1d31c709f75afbbea7434d228100dd94f4e072843ce91a803c5f3",
+      "samples_sha256": "aef262f400ba42f91371e765f004af7db87cc2ac0abbf0ac53e1e0aeda344db7",
+      "splits_sha256": "6de20182c73d7e2551894c7a1fa03cc60856321499352a3b511d1f5ab9e3d7d4",
+      "splits": 20
+    }
+  }
+}

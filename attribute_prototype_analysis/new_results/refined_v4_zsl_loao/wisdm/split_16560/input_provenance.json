@@ -1,0 +1,130 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/wisdm/split_16560/activity_attribute_vectors_a2.json",
+  "sha256": "a6ea2879c0caa6545789b810a9554f32edb31f2b2f6fd39cfc038f177ee4bebc",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity",
+    "wrist_inclination_excursion",
+    "motion_intermittency"
+  ],
+  "plan_sha256": "67eab3fb036d19307a9f775e763d9e824faa925ffc3b4f268523cfa8247f1d0e",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    "wrist_inclination_excursion": {
+      "definition": "Extent of change in the wrist-worn sensor's inclination relative to gravity during movement, independent of global body posture and rotation about gravity.",
+      "levels": {
+        "Low": "Wrist inclination remains nearly constant or changes only slightly.",
+        "Medium": "Wrist inclination changes through a moderate range.",
+        "High": "Wrist inclination changes through a broad range."
+      }
+    },
+    "motion_intermittency": {
+      "definition": "Prominence of relatively quiet pauses separating active movement bouts, excluding brief reversals within an otherwise continuous movement cycle.",
+      "levels": {
+        "Low": "Movement is largely continuous, or the window is uniformly quiet without distinct movement bouts.",
+        "Medium": "Movement bouts include occasional or brief quiet pauses.",
+        "High": "Distinct movement bouts are repeatedly separated by substantial quiet pauses."
+      }
+    }
+  },
+  "model_manifest_sha256": "206026b6d14fdc45db72353e80309ce1ec50066b466bed703bff09a120af31f6",
+  "weights": {
+    "motion_intensity": 0.9945784258739951,
+    "cadence": 0.988035146756403,
+    "smoothness": 0.96578799775659,
+    "impulsiveness": 0.9936436717143391,
+    "posture_inclination": 0.9919611142269583,
+    "posture_variability": 0.9943914750420639,
+    "rotational_motion": 0.9734529818657693,
+    "translational_motion": 0.9917741633950271,
+    "motion_regularity": 0.9710226210506637,
+    "wrist_inclination_excursion": 0.985230884277435,
+    "motion_intermittency": 0.9771919985043933
+  },
+  "candidates": [
+    "standing",
+    "eating soup",
+    "drinking from cup",
+    "dribbling (basketball)",
+    "clapping",
+    "folding clothes"
+  ]
+}

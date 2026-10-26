@@ -1,0 +1,118 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/uschad/split_112/activity_attribute_vectors_a2.json",
+  "sha256": "cbfad42cbddf32a4b44adff588c2181b27dcde41869c3eeabf883005b21c01ab",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity",
+    "vertical_dynamic_emphasis"
+  ],
+  "plan_sha256": "89658dc052231e41d841dcd4a29da61d03cb3df5d460938092e780631ccbab5b",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    "vertical_dynamic_emphasis": {
+      "definition": "Relative prominence of gravity-aligned dynamic acceleration compared with transverse dynamic acceleration at the hip, excluding static gravity. This describes acceleration direction structure, not elevation change or travel direction.",
+      "levels": {
+        "Low": "Little dynamic acceleration, or dynamic acceleration predominantly transverse to gravity.",
+        "Medium": "Appreciable gravity-aligned dynamic acceleration alongside comparable transverse motion.",
+        "High": "Dynamic acceleration strongly dominated by the gravity-aligned component."
+      }
+    }
+  },
+  "model_manifest_sha256": "802b8dd8c10f9e93e89720107c92e8259edf9827b2994bfcc09eddce8d029f99",
+  "weights": {
+    "motion_intensity": 0.9988095238095238,
+    "cadence": 0.9940476190476191,
+    "smoothness": 0.9988095238095238,
+    "impulsiveness": 0.9964285714285714,
+    "posture_inclination": 0.9952380952380953,
+    "posture_variability": 0.9928571428571429,
+    "rotational_motion": 0.9964285714285714,
+    "translational_motion": 0.9976190476190476,
+    "motion_regularity": 0.9988095238095238,
+    "vertical_dynamic_emphasis": 0.9988095238095238
+  },
+  "candidates": [
+    "Walking Forward",
+    "Walking Downstairs",
+    "Running Forward",
+    "Standing"
+  ]
+}

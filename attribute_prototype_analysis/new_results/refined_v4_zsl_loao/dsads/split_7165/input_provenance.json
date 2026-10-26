@@ -1,0 +1,130 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/dsads/split_7165/activity_attribute_vectors_a2.json",
+  "sha256": "7d31a161fab26d9ff40947012881437538afd5c1eeee90f1341e0c310a9334a7",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity",
+    "impact_pattern",
+    "upper_limb_involvement"
+  ],
+  "plan_sha256": "26aefd6848933dfafa10f429cccb5b474223fc8aeddfb4e15a13b5ab43ae17ca",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    "impact_pattern": {
+      "definition": "Prominence and recurrence of discrete loading or landing events relative to continuously varying motion.",
+      "levels": {
+        "Low": "Few distinct loading or landing events and predominantly continuous motion.",
+        "Medium": "Noticeable intermittent loading events mixed with continuous motion.",
+        "High": "Prominent repeated loading or landing events."
+      }
+    },
+    "upper_limb_involvement": {
+      "definition": "Degree to which coordinated upper-limb motion contributes materially to the activity pattern.",
+      "levels": {
+        "Low": "Upper limbs are mostly stationary or contribute little to the activity pattern.",
+        "Medium": "Upper limbs show noticeable but secondary movement.",
+        "High": "Upper-limb movement is prominent and coordinated with the primary activity."
+      }
+    }
+  },
+  "model_manifest_sha256": "cd17477fb9e09e8d346e4b4de8c569b22b586a67a3453e1f88d2ec62638e1bdd",
+  "weights": {
+    "motion_intensity": 0.9884615384615385,
+    "cadence": 0.9955128205128205,
+    "smoothness": 0.9884615384615385,
+    "impulsiveness": 0.9865384615384616,
+    "posture_inclination": 0.9987179487179487,
+    "posture_variability": 0.9846153846153847,
+    "rotational_motion": 0.9852564102564103,
+    "translational_motion": 0.9865384615384616,
+    "motion_regularity": 0.9884615384615385,
+    "impact_pattern": 0.9852564102564103,
+    "upper_limb_involvement": 0.9871794871794872
+  },
+  "candidates": [
+    "sitting",
+    "descending stairs",
+    "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+    "running on a treadmill with a speed of 8 km/h",
+    "exercising on a cross trainer",
+    "jumping"
+  ]
+}

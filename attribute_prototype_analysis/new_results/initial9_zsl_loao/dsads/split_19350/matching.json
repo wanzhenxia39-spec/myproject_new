@@ -1,0 +1,205 @@
+{
+  "candidate_order": [
+    "lying on right side",
+    "ascending stairs",
+    "descending stairs",
+    "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)",
+    "cycling on an exercise bike in vertical positions",
+    "jumping"
+  ],
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity"
+  ],
+  "raw_seen_validation_weights": {
+    "motion_intensity": 0.9910256410256411,
+    "cadence": 0.9987179487179487,
+    "smoothness": 0.9935897435897436,
+    "impulsiveness": 0.9980769230769231,
+    "posture_inclination": 1.0,
+    "posture_variability": 0.9923076923076923,
+    "rotational_motion": 0.9897435897435898,
+    "translational_motion": 0.9967948717948718,
+    "motion_regularity": 0.9910256410256411
+  },
+  "renormalized_weights": {
+    "full9": {
+      "motion_intensity": 0.11071326267545115,
+      "cadence": 0.11157261529647663,
+      "smoothness": 0.1109997135491263,
+      "impulsiveness": 0.11150100257805784,
+      "posture_inclination": 0.11171584073331421,
+      "posture_variability": 0.11085648811228872,
+      "rotational_motion": 0.11057003723861356,
+      "translational_motion": 0.11135777714122026,
+      "motion_regularity": 0.11071326267545115
+    },
+    "motion_intensity": {
+      "cadence": 0.1254630375261717,
+      "smoothness": 0.12481881140280239,
+      "impulsiveness": 0.12538250926075054,
+      "posture_inclination": 0.125624094057014,
+      "posture_variability": 0.12465775487196006,
+      "rotational_motion": 0.12433564181027541,
+      "translational_motion": 0.1252214527299082,
+      "motion_regularity": 0.12449669834111773
+    },
+    "cadence": {
+      "motion_intensity": 0.12461712074802515,
+      "smoothness": 0.12493954538126713,
+      "impulsiveness": 0.1255037884894406,
+      "posture_inclination": 0.12574560696437206,
+      "posture_variability": 0.12477833306464614,
+      "rotational_motion": 0.12445590843140417,
+      "translational_motion": 0.1253425761728196,
+      "motion_regularity": 0.12461712074802515
+    },
+    "smoothness": {
+      "motion_intensity": 0.12453681327533431,
+      "cadence": 0.12550346383115837,
+      "impulsiveness": 0.12542290961817304,
+      "posture_inclination": 0.12566457225712904,
+      "posture_variability": 0.12469792170130498,
+      "rotational_motion": 0.12437570484936362,
+      "translational_motion": 0.12526180119220234,
+      "motion_regularity": 0.12453681327533431
+    },
+    "impulsiveness": {
+      "motion_intensity": 0.12460707665027808,
+      "cadence": 0.12557427258805515,
+      "smoothness": 0.12492947529620377,
+      "posture_inclination": 0.12573547191101797,
+      "posture_variability": 0.12476827597324092,
+      "rotational_motion": 0.12444587732731524,
+      "translational_motion": 0.12533247360361088,
+      "motion_regularity": 0.12460707665027808
+    },
+    "posture_inclination": {
+      "motion_intensity": 0.12463721380199934,
+      "cadence": 0.1256046436633344,
+      "smoothness": 0.12495969042244436,
+      "impulsiveness": 0.12552402450822314,
+      "posture_variability": 0.12479845211222185,
+      "rotational_motion": 0.12447597549177683,
+      "translational_motion": 0.12536278619800062,
+      "motion_regularity": 0.12463721380199934
+    },
+    "posture_variability": {
+      "motion_intensity": 0.12451675257731958,
+      "cadence": 0.12548324742268038,
+      "smoothness": 0.12483891752577318,
+      "impulsiveness": 0.12540270618556698,
+      "posture_inclination": 0.1256443298969072,
+      "rotational_motion": 0.12435567010309277,
+      "translational_motion": 0.12524162371134018,
+      "motion_regularity": 0.12451675257731958
+    },
+    "rotational_motion": {
+      "motion_intensity": 0.12447665056360707,
+      "cadence": 0.1254428341384863,
+      "smoothness": 0.12479871175523348,
+      "impulsiveness": 0.1253623188405797,
+      "posture_inclination": 0.1256038647342995,
+      "posture_variability": 0.12463768115942028,
+      "translational_motion": 0.12520128824476648,
+      "motion_regularity": 0.12447665056360707
+    },
+    "translational_motion": {
+      "motion_intensity": 0.12458699331130631,
+      "cadence": 0.12555403336288176,
+      "smoothness": 0.12490933999516479,
+      "impulsiveness": 0.12547344669191715,
+      "posture_inclination": 0.125715206704811,
+      "posture_variability": 0.12474816665323554,
+      "rotational_motion": 0.12442581996937706,
+      "motion_regularity": 0.12458699331130631
+    },
+    "motion_regularity": {
+      "motion_intensity": 0.12449669834111772,
+      "cadence": 0.12546303752617166,
+      "smoothness": 0.12481881140280238,
+      "impulsiveness": 0.1253825092607505,
+      "posture_inclination": 0.125624094057014,
+      "posture_variability": 0.12465775487196004,
+      "rotational_motion": 0.1243356418102754,
+      "translational_motion": 0.12522145272990817
+    }
+  },
+  "candidate_prototypes": {
+    "lying on right side": {
+      "motion_intensity": "Low",
+      "cadence": "Low",
+      "smoothness": "Medium",
+      "impulsiveness": "Low",
+      "posture_inclination": "High",
+      "posture_variability": "Low",
+      "rotational_motion": "Low",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "ascending stairs": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Medium",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "descending stairs": {
+      "motion_intensity": "Medium",
+      "cadence": "Medium",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "High",
+      "motion_regularity": "High"
+    },
+    "walking on a treadmill with a speed of 4 km/h (in 15 deg inclined positions)": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "High",
+      "impulsiveness": "Medium",
+      "posture_inclination": "Medium",
+      "posture_variability": "Low",
+      "rotational_motion": "Medium",
+      "translational_motion": "Medium",
+      "motion_regularity": "High"
+    },
+    "cycling on an exercise bike in vertical positions": {
+      "motion_intensity": "Medium",
+      "cadence": "High",
+      "smoothness": "High",
+      "impulsiveness": "Low",
+      "posture_inclination": "Low",
+      "posture_variability": "Low",
+      "rotational_motion": "High",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    },
+    "jumping": {
+      "motion_intensity": "High",
+      "cadence": "Medium",
+      "smoothness": "Low",
+      "impulsiveness": "High",
+      "posture_inclination": "Low",
+      "posture_variability": "Medium",
+      "rotational_motion": "Medium",
+      "translational_motion": "Low",
+      "motion_regularity": "High"
+    }
+  },
+  "reference_score_max_abs_error": 0.0,
+  "full9_historical_prediction_matches": 180
+}

@@ -1,0 +1,118 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/mhealth/split_457/activity_attribute_vectors_a2.json",
+  "sha256": "bfc85da7eb0a7a99f9bd985b4a8d46b93f14721cb8ea1134a7e3550a9641fd61",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "upper_limb_rotational_motion",
+    "lower_limb_rotational_motion",
+    "translational_motion",
+    "motion_regularity"
+  ],
+  "plan_sha256": "4fd9c02a9e357a94fb0aeadc0ed616bdb250f83c2d63ebe75c27b280f0c10c67",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "upper_limb_rotational_motion": {
+      "definition": "Prominence of angular motion of the right lower arm during the activity.",
+      "levels": {
+        "Low": "Little or no lower-arm angular motion.",
+        "Medium": "Moderate lower-arm angular motion.",
+        "High": "Prominent lower-arm angular motion."
+      }
+    },
+    "lower_limb_rotational_motion": {
+      "definition": "Prominence of angular motion of the left ankle-bearing lower-leg segment during the activity.",
+      "levels": {
+        "Low": "Little or no ankle-bearing lower-leg angular motion.",
+        "Medium": "Moderate ankle-bearing lower-leg angular motion.",
+        "High": "Prominent ankle-bearing lower-leg angular motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    }
+  },
+  "model_manifest_sha256": "50905eba1762cfd1bae77fe9035c0a2f332580fe52d5f7e59f10e1e46b1777ba",
+  "weights": {
+    "motion_intensity": 1.0,
+    "cadence": 1.0,
+    "smoothness": 1.0,
+    "impulsiveness": 1.0,
+    "posture_inclination": 1.0,
+    "posture_variability": 1.0,
+    "upper_limb_rotational_motion": 1.0,
+    "lower_limb_rotational_motion": 1.0,
+    "translational_motion": 1.0,
+    "motion_regularity": 1.0
+  },
+  "candidates": [
+    "climbing stairs",
+    "cycling",
+    "jogging",
+    "running"
+  ]
+}

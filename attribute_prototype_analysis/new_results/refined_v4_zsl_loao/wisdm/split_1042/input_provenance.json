@@ -1,0 +1,120 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/wisdm/split_1042/activity_attribute_vectors_a2.json",
+  "sha256": "a94d46815c9685e8ee12ec69eedce4c04e18ea975bb11cba598961819edbfe86",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity",
+    "wrist_orientation_excursion"
+  ],
+  "plan_sha256": "f816c41889f15b77ac742726623544ad1aacae5b6b7bbf8a258ff7afffb5de51",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    "wrist_orientation_excursion": {
+      "definition": "Breadth of gravity-relative orientations traversed by the watch-wearing wrist within a window, independent of repetition rate and global body-posture change. Rotation solely about gravity does not increase this attribute.",
+      "levels": {
+        "Low": "Wrist remains within a narrow range of gravity-relative orientations.",
+        "Medium": "Wrist traverses a moderate range of gravity-relative orientations.",
+        "High": "Wrist traverses a broad range of gravity-relative orientations."
+      }
+    }
+  },
+  "model_manifest_sha256": "c1ad5cf585227453783393f5d8f501e5eede2aae438d52569877f86f31b3446c",
+  "weights": {
+    "motion_intensity": 0.9864864864864865,
+    "cadence": 0.9863013698630136,
+    "smoothness": 0.9757497223250647,
+    "impulsiveness": 0.9911144020733061,
+    "posture_inclination": 0.993891151425398,
+    "posture_variability": 0.9890781192151055,
+    "rotational_motion": 0.9670492410218438,
+    "translational_motion": 0.9946316179192891,
+    "motion_regularity": 0.9805627545353572,
+    "wrist_orientation_excursion": 0.9794520547945206
+  },
+  "candidates": [
+    "walking",
+    "jogging",
+    "standing",
+    "eating pasta",
+    "playing catch w/tennis ball",
+    "clapping"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "experiment": "fresh_model_reload_and_reprediction_per_LOAO_configuration",
+  "output_filesystem": "system",
+  "datasets": [
+    "pamap2",
+    "mhealth",
+    "uschad",
+    "wisdm",
+    "dsads"
+  ],
+  "seed": 42,
+  "splits_per_dataset": 20,
+  "configuration_count": 1000,
+  "expected_fresh_load_and_predict_calls": 8100,
+  "full9_classifiers_per_configuration": 9,
+  "ablated_classifiers_per_configuration": 8,
+  "cross_configuration_probability_reuse": false,
+  "cross_configuration_model_object_reuse": false,
+  "training": false,
+  "workers": 5,
+  "threads_per_worker": 2,
+  "old_outputs_used_only_for_posthoc_comparison": "/home/wanzhen/attribute_prototype_analysis/new_results/initial9_zsl_loao",
+  "sources": {
+    "pamap2": {
+      "run": "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/pamap2/pamap2_zsl_autogluon_default_ensemble_initial_a1_v1_5_independent_t300_random20_eval50_seed42_gpu1_rerun",
+      "vectors_sha256": "d9c7469bf376db9661ad8a93f4a233b3d31bd9c19751d6da4ea9af1934fae887",
+      "sample_manifest_sha256": "7df2c67233c6db91cef333e792e92cf2cdcf6be608a944b41821139447ffc071"
+    },
+    "mhealth": {
+      "run": "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/mhealth/mhealth_zsl_autogluon_default_ensemble_initial_a1_v1_5_independent_t300_random20_eval30_seed42_gpu1_rerun",
+      "vectors_sha256": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+      "sample_manifest_sha256": "d0dd321e83825676a33fe400628fc6e94f7b0b867d24d0dd88b2b7f72df50a98"
+    },
+    "uschad": {
+      "run": "/data/wanzhen/LLMbasedZeroshotHARAgent/zshar_runs/uschad/uschad_zsl_autogluon_default_ensemble_initial9_independent_t300_random20_eval30_seed42",
+      "vectors_sha256": "a9c06ea5c4bb8e8256ae33dbb105b0047774375ec1f1393a13cfd6c9f0da4934",
+      "sample_manifest_sha256": "437fc590e0c44b3a59c5a8b87f8dfa7f229ab2fffad42ce8e8750ce98d1f3437"
+    },
+    "wisdm": {
+      "run": "/data/wanzhen/LLMbasedZeroshotHARAgent/zshar_runs/wisdm/wisdm_zsl_autogluon_default_ensemble_initial9_independent_t300_random20_eval30_seed42",
+      "vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "sample_manifest_sha256": "d59720e14bab7722d882cece5300cbc1888c98975c6cad4a72fffb9d05ee9255"
+    },
+    "dsads": {
+      "run": "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/dsads/dsads_zsl_autogluon_default_ensemble_initial9_independent_t300_random20_eval30_seed42_rerun_20261021",
+      "vectors_sha256": "032689e410b1d31c709f75afbbea7434d228100dd94f4e072843ce91a803c5f3",
+      "sample_manifest_sha256": "aef262f400ba42f91371e765f004af7db87cc2ac0abbf0ac53e1e0aeda344db7"
+    }
+  }
+}

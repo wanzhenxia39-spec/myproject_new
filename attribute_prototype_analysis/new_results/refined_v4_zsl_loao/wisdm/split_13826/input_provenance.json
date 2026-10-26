@@ -1,0 +1,120 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/wisdm/split_13826/activity_attribute_vectors_a2.json",
+  "sha256": "bb44c45d6bcbaf0b41771d882863203649497438ff79a59de080c74b3d899b0f",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity",
+    "wrist_motion_duty_cycle"
+  ],
+  "plan_sha256": "a2dd4b8ab34d0ba787f824094c12d22888a40f60c921291ae29cbe6a80a437ea",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    "wrist_motion_duty_cycle": {
+      "definition": "Proportion of time occupied by active wrist movement rather than appreciable quiescent holds, independent of movement amplitude and repetition rate. Brief reversals within ongoing movement are not quiescent holds.",
+      "levels": {
+        "Low": "Wrist movement occupies little of the window; quiescence predominates.",
+        "Medium": "Active wrist movement and appreciable quiescent holds both occupy substantial portions of the window.",
+        "High": "Active wrist movement occupies most of the window, with few appreciable quiescent holds."
+      }
+    }
+  },
+  "model_manifest_sha256": "f3e187cc323dd148769d208d2326fac2dd59f88f0070eb3fa418244b216fa4f6",
+  "weights": {
+    "motion_intensity": 0.9897807506503159,
+    "cadence": 0.9890375325157934,
+    "smoothness": 0.987736900780379,
+    "impulsiveness": 0.9897807506503159,
+    "posture_inclination": 0.9966555183946488,
+    "posture_variability": 0.9868078781122259,
+    "rotational_motion": 0.9845782237086584,
+    "translational_motion": 0.9912671869193609,
+    "motion_regularity": 0.9881085098476403,
+    "wrist_motion_duty_cycle": 0.9884801189149015
+  },
+  "candidates": [
+    "sitting",
+    "standing",
+    "brushing teeth",
+    "eating chips",
+    "eating pasta",
+    "eating sandwich"
+  ]
+}

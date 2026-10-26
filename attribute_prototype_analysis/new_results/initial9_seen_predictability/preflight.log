@@ -1,0 +1,66 @@
+{
+  "protocol": "existing_initial9_v1.5_independent_AutoGluon_ZSL_outer_seen_validation",
+  "seed": 42,
+  "outer_validation_fraction": 0.3,
+  "levels": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "eod_denominator": 2,
+  "macro_f1_label_policy": "union of ground-truth and predicted states, matching existing project",
+  "secondary_f1_policy": "all declared Low/Medium/High states, zero_division=0",
+  "aggregation": "equal-weight arithmetic mean over 20 class splits; std ddof=1",
+  "model_selection": "AutoGluon selects models/ensembles and any binary threshold on its INNER holdout. The OUTER 30% is not supplied to fit(). No model is selected or changed by this analysis.",
+  "scope": "Seen-window held-out performance for activity-derived attribute labels, not unseen-activity transfer or cross-subject performance. Window splits may share subjects and overlapping source recordings.",
+  "no_training": true,
+  "no_unseen_test_evaluation": true,
+  "versions": {
+    "numpy": "1.25.2",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "autogluon.tabular": "1.4.0"
+  },
+  "datasets": {
+    "pamap2": {
+      "run": "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/pamap2/pamap2_zsl_autogluon_default_ensemble_initial_a1_v1_5_independent_t300_random20_eval50_seed42_gpu1_rerun",
+      "split_manifest": "/data/wanzhen/projects/myproject_new/split/zero_shot_split/pamap2_unseen4_random20_splits_seed42.json",
+      "split_manifest_sha256": "d6bc1f30b551c99c7c5b7a3972c606de6eff490e5589079f10579fb8d0180f13",
+      "vectors": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_pamap2_v1_5.json",
+      "vectors_sha256": "d9c7469bf376db9661ad8a93f4a233b3d31bd9c19751d6da4ea9af1934fae887",
+      "split_count": 20
+    },
+    "mhealth": {
+      "run": "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/mhealth/mhealth_zsl_autogluon_default_ensemble_initial_a1_v1_5_independent_t300_random20_eval30_seed42_gpu1_rerun",
+      "split_manifest": "/data/wanzhen/projects/myproject_new/split/zero_shot_split/mhealth_unseen4_random20_splits_seed42.json",
+      "split_manifest_sha256": "d975ed8ed9f6dfcea5b606b640bd55c1b87287afc50ea6368710662bd72dd8d2",
+      "vectors": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_mhealth_v1_5.json",
+      "vectors_sha256": "1a64930765ac729d45410a151efa75ecf748aed876f632a71d8ca2ae3970d797",
+      "split_count": 20
+    },
+    "uschad": {
+      "run": "/data/wanzhen/LLMbasedZeroshotHARAgent/zshar_runs/uschad/uschad_zsl_autogluon_default_ensemble_initial9_independent_t300_random20_eval30_seed42",
+      "split_manifest": "/data/wanzhen/projects/myproject_new/split/zero_shot_split/uschad_unseen4_random20_splits_seed42.json",
+      "split_manifest_sha256": "6e4d0e6c02225e466cab7fd205992ed8b5fbedf63357e7df7c0f63ea33cbdd63",
+      "vectors": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_uschad_v1_5.json",
+      "vectors_sha256": "a9c06ea5c4bb8e8256ae33dbb105b0047774375ec1f1393a13cfd6c9f0da4934",
+      "split_count": 20
+    },
+    "wisdm": {
+      "run": "/data/wanzhen/LLMbasedZeroshotHARAgent/zshar_runs/wisdm/wisdm_zsl_autogluon_default_ensemble_initial9_independent_t300_random20_eval30_seed42",
+      "split_manifest": "/data/wanzhen/projects/myproject_new/split/zero_shot_split/wisdm_unseen6_random20_splits_seed42.json",
+      "split_manifest_sha256": "d5e7d4613f304ea0a317b45fe087732c983cc6d6b8b600cf65474f1a804808dd",
+      "vectors": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_wisdm_v1_5.json",
+      "vectors_sha256": "5e9ffc54dfa6baa183012b8c76a72341ffb8ea3f4c406a710a65f0292bac43c2",
+      "split_count": 20
+    },
+    "dsads": {
+      "run": "/data/wanzhen/projects/myproject_new/runtime/zshar_runs/dsads/dsads_zsl_autogluon_default_ensemble_initial9_independent_t300_random20_eval30_seed42_rerun_20261021",
+      "split_manifest": "/data/wanzhen/projects/myproject_new/split/zero_shot_split/dsads_unseen6_random20_splits_seed42.json",
+      "split_manifest_sha256": "6de20182c73d7e2551894c7a1fa03cc60856321499352a3b511d1f5ab9e3d7d4",
+      "vectors": "/data/wanzhen/projects/myproject_new/configs/attributes/activity_attribute_vectors_initial_dsads_v1_5.json",
+      "vectors_sha256": "032689e410b1d31c709f75afbbea7434d228100dd94f4e072843ce91a803c5f3",
+      "split_count": 20
+    }
+  }
+}

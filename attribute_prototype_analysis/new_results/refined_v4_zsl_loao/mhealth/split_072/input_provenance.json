@@ -1,0 +1,118 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/mhealth/split_72/activity_attribute_vectors_a2.json",
+  "sha256": "719a890df086fd4d3bb5836803324ea22202dcca1c9528f6b1d937eec059a908",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "lower_leg_inclination",
+    "lower_leg_orientation_variability"
+  ],
+  "plan_sha256": "204d846a8539bde869cbf7cee5dc2026ae5b905a702adcea487a4abc36a759c7",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "lower_leg_inclination": {
+      "definition": "Average gravity-relative inclination of the lower-leg segment observed at the left ankle, independent of global body inclination.",
+      "levels": {
+        "Low": "Lower leg is predominantly near vertical.",
+        "Medium": "Lower leg is predominantly oblique or occupies a mixture of vertical and strongly inclined orientations.",
+        "High": "Lower leg is predominantly near horizontal."
+      }
+    },
+    "lower_leg_orientation_variability": {
+      "definition": "Extent of change in the gravity-relative orientation of the lower-leg segment observed at the left ankle within a window, irrespective of repetition rate.",
+      "levels": {
+        "Low": "Lower-leg orientation remains nearly constant.",
+        "Medium": "Lower-leg orientation changes through a moderate angular range.",
+        "High": "Lower-leg orientation changes through a substantial angular range."
+      }
+    }
+  },
+  "model_manifest_sha256": "cb98a7a8ac321627f255bca1d258fb1319de7fe77205eb42dc65dcbad09bca29",
+  "weights": {
+    "motion_intensity": 0.9906542056074766,
+    "cadence": 0.9953271028037384,
+    "smoothness": 0.9953271028037384,
+    "impulsiveness": 0.9906542056074766,
+    "posture_inclination": 1.0,
+    "posture_variability": 0.9953271028037384,
+    "rotational_motion": 1.0,
+    "translational_motion": 0.9626168224299065,
+    "lower_leg_inclination": 1.0,
+    "lower_leg_orientation_variability": 0.9813084112149533
+  },
+  "candidates": [
+    "standing still",
+    "lying down",
+    "knees bending (crouching)",
+    "cycling"
+  ]
+}

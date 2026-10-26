@@ -1,0 +1,120 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/dsads/split_7315/activity_attribute_vectors_a2.json",
+  "sha256": "c01120816000feb0f8ac31e7926629dbc8f3601d2cabee24c6eb9fd02861c6ed",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity",
+    "impact_periodicity"
+  ],
+  "plan_sha256": "167970883d7bacae8b8f9af4f85914a945bdc84912ea17e16d69abbe2986189e",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    "impact_periodicity": {
+      "definition": "Degree to which short-duration impact or loading events recur with a stable temporal structure.",
+      "levels": {
+        "Low": "No clear recurring impact or loading sequence.",
+        "Medium": "Recurring impact or loading events with moderate temporal consistency.",
+        "High": "Clearly recurring impact or loading events with a stable temporal structure."
+      }
+    }
+  },
+  "model_manifest_sha256": "3217431be72fe30b60e7721bedabaf63d59cb1e6e4703bbed1486d17086c7b21",
+  "weights": {
+    "motion_intensity": 0.9974358974358974,
+    "cadence": 0.9967948717948718,
+    "smoothness": 0.9980769230769231,
+    "impulsiveness": 0.9993589743589744,
+    "posture_inclination": 0.9987179487179487,
+    "posture_variability": 1.0,
+    "rotational_motion": 0.9980769230769231,
+    "translational_motion": 1.0,
+    "motion_regularity": 0.9987179487179487,
+    "impact_periodicity": 1.0
+  },
+  "candidates": [
+    "sitting",
+    "standing in an elevator still",
+    "moving around in an elevator",
+    "walking in a parking lot",
+    "exercising on a cross trainer",
+    "jumping"
+  ]
+}

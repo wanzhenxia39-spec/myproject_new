@@ -1,0 +1,120 @@
+{
+  "path": "/data/wanzhen/projects/myproject_new/configs/attrIbutes_v4/dsads/split_24133/activity_attribute_vectors_a2.json",
+  "sha256": "afef39d36e95bd05cfade82f13eb08805b01fbef1fa50288a6e423357045221e",
+  "attributes": [
+    "motion_intensity",
+    "cadence",
+    "smoothness",
+    "impulsiveness",
+    "posture_inclination",
+    "posture_variability",
+    "rotational_motion",
+    "translational_motion",
+    "motion_regularity",
+    "lateral_torso_inclination"
+  ],
+  "plan_sha256": "cb0e7f9f84b86214b58d46885b4b48b16b67043e713146ded73665c40985eecb",
+  "semantic_definitions": {
+    "motion_intensity": {
+      "definition": "Overall magnitude and energy of motion within a window, including both linear and rotational components.",
+      "levels": {
+        "Low": "Weak or nearly static motion.",
+        "Medium": "Moderate motion magnitude and energy.",
+        "High": "Strong or vigorous motion."
+      }
+    },
+    "cadence": {
+      "definition": "Rate at which a meaningful periodic motion unit repeats over time. Cadence measures repetitions per unit time, not the total number of repetitions in the recording.",
+      "levels": {
+        "Low": "No clear periodic repetition or a slow repetition rate.",
+        "Medium": "Moderate repetition rate.",
+        "High": "Fast repetition rate."
+      }
+    },
+    "smoothness": {
+      "definition": "Degree to which motion changes continuously rather than through sustained rapid fluctuations.",
+      "levels": {
+        "Low": "Frequent or sustained abrupt fluctuations.",
+        "Medium": "Moderately smooth motion with some fluctuations.",
+        "High": "Continuous and smooth motion with little fluctuation."
+      }
+    },
+    "impulsiveness": {
+      "definition": "Degree to which motion contains short, abrupt, high-magnitude changes or impacts.",
+      "levels": {
+        "Low": "Few or no pronounced abrupt peaks.",
+        "Medium": "Moderate abrupt peaks or impacts.",
+        "High": "Strong short-duration peaks or impacts."
+      }
+    },
+    "posture_inclination": {
+      "definition": "Average gravity-relative inclination of the global load-bearing body configuration within a window, rather than the orientation of an isolated moving limb.",
+      "levels": {
+        "Low": "Nearly upright relative to gravity.",
+        "Medium": "Moderately inclined relative to gravity.",
+        "High": "Strongly inclined or nearly horizontal relative to gravity."
+      }
+    },
+    "posture_variability": {
+      "definition": "Extent to which the global load-bearing body configuration changes relative to gravity within a window, rather than local limb-orientation changes.",
+      "levels": {
+        "Low": "Posture remains nearly constant.",
+        "Medium": "Posture changes moderately.",
+        "High": "Posture changes substantially."
+      }
+    },
+    "rotational_motion": {
+      "definition": "Prominence of angular or rotational motion during the activity.",
+      "levels": {
+        "Low": "Little or no rotational motion.",
+        "Medium": "Moderate rotational motion.",
+        "High": "Prominent rotational motion."
+      }
+    },
+    "translational_motion": {
+      "definition": "Prominence of sustained linear progression or locomotor translation within a window.",
+      "levels": {
+        "Low": "Little or no sustained translation.",
+        "Medium": "Moderate translational motion.",
+        "High": "Prominent sustained translational or locomotor motion."
+      }
+    },
+    "motion_regularity": {
+      "definition": "Temporal consistency and predictability of the motion pattern.",
+      "levels": {
+        "Low": "Irregular and poorly predictable motion pattern.",
+        "Medium": "Partly structured motion with moderate variability.",
+        "High": "Consistent and predictable motion pattern."
+      }
+    },
+    "lateral_torso_inclination": {
+      "definition": "Magnitude of the torso's gravity-relative sideways inclination, distinguished from forward or backward inclination and independent of whether the lean is to the left or right.",
+      "levels": {
+        "Low": "Little sideways inclination, including upright or predominantly face-up or face-down torso configurations.",
+        "Medium": "Moderate sideways inclination between non-lateral and side-lying configurations.",
+        "High": "Strong sideways inclination approaching a side-lying torso configuration."
+      }
+    }
+  },
+  "model_manifest_sha256": "fa1b6deb1e9bd4adae56e057287b250ee5198751bd842b8d6d723fd0c1d28ac5",
+  "weights": {
+    "motion_intensity": 0.9955128205128205,
+    "cadence": 0.9993589743589744,
+    "smoothness": 0.9987179487179487,
+    "impulsiveness": 0.9993589743589744,
+    "posture_inclination": 1.0,
+    "posture_variability": 0.9987179487179487,
+    "rotational_motion": 0.9987179487179487,
+    "translational_motion": 1.0,
+    "motion_regularity": 0.9974358974358974,
+    "lateral_torso_inclination": 0.9993589743589744
+  },
+  "candidates": [
+    "descending stairs",
+    "standing in an elevator still",
+    "moving around in an elevator",
+    "walking in a parking lot",
+    "walking on a treadmill with a speed of 4 km/h (in flat)",
+    "exercising on a cross trainer"
+  ]
+}

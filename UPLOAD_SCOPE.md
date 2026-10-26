@@ -1,14 +1,16 @@
-# Private repository upload snapshot
+# Repository upload scope
 
-This snapshot contains the project source, scripts, configurations, attribute vectors,
-fixed split manifests, documentation, tests and the existing small configuration logs.
+The repository root contains the latest project source, scripts, configurations,
+attribute vectors, fixed split manifests, documentation, and tests from
+`/home/wanzhen/myproject_new/`.
 
-Excluded: the entire runtime/ directory (about 446 GB), Python caches, temporary lock
-files, credential files and symbolic links. Existing tracked-size source assets are included.
+`attribute_prototype_analysis/` contains the standalone analysis code, documentation,
+figures, tables, logs, and saved results from
+`/home/wanzhen/attribute_prototype_analysis/`.
 
-A plaintext API key in README.md has been replaced with YOUR_API_KEY in this copy.
-The original project files have not been modified. Provide API credentials through
-local environment variables; never commit actual credentials.
+Excluded: the entire project `runtime/` directory, VS Code server programs and
+extensions, Python and analysis caches, test temporary directories, temporary lock
+files, and credential files. Source directories are unchanged.
 
-The destination must be a private repository owned by the user, with no additional
-collaborators granted access. No repository destination is assumed by this snapshot.
+The README API credential is replaced with `YOUR_API_KEY` in the upload copy.
+Supply credentials through local environment variables.
